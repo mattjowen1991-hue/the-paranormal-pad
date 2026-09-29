@@ -349,9 +349,7 @@ aside { display: grid; gap: 1.25rem; }
 /* cassette shell: rounded plastic, screws near each corner */
 .cassette {
   --screw: radial-gradient(circle, #8a8279 0 2.5px, #3a342d 3px 4px, transparent 4.5px);
-  display: grid; gap: .8rem; padding: 1.1rem 1.1rem 0; color: var(--paper);
-  /* share row heights with the cassette beside it so label, video and buttons line up */
-  grid-row: span 3; grid-template-rows: subgrid;
+  display: flex; flex-direction: column; gap: .8rem; padding: 1.1rem 1.1rem 0; color: var(--paper);
   border-radius: 16px; border: 2px solid #141312; box-shadow: 4px 4px 0 rgba(43, 39, 35, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
   background:
     var(--screw) 8px 8px / 12px 12px no-repeat, var(--screw) calc(100% - 8px) 8px / 12px 12px no-repeat,
@@ -361,6 +359,8 @@ aside { display: grid; gap: 1.25rem; }
 }
 /* paper label with the window cut out of it */
 .cassette-label {
+  /* grows to fill spare height, so cassettes side by side line up their video and buttons */
+  flex: 1 0 auto;
   display: flex; flex-direction: column; border-radius: 6px 6px 4px 4px;
   background: #efe6d4;
   border-top: 8px solid var(--blood); color: var(--ink); padding: .55rem .8rem .8rem;
@@ -371,6 +371,8 @@ aside { display: grid; gap: 1.25rem; }
 .cassette-label .narrator { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 /* single short lines: sit the text just above the rule at the bottom of their line */
 .label-lines .narrator, .label-lines .flip-hint { box-sizing: border-box; height: var(--lh); line-height: 1; padding: 0; padding-top: calc(var(--lh) - 1em - 7px); margin: 0; }
+/* keep the flip line on its ruled line on narrow screens */
+.label-lines .flip-hint { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sides { display: inline-flex; border: 1.5px solid var(--ink-2); }
 .sides button {
   font-family: var(--f-type); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
@@ -421,7 +423,7 @@ aside { display: grid; gap: 1.25rem; }
 .screen.has-video { cursor: auto; }
 /* trapezoid head section along the bottom edge, with the two drive holes */
 .cassette-head {
-  position: relative; justify-self: center; width: 86%; align-self: end;
+  position: relative; align-self: center; width: 86%;
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem;
   padding: .85rem 3.4rem 1rem; background: linear-gradient(#433c36, #37312c);
   clip-path: polygon(6% 0, 94% 0, 100% 100%, 0 100%);
@@ -436,7 +438,6 @@ aside { display: grid; gap: 1.25rem; }
 .cassette-head .btn { min-width: 8.5rem; white-space: nowrap; }
 .cassette-head .btn.light { background: #efe6d4; }
 .cassette { container-type: inline-size; }
-.grid .cassette { grid-row: auto; grid-template-rows: 1fr auto auto; }
 @media (max-width: 560px) { .cassette { padding: .9rem .8rem 0; } }
 @container (max-width: 480px) {
   .spool { width: 60px; }
