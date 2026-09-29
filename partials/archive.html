@@ -1,0 +1,70 @@
+<section class="view" id="view-archive" data-view="archive">
+  <div class="intro reports-intro">
+    <div class="kicker">Section II • Written accounts</div>
+    <h1>Incident Reports</h1>
+    <p>A collection of chilling first-hand accounts of encounters with the unknown. Each report unveils a real experience with the paranormal, from ghostly sightings to unexplainable events that defy logic.</p>
+  </div>
+  <div class="advisory" id="latest-dispatch"></div>
+
+  <div class="ledger">
+    <div class="tile"><span class="label">Incident Reports</span><span class="num"><span data-count="report"></span> FILES</span><span class="sub">Written first-hand accounts</span></div>
+    <div class="tile"><span class="label">Incident Tapes</span><span class="num"><span data-count="tape"></span> TAPES</span><span class="sub">Retellings, interviews &amp; guest narrations</span></div>
+    <div class="tile alert"><span class="label">Oldest account</span><span class="num">1940s</span><span class="sub">Report 006: Letters on the Board</span></div>
+    <div class="tile"><span class="label">Latest dispatch</span><span class="num" data-latest="date"></span><span class="sub" data-latest="sub"></span></div>
+  </div>
+
+  <article class="dossier" id="featured"></article>
+
+  <div class="layout">
+    <div class="archive-list">
+      <div class="section-head" id="files">
+        <h2>Case files // The full archive</h2>
+        <span class="count" id="count">Showing</span>
+      </div>
+      <div class="drawer">
+        <div class="row">
+          <div class="seg" role="group" aria-label="File type">
+            <button type="button" data-kind="all" aria-pressed="true">All files [<span data-count="all"></span>]</button>
+            <button type="button" data-kind="report" aria-pressed="false">Incident Reports [<span data-count="report"></span>]</button>
+            <button type="button" data-kind="tape" aria-pressed="false">Incident Tapes [<span data-count="tape"></span>]</button>
+          </div>
+          <label class="sort" for="sort"><span>SORT:</span>
+            <select id="sort">
+              <option value="new">Newest first</option>
+              <option value="old">Oldest first</option>
+            </select>
+          </label>
+        </div>
+        <div class="tags" id="tags">
+          <span class="label">Subject tags:</span>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Archive pages" hidden></nav>
+    </div>
+
+    <aside>
+      <div class="panel reporter-panel">
+        <div class="paperclip"></div>
+        <div class="head"><span>Personnel file</span></div>
+        <div class="who">
+          <img class="sepia-photo" src="images/reporter.jpg" alt="The Reporter">
+          <div><small>The Reporter</small><b>Matt</b></div>
+        </div>
+        <p>Ever since Matt was a child, he’s encountered the eerie and unexplained. Now he shares his stories, and the stories of others who’ve experienced the unknown.</p>
+        <div class="btns"><a class="btn light" href="#reporter">Open personnel file</a></div>
+      </div>
+
+      <div class="panel">
+        <div class="head"><span>Submission desk</span><span class="stamp red small">Open</span></div>
+        <p>Got a story that sends shivers down your spine? Your tale could be the next Incident Report.</p>
+        <div class="btns"><a class="btn blood" href="#contact">Submit your incident</a></div>
+      </div>
+
+      <div class="notice side-notice">
+        <span class="label">Confidentiality notice</span>
+        <p>If you’d rather remain anonymous, just say so in your message. We’ll hold your request for confidentiality to the highest of standards.</p>
+      </div>
+    </aside>
+  </div>
+</section>

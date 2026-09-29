@@ -1,0 +1,24 @@
+<section class="view" id="view-contact" data-view="contact" hidden>
+  <div class="form-sheet">
+    <div class="paperclip"></div>
+    <div style="display:grid;gap:1rem;align-content:start">
+      <div class="kicker">Section V • Submission desk</div>
+      <h1>Pssst…</h1>
+      <p class="lede">Got a paranormal story that sends shivers down your spine? We want to hear from you. Submit your eerie encounters, ghostly sightings, and unexplained events to be featured on The Paranormal Pad. Your tale could be the next Incident Report.</p>
+      <div class="notice">
+        <span class="label">Confidentiality notice</span>
+        <p>If you’d rather remain anonymous, tick the box on the form. We’ll hold your request for confidentiality to the highest of standards.</p>
+      </div>
+    </div>
+    <form id="submit-form" novalidate>
+      <div class="docket"><div class="left"><span class="stamp red">Witness statement</span><span class="code">Form IR-1</span></div></div>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" placeholder="..."></div>
+      <div class="field"><label for="f-email">Email address</label><input id="f-email" type="email" placeholder="..."></div>
+      <div class="field"><label for="f-where">Where did it happen?</label><input id="f-where" placeholder="Town, country, type of building..."></div>
+      <div class="field"><label for="f-story">Tell us what happened</label><textarea id="f-story" placeholder="Start from the beginning..."></textarea></div>
+      <label class="check" for="f-anon"><input id="f-anon" type="checkbox"> Keep my identity confidential</label>
+      <div><button class="btn blood" type="submit">File my report</button></div>
+      <div class="sent" id="sent" hidden><b>Not connected yet:</b> this form doesn’t send anywhere yet. See the README for hooking it up.</div>
+    </form>
+  </div>
+</section>
