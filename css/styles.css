@@ -515,3 +515,39 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- witness statements (comments) ---------- */
+.statements { background: var(--card-hi); border: 2px solid var(--rule); padding: clamp(1rem, 3vw, 2rem); display: grid; gap: 1rem; box-shadow: 4px 4px 0 0 rgba(43,39,35,.12); }
+.statements-intro { margin: 0; max-width: 66ch; font-family: var(--f-serif); font-size: 15px; line-height: 1.7; color: #3b352e; }
+.statement-list { display: grid; gap: .8rem; }
+.statements-empty { margin: 0; padding: 1rem; border: 1px dashed var(--rule-soft); color: var(--ink-3); font-size: 13px; text-align: center; }
+.statement-card { background: #fbf8f1; border: 1px solid #cfc4b2; padding: .9rem 1rem; display: grid; gap: .5rem; box-shadow: 2px 2px 0 rgba(43,39,35,.1); }
+.statement-card header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .3rem 1rem; border-bottom: 1px dashed var(--rule-soft); padding-bottom: .4rem; }
+.statement-card header b { font-family: var(--f-type); font-weight: 400; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; }
+.statement-card header time { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.statement-card p { margin: 0; font-size: 14px; line-height: 1.65; white-space: pre-line; overflow-wrap: anywhere; }
+.reporter-reply { border-left: 3px solid var(--blood); background: #f0e6d6; padding: .6rem .8rem; display: grid; gap: .25rem; }
+.reporter-reply .label { color: var(--blood); font-family: var(--f-type); font-weight: 400; }
+.reporter-reply p { font-family: var(--f-serif); font-style: italic; font-size: 14.5px; }
+.statement-form { display: grid; gap: .9rem; border-top: 1px solid var(--rule); padding-top: 1rem; max-width: 720px; }
+.statement-form textarea { min-height: 7rem; }
+.st-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.statement-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.statement-actions small { font-size: 11.5px; color: var(--ink-3); }
+.statement-note { margin: 0; border: 1px dashed var(--rule-soft); background: rgba(43,39,35,.04); padding: .7rem .9rem; font-size: 13px; }
+.statement-note.bad { border-color: var(--blood); background: var(--blood-tint); color: #4a2320; }
+
+/* moderation desk (#moderate) */
+.moderate-sheet { background: var(--card-hi); border: 2px solid var(--rule); padding: clamp(1rem, 3vw, 2rem); display: grid; gap: 1rem; }
+.moderate-sheet h1 { font-family: var(--f-type); font-weight: 400; font-size: clamp(26px, 4vw, 38px); text-transform: uppercase; margin: 0; }
+.moderate-sheet p { margin: 0; }
+.mod-head { font-family: var(--f-type); font-weight: 400; font-size: 16px; letter-spacing: .1em; text-transform: uppercase; margin: 1rem 0 0; border-bottom: 1px solid var(--rule); padding-bottom: .4rem; }
+.mod-list { display: grid; gap: .8rem; }
+.mod-card header a { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--blood); }
+.mod-name { font-family: var(--f-type); font-weight: 400; font-size: 16px; text-transform: uppercase; }
+.mod-card textarea { min-height: 4rem; }
+.mod-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.mod-actions .btn { font-size: 11px; padding: .45rem .75rem; }
+.mod-confirm { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .4rem; font-size: 12.5px; color: var(--blood); }
+.mod-confirm[hidden] { display: none; }
+.linkish { border: 0; background: none; padding: 0; font: inherit; color: var(--blood); text-decoration: underline; cursor: pointer; }

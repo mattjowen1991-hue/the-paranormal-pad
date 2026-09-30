@@ -27,6 +27,7 @@ async function loadAllPartials() {
     loadPartial('partial-tapes',    'tapes.html'),
     loadPartial('partial-reporter', 'reporter.html'),
     loadPartial('partial-contact',  'contact.html'),
+    loadPartial('partial-moderate', 'moderate.html'),
     loadPartial('partial-footer',   'footer.html'),
   ]);
 }
@@ -371,6 +372,7 @@ function startApp() {
         </header>
         <div class="prose">${CONTENT[keyOf(f)] || ''}</div>
       </article>
+      <section class="statements" id="statements" data-page-id="${isTape ? 'tape' : 'report'}-${f.no}"></section>
       <nav class="file-nav" aria-label="More files">${navLink(older, 'prev', isTape ? '← Previous tape' : '← Older file')}${navLink(newer, 'next', isTape ? 'Next tape →' : 'Newer file →')}</nav>`;
     // Tapes open with their video: lift it out of the text column so it's full width.
     const prose = $('#view-file .prose'), first = prose?.firstElementChild;
@@ -489,6 +491,7 @@ function startApp() {
     $('#files h2').textContent = page === 'reports' ? 'Case files // Incident reports' : 'Case files // The full archive';
     renderGrid();
   }
+  let moderateMounted = false;
   function route() {
     searchOpened = false;
     const h = (location.hash || '#archive').slice(1);
@@ -498,9 +501,10 @@ function startApp() {
     if (h === 'files') { view = 'archive'; tab = 'reports'; }
     const fm = h.match(/^(file|tape)-(\d{3})$/);
     const file = fm && FILES.find(x => x.kind === (fm[1] === 'tape' ? 'tape' : 'report') && x.no === fm[2]);
-    if (file) { renderFile(file); mountPlayers($('#view-file')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
+    if (file) { renderFile(file); mountPlayers($('#view-file')); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
     if (!document.querySelector(`[data-view="${view}"]`)) { view = 'archive'; tab = 'archive'; }
     show(view, tab, view === 'archive' ? (h === 'reports' || h === 'files' ? h : 'archive') : view);
+    if (view === 'moderate' && !moderateMounted) { moderateMounted = true; Statements.mountModerator($('#moderate-desk')); }
     if (h === 'files') $('#files').scrollIntoView({ block: 'start' });
     else window.scrollTo(0, 0);
   }

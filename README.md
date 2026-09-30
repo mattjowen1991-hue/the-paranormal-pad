@@ -10,7 +10,8 @@ the-paranormal-pad/
 ├── css/
 │   └── styles.css          # All styles (parchment case-file look, cassettes, phone layout)
 ├── js/
-│   ├── data.js             # Every report & tape, the featured case, subject tags  ← edit this
+│   ├── data.js             # Every report & tape, the featured case, subject tags, comment settings  ← edit this
+│   ├── comments.js         # "Witness statements" comments + the private moderation desk (#moderate)
 │   └── main.js             # Partial + content loader, archive, search, report pages, cassette players
 ├── partials/
 │   ├── header.html         # Title, search box, tab navigation
@@ -19,10 +20,13 @@ the-paranormal-pad/
 │   ├── tapes.html          # Incident Tapes tab (cassettes filled in by main.js)
 │   ├── reporter.html       # The Reporter tab
 │   ├── contact.html        # Submission form
+│   ├── moderate.html       # Moderation desk (private page, not in the menu)
 │   └── footer.html         # Footer
 ├── content/
 │   ├── reports/001.html …  # Full text of each Incident Report
 │   └── tapes/001.html …    # Description of each Incident Tape
+├── firestore.rules         # Security rules for comments (pasted into Firebase)
+├── firebase.json           # Firebase CLI settings (only needed for local testing)
 └── images/
     ├── reporter.jpg
     ├── reports/008/cover.jpg, 01.png …   # Cover + in-report photos, one folder per report
@@ -85,6 +89,39 @@ To make it the **featured case**, change `FEATURED` in `js/data.js` (the report 
 - **Tapes page order:** the tape with `pinned: true` (the Black Country radio interview) always sits at the top; the rest follow from the highest number down, so Tape 001 is always last.
 - The cassette's play button plays the video inside the page, starting and stopping at your story. Where YouTube can't load, it opens YouTube instead.
 
+## Comments ("Witness statements")
+
+Every report and tape page ends with a **Witness statements** section. Readers leave a name and a statement; nothing appears until it's approved. Comments are stored in Google Firebase (free plan).
+
+**Moderating:** go to `/#moderate` (e.g. `https://…/the-paranormal-pad/#moderate`), sign in with Google as `mattjowen1991@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
+
+### One-time setup
+
+1. Go to [console.firebase.google.com](https://console.firebase.google.com) → **Create a project** → name it `the-paranormal-pad` (Google Analytics: off).
+2. **Build → Firestore Database → Create database** → *Standard edition*, location **europe-west2 (London)**, start in **production mode**.
+3. In Firestore, open the **Rules** tab, replace everything with the contents of `firestore.rules`, and click **Publish**.
+4. **Build → Authentication → Get started → Sign-in method → Google → Enable** (pick your email as the support email) → Save.
+5. **Authentication → Settings → Authorized domains → Add domain:** `mattjowen1991-hue.github.io` (and later `theparanormalpad.com`).
+6. **Project settings** (cog icon) **→ Your apps → Web (`</>`)** → nickname "The Paranormal Pad" (no Firebase Hosting) → **Register app**. Copy the `firebaseConfig` values into `js/data.js`:
+
+```js
+const COMMENTS = {
+  firebase: {
+    apiKey: '…',
+    authDomain: 'the-paranormal-pad.firebaseapp.com',
+    projectId: 'the-paranormal-pad',
+    appId: '…'
+  },
+  moderator: 'mattjowen1991@gmail.com'
+};
+```
+
+7. Bump the `?v=` numbers in `index.html`, commit and push. (These config values are meant to be public — the security rules are what protect the comments.)
+
+Until step 6 is done, each page shows "The statements desk opens soon."
+
+**Testing comments locally** (no Firebase account needed): run the Firebase emulator (`npx firebase-tools emulators:start --only firestore,auth --project demo-paranormal-pad`, needs Java 21), serve the site, and open `http://localhost:8080/?emulator=1#file-008`.
+
 ## Local development
 
 Open with a local server (partials and content use `fetch`, so they won't load from `file://`):
@@ -109,4 +146,4 @@ Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `
 ## Still to do
 
 - **Contact form:** it doesn't send anywhere yet. A form service such as Formspree can be connected by pointing the form at its endpoint (see `partials/contact.html` and the submit handler in `js/main.js`).
-- **Comments:** several reports end with "let me know in the comments" — there's no comment section yet.
+- **Comment alerts:** there's no email when a new statement arrives yet — check `#moderate` now and then.

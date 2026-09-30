@@ -228,5 +228,13 @@ const FEATURED = {
   "status": "Unexplained"
 };
 
+// Comments ("Witness statements") under every report and tape.
+// Paste the firebaseConfig from Firebase → Project settings → Your apps here (README → Comments).
+// Until it's filled in, each page shows "The statements desk opens soon."
+const COMMENTS = {
+  firebase: null,
+  moderator: 'mattjowen1991@gmail.com'   // the only Google account that can approve comments at #moderate
+};
+
 // Subject filter buttons, in order
 const SUBJECTS = ['Hauntings', 'Shadow People', 'Poltergeist', 'Sleep Paralysis', 'Dreams', 'Ouija Board', 'UAP'];
