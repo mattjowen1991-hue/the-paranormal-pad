@@ -516,10 +516,28 @@ function startApp() {
 
   // simple hash router
   let current = 'archive';
+  // Phones: the tab menu scrolls sideways. Keep the current tab in view, and fade
+  // whichever edge has more tabs hidden behind it so people know they can swipe.
+  const tabScroller = document.querySelector('.tabs .scroller');
+  function tabEdges() {
+    if (!tabScroller) return;
+    const max = tabScroller.scrollWidth - tabScroller.clientWidth;
+    tabScroller.classList.toggle('more-right', tabScroller.scrollLeft < max - 4);
+    tabScroller.classList.toggle('more-left', tabScroller.scrollLeft > 4);
+  }
+  function showActiveTab() {
+    const active = tabScroller?.querySelector('.tab[aria-current="page"]');
+    if (active) tabScroller.scrollLeft = active.offsetLeft - (tabScroller.clientWidth - active.offsetWidth) / 2;
+    tabEdges();
+  }
+  tabScroller?.addEventListener('scroll', tabEdges, { passive: true });
+  window.addEventListener('resize', tabEdges);
+
   function show(view, tab, page) {
     pauseTapesOutside(view);
     document.querySelectorAll('[data-view]').forEach(v => v.hidden = v.dataset.view !== view);
     document.querySelectorAll('.tab').forEach(a => { if (a.dataset.route === tab) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    showActiveTab();
     current = view;
     document.body.dataset.page = page;
     state.page = 1;

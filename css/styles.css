@@ -561,3 +561,39 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
 }
 .sent { border-color: var(--rule-soft); background: rgba(43,39,35,.04); color: var(--ink); }
 .sent.bad { border-color: var(--blood); background: var(--blood-tint); color: #4a2320; }
+
+/* ---------- phone comfort (≤700px): tap sizes, readable labels, no iPhone zoom ---------- */
+@media (max-width: 700px) {
+  /* iPhone Safari zooms into any text box under 16px — keep them all at 16px */
+  input, textarea, select, .query input, .field input, .field textarea, .sort select { font-size: 16px; }
+  .query label { padding-block: .6rem; }
+
+  /* buttons and links big enough for a thumb (~44px) */
+  .btn { min-height: 44px; padding-inline: 1rem; }
+  .cassette-head .btn { min-height: 40px; font-size: 11.5px; }
+  .tags button { min-height: 38px; padding: .3rem .65rem; }
+  .sort { padding-block: .2rem; }
+  .sort select { padding-block: .55rem; }
+  .sides button { padding: .55rem .85rem; }
+  .back { display: inline-block; padding-block: .6rem; }
+  .flip-hint { padding-block: .35rem; }
+  .check { padding-block: .6rem; }
+  .check input { width: 22px; height: 22px; }
+  .pager button { min-height: 40px; }
+  footer.site ul { gap: 0; }
+  footer.site ul a { display: inline-block; padding-block: .5rem; }
+  footer.site .stamp { font-size: 11px; padding: .35rem .6rem; }
+
+  /* small labels up a notch so they're readable */
+  .specs { font-size: 11.5px; }
+  .specs b { font-size: 12px; }
+  .stamp.small { font-size: 10.5px; }
+  .card .code, .card .meta, .cassette-label .side { font-size: 11px; }
+  footer.site .base { font-size: 11.5px; }
+  .personnel .mug figcaption, .plate figcaption { font-size: 11px; }
+
+  /* tab menu: fade the edge that has more tabs hidden behind it */
+  .tabs .scroller.more-right { -webkit-mask-image: linear-gradient(to right, #000 82%, transparent); mask-image: linear-gradient(to right, #000 82%, transparent); }
+  .tabs .scroller.more-left { -webkit-mask-image: linear-gradient(to left, #000 82%, transparent); mask-image: linear-gradient(to left, #000 82%, transparent); }
+  .tabs .scroller.more-left.more-right { -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent); }
+}
