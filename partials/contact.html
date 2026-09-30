@@ -11,14 +11,15 @@
       </div>
     </div>
     <form id="submit-form" novalidate>
+      <input type="checkbox" name="botcheck" class="st-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="docket"><div class="left"><span class="stamp red">Witness statement</span><span class="code">Form IR-1</span></div></div>
-      <div class="field"><label for="f-name">Your name</label><input id="f-name" placeholder="..."></div>
-      <div class="field"><label for="f-email">Email address</label><input id="f-email" type="email" placeholder="..."></div>
-      <div class="field"><label for="f-where">Where did it happen?</label><input id="f-where" placeholder="Town, country, type of building..."></div>
-      <div class="field"><label for="f-story">Tell us what happened</label><textarea id="f-story" placeholder="Start from the beginning..."></textarea></div>
-      <label class="check" for="f-anon"><input id="f-anon" type="checkbox"> Keep my identity confidential</label>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" maxlength="80" placeholder="..."></div>
+      <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="So The Reporter can reply..."></div>
+      <div class="field"><label for="f-where">Where did it happen?</label><input id="f-where" name="where" maxlength="160" placeholder="Town, country, type of building..."></div>
+      <div class="field"><label for="f-story">Tell us what happened</label><textarea id="f-story" name="story" maxlength="20000" placeholder="Start from the beginning..."></textarea></div>
+      <label class="check" for="f-anon"><input id="f-anon" name="anonymous" type="checkbox"> Keep my identity confidential</label>
       <div><button class="btn blood" type="submit">File my report</button></div>
-      <div class="sent" id="sent" hidden><b>Not connected yet:</b> this form doesn’t send anywhere yet. See the README for hooking it up.</div>
+      <div class="sent" id="sent" role="status" hidden></div>
     </form>
   </div>
 </section>

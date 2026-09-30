@@ -243,5 +243,12 @@ const COMMENTS = {
   moderator: 'mattjowen1991@gmail.com'   // the only Google account that can approve comments at #moderate
 };
 
+// Email via Web3Forms (https://web3forms.com): the Contact form, plus an alert
+// email whenever someone files a witness statement. Paste the access key here.
+const EMAIL = {
+  web3formsKey: '',
+  commentAlerts: true   // set to false to stop the "new witness statement" emails
+};
+
 // Subject filter buttons, in order
 const SUBJECTS = ['Hauntings', 'Shadow People', 'Poltergeist', 'Sleep Paralysis', 'Dreams', 'Ouija Board', 'UAP'];

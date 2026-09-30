@@ -157,6 +157,17 @@ const Statements = (() => {
       try {
         const { db, collection, addDoc, serverTimestamp } = await firebase();
         await addDoc(collection(db, 'comments'), { pageId, name, message, createdAt: serverTimestamp(), approved: false });
+        // Let The Reporter know by email (best effort: the statement is already saved).
+        if (typeof Email !== 'undefined' && Email.commentAlerts()) {
+          const base = location.href.split('#')[0];
+          Email.send(`New witness statement on ${titleFor(pageId)}`, {
+            'Report': titleFor(pageId),
+            'Name': name,
+            'Statement': message,
+            'Read it on': `${base}#${pageId.replace('report', 'file')}`,
+            'Approve it at': `${base}#moderate`
+          }).catch(err => console.warn('Comment alert not sent', err));
+        }
         form.reset();
         say('Thank you. Your statement has been filed and will appear here once The Reporter has read it.');
       } catch (err) {

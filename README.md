@@ -11,6 +11,7 @@ the-paranormal-pad/
 │   └── styles.css          # All styles (parchment case-file look, cassettes, phone layout)
 ├── js/
 │   ├── data.js             # Every report & tape, the featured case, subject tags, comment settings  ← edit this
+│   ├── email.js            # Sends the Contact form + new-comment alerts via Web3Forms
 │   ├── comments.js         # "Witness statements" comments + the private moderation desk (#moderate)
 │   └── main.js             # Partial + content loader, archive, search, report pages, cassette players
 ├── partials/
@@ -122,6 +123,12 @@ Until step 6 is done, each page shows "The statements desk opens soon."
 
 **Testing comments locally** (no Firebase account needed): run the Firebase emulator (`npx firebase-tools emulators:start --only firestore,auth --project demo-paranormal-pad`, needs Java 21), serve the site, and open `http://localhost:8080/?emulator=1#file-008`.
 
+## Contact form & email alerts
+
+The **Contact** page form emails each submission to The Reporter (reply goes straight to the sender; ticking "Keep my identity confidential" is flagged in the email). Every new witness statement also triggers an alert email with links to the report and the moderation desk. Both use [Web3Forms](https://web3forms.com) (free: 250 emails/month).
+
+**Setup:** on web3forms.com enter `mattjowen1991@gmail.com` to get an access key by email, then paste it into `EMAIL.web3formsKey` in `js/data.js` (it's designed to be public). Set `commentAlerts: false` there to stop the comment emails. Until a key is added the form says it isn't connected yet.
+
 ## Local development
 
 Open with a local server (partials and content use `fetch`, so they won't load from `file://`):
@@ -145,5 +152,3 @@ Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `
 
 ## Still to do
 
-- **Contact form:** it doesn't send anywhere yet. A form service such as Formspree can be connected by pointing the form at its endpoint (see `partials/contact.html` and the submit handler in `js/main.js`).
-- **Comment alerts:** there's no email when a new statement arrives yet — check `#moderate` now and then.

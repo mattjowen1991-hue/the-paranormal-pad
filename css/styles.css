@@ -559,3 +559,5 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
   .brand-kicker, .masthead .brand h1 { text-align: center; }
   .brand-kicker .kicker-extra { display: none; }
 }
+.sent { border-color: var(--rule-soft); background: rgba(43,39,35,.04); color: var(--ink); }
+.sent.bad { border-color: var(--blood); background: var(--blood-tint); color: #4a2320; }

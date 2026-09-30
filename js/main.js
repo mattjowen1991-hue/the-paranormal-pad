@@ -344,8 +344,35 @@ function startApp() {
   // Pause any tape that isn't on the page being shown.
   const pauseTapesOutside = view => decks.forEach(o => { if (!o.el.closest(`[data-view="${view}"]`)) o.player?.pauseVideo?.(); });
 
-  // contact form (mockup only)
-  $('#submit-form').addEventListener('submit', e => { e.preventDefault(); $('#sent').hidden = false; });
+  // contact form → The Reporter's inbox (js/email.js)
+  const contactForm = $('#submit-form'), contactNote = $('#sent'), contactBtn = contactForm.querySelector('button[type="submit"]');
+  const contactSay = (html, bad) => { contactNote.hidden = false; contactNote.innerHTML = html; contactNote.classList.toggle('bad', !!bad); };
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = contactForm.elements, val = n => f.namedItem(n).value.trim();
+    if (f.namedItem('botcheck').checked) { contactForm.reset(); contactSay('<b>Thank you.</b> Your statement has been sent.'); return; }
+    if (!val('story')) { contactSay('Tell us what happened before sending.', true); f.namedItem('story').focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) { contactSay('Add an email address so The Reporter can get back to you.', true); f.namedItem('email').focus(); return; }
+    if (!Email.enabled()) { contactSay('<b>Not connected yet:</b> this form can’t send until the Web3Forms key is added (README → Contact form).', true); return; }
+    const anon = f.namedItem('anonymous').checked;
+    contactBtn.disabled = true; contactBtn.textContent = 'Sending…';
+    try {
+      await Email.send(`New incident submission${val('where') ? ` — ${val('where')}` : ''}`, {
+        'Name': val('name') || '(not given)',
+        'Email': val('email'),
+        'Where it happened': val('where') || '(not given)',
+        'Keep identity confidential': anon ? 'YES — do not publish their name' : 'No',
+        'What happened': val('story')
+      }, val('email'));
+      contactForm.reset();
+      contactSay(`<b>Thank you.</b> Your statement is with The Reporter, who’ll be in touch by email.${anon ? ' Your identity will be kept confidential.' : ''}`);
+    } catch (err) {
+      console.error(err);
+      contactSay('Your statement couldn’t be sent. Check your connection and try again.', true);
+    } finally {
+      contactBtn.disabled = false; contactBtn.textContent = 'File my report';
+    }
+  });
 
   // report / tape page
   const longDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
