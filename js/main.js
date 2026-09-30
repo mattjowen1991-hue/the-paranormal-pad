@@ -283,6 +283,8 @@ function startApp() {
                 const playing = ev.data === YT.PlayerState.PLAYING;
                 if (playing) decks.forEach(o => o !== deck && o.player?.pauseVideo?.());
                 setPlaying(playing);
+                // YouTube adverts and buffering don't count as playing: show that something's happening.
+                if (ev.data === YT.PlayerState.UNSTARTED || ev.data === YT.PlayerState.BUFFERING) btn.textContent = 'Loading…';
                 clearInterval(deck.timer);
                 if (playing) deck.timer = setInterval(tick, 500);
                 tick();
