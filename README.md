@@ -95,6 +95,10 @@ python3 -m http.server 8080
 # then open http://localhost:8080
 ```
 
+## After changing CSS or JavaScript
+
+Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `?v=4`, same for `data.js` and `main.js`), so phones and browsers fetch the new files instead of an old saved copy. Partials and content files are always re-checked, so they don't need this.
+
 ## Publishing on GitHub Pages
 
 1. Push the repo to GitHub.

@@ -9,7 +9,7 @@ async function loadPartial(id, file) {
   const el = document.getElementById(id);
   if (!el) return;
   try {
-    const res = await fetch(`partials/${file}`);
+    const res = await fetch(`partials/${file}`, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`Failed to load ${file}`);
     const tpl = document.createElement('template');
     tpl.innerHTML = await res.text();
@@ -41,7 +41,7 @@ const contentPath = f => `content/${f.kind === 'tape' ? 'tapes' : 'reports'}/${f
 async function loadContent() {
   await Promise.all(FILES.map(async f => {
     try {
-      const res = await fetch(contentPath(f));
+      const res = await fetch(contentPath(f), { cache: 'no-cache' });
       CONTENT[keyOf(f)] = res.ok ? await res.text() : '';
     } catch (e) {
       console.error(e);
