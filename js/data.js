@@ -232,7 +232,14 @@ const FEATURED = {
 // Paste the firebaseConfig from Firebase → Project settings → Your apps here (README → Comments).
 // Until it's filled in, each page shows "The statements desk opens soon."
 const COMMENTS = {
-  firebase: null,
+  firebase: {
+    apiKey: 'AIzaSyA9IRJhDKlUocfQQlEn9qVbZMYkmYH8oUM',
+    authDomain: 'the-paranormal-pad.firebaseapp.com',
+    projectId: 'the-paranormal-pad',
+    storageBucket: 'the-paranormal-pad.firebasestorage.app',
+    messagingSenderId: '299735710392',
+    appId: '1:299735710392:web:dfa9ed37772cc0201cd24d'
+  },
   moderator: 'mattjowen1991@gmail.com'   // the only Google account that can approve comments at #moderate
 };
 
