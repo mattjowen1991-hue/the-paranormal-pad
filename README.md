@@ -133,6 +133,10 @@ The **Contact** page form emails each submission to The Reporter (reply goes str
 
 **Setup:** on web3forms.com enter `mattjowen1991@gmail.com` to get an access key by email, then paste it into `EMAIL.web3formsKey` in `js/data.js` (it's designed to be public). Set `commentAlerts: false` there to stop the comment emails. Until a key is added the form says it isn't connected yet.
 
+## Share preview (WhatsApp, Facebook, etc.)
+
+When someone shares theparanormalpad.com, apps show the title, description and `images/share.jpg` (1200×630) set by the `og:` tags in `index.html`. To change the picture, edit `tools/share-card.html`, open it through the local server at 1200×630 and screenshot it over `images/share.jpg`. Apps cache previews, so a link that was already shared may keep its old card for a while; to refresh it on Facebook/WhatsApp, paste the address into [Facebook's Sharing Debugger](https://developers.facebook.com/tools/debug/) and click *Scrape Again*.
+
 ## Local development
 
 Open with a local server (partials and content use `fetch`, so they won't load from `file://`):
