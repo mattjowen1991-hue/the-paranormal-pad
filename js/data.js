@@ -246,7 +246,7 @@ const COMMENTS = {
 // Email via Web3Forms (https://web3forms.com): the Contact form, plus an alert
 // email whenever someone files a witness statement. Paste the access key here.
 const EMAIL = {
-  web3formsKey: '',
+  web3formsKey: '7ae7be4b-c911-4fd2-b8b9-5639d213acb5',
   commentAlerts: true   // set to false to stop the "new witness statement" emails
 };
 
