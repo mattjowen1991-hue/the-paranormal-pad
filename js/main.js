@@ -357,11 +357,11 @@ function startApp() {
     const anon = f.namedItem('anonymous').checked;
     contactBtn.disabled = true; contactBtn.textContent = 'Sending…';
     try {
-      await Email.send(`New incident submission${val('where') ? ` — ${val('where')}` : ''}`, {
+      await Email.send(`New incident submission${val('where') ? ` - ${val('where')}` : ''}`, {
         'Name': val('name') || '(not given)',
         'Email': val('email'),
         'Where it happened': val('where') || '(not given)',
-        'Keep identity confidential': anon ? 'YES — do not publish their name' : 'No',
+        'Keep identity confidential': anon ? 'YES - do not publish their name' : 'No',
         'What happened': val('story')
       }, val('email'));
       contactForm.reset();
