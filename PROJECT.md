@@ -63,7 +63,7 @@ tools/claude_project_kit.py, tools/sync_prompts.py   refresh the Claude Project 
 ```
 Tape entry adds `"url"` (YouTube), `"narrator"`, `"dur"` (seconds), `"sides"`:
 `[{ "side": "A", "report": "002", "title": "...", "start": 1775, "end": 3470 }]`, and
-optionally `"pinned": true` (only the radio interview, Tape 004 - always shown first).
+optionally `"pinned": true` (only the radio interview, Tape 005 - always shown first).
 `tags` must come from `SUBJECTS`. `FEATURED` picks the homepage case.
 
 Numbering: reports and tapes each count up (009, 010 ...). New tapes take the next free

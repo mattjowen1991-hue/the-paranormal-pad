@@ -117,10 +117,10 @@ const REPORTS = [
 const TAPES = [
   {
     "kind": "tape",
-    "no": "004",
+    "no": "005",
     "title": "Our Haunted House Interview (The Stranger at the Door case)",
     "date": "2026-06-14",
-    "img": "tapes/004/cover.jpg",
+    "img": "tapes/005/cover.jpg",
     "loc": "Black Country Extra radio",
     "tags": [
       "Hauntings"
@@ -129,6 +129,31 @@ const TAPES = [
     "url": "https://theparanormalpad.wordpress.com/2026/06/14/incident-tape-002-radio-interview-the-stranger-at-the-door-case/",
     "dur": 1805,
     "pinned": true
+  },
+  {
+    "kind": "tape",
+    "no": "004",
+    "title": "A Night That Time Stood Still",
+    "date": "2024-10-10",
+    "img": "tapes/004/cover.jpg",
+    "loc": "Barnsley Hall, Bromsgrove",
+    "tags": [
+      "Hauntings",
+      "Shadow People"
+    ],
+    "excerpt": "In October 2024, my friend J and I went back to Barnsley Hall, the site of the old asylum on the edge of Bromsgrove, to retrace our steps from the night in Incident Report 003: A Night That Time Stood Still …",
+    "url": "https://www.youtube.com/watch?v=n8cJw0xJxRk",
+    "narrator": "The Reporter & J",
+    "dur": 548,
+    "sides": [
+      {
+        "side": "A",
+        "report": "003",
+        "title": "A Night That Time Stood Still",
+        "start": 0,
+        "end": 548
+      }
+    ]
   },
   {
     "kind": "tape",

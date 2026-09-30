@@ -101,6 +101,35 @@ Narration by Midnight Narrative Horror. Thumbnail art by @unexpectedspecter. Sto
 
 ---
 kind: tape
+title: A Night That Time Stood Still
+date: 2024-10-10
+narrator: The Reporter & J
+video: https://www.youtube.com/watch?v=n8cJw0xJxRk
+subjects: Hauntings, Shadow People
+sides:
+  - A | 003 | A Night That Time Stood Still | 00:00 | 09:08
+---
+## Back at Barnsley Hall
+
+In October 2024, my friend J and I went back to Barnsley Hall, the site of the old asylum on the edge of Bromsgrove, to retrace our steps from the night in [Incident Report 003: A Night That Time Stood Still](#file-003). In this video we talk through what happened that night, back where it happened.
+
+It was first posted on [The Paranormal Pad's YouTube channel](https://www.youtube.com/@theparanormalpad) on 10 October 2024 as *Time Stopped at This Haunted Asylum! Exploring the Chilling Mystery of Barnsley Hall*.
+
+### A Night That Time Stood Still
+
+In my late teens, a friend and I were sitting on the swings of a small play area next to The Chapel, one of the last original buildings of the old hospital, when everything around us suddenly stopped, even the roar of the motorway.
+
+[PLAY SIDE A]
+
+## Credits
+
+Presented by The Reporter and J. The full written account is [Incident Report 003](#file-003).
+
+
+==================== TAPE 005 ====================
+
+---
+kind: tape
 title: Our Haunted House Interview (The Stranger at the Door case)
 date: 2026-06-14
 narrator: 

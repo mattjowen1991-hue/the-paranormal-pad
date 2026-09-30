@@ -104,7 +104,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `#### Heading` | Small bold italic title |
 | Blank line | New paragraph |
 | `*words*` / `**words**` | Italic / bold |
-| `[text](https://...)` | A link |
+| `[text](https://...)` | A link (or `[text](#file-003)` for another report on the site) |
 | `> "A line"` | Pull quote |
 | `- item` | Bullet list |
 | `[PHOTO 3: Caption. Image: Source]` | Photo number 3 as a paperclipped print with caption |
