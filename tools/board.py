@@ -9,6 +9,8 @@
 ISSUE is an issue number in mattjowen1991-hue/the-paranormal-pad.
 Uses the GitHub CLI (gh) and GraphQL, because `gh project item-add` alone leaves a card
 with no Status, which hides it from the board view.
+Note: GitHub's board listing can lag a minute behind; a card can be on the board before
+`list` shows it. Check the issue itself if in doubt.
 """
 import json, subprocess, sys
 
