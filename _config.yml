@@ -2,6 +2,7 @@
 exclude:
   - README.md
   - GUIDE.md
+  - PUBLISHING.md
   - PROJECT.md
   - CLAUDE.md
   - HOUSE-STYLE.md

@@ -2,7 +2,7 @@
 
 The site: **https://theparanormalpad.com** · Moderation desk: **https://theparanormalpad.com/#moderate**
 
-What happens when people get in touch, and what you need to do. (For adding reports and tapes, see the README.)
+What happens when people get in touch, and what you need to do. (For writing and publishing reports and tapes, see [PUBLISHING.md](PUBLISHING.md).)
 
 There are **two different things** readers can send you, and they work differently:
 

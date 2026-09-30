@@ -1,5 +1,7 @@
 # The Paranormal Pad
 
+> **How to write and publish a report or tape, step by step** (including setting up the Claude Project): see **[PUBLISHING.md](PUBLISHING.md)**.
+>
 > **Looking after the site day to day** (contact form emails, approving comments, which services run what): see **[GUIDE.md](GUIDE.md)**.
 
 **Live at https://theparanormalpad.com**
