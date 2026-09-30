@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Redirecting… — The Paranormal Pad</title>
+  <script>
+    // GitHub Pages serves this page for any address that doesn't exist.
+    // Old WordPress links (shared on social media etc.) are forwarded to the
+    // matching page on the new site; anything else goes to the home page.
+    (function () {
+      var OLD = {
+        'incident-report-008-come-and-play-with-us': 'file-008',
+        'incident-report-007-the-medford-shadow': 'file-007',
+        'incident-report-006-letters-on-the-board': 'file-006',
+        'incident-report-005-the-call-from-show-village': 'file-005',
+        'incident-tape-004-whispers-from-the-sleepless-realm': 'file-004',
+        'incident-report-3-a-night-that-time-stood-still': 'file-003',
+        'incident-report-002-shadows-of-the-past': 'file-002',
+        'stranger-at-the-door': 'file-001',
+        'incident-tape-001-the-stranger-at-the-door': 'tape-001',
+        'incident-tape-002-radio-interview-the-stranger-at-the-door-case': 'tape-004',
+        'welcome': 'archive',
+        'incident-reports': 'reports',
+        'incident-tapes': 'tapes',
+        'the-paranormal-pod': 'tapes',
+        'thereporter': 'reporter',
+        'contact-us': 'contact'
+      };
+      // On the github.io address the site lives under /the-paranormal-pad/; on the domain it's at the root.
+      var base = location.hostname.slice(-10) === '.github.io' ? '/the-paranormal-pad/' : '/';
+      var parts = location.pathname.split('/').filter(Boolean);
+      var target = '';
+      for (var i = parts.length - 1; i >= 0 && !target; i--) target = OLD[parts[i]] || '';
+      location.replace(base + (target ? '#' + target : ''));
+    })();
+  </script>
+  <style>body{margin:0;background:#efe8dc;color:#1a1918;font-family:'Courier New',monospace;display:grid;place-items:center;min-height:100vh}</style>
+</head>
+<body>
+  <p>Retrieving the file… <a href="/">Go to The Paranormal Pad</a></p>
+</body>
+</html>
