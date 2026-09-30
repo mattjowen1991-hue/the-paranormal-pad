@@ -2,6 +2,8 @@
 
 > **Looking after the site day to day** (contact form emails, approving comments, which services run what): see **[GUIDE.md](GUIDE.md)**.
 
+**Live at https://theparanormalpad.com**
+
 *Echoes of the past.* First-hand accounts of the unexplained — Incident Reports and Incident Tapes, collected and retold by The Reporter. Built to replace the WordPress site at theparanormalpad.com.
 
 ## Structure
@@ -104,7 +106,7 @@ Every report and tape page ends with a **Witness statements** section. Readers l
 2. **Build → Firestore Database → Create database** → *Standard edition*, location **europe-west2 (London)**, start in **production mode**.
 3. In Firestore, open the **Rules** tab, replace everything with the contents of `firestore.rules`, and click **Publish**.
 4. **Build → Authentication → Get started → Sign-in method → Google → Enable** (pick your email as the support email) → Save.
-5. **Authentication → Settings → Authorized domains → Add domain:** `mattjowen1991-hue.github.io` (and later `theparanormalpad.com`).
+5. **Authentication → Settings → Authorized domains → Add domain:** `theparanormalpad.com`, `www.theparanormalpad.com` and `mattjowen1991-hue.github.io`.
 6. **Project settings** (cog icon) **→ Your apps → Web (`</>`)** → nickname "The Paranormal Pad" (no Firebase Hosting) → **Register app**. Copy the `firebaseConfig` values into `js/data.js`:
 
 ```js
@@ -145,9 +147,11 @@ python3 -m http.server 8080
 
 Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `?v=4`, same for `data.js` and `main.js`), so phones and browsers fetch the new files instead of an old saved copy. Partials and content files are always re-checked, so they don't need this.
 
-## Publishing on GitHub Pages
+## Publishing (GitHub Pages + theparanormalpad.com)
 
-1. Push the repo to GitHub.
-2. **Settings → Pages → Build and deployment:** Source *Deploy from a branch*, branch `main`, folder `/ (root)`.
-3. The site appears at `https://<username>.github.io/the-paranormal-pad/`.
-4. **Custom domain (when ready to leave WordPress):** add `theparanormalpad.com` under Settings → Pages → Custom domain (this creates a `CNAME` file), then point the domain's DNS at GitHub Pages and turn on *Enforce HTTPS*.
+Every push to `main` goes live automatically within a minute or two (Settings → Pages: deploy from branch `main`, folder `/ (root)`).
+
+- **Domain:** `theparanormalpad.com` is registered with **WordPress.com** (auto-renews each October) — only the domain is used there now, not the WordPress site.
+- **DNS** (WordPress.com → Domains → theparanormalpad.com → DNS records): four `A` records `185.199.108.153` / `109` / `110` / `111`, four `AAAA` records `2606:50c0:8000::153` … `8003::153`, and `www` → `CNAME mattjowen1991-hue.github.io`.
+- **`CNAME` file** in this repo holds the domain — don't delete it. The old address `mattjowen1991-hue.github.io/the-paranormal-pad/` redirects to the domain.
+- **Old WordPress links** (e.g. `/2026/09/28/incident-report-008-…/`, `/contact-us/`) are forwarded to the matching page by `404.html`. When a new report is added, nothing needs changing there.

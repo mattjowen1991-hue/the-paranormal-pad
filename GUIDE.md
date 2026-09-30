@@ -1,5 +1,7 @@
 # Running The Paranormal Pad — day-to-day guide
 
+The site: **https://theparanormalpad.com** · Moderation desk: **https://theparanormalpad.com/#moderate**
+
 What happens when people get in touch, and what you need to do. (For adding reports and tapes, see the README.)
 
 There are **two different things** readers can send you, and they work differently:
@@ -54,7 +56,7 @@ Once you've entered the PIN you won't be asked again until you close the browser
 | Comments + moderator sign-in | Google Firebase (free plan) | console.firebase.google.com → *the-paranormal-pad* |
 | Contact form + comment alert emails | Web3Forms (free: 250 emails/month) | web3forms.com (signed in as mattjowen1991@gmail.com) |
 | Tape videos | YouTube (each narrator's channel) | — |
-| Domain (theparanormalpad.com) | WordPress.com (domain registration) | wordpress.com → Domains |
+| Domain (theparanormalpad.com) | WordPress.com — domain only, auto-renews every October (next: Oct 2027) | wordpress.com → Domains (don't change its DNS records unless moving the site) |
 
 ## If something stops working
 
