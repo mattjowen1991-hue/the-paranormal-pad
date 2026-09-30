@@ -175,6 +175,7 @@ const Statements = (() => {
       await load();
     }
 
+    let flash = null;   // { id, text }: confirmation shown on a card after it's reloaded
     async function load() {
       const { db, collection, query, where, getDocs } = await firebase();
       const get = async approved => (await getDocs(query(collection(db, 'comments'), where('approved', '==', approved))))
@@ -182,6 +183,7 @@ const Statements = (() => {
       const [pending, approved] = await Promise.all([get(false), get(true)]);
       pending.sort(byDate);
       approved.sort((a, b) => byDate(b, a));
+      if (flash && !pending.concat(approved).some(c => c.id === flash.id)) flash = null;
       fill('pending', pending, 'Nothing waiting. All statements have been read.');
       fill('approved', approved.slice(0, 40), 'No statements on the file yet.');
       root.querySelector('[data-count="pending"]').textContent = `(${pending.length})`;
@@ -196,16 +198,31 @@ const Statements = (() => {
           <b class="mod-name">${esc(c.name)}</b>
           <p>${esc(c.message)}</p>
           <div class="field"><label for="reply-${esc(c.id)}">Reply as The Reporter (optional)</label>
-            <textarea id="reply-${esc(c.id)}" maxlength="3000" placeholder="Shown under their statement…">${esc(c.reply || '')}</textarea></div>
+            <textarea id="reply-${esc(c.id)}" maxlength="3000" placeholder="Shown under their statement…" data-saved="${esc(c.reply || '')}">${esc(c.reply || '')}</textarea></div>
           <div class="mod-actions">
             ${kind === 'pending'
               ? '<button class="btn blood" type="button" data-act="approve">Approve</button>'
-              : '<button class="btn dark" type="button" data-act="save">Save reply</button><button class="btn light" type="button" data-act="hide">Hide</button>'}
+              : '<button class="btn dark" type="button" data-act="save">Add reply</button><button class="btn light" type="button" data-act="hide">Hide</button>'}
             <button class="btn light" type="button" data-act="delete">Delete</button>
             <span class="mod-confirm" hidden>Delete for good? <button class="btn blood" type="button" data-act="really-delete">Yes, delete</button><button class="btn light" type="button" data-act="cancel">Cancel</button></span>
           </div>
+          ${flash?.id === c.id ? `<p class="statement-note" role="status">${esc(flash.text)}</p>` : ''}
         </article>`).join('') : `<p class="statements-empty">${empty}</p>`;
+      box.querySelectorAll('.mod-card').forEach(syncButtons);
     }
+
+    // Button labels follow what's in the reply box, and nothing is clickable until something changed.
+    function syncButtons(card) {
+      const box = card.querySelector('textarea'), text = box.value.trim(), saved = box.dataset.saved || '';
+      const approve = card.querySelector('[data-act="approve"]');
+      if (approve) approve.textContent = text ? 'Approve with reply' : 'Approve';
+      const save = card.querySelector('[data-act="save"]');
+      if (save) {
+        save.textContent = !saved ? 'Add reply' : text ? 'Update reply' : 'Remove reply';
+        save.disabled = text === saved;
+      }
+    }
+    root.addEventListener('input', e => { const card = e.target.closest('.mod-card'); if (card) syncButtons(card); });
 
     root.addEventListener('click', async e => {
       const btn = e.target.closest('.mod-card [data-act]'); if (!btn) return;
@@ -214,15 +231,25 @@ const Statements = (() => {
       if (act === 'delete') { confirmBox.hidden = false; return; }
       if (act === 'cancel') { confirmBox.hidden = true; return; }
       const { db, doc, updateDoc, deleteDoc, serverTimestamp } = await firebase();
-      const reply = card.querySelector('textarea').value.trim();
+      const reply = card.querySelector('textarea').value.trim(), saved = card.querySelector('textarea').dataset.saved || '';
       const withReply = reply ? { reply, repliedAt: serverTimestamp() } : { reply: '' };
       card.querySelectorAll('button').forEach(b => { b.disabled = true; });
       try {
-        if (act === 'approve') await updateDoc(doc(db, 'comments', id), { approved: true, ...withReply });
-        if (act === 'save') await updateDoc(doc(db, 'comments', id), { approved: true, ...withReply });
-        if (act === 'hide') await updateDoc(doc(db, 'comments', id), { approved: false });
-        if (act === 'really-delete') await deleteDoc(doc(db, 'comments', id));
+        if (act === 'approve') {
+          await updateDoc(doc(db, 'comments', id), { approved: true, ...withReply });
+          flash = { id, text: reply ? 'Approved with your reply. It’s now on the report.' : 'Approved. It’s now on the report.' };
+        }
+        if (act === 'save') {
+          await updateDoc(doc(db, 'comments', id), { approved: true, ...withReply });
+          flash = { id, text: !reply ? 'Reply removed.' : saved ? 'Reply updated.' : 'Reply added.' };
+        }
+        if (act === 'hide') {
+          await updateDoc(doc(db, 'comments', id), { approved: false });
+          flash = { id, text: 'Hidden from the report. It’s back in Awaiting review.' };
+        }
+        if (act === 'really-delete') { await deleteDoc(doc(db, 'comments', id)); flash = null; }
         await load();
+        if (flash) root.querySelector(`.mod-card[data-id="${CSS.escape(flash.id)}"]`)?.scrollIntoView({ block: 'nearest' });
       } catch (err) {
         console.error(err);
         card.querySelectorAll('button').forEach(b => { b.disabled = false; });
