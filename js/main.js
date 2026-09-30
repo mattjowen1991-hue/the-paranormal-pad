@@ -376,6 +376,28 @@ function startApp() {
 
   // report / tape page
   const longDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  // ---------- sharing ----------
+  // Share links point at the per-file share pages (reports/008/, tapes/002/), which carry
+  // that file's title, opening lines and cover image for WhatsApp/Facebook previews.
+  // Those pages are made by tools/share_pages.py.
+  const shareUrl = f => `${location.origin}/${f.kind === 'tape' ? 'tapes' : 'reports'}/${f.no}/`;
+  const shareButton = (f, size = '') => `<button type="button" class="btn ${size ? 'light' : 'dark'} share-btn ${size}" data-share="${f.kind}-${f.no}">
+      <span class="share-icon" aria-hidden="true"></span><span class="share-label">Share ${f.kind === 'tape' ? 'tape' : 'report'}</span></button>`;
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('[data-share]'); if (!btn) return;
+    const [kind, no] = btn.dataset.share.split('-');
+    const f = FILES.find(x => x.kind === kind && x.no === no); if (!f) return;
+    const url = shareUrl(f), title = `${label(f)}: ${f.title}`;
+    const labelEl = btn.querySelector('.share-label'), original = labelEl.textContent;
+    const flash = text => { labelEl.textContent = text; setTimeout(() => { labelEl.textContent = original; }, 2200); };
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      try { await navigator.share({ title, text: `${title} - The Paranormal Pad`, url }); } catch (err) { /* closed the share sheet */ }
+      return;
+    }
+    try { await navigator.clipboard.writeText(url); flash('Link copied'); }
+    catch (err) { window.prompt('Copy this link:', url); }
+  });
+
   function renderFile(f) {
     const isTape = f.kind === 'tape';
     const words = (TEXT[keyOf(f)] || '').split(' ').length;
@@ -384,7 +406,10 @@ function startApp() {
     const i = same.indexOf(f), older = same[i - 1], newer = same[i + 1];
     const navLink = (x, cls, lab) => x ? `<a class="${cls}" href="${href(x)}"><span class="label">${lab}</span><b>${isTape ? 'Tape' : 'Report'} ${x.no}: ${esc(x.title)}</b></a>` : '';
     $('#view-file').innerHTML = `
-      <a class="back" href="#${isTape ? 'tapes' : 'reports'}">← All incident ${isTape ? 'tapes' : 'reports'}</a>
+      <div class="file-top">
+        <a class="back" href="#${isTape ? 'tapes' : 'reports'}">← All incident ${isTape ? 'tapes' : 'reports'}</a>
+        ${shareButton(f, 'small')}
+      </div>
       <article class="report">
         <div class="paperclip"></div>
         <div class="docket">
@@ -406,6 +431,10 @@ function startApp() {
           </div>
         </header>
         <div class="prose">${CONTENT[keyOf(f)] || ''}</div>
+        <div class="share-bar">
+          <span>Know someone who should read this ${isTape ? 'tape' : 'report'}?</span>
+          ${shareButton(f)}
+        </div>
       </article>
       <section class="statements" id="statements" data-page-id="${isTape ? 'tape' : 'report'}-${f.no}"></section>
       <nav class="file-nav" aria-label="More files">${navLink(older, 'prev', isTape ? '← Previous tape' : '← Older file')}${navLink(newer, 'next', isTape ? 'Next tape →' : 'Newer file →')}</nav>`;

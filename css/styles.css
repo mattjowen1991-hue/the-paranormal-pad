@@ -608,3 +608,14 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
   .query label::before { left: .75rem; top: 50%; width: 12px; height: 12px; margin-top: -8px; border: 2px solid #635b51; border-radius: 50%; }
   .query label::after { left: 1.55rem; top: 50%; width: 7px; height: 2px; margin-top: 5px; background: #635b51; transform: rotate(45deg); transform-origin: left center; }
 }
+
+/* ---------- share buttons (report & tape pages) ---------- */
+.file-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; }
+.share-btn { gap: .5rem; }
+.share-btn.small { font-size: 11px; padding: .45rem .75rem; }
+/* drawn "share" arrow: a box with an arrow leaving the top */
+.share-icon { position: relative; width: 12px; height: 12px; border: 1.8px solid currentColor; border-top-color: transparent; flex: none; margin-top: 3px; }
+.share-icon::before { content: ''; position: absolute; left: 50%; top: -8px; width: 1.8px; height: 11px; background: currentColor; transform: translateX(-50%); }
+.share-icon::after { content: ''; position: absolute; left: 50%; top: -8px; width: 6px; height: 6px; border-left: 1.8px solid currentColor; border-top: 1.8px solid currentColor; transform: translateX(-50%) rotate(45deg); transform-origin: center; margin-left: 0; }
+.share-bar { max-width: 66ch; margin-top: 2.2rem; padding-top: 1.1rem; border-top: 3px double var(--rule); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .7rem 1rem; }
+.share-bar > span { font-family: var(--f-serif); font-style: italic; font-size: 15px; color: var(--ink-3); }

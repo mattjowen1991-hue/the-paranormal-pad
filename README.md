@@ -61,6 +61,12 @@ Pages are switched with the address hash, so every page has its own link:
 },
 ```
 
+4. **Make its share page** (the link people share on WhatsApp etc., with this report's title, opening lines and cover picture):
+
+```bash
+python3 tools/share_pages.py
+```
+
 The counts, the "Latest dispatch" bar, the stats and the archive order all update themselves.
 To make it the **featured case**, change `FEATURED` in `js/data.js` (the report number plus the field statement, witness quote and details shown on the homepage).
 
@@ -90,6 +96,7 @@ To make it the **featured case**, change `FEATURED` in `js/data.js` (the report 
 },
 ```
 
+- Then run `python3 tools/share_pages.py` to make its share page (`/tapes/005/`).
 - **Two stories in one video?** Add a second entry to `sides` (`side: 'B'`) and the cassette becomes double-sided with a Side A / Side B switch.
 - **Tapes page order:** the tape with `pinned: true` (the Black Country radio interview) always sits at the top; the rest follow from the highest number down, so Tape 001 is always last.
 - The cassette's play button plays the video inside the page, starting and stopping at your story. Where YouTube can't load, it opens YouTube instead.
@@ -135,7 +142,9 @@ The **Contact** page form emails each submission to The Reporter (reply goes str
 
 ## Share preview (WhatsApp, Facebook, etc.)
 
-When someone shares theparanormalpad.com, apps show the title, description and `images/share.jpg` (1200×630) set by the `og:` tags in `index.html`. To change the picture, edit `tools/share-card.html`, open it through the local server at 1200×630 and screenshot it over `images/share.jpg`. Apps cache previews, so a link that was already shared may keep its old card for a while; to refresh it on Facebook/WhatsApp, paste the address into [Facebook's Sharing Debugger](https://developers.facebook.com/tools/debug/) and click *Scrape Again*.
+Every report and tape has a **Share** button. It shares a link like `theparanormalpad.com/reports/008/`: a small page (made by `tools/share_pages.py`) whose preview shows that report's title, opening lines and cover picture, and which opens the report straight away. Links copied from the address bar (`/#file-008`) show the general site preview instead.
+
+When someone shares theparanormalpad.com itself, apps show the title, description and `images/share.jpg` (1200×630) set by the `og:` tags in `index.html`. To change the picture, edit `tools/share-card.html`, open it through the local server at 1200×630 and screenshot it over `images/share.jpg`. Apps cache previews, so a link that was already shared may keep its old card for a while; to refresh it on Facebook/WhatsApp, paste the address into [Facebook's Sharing Debugger](https://developers.facebook.com/tools/debug/) and click *Scrape Again*.
 
 ## Local development
 
