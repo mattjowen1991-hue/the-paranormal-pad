@@ -10,7 +10,13 @@ Makes (from the live content, so it stays current as reports are added):
   knowledge/03-site-facts.md       every report and tape: number, title, date, place, subjects
   knowledge/04-example-reports.md  every published report, converted back to the draft format
   knowledge/05-example-tapes.md    every tape page, in the draft format
-Prints which files changed (those are the ones to re-upload to the Project).
+Prints which files changed.
+
+Keeping the claude.ai Project in step (claude.ai has no upload API, so the upload itself is manual):
+    python3 tools/claude_project_kit.py --status          # which files differ from what's in the Project
+    python3 tools/claude_project_kit.py --stage           # copy just those into claude-project/to-upload/ and open it
+    python3 tools/claude_project_kit.py --mark-uploaded   # after uploading: record them as in the Project
+The record lives in claude-project/uploaded.json (file -> fingerprint at last upload).
 """
 import hashlib, html, json, os, re
 
@@ -144,10 +150,84 @@ Josh English (006). Matt's Nan and Grandad, partner and daughter appear in 001 a
                      + (f'sides:{sides}\n' if sides else '') + f'---\n{body}\n')
     write('05-example-tapes.md', ''.join(parts), changed)
 
-    print('Changed (re-upload these to the Claude Project):' if changed else 'Nothing changed.')
+    print('Rebuilt from the site - these files changed:' if changed else 'Kit rebuilt - no files changed.')
     for c in changed:
         print('  claude-project/knowledge/' + c)
 
 
+# ---------------------------------------------------------------- keeping the Project in step
+KIT = os.path.join(ROOT, 'claude-project')
+RECORD = os.path.join(KIT, 'uploaded.json')
+STAGE = os.path.join(KIT, 'to-upload')
+
+
+def fingerprint(path):
+    return hashlib.sha256(open(path, 'rb').read()).hexdigest()[:16]
+
+
+def tracked():
+    """(name shown to Matt, path, how it goes into the Project)"""
+    files = [('INSTRUCTIONS.md', os.path.join(KIT, 'INSTRUCTIONS.md'), 'paste into Instructions')]
+    for name in sorted(os.listdir(OUT)):
+        if name.endswith('.md'):
+            files.append((name, os.path.join(OUT, name), 'upload to Files'))
+    return files
+
+
+def out_of_date():
+    record = json.load(open(RECORD)) if os.path.exists(RECORD) else {}
+    return [(n, p, how) for n, p, how in tracked() if record.get(n) != fingerprint(p)], record
+
+
+def status():
+    stale, record = out_of_date()
+    if not record:
+        print('No upload has been recorded yet, so everything is treated as needing uploading.')
+    if not stale:
+        print('The Claude Project is up to date. Nothing to upload.')
+        return
+    print('Out of date in the Claude Project:')
+    for n, _, how in stale:
+        print(f'  {n:28} {how}')
+
+
+def stage():
+    import shutil, subprocess
+    stale, _ = out_of_date()
+    shutil.rmtree(STAGE, ignore_errors=True)
+    if not stale:
+        print('The Claude Project is up to date. Nothing to upload.')
+        return
+    os.makedirs(STAGE)
+    for n, p, how in stale:
+        shutil.copy2(p, os.path.join(STAGE, n))
+        print(f'  {n:28} {how}')
+    instr = next((p for n, p, _ in stale if n == 'INSTRUCTIONS.md'), None)
+    if instr:
+        subprocess.run(['pbcopy'], input=open(instr, 'rb').read())
+        print('INSTRUCTIONS.md is on the clipboard, ready to paste.')
+    subprocess.run(['open', STAGE])
+    print(f'Opened {STAGE} in Finder.')
+
+
+def mark_uploaded():
+    import shutil
+    record = {n: fingerprint(p) for n, p, _ in tracked()}
+    with open(RECORD, 'w') as f:
+        json.dump(record, f, indent=2)
+        f.write('\n')
+    shutil.rmtree(STAGE, ignore_errors=True)
+    print('Recorded: the Claude Project now matches claude-project/.')
+
+
 if __name__ == '__main__':
-    main()
+    import sys
+    arg = sys.argv[1] if len(sys.argv) > 1 else ''
+    if arg == '--status':
+        main(); status()
+    elif arg == '--stage':
+        main(); stage()
+    elif arg == '--mark-uploaded':
+        mark_uploaded()
+    else:
+        main()

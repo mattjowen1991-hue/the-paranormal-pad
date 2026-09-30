@@ -15,11 +15,10 @@ be built straight onto the site.
 
 ## Keeping it current
 
-After each new report or tape goes live, **PROMPT: go-live** runs
-`python3 tools/claude_project_kit.py`, which rebuilds `knowledge/` from the site and tells you
-which files changed. Delete the old copies of those in the Project and upload the new ones
-(usually `03-site-facts.md` and `04-example-reports.md`). If `HOUSE-STYLE.md` or
-`docs/DRAFT-FORMAT.md` change, re-upload those too, and re-paste `INSTRUCTIONS.md` if it changes.
+After each new report or tape goes live, run **PROMPT: close-report**. It rebuilds `knowledge/`
+from the site, compares it with what's been uploaded (`uploaded.json`), opens only the files your
+Project is missing in Finder (`to-upload/`), and records the upload once you confirm.
+By hand: `python3 tools/claude_project_kit.py --status`, `--stage`, `--mark-uploaded`.
 
 ## Writing a report, start to finish
 

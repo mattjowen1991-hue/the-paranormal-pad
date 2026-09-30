@@ -10,6 +10,7 @@ after editing one, run `python3 tools/sync_prompts.py` to update its card.
 | `publish-report.md` | A New report card is in **Ready** - build it on a branch and put it in Review |
 | `publish-tape.md` | A New tape card is in **Ready** |
 | `go-live.md` | You've checked a report/tape preview - merge, check live, move to **Live** |
+| `close-report.md` | Straight after go-live - refresh the Claude Project kit and walk you through uploading the changed files |
 | `create-ticket.md` | Scope a new website feature, fix or maintenance job |
 | `open-ticket.md` | Work on a site ticket |
 | `close-ticket.md` | Ship an approved site ticket and tidy the docs |

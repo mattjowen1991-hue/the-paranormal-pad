@@ -11,7 +11,7 @@ import glob, json, os, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO = 'mattjowen1991-hue/the-paranormal-pad'
-ORDER = ['publish-report', 'publish-tape', 'go-live', 'create-ticket', 'open-ticket', 'close-ticket', 'site-health-check']
+ORDER = ['publish-report', 'publish-tape', 'go-live', 'close-report', 'create-ticket', 'open-ticket', 'close-ticket', 'site-health-check']
 
 
 def gh(*args):

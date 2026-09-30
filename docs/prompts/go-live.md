@@ -27,13 +27,11 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - The homepage shows it (and as Featured Case if chosen).
 
 5. TIDY UP
-   - Refresh the Claude Project kit: python3 tools/claude_project_kit.py, commit and push the
-     updated claude-project/ files, and tell me which files to re-upload to the Claude Project.
    - Comment on the card with the live link and the share link, close it, and:
      python3 tools/board.py move ISSUE_NUMBER "Live"
 
 6. SIGN-OFF
    - Live link and share link (the one to post on WhatsApp / socials)
    - https://developers.facebook.com/tools/debug/?q=SHARE_LINK - in case an old preview is cached
-   - Which Claude Project files to re-upload
+   - Next: "Now run PROMPT: close-report ISSUE_NUMBER to bring the Claude Project up to date."
 ```

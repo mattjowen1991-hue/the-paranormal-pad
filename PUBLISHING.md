@@ -5,7 +5,8 @@ Everything you need to write, build and publish Incident Reports and Tapes, step
 
 **The short version:**
 **Write** in the Claude Project → **file** it with the New report form → **build** it with
-`publish-report` in Claude Code → **check** the preview → **publish** it with `go-live`.
+`publish-report` in Claude Code → **check** the preview → **publish** it with `go-live` →
+**close** it with `close-report` (keeps the Claude Project up to date).
 
 | You'll use | Where |
 |---|---|
@@ -59,9 +60,9 @@ Start a new chat in the project and type:
 It should answer with the house style points (first person, British, no em dashes, My Thoughts
 ending with a question...) and the next free number. If it doesn't, check the five files uploaded.
 
-**Keeping it up to date:** after each report or tape goes live, `go-live` tells you which files
-changed. In the project, delete the old copy of each (hover it → **...** → **Remove**) and upload
-the new one from `claude-project/knowledge/`. If `INSTRUCTIONS.md` ever changes, paste it in again.
+**Keeping it up to date:** after each report or tape goes live, run **PROMPT: close-report**
+(Part 5). It works out which files your Project is missing, opens just those in Finder, and walks
+you through swapping them. You only do the drag-and-drop; it records when you're done.
 
 ---
 
@@ -120,7 +121,10 @@ You can still edit the draft on the card (the **...** menu on the issue → **Ed
    preview, closes the card and moves it to **Live**.
 3. You get the **share link** (e.g. `https://theparanormalpad.com/reports/009/`). That's the one
    to post on WhatsApp and social media, because it shows the report's own picture and title.
-4. Re-upload the Claude Project files it lists (Part 1, "Keeping it up to date").
+4. **Close it off:** copy the pinned **PROMPT: close-report** card into the same chat, with the
+   card number. It refreshes the Claude Project files, opens the ones your Project needs in
+   Finder, and tells you exactly what to remove and upload on claude.ai. Reply "uploaded" when
+   done and it records it. (Skipped it last time? It catches everything that's out of date.)
 
 ---
 
@@ -133,7 +137,7 @@ Usually you don't need the Claude Project for tapes.
 2. Drag the card to **Ready**.
 3. In Claude Code, run **PROMPT: publish-tape** with the card number. It fetches the video's
    details, writes the tape page, builds the cassette and gives you a preview where you can press Play.
-4. Happy? Run **PROMPT: go-live**.
+4. Happy? Run **PROMPT: go-live**, then **PROMPT: close-report**.
 
 ## Changing the website
 

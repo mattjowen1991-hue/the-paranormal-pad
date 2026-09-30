@@ -99,6 +99,9 @@ GitHub project **"The Paranormal Pad"** (users/mattjowen1991-hue/projects/5). Co
 | Review | Built; waiting for Matt to check the preview. |
 | Live | Published / merged. |
 
+After go-live, **close-report** refreshes the Claude Project kit and records the upload
+(`claude-project/uploaded.json`).
+
 The **Category** field is Report, Tape or Site. Move cards with `python3 tools/board.py`.
 New cards come from the issue forms: **New report**, **New tape**, **Site change**.
 
