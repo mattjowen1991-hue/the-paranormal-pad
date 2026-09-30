@@ -93,7 +93,7 @@ To make it the **featured case**, change `FEATURED` in `js/data.js` (the report 
 
 Every report and tape page ends with a **Witness statements** section. Readers leave a name and a statement; nothing appears until it's approved. Comments are stored in Google Firebase (free plan).
 
-**Moderating:** go to `/#moderate` (e.g. `https://…/the-paranormal-pad/#moderate`), sign in with Google as `mattjowen1991@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
+**Moderating:** type the secret word into the site's search box (or go to `/#moderate`), enter the PIN, then sign in with Google as `mattjowen1991@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. The secret word and PIN are in the private repo **mattjowen1991-hue/the-paranormal-pad-notes** (only stored as hashes in this public code; they hide the desk, but the real protection is the Google sign-in). Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
 
 ### One-time setup
 

@@ -153,6 +153,14 @@ function startApp() {
   // Set when typing opened the results over another page, so clearing the box can go back.
   let searchOpened = false;
   $('#q').addEventListener('input', e => {
+    // Secret word typed into the search box opens the moderation desk (see the private notes repo).
+    const typed = e.target.value;
+    if (typed.trim().length >= 4) Statements.isSecretWord(typed).then(ok => {
+      if (!ok || $('#q').value !== typed) return;
+      $('#q').value = ''; $('#q').blur();
+      state.q = '';
+      location.hash = 'moderate';
+    });
     state.q = e.target.value;
     state.page = 1;
     if (!state.q.trim()) {

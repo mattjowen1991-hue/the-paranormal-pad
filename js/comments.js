@@ -44,6 +44,47 @@ const Statements = (() => {
     return fbAuth;
   }
 
+  // ---------- secret word + PIN for the moderation desk ----------
+  // Stored as SHA-256 hashes of "paranormal-pad:word:…" / "paranormal-pad:pin:…" so they
+  // aren't readable in the page source. The real values are kept in the private notes repo.
+  // This is a curtain, not a lock: approving/deleting still needs the moderator's Google sign-in.
+  const SECRET_WORD_HASH = '536ffa358e9deaee314923dd89eb31fb9630ccb9677dda3542bd0d4ef9ef763a';
+  const PIN_HASH = '2eaec4b8bbd68270097396feb6de89afe7d9e85be1e829b968ef0da138760370';
+  async function sha256(text) {
+    const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return [...new Uint8Array(bytes)].map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  const isSecretWord = async text => (await sha256(`paranormal-pad:word:${text.trim().toLowerCase()}`)) === SECRET_WORD_HASH;
+  const unlocked = () => { try { return sessionStorage.getItem('pp-desk') === '1'; } catch (e) { return false; } };
+  function pinGate(root) {
+    return new Promise(resolve => {
+      root.innerHTML = `<div class="moderate-sheet">
+        <div class="docket"><div class="left"><span class="stamp red">Restricted</span><span class="code">Moderation desk</span></div></div>
+        <h1>Moderation desk</h1>
+        <form class="pin-form" novalidate>
+          <div class="field"><label for="desk-pin">Enter PIN</label>
+            <input id="desk-pin" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="······"></div>
+          <div><button class="btn dark" type="submit">Unlock</button></div>
+          <p class="statement-note bad" role="status" hidden></p>
+        </form></div>`;
+      const form = root.querySelector('.pin-form'), input = form.querySelector('input'), note = form.querySelector('.statement-note');
+      input.focus();
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        if ((await sha256(`paranormal-pad:pin:${input.value.trim()}`)) === PIN_HASH) {
+          try { sessionStorage.setItem('pp-desk', '1'); } catch (err) {}
+          resolve();
+          return;
+        }
+        form.querySelector('button').disabled = true;
+        await new Promise(r => setTimeout(r, 1000));   // slow down guessing
+        form.querySelector('button').disabled = false;
+        note.hidden = false; note.textContent = 'That PIN isn’t right.';
+        input.value = ''; input.focus();
+      });
+    });
+  }
+
   const moderator = () => settings().moderator || 'mattjowen1991@gmail.com';
   const titleFor = pageId => {
     const [kind, no] = pageId.split('-');
@@ -65,7 +106,6 @@ const Statements = (() => {
     section.innerHTML = `
       <div class="docket">
         <div class="left"><span class="stamp red">Witness statements</span><span class="code statement-count"></span></div>
-        <span class="clear">Read by The Reporter</span>
       </div>
       <p class="statements-intro">Had something similar happen, or have a theory about this one? File your statement below. The Reporter reads every statement before it’s added to the file.</p>
       <div class="statement-list" aria-live="polite"></div>
@@ -135,6 +175,7 @@ const Statements = (() => {
         <p>Comments aren’t switched on yet. Add the Firebase settings to <code>js/data.js</code> (see README → Comments).</p></div>`;
       return;
     }
+    if (!unlocked()) await pinGate(root);
     root.innerHTML = '<div class="moderate-sheet"><h1>Moderation desk</h1><p>Loading…</p></div>';
     const A = await auth();
     A.onAuthStateChanged(A.auth, user => render(user));
@@ -258,5 +299,5 @@ const Statements = (() => {
     });
   }
 
-  return { mount, mountModerator, enabled };
+  return { mount, mountModerator, enabled, isSecretWord };
 })();
