@@ -1,5 +1,7 @@
 # The Paranormal Pad
 
+> **Looking after the site day to day** (contact form emails, approving comments, which services run what): see **[GUIDE.md](GUIDE.md)**.
+
 *Echoes of the past.* First-hand accounts of the unexplained — Incident Reports and Incident Tapes, collected and retold by The Reporter. Built to replace the WordPress site at theparanormalpad.com.
 
 ## Structure
