@@ -213,7 +213,10 @@ def find_media(folder):
 
 def save_jpeg(src, dest, max_px):
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    r = subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', '82', '-Z', str(max_px), src, '--out', dest],
+    size = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', src], capture_output=True, text=True).stdout
+    dims = [int(n) for n in re.findall(r'pixel(?:Width|Height): (\d+)', size)]
+    shrink = ['-Z', str(max_px)] if dims and max(dims) > max_px else []   # only ever shrink, never enlarge
+    r = subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', '82', *shrink, src, '--out', dest],
                        capture_output=True, text=True)
     if r.returncode or not os.path.exists(dest):
         raise DraftError(f'Could not convert picture {src}: {r.stderr.strip()}')
