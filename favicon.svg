@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Definitions for clean vintage shadows and subtle brass/metal bezel rim -->
+  <defs>
+    <radialGradient id="key-surface" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FAF6EE"/>
+      <stop offset="85%" stop-color="#EBE3D3"/>
+      <stop offset="100%" stop-color="#DDD3C0"/>
+    </radialGradient>
+    <linearGradient id="metal-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A3632"/>
+      <stop offset="50%" stop-color="#1A1817"/>
+      <stop offset="100%" stop-color="#2D2926"/>
+    </linearGradient>
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1A1817" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Clean aged-parchment rounded squircle app/favicon tile -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="#EDE4D4" stroke="#1A1817" stroke-width="14" />
+  
+  <!-- Subtle stitched dossier boundary framing -->
+  <rect x="44" y="44" width="424" height="424" rx="94" fill="none" stroke="#C4B89F" stroke-width="3.5" stroke-dasharray="10,7" />
+
+  <!-- Archival Inquest Wax / Incident Stamp Dot (top-right corner) -->
+  <circle cx="408" cy="104" r="20" fill="#8B1E1E" />
+  <circle cx="408" cy="104" r="28" fill="none" stroke="#8B1E1E" stroke-width="3" stroke-dasharray="5,3.5" />
+
+  <!-- Outer Heavy Mechanical Typewriter Key Bezel (Metal Ring) with drop shadow -->
+  <g filter="url(#drop-shadow)">
+    <circle cx="256" cy="256" r="162" fill="url(#metal-bezel)" />
+    <!-- Polished Inner Brass / Chrome Rim Line -->
+    <circle cx="256" cy="256" r="144" fill="none" stroke="#D8C6A5" stroke-width="4.5" stroke-opacity="0.85" />
+    <!-- Typewriter Key Cap Glass / Enamel Face -->
+    <circle cx="256" cy="256" r="138" fill="url(#key-surface)" />
+    <!-- Fine inner concentric gauge line -->
+    <circle cx="256" cy="256" r="126" fill="none" stroke="#8C7D68" stroke-width="2" stroke-opacity="0.45" />
+  </g>
+
+  <!-- High-Contrast Classic Mechanical Typewriter "P" Monogram -->
+  <!-- Bold, authentic typewriter slab-serif character inked cleanly into the key center with open counter -->
+  <g fill="#1A1817">
+    <!-- Main stem with top and bottom typewriter slab serifs and clean geometric bowl -->
+    <path d="M 186 156 L 274 156 C 324 156 354 184 354 226 C 354 268 324 296 274 296 L 236 296 L 236 348 L 256 348 L 256 364 L 166 364 L 166 348 L 186 348 Z" />
+    
+    <!-- Clean, open cutout inside P bowl matching key surface -->
+    <path d="M 236 194 L 270 194 C 298 194 312 206 312 226 C 312 246 298 258 270 258 L 236 258 Z" fill="url(#key-surface)" />
+  </g>
+</svg>
