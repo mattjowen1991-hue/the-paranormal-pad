@@ -1,0 +1,12 @@
+# GitHub Pages (Jekyll) settings: keep the project's working files off the public website.
+exclude:
+  - README.md
+  - GUIDE.md
+  - PROJECT.md
+  - CLAUDE.md
+  - HOUSE-STYLE.md
+  - docs
+  - tools
+  - claude-project
+  - firebase.json
+  - firestore.rules

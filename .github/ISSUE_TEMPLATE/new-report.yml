@@ -1,0 +1,50 @@
+name: New report
+description: A finished Incident Report draft (from the Claude Project) with its pictures, ready to build.
+title: "Report: "
+labels: ["report"]
+projects: ["mattjowen1991-hue/5"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paste the **final draft** from the Claude Project, drop in the pictures, then submit.
+        Then move the card to **Ready** and run **PROMPT: publish-report** in Claude Code.
+        The draft format is in `docs/DRAFT-FORMAT.md`.
+  - type: textarea
+    id: draft
+    attributes:
+      label: Draft
+      description: The whole draft, starting with the --- header block. Paste it exactly as it is.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: pictures
+    attributes:
+      label: Pictures
+      description: |
+        Drag the pictures in here. Name them cover.jpg, 1.jpg, 2.jpg ... to match [PHOTO 1], [PHOTO 2] in the draft,
+        or drop them in that order (cover first). Any size or type.
+      placeholder: Drop images here
+    validations:
+      required: true
+  - type: textarea
+    id: videos
+    attributes:
+      label: Videos (optional)
+      description: YouTube links for any [VIDEO] markers that don't already have one, or anything to upload first.
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Make it the homepage Featured Case?
+      options:
+        - "As the draft says"
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for the build (optional)
+      description: Anything Claude should know - things to double-check, permissions, a date to publish on.

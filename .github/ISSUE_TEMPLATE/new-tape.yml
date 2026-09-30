@@ -1,0 +1,38 @@
+name: New tape
+description: A YouTube narration of one of the reports, to add as an Incident Tape cassette.
+title: "Tape: "
+labels: ["tape"]
+projects: ["mattjowen1991-hue/5"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Just the facts are needed - Claude Code fetches the video details and writes the tape page
+        (or paste a finished tape draft from the Claude Project in the last box).
+        Then move the card to **Ready** and run **PROMPT: publish-tape**.
+  - type: input
+    id: video
+    attributes:
+      label: YouTube link
+      placeholder: https://www.youtube.com/watch?v=...
+    validations:
+      required: true
+  - type: textarea
+    id: stories
+    attributes:
+      label: Which of my stories, and where they start and end
+      description: One line per story. Two lines make a double-sided cassette (first line = Side A).
+      placeholder: |
+        Report 006 - Letters on the Board - starts 09:31 - ends 19:33
+    validations:
+      required: true
+  - type: input
+    id: permission
+    attributes:
+      label: Permission
+      description: How the narrator gave permission (e.g. "credited u/MattJowen and asked on Reddit", "emailed").
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else (optional)
+      description: Credits to include, view counts to mention, a tape draft from the Claude Project, or where it should sit on the Tapes page.

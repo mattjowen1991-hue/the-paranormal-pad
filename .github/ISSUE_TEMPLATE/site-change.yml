@@ -1,0 +1,31 @@
+name: Site change
+description: A new feature, fix or maintenance job for the website.
+labels: ["site"]
+projects: ["mattjowen1991-hue/5"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What do you want?
+      description: In a sentence or two. Screenshots welcome. (Or use PROMPT - create-ticket to have Claude scope it properly.)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Feature
+        - Fix
+        - Maintenance
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where does it matter?
+      multiple: true
+      options:
+        - Phone
+        - Desktop
+        - Both

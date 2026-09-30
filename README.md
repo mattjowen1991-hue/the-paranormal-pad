@@ -14,7 +14,7 @@ the-paranormal-pad/
 ├── css/
 │   └── styles.css          # All styles (parchment case-file look, cassettes, phone layout)
 ├── js/
-│   ├── data.js             # Every report & tape, the featured case, subject tags, comment settings  ← edit this
+│   ├── data.js             # Every report & tape, the featured case, subject tags, comment settings
 │   ├── email.js            # Sends the Contact form + new-comment alerts via Web3Forms
 │   ├── comments.js         # "Witness statements" comments + the private moderation desk (#moderate)
 │   └── main.js             # Partial + content loader, archive, search, report pages, cassette players
@@ -41,65 +41,30 @@ the-paranormal-pad/
 Pages are switched with the address hash, so every page has its own link:
 `#archive` (Featured Case), `#reports`, `#tapes`, `#reporter`, `#contact`, `#file-008` (a report), `#tape-002` (a tape).
 
-## Adding a new report
+## Adding reports and tapes (the publishing engine)
 
-1. **Write it** in `content/reports/009.html` as plain HTML: `<p>` paragraphs, `<h2>` for main sections (◆ divider), `<h3>` for sub-sections (red heading with a dashed line), `<h4>` for small bold-italic titles, `<figure><img …><figcaption>…</figcaption></figure>` for photos (they're shown as paper-clipped prints automatically).
-   A YouTube video inside a report: `<div class="evidence" data-yt="VIDEO_ID"><span class="label">Video evidence</span><p>Caption</p><a href="https://www.youtube.com/watch?v=VIDEO_ID">Watch on YouTube ↗</a></div>`
-2. **Add the pictures** to `images/reports/009/` (`cover.jpg` for the card, `01.jpg`, `02.jpg` … for the report itself).
-3. **List it** at the top of `REPORTS` in `js/data.js`:
+New reports and tapes go through the board, not by hand:
 
-```js
-{
-  kind: 'report',
-  no: '009',
-  title: 'The Title',
-  date: '2026-11-01',              // filed date, YYYY-MM-DD
-  img: 'reports/009/cover.jpg',
-  loc: 'Bromsgrove, UK',           // shown as "Origin"
-  tags: ['Hauntings'],             // use names from SUBJECTS so the filters pick it up
-  excerpt: 'First couple of sentences, shown on the card…'
-},
-```
+1. **Draft** in the claude.ai Project (setup: `claude-project/README.md`), tweak, say "final".
+2. **File** it with the **New report** / **New tape** form (Issues -> New issue): paste the draft,
+   drop in the pictures. It lands on the board (https://github.com/users/mattjowen1991-hue/projects/5).
+3. Move the card to **Ready** and run **PROMPT: publish-report** / **publish-tape** in Claude Code.
+4. Check the preview, then run **PROMPT: go-live**.
 
-4. **Make its share page** (the link people share on WhatsApp etc., with this report's title, opening lines and cover picture):
+Under the hood, `tools/new_file.py DRAFT.md --media FOLDER` does the building: it writes
+`content/reports/NNN.html`, resizes the pictures into `images/reports/NNN/`, adds the entry to
+`js/data.js` (and `FEATURED` if asked) and makes the share page. The draft format is in
+`docs/DRAFT-FORMAT.md`; the writing standard is `HOUSE-STYLE.md`. Try a draft safely with
+`--dry-run`.
 
-```bash
-python3 tools/share_pages.py
-```
+Other tools: `tools/board.py` (move cards), `tools/sync_prompts.py` (update the pinned prompt
+cards from `docs/prompts/`), `tools/claude_project_kit.py` (refresh the Claude Project files),
+`tools/share_pages.py` (rebuild share pages).
 
-The counts, the "Latest dispatch" bar, the stats and the archive order all update themselves.
-To make it the **featured case**, change `FEATURED` in `js/data.js` (the report number plus the field statement, witness quote and details shown on the homepage).
-
-## Adding a new tape
-
-1. **Describe it** in `content/tapes/005.html` (copy one of the existing tape files — the first `evidence` block becomes the big video at the top; `data-start` / `data-end` are the seconds where your story starts and ends).
-2. **Cover image**: save the video's thumbnail as `images/tapes/005/cover.jpg`
-   (`https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg`).
-3. **List it** in `TAPES` in `js/data.js`:
-
-```js
-{
-  kind: 'tape',
-  no: '005',
-  title: 'The Title',
-  date: '2026-11-01',
-  img: 'tapes/005/cover.jpg',
-  loc: 'Channel Name (YouTube)',
-  tags: ['Hauntings'],
-  excerpt: 'Report 00X: The Title, narrated by Channel Name.',
-  url: 'https://www.youtube.com/watch?v=VIDEO_ID',
-  narrator: 'Channel Name',
-  dur: 1510,                        // running time in seconds (end − start)
-  sides: [
-    { side: 'A', report: '001', title: 'The Title', start: 315, end: 1825 }
-  ]
-},
-```
-
-- Then run `python3 tools/share_pages.py` to make its share page (`/tapes/005/`).
-- **Two stories in one video?** Add a second entry to `sides` (`side: 'B'`) and the cassette becomes double-sided with a Side A / Side B switch.
-- **Tapes page order:** the tape with `pinned: true` (the Black Country radio interview) always sits at the top; the rest follow from the highest number down, so Tape 001 is always last.
-- The cassette's play button plays the video inside the page, starting and stopping at your story. Where YouTube can't load, it opens YouTube instead.
+- **Two stories in one video?** Give the tape two `sides` lines - it becomes a double-sided
+  cassette with a Side A / Side B switch.
+- **Tapes page order:** the tape with `pinned: true` (the Black Country radio interview) always
+  sits at the top; the rest follow from the highest number down.
 
 ## Comments ("Witness statements")
 

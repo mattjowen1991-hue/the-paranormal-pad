@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""Rebuild claude-project/knowledge/ - the files uploaded to the claude.ai Project that
+drafts reports and tapes.
+
+    python3 tools/claude_project_kit.py
+
+Makes (from the live content, so it stays current as reports are added):
+  knowledge/01-house-style.md      copy of HOUSE-STYLE.md
+  knowledge/02-draft-format.md     copy of docs/DRAFT-FORMAT.md
+  knowledge/03-site-facts.md       every report and tape: number, title, date, place, subjects
+  knowledge/04-example-reports.md  every published report, converted back to the draft format
+  knowledge/05-example-tapes.md    every tape page, in the draft format
+Prints which files changed (those are the ones to re-upload to the Project).
+"""
+import hashlib, html, json, os, re
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, 'claude-project', 'knowledge')
+
+
+def load(name, js):
+    return json.loads(re.search(rf'const {name} = (\[.*?\]|\{{.*?\}});\n', js, re.S).group(1))
+
+
+def clock(s):
+    s = int(s or 0)
+    return f'{s // 3600}:{s % 3600 // 60:02d}:{s % 60:02d}' if s >= 3600 else f'{s // 60:02d}:{s % 60:02d}'
+
+
+def md_inline(h):
+    h = re.sub(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', lambda m: f'[{md_inline(m.group(2))}]({html.unescape(m.group(1))})', h, flags=re.S)
+    h = re.sub(r'<(strong|b)>(.*?)</\1>', r'**\2**', h, flags=re.S)
+    h = re.sub(r'<(em|i)>(.*?)</\1>', r'*\2*', h, flags=re.S)
+    h = re.sub(r'<br\s*/?>', '\n', h)
+    h = re.sub(r'<[^>]+>', '', h)
+    return html.unescape(h).strip()
+
+
+def to_draft_body(content):
+    n = [0]
+    def photo(m):
+        n[0] += 1
+        cap = re.search(r'<figcaption>(.*?)</figcaption>', m.group(0), re.S)
+        return f'\n\n[PHOTO {n[0]}: {md_inline(cap.group(1)) if cap else ""}]\n\n'
+    def video(m):
+        block = m.group(0)
+        vid = re.search(r'data-yt="([\w-]+)"', block)
+        if not vid:
+            link = re.search(r'href="([^"]+)"', block)
+            return f'\n\n[{md_inline(re.search(r"<p>(.*?)</p>", block, re.S).group(1)) if "<p>" in block else "Link"}]({link.group(1) if link else ""})\n\n'
+        st = re.search(r'data-start="(\d+)"', block); en = re.search(r'data-end="(\d+)"', block)
+        cap = re.search(r'<p>(.*?)</p>', block, re.S)
+        times = f' | {clock(st.group(1)) if st else "00:00"}-{clock(en.group(1)) if en else ""}' if (st or en) else ''
+        return f'\n\n[VIDEO: https://youtu.be/{vid.group(1)} | {md_inline(cap.group(1)) if cap else ""}{times}]\n\n'
+    s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)
+    s = re.sub(r'<figure.*?</figure>', photo, s, flags=re.S)
+    s = re.sub(r'<div class="evidence".*?</div>', video, s, flags=re.S)
+    s = re.sub(r'<div class="side-actions">.*?data-seek="(\d+)".*?</div>', '\n\n[PLAY SIDE]\n\n', s, flags=re.S)
+    s = re.sub(r'<h([234])>(.*?)</h\1>', lambda m: f'\n\n{"#" * int(m.group(1))} {md_inline(m.group(2))}\n\n', s, flags=re.S)
+    s = re.sub(r'<blockquote>(.*?)</blockquote>', lambda m: f'\n\n> {md_inline(m.group(1))}\n\n', s, flags=re.S)
+    s = re.sub(r'<ul>(.*?)</ul>', lambda m: '\n\n' + '\n'.join('- ' + md_inline(li) for li in re.findall(r'<li>(.*?)</li>', m.group(1), re.S)) + '\n\n', s, flags=re.S)
+    s = re.sub(r'<p>(.*?)</p>', lambda m: f'\n\n{md_inline(m.group(1))}\n\n', s, flags=re.S)
+    s = re.sub(r'<[^>]+>', '', s)
+    return re.sub(r'\n{3,}', '\n\n', s).strip()
+
+
+def write(name, text, changed):
+    path = os.path.join(OUT, name)
+    old = open(path, encoding='utf-8').read() if os.path.exists(path) else None
+    if old != text:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(text)
+        changed.append(name)
+
+
+def main():
+    os.makedirs(OUT, exist_ok=True)
+    js = open(os.path.join(ROOT, 'js', 'data.js'), encoding='utf-8').read()
+    reports, tapes, featured = load('REPORTS', js), load('TAPES', js), load('FEATURED', js)
+    subjects = re.findall(r'["\']([^"\']+)["\']', re.search(r'const SUBJECTS = \[(.*?)\];', js, re.S).group(1))
+    changed = []
+
+    write('01-house-style.md', open(os.path.join(ROOT, 'HOUSE-STYLE.md'), encoding='utf-8').read(), changed)
+    write('02-draft-format.md', open(os.path.join(ROOT, 'docs', 'DRAFT-FORMAT.md'), encoding='utf-8').read(), changed)
+
+    rows = '\n'.join(f'| {r["no"]} | {r["title"]} | {r["date"]} | {r["loc"]} | {", ".join(r["tags"])} |' for r in sorted(reports, key=lambda r: r['no']))
+    trows = '\n'.join(f'| {t["no"]} | {t["title"]} | {t["date"]} | {t.get("narrator", "-")} | '
+                      + ('; '.join(f'Side {s["side"]}: Report {s["report"]} {clock(s["start"])}-{clock(s["end"])}' for s in t.get("sides", [])) or '-')
+                      + (' (pinned first)' if t.get('pinned') else '') + ' |' for t in sorted(tapes, key=lambda t: t['no']))
+    nxt_r = f'{max(int(r["no"]) for r in reports) + 1:03d}'
+    nxt_t = f'{max(int(t["no"]) for t in tapes) + 1:03d}'
+    facts = f"""# Site facts - The Paranormal Pad
+
+Generated from the live site by tools/claude_project_kit.py. Use it for continuity: report
+numbers, what has already been published, and the allowed subjects.
+
+- Site: https://theparanormalpad.com - Matt is "The Reporter".
+- Next report number: **{nxt_r}** (don't put it in the draft - it's assigned automatically). Next tape: **{nxt_t}**.
+- Current Featured Case: Report {featured.get("no")}.
+- Allowed subjects: {", ".join(subjects)}. A new subject needs adding to the site first - say so.
+- Comments on the site are called **witness statements**.
+
+## Published reports
+
+| No | Title | Filed | Origin | Subjects |
+|---|---|---|---|---|
+{rows}
+
+## Published tapes
+
+| No | Title | Published | Narrator | Sides |
+|---|---|---|---|---|
+{trows}
+
+## People who appear in reports (keep names and pseudonyms consistent)
+
+Check the example reports before reusing a name. Pseudonyms already in use include "Fran" and
+"John" (Report 008). Real names used with permission include Lou (007), Talita Klaass (005) and
+Josh English (006). Matt's Nan and Grandad, partner and daughter appear in 001 and 002.
+"""
+    write('03-site-facts.md', facts, changed)
+
+    parts = ['# Example reports - every published Incident Report, in the draft format\n\n'
+             'These are Matt\'s real published reports: the best guide to his voice. They were written before\n'
+             'HOUSE-STYLE.md, so where they differ (dashes, "comments below", AI-sounding phrases, typos),\n'
+             'follow HOUSE-STYLE.md. Photo numbers here are only illustrative.\n']
+    for r in sorted(reports, key=lambda r: r['no']):
+        body = to_draft_body(open(os.path.join(ROOT, 'content', 'reports', r['no'] + '.html'), encoding='utf-8').read())
+        parts.append(f'\n\n==================== REPORT {r["no"]} ====================\n\n---\nkind: report\ntitle: {r["title"]}\n'
+                     f'date: {r["date"]}\nlocation: {r["loc"]}\nsubjects: {", ".join(r["tags"])}\n---\n{body}\n')
+    write('04-example-reports.md', ''.join(parts), changed)
+
+    parts = ['# Example tapes - every published Incident Tape page, in the draft format\n\n'
+             'Tape 004 (the radio interview) predates the tape format and is written differently; follow 001-003.\n']
+    for t in sorted(tapes, key=lambda t: t['no']):
+        raw = open(os.path.join(ROOT, 'content', 'tapes', t['no'] + '.html'), encoding='utf-8').read()
+        raw = re.sub(r'^\s*<div class="evidence".*?</div>', '', raw, count=1, flags=re.S)   # the engine adds the video itself
+        body = to_draft_body(raw)
+        letters = iter('ABCDEFGH')
+        body = re.sub(r'\[PLAY SIDE\]', lambda m: f'[PLAY SIDE {next(letters)}]', body)
+        sides = ''.join(f'\n  - {s["side"]} | {s["report"]} | {s["title"]} | {clock(s["start"])} | {clock(s["end"])}' for s in t.get('sides', []))
+        parts.append(f'\n\n==================== TAPE {t["no"]} ====================\n\n---\nkind: tape\ntitle: {t["title"]}\ndate: {t["date"]}\n'
+                     f'narrator: {t.get("narrator", "")}\nvideo: {t.get("url", "")}\nsubjects: {", ".join(t["tags"])}\n'
+                     + (f'sides:{sides}\n' if sides else '') + f'---\n{body}\n')
+    write('05-example-tapes.md', ''.join(parts), changed)
+
+    print('Changed (re-upload these to the Claude Project):' if changed else 'Nothing changed.')
+    for c in changed:
+        print('  claude-project/knowledge/' + c)
+
+
+if __name__ == '__main__':
+    main()
