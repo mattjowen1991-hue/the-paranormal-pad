@@ -74,9 +74,11 @@ def inline(s):
         return re.sub(r'(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])', r'<em>\1</em>', t)
     out, links = esc(s), []
     def keep_link(m):
-        links.append(f'<a href="{html.escape(html.unescape(m.group(2)), quote=True)}" rel="noopener" target="_blank">{emphasis(m.group(1))}</a>')
+        url = html.unescape(m.group(2))
+        external = '' if url.startswith('#') else ' rel="noopener" target="_blank"'   # #file-003 = a page on this site
+        links.append(f'<a href="{html.escape(url, quote=True)}"{external}>{emphasis(m.group(1))}</a>')
         return f'\x00{len(links) - 1}\x00'
-    out = re.sub(r'\[([^\]]+)\]\((https?://[^)\s]+)\)', keep_link, out)
+    out = re.sub(r'\[([^\]]+)\]\((https?://[^)\s]+|#[\w-]+)\)', keep_link, out)
     out = emphasis(out)
     out = re.sub(r'\x00(\d+)\x00', lambda m: links[int(m.group(1))], out)
     return out

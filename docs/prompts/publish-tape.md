@@ -30,7 +30,7 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      their permission only if the card confirms permission; otherwise ask me.
 
 4. NUMBER AND PLACE
-   - Default: next free tape number. The pinned radio tape (Tape 004) stays at the top of the
+   - Default: next free tape number. The pinned radio tape (Tape 005) stays at the top of the
      Tapes page whatever its number. If I've asked for a different number or order, confirm how
      before building (renumbering an existing tape also moves its comments and share link).
 
