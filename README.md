@@ -149,6 +149,3 @@ Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `
 2. **Settings → Pages → Build and deployment:** Source *Deploy from a branch*, branch `main`, folder `/ (root)`.
 3. The site appears at `https://<username>.github.io/the-paranormal-pad/`.
 4. **Custom domain (when ready to leave WordPress):** add `theparanormalpad.com` under Settings → Pages → Custom domain (this creates a `CNAME` file), then point the domain's DNS at GitHub Pages and turn on *Enforce HTTPS*.
-
-## Still to do
-
