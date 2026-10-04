@@ -377,6 +377,10 @@ aside { display: grid; gap: 1.25rem; }
 .label-lines .narrator > span:first-child { overflow: hidden; text-overflow: ellipsis; }
 .cassette-label .platform { display: inline-flex; align-items: center; gap: .4em; flex: none; color: var(--ink-2); font-weight: 700; }
 .cassette-label .platform svg { width: 16px; height: 16px; margin: -4px 0 -3px; }
+/* no narrator line: the mark sits at the end of the title's last line instead */
+.cassette-label h2 { display: flex; align-items: flex-end; gap: .8rem; }
+.cassette-label h2 .t { flex: 1; text-wrap: balance; }
+.cassette-label h2 .platform { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; line-height: var(--lh); }
 /* keep the flip line on its ruled line on narrow screens */
 .label-lines .flip-hint { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sides { display: inline-flex; border: 1.5px solid var(--ink-2); }

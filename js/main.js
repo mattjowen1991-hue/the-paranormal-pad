@@ -198,6 +198,8 @@ function startApp() {
   function cassetteHTML(f) {
     const yt = ytIdOf(f), sp = !yt && spIdOf(f), first = f.sides?.[0];
     const plat = PLATFORMS[yt ? 'yt' : sp ? 'sp' : ''];
+    // The mark sits at the end of the narrator line, or of the title when there's no narrator.
+    const badge = plat ? `<span class="platform" title="Plays from ${plat[0]}">${plat[1]}${plat[0]}</span>` : '';
     const start = first ? first.start : 0;
     return `
     <article class="deck cassette${f.sides?.length > 1 ? ' two-sided' : ''}" data-no="${f.no}" data-yt="${yt || ''}" data-sp="${sp || ''}">
@@ -207,9 +209,8 @@ function startApp() {
               `<button type="button" data-side="${i}" aria-pressed="${i === 0}">Side ${sd.side}</button>`).join('')}</div>`
           : ''}</div>
         <div class="label-lines">
-        <h2>${esc(first ? first.title : f.title)}</h2>
-        ${f.narrator || plat ? `<div class="narrator"><span>${f.narrator ? `Narrated by ${esc(f.narrator)}` : ''}</span>${plat
-          ? `<span class="platform" title="Plays from ${plat[0]}">${plat[1]}${plat[0]}</span>` : ''}</div>` : ''}
+        <h2><span class="t">${esc(first ? first.title : f.title)}</span>${f.narrator ? '' : badge}</h2>
+        ${f.narrator ? `<div class="narrator"><span>Narrated by ${esc(f.narrator)}</span>${badge}</div>` : ''}
         ${f.sides?.length > 1 ? `<button type="button" class="flip-hint">⇄ Flip to Side ${f.sides[1].side}: <span>${esc(f.sides[1].title)}</span></button>` : ''}
         </div>
         <div class="cassette-window">
@@ -401,7 +402,7 @@ function startApp() {
       d.classList.remove('flipping'); void d.offsetWidth; d.classList.add('flipping');
       d.classList.toggle('side-b', i === 1);
       d.querySelector('.side-name').textContent = `Side ${sd.side} • Incident Tape ${file.no}`;
-      d.querySelector('.cassette-label h2').textContent = sd.title;
+      d.querySelector('.cassette-label h2 .t').textContent = sd.title;
       d.querySelectorAll('.sides button').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.side) === i)));
       const hint = d.querySelector('.flip-hint');
       if (hint) hint.innerHTML = `⇄ Flip to Side ${other.side}: <span>${esc(other.title)}</span>`;
