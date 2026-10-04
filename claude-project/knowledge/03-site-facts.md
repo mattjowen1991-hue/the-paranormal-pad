@@ -30,7 +30,7 @@ numbers, what has already been published, and the allowed subjects.
 | 002 | Shadows of the Past & The Stranger at the Door | 2024-11-09 | Paranormal M | Side A: Report 002 29:35-57:50; Side B: Report 001 00:22-29:35 |
 | 003 | Letters on the Board | 2026-05-22 | Midnight Narrative | Side A: Report 006 09:31-19:33 |
 | 004 | A Night That Time Stood Still | 2024-10-10 | The Reporter & J | Side A: Report 003 00:00-09:08 |
-| 005 | The Medford Shadow & The Stranger at the Door | 2026-10-03 | Chillers & Thrillers | Side A: Report 007 23:16-37:30; Side B: Report 001 00:32-23:15 |
+| 005 | The Medford Shadow & The Stranger at the Door | 2026-10-03 | Chillers & Thrillers | Side A: Report 007 23:50-38:04; Side B: Report 001 01:00-23:49 |
 | 006 | Our Haunted House Interview (The Stranger at the Door case) | 2026-06-14 | - | - (pinned first) |
 
 ## People who appear in reports (keep names and pseudonyms consistent)
