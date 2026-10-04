@@ -72,11 +72,19 @@ When she finally got back, I told her what had happened, and we tried to rationa
 
 ### Incident 4
 
+*Note to the reader: my partner asked me not to include the following details when I originally published this report, as it was a very private moment for her. Now that time has passed, she has agreed to let me add them. They were added in October 2026, after this report had already been narrated several times, so if you listen to one of the Incident Tapes for this report, there’s a chance it won’t include the details about the song. The full account is below.*
+
 A short while later, another unsettling event occurred. I had gone to visit my Nan, who lives about a 10-minute drive from our home. It was early evening, and we were sitting in her living room having a cup of tea when my partner called me, clearly distressed.
 
-She told me that she had been in the kitchen washing up when the baby monitor started acting up – flickering, distorting, and showing visual noise. Then, she heard a massive bang on our front door, so loud and forceful that it immediately woke our daughter, who began crying in her cot. My partner said it sounded as if someone had thrown something heavy at the door or run up the driveway and slammed into it with great force.
+She told me she had been in the kitchen washing up when the baby monitor started acting up, flickering, distorting and showing visual noise. Then she heard a massive bang on our front door, so loud and forceful that it immediately scared her. She said it sounded as if someone had thrown something heavy at the door, or run up the driveway and slammed into it with great force. The moment it happened, our daughter woke up and started crying in her cot.
 
-This really freaked her out, and I rushed home to check the CCTV. But when I reviewed the footage, there was nothing – no one outside, no movement captured. The Ring doorbell hadn’t been triggered either. We tried to stay rational, but given everything that had happened before, we were struggling not to let fear take over. My partner said the most unsettling part was how our daughter woke up crying the moment the bang occurred. She couldn’t shake the uneasy feeling that came with it, like something was very wrong.
+Feeling very uneasy, my partner went to get her phone to ring me. It was sitting next to the baby monitor, and as she went to pick it up, Spotify started playing a song on its own.
+
+It was “Fields of Gold” by Eva Cassidy, the song played at her Grandad’s funeral. He had sadly passed away in 2015, and as far as we can remember, this was the first time anything like this had happened since the funeral.
+
+This really freaked her out, and I rushed home to check the CCTV. But when I reviewed the footage, there was nothing. No one outside, no movement captured. The Ring doorbell hadn’t been triggered either.
+
+We tried to stay rational, but given everything that had happened before, we were struggling not to let fear take over. My partner said the most unsettling part was the song, and how it started playing so soon after the bang. She couldn’t shake the uneasy feeling that came with it, and the tension in our home only grew.
 
 ### Incident 5
 
@@ -206,9 +214,23 @@ He kindly said he would ask his mother if she had any additional stories or info
 
 ## My Thoughts
 
-Reflecting on everything that happened, I genuinely believe something extraordinary occurred. Despite the fear and confusion, I lean towards the idea that it might have been a positive presence or a form of someone saying goodbye to my partner or myself. It felt like a mixture of unsettling and deeply personal experiences, which might suggest an attempt to communicate or offer reassurance.
+Reflecting on everything that happened, I genuinely believe something extraordinary occurred. Despite the fear and confusion, I lean towards the idea that it might have been a positive presence, or someone’s way of saying goodbye to my partner or me. It felt like a mixture of unsettling and deeply personal experiences, which might suggest an attempt to communicate or offer reassurance.
 
-I’d love to hear what you all think. Can anyone relate to similar experiences or offer insights into what might have been happening? Your thoughts and experiences are welcome in the comments below. Thank you so much for taking the time to read through my story!
+Looking back, I keep returning to the song in the kitchen, because it wasn’t the only time something like this would happen to us.
+
+Years later, in 2024, my partner’s other Grandad sadly passed away. It hit her hard. She was going through a particularly difficult time in her life, and she was struggling to understand what life means and what happens to us when we die. One day, as we were reversing onto our driveway, her phone, which was connected to the car’s Bluetooth, started playing “Heaven” by DJ Sammy and Yanou featuring Do, completely on its own.
+
+The strange thing is that it didn’t start from the beginning. It started right on the chorus, on the words about being in heaven. My partner took it as a sign from her Grandad, letting her know he was okay and that she could stop worrying.
+
+This makes me wonder about that evening in the kitchen. Was “Fields of Gold” the same thing, the Grandad she lost in 2015 reaching out in whatever way he could? The more I think about what was happening in our house in 2020, the more I wonder whether something else was in there with us, and her Grandad came to ease things, either by getting rid of whatever it was or by helping it move on. The vicar’s suggestion that the elderly lady who lived here before us might need help moving on has stayed with me because of this.
+
+I often wonder whether it was him on the baby monitor that night too: the figure walking up to our daughter’s cot, stopping, then walking away, over and over, as if checking she was okay. And whether it was him who kicked the side of our bed and gave me that overwhelming urge to go and check on her, only to find her soaked from a spilt drink.
+
+To keep things balanced, there are everyday explanations for both songs. Phones and car Bluetooth connections can do strange things, Spotify can start playing on its own, and grief can make all of us look harder for signs.
+
+But of all the songs that could have played, it was her Grandad’s funeral song that started right after the bang on the door. And years later, it was a song about heaven, starting right on the chorus, while she was grieving and troubled by thoughts of what happens when we die. None of that proves anything, but it’s hard for either of us to put it down to coincidence, especially given the intensity and frequency of the events in 2020.
+
+What do you think? Could it have been her Grandad watching over our daughter, or was something else at play in our house? I’d love to hear your thoughts, so please do leave your witness statement below, especially if a song or a sign has ever turned up for you at exactly the right moment. Thank you so much for taking the time to read through my story!
 
 
 ==================== REPORT 002 ====================
