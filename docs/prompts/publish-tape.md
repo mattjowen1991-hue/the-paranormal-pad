@@ -53,6 +53,9 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      match the video time, and a two-sided tape must switch sides correctly (Spotify: also while
      playing, and it must stop at the side's end).
    - Check the tape page (#tape-NNN) and the share page (/tapes/NNN/).
+   - Open each report the tape tells (#file-NNN): its "Listen instead" player now defaults to this
+     narration (newest first). Press Listen and check it starts at the story. Not a narration
+     (interview, revisit)? The draft needs `narration: no`, and the report shows "Also on tape".
 
 7. PULL REQUEST AND REVIEW
    - Push, open a PR ("Closes #ISSUE_NUMBER"), comment on the card with the facts you found,

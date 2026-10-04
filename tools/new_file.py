@@ -315,6 +315,11 @@ def build(draft_path, media, number=None, dry=False):
                       'narrator': meta['narrator'], 'dur': dur or None, 'sides': sides})
         if not entry['dur']:
             entry.pop('dur')
+        # Interviews, revisits etc. aren't offered as "Listen instead" on their reports, just linked.
+        if meta.get('narration', 'yes').lower() in ('no', 'false', 'n'):
+            entry['narration'] = False
+            if meta.get('about'):
+                entry['reports'] = [f'{int(x):03d}' for x in re.split(r'[,\s]+', meta['about']) if x.strip()]
         if not meta.get('excerpt'):
             entry['excerpt'] = excerpt_from(body_html.split('\n', 1)[-1])
     elif '\x01' in body_html:

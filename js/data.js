@@ -128,7 +128,11 @@ const TAPES = [
     "excerpt": "Myself and my partner spoke with Ian Hideous from Black Country Extra radio station for an interview regarding the high strangeness that happened in our home, which is fully documented in Report 001: The…",
     "url": "https://theparanormalpad.wordpress.com/2026/06/14/incident-tape-002-radio-interview-the-stranger-at-the-door-case/",
     "dur": 1805,
-    "pinned": true
+    "pinned": true,
+    "narration": false,
+    "reports": [
+      "001"
+    ]
   },
   {
     "kind": "tape",
@@ -186,7 +190,8 @@ const TAPES = [
         "start": 0,
         "end": 548
       }
-    ]
+    ],
+    "narration": false
   },
   {
     "kind": "tape",
