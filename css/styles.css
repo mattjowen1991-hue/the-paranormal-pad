@@ -372,6 +372,11 @@ aside { display: grid; gap: 1.25rem; }
 .cassette-label .narrator { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 /* single short lines: sit the text just above the rule at the bottom of their line */
 .label-lines .narrator, .label-lines .flip-hint { box-sizing: border-box; height: var(--lh); line-height: 1; padding: 0; padding-top: calc(var(--lh) - 1em - 7px); margin: 0; }
+/* narrator on the left, the YouTube / Spotify mark on the right */
+.label-lines .narrator { display: flex; justify-content: space-between; align-items: baseline; gap: .8em; white-space: nowrap; }
+.label-lines .narrator > span:first-child { overflow: hidden; text-overflow: ellipsis; }
+.cassette-label .platform { display: inline-flex; align-items: center; gap: .4em; flex: none; color: var(--ink-2); font-weight: 700; }
+.cassette-label .platform svg { width: 16px; height: 16px; margin: -4px 0 -3px; }
 /* keep the flip line on its ruled line on narrow screens */
 .label-lines .flip-hint { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sides { display: inline-flex; border: 1.5px solid var(--ink-2); }
