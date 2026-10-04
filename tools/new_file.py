@@ -91,6 +91,22 @@ def yt_id(url):
     return m.group(1)
 
 
+def tape_media(url):
+    """A tape's recording: ('yt', id) for a YouTube video or ('sp', id) for a Spotify episode."""
+    m = re.search(r'open\.spotify\.com/(?:embed/)?episode/(\w{22})', url)
+    if m:
+        return 'sp', m.group(1)
+    if 'spotify' in url:
+        raise DraftError(f'Spotify tapes need an episode link (open.spotify.com/episode/...): {url}')
+    return 'yt', yt_id(url)
+
+
+def media_link(kind, mid, sec=0):
+    if kind == 'sp':
+        return f'https://open.spotify.com/episode/{mid}' + (f'?t={sec}' if sec else '')
+    return f'https://www.youtube.com/watch?v={mid}' + (f'&amp;t={sec}s' if sec else '')
+
+
 def body_to_html(body, photos, kind, used):
     """photos: {n: 'images/reports/009/01.jpg'}; used: set of photo numbers seen."""
     blocks, para, lst = [], [], []
@@ -185,7 +201,8 @@ def clean_subjects(raw, allowed):
 
 def excerpt_from(body_html, limit=210):
     first = re.search(r'<p>(.*?)</p>', body_html, re.S)
-    text = html.unescape(re.sub(r'<[^>]+>', ' ', first.group(1) if first else '')).split()
+    para = re.sub(r'<br\s*/?>', ' ', first.group(1) if first else '')
+    text = html.unescape(re.sub(r'<[^>]+>', '', para)).split()   # inline tags vanish without leaving a gap
     text = ' '.join(text)
     if len(text) <= limit:
         return text
@@ -264,7 +281,7 @@ def build(draft_path, media, number=None, dry=False):
         for req in ('video', 'narrator'):
             if not meta.get(req):
                 raise DraftError(f'A tape header needs "{req}".')
-        vid = yt_id(meta['video'])
+        mkind, vid = tape_media(meta['video'])
         sides = []
         for line in meta.get('sides', []):
             parts = [p.strip() for p in line.split('|')]
@@ -276,21 +293,25 @@ def build(draft_path, media, number=None, dry=False):
         if not sides:
             sides = [{'side': 'A', 'report': '', 'title': meta['title'], 'start': 0, 'end': 0}]
         first = sides[0]
-        hero = (f'<div class="evidence" data-yt="{vid}"' + (f' data-start="{first["start"]}"' if first['start'] else '')
+        sp = mkind == 'sp'
+        hero = (f'<div class="evidence" data-{mkind}="{vid}"' + (f' data-start="{first["start"]}"' if first['start'] else '')
                 + (f' data-end="{first["end"]}"' if first['end'] and len(sides) == 1 else '')
-                + f'><span class="label">Video evidence</span><p>{esc(meta.get("video_title", meta["title"]))}'
-                + f', narrated by {esc(meta["narrator"])}.</p><a href="https://www.youtube.com/watch?v={vid}" rel="noopener" target="_blank">Watch on YouTube ↗</a></div>')
+                + (f' data-img="images/{folder}/{no}/cover.jpg"' if sp else '')
+                + f'><span class="label">{"Audio" if sp else "Video"} evidence</span><p>{esc(meta.get("video_title", meta["title"]))}'
+                + f', narrated by {esc(meta["narrator"])}.</p><a href="{media_link(mkind, vid)}" rel="noopener" target="_blank">'
+                + f'{"Listen on Spotify" if sp else "Watch on YouTube"} ↗</a></div>')
         def side_actions(m):
             sd = next((s for s in sides if s['side'] == m.group(1)), None)
             if not sd:
                 raise DraftError(f'[PLAY SIDE {m.group(1)}] used but there is no side {m.group(1)} in the header.')
             read = f'<a class="btn light" href="#file-{sd["report"]}">Read Report {sd["report"]}</a>' if sd['report'] else ''
             return (f'<div class="side-actions"><a class="btn dark side-play" data-seek="{sd["start"]}" '
-                    f'href="https://www.youtube.com/watch?v={vid}&amp;t={sd["start"]}s" rel="noopener" target="_blank">▶ Play '
+                    f'href="{media_link(mkind, vid, sd["start"])}" rel="noopener" target="_blank">▶ Play '
                     + (f'Side {sd["side"]}' if len(sides) > 1 else f'from {sd["start"] // 60:02d}:{sd["start"] % 60:02d}') + f'</a>{read}</div>')
         body_html = hero + '\n' + re.sub(r'\x01SIDE ([AB])\x01', side_actions, body_html)
         dur = sum(max(0, (s['end'] or s['start']) - s['start']) for s in sides)
-        entry.update({'loc': meta.get('location') or f'{meta["narrator"]} (YouTube)', 'url': f'https://www.youtube.com/watch?v={vid}',
+        entry.update({'loc': meta.get('location') or f'{meta["narrator"]} ({"Spotify" if sp else "YouTube"})',
+                      'url': media_link(mkind, vid).replace('&amp;', '&'),
                       'narrator': meta['narrator'], 'dur': dur or None, 'sides': sides})
         if not entry['dur']:
             entry.pop('dur')

@@ -90,7 +90,9 @@ A piece of family folklore from the 1940s...
 Narration by Midnight Narrative Horror. Story by The Reporter.
 ```
 
-- `date` is the video's publish date. `sides`: one line per story in the video -
+- `video` can be a YouTube link or a Spotify episode link (`https://open.spotify.com/episode/...`);
+  Spotify tapes play in Spotify's own player on the cassette.
+- `date` is the video's (or episode's) publish date. `sides`: one line per story in the video -
   `side | report number | title | start | end` (times as `mm:ss` or `h:mm:ss`). Two lines make a
   double-sided cassette with a Side A / Side B switch.
 - `[PLAY SIDE A]` becomes the "Play" and "Read Report" buttons for that side.

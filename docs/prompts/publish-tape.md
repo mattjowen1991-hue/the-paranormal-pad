@@ -19,6 +19,12 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      show both and ask.
    - Cover: download https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg (fall back to hqdefault.jpg)
      to /tmp/pad-ISSUE_NUMBER/media/cover.jpg and look at it.
+   - Spotify episode instead of YouTube: title from https://open.spotify.com/oembed?url=EPISODE_URL;
+     show, publish date and length from the __NEXT_DATA__ JSON in https://open.spotify.com/embed/episode/ID;
+     the description and chapters from the podcast host if the embed links one (e.g. Spreaker's API).
+     Cover: the episode artwork (prefer the host's original 16:9 image). Spotify rarely has chapters,
+     so check my times by listening: a few seconds of transcript around each start/end (faster-whisper
+     on the episode audio) shows exactly where each story is announced.
    - Confirm each story's report number exists in js/data.js.
 
 3. WRITE THE TAPE DRAFT (unless the card already has one - then use it, tidy only)
@@ -30,7 +36,7 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      their permission only if the card confirms permission; otherwise ask me.
 
 4. NUMBER AND PLACE
-   - Default: next free tape number. The pinned radio tape (Tape 005) stays at the top of the
+   - Default: next free tape number. The pinned radio tape (Tape 006) stays at the top of the
      Tapes page whatever its number. If I've asked for a different number or order, confirm how
      before building (renumbering an existing tape also moves its comments and share link).
 
@@ -44,7 +50,8 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - python3 -m http.server 8080; open http://localhost:8080/#tapes at 1280px and 390px.
    - Press Play on the new cassette (headless Chrome with a normal Chrome user agent - YouTube
      blocks the "HeadlessChrome" one): it must start at the side's start time, the counter must
-     match the video time, and a two-sided tape must switch sides correctly.
+     match the video time, and a two-sided tape must switch sides correctly (Spotify: also while
+     playing, and it must stop at the side's end).
    - Check the tape page (#tape-NNN) and the share page (/tapes/NNN/).
 
 7. PULL REQUEST AND REVIEW

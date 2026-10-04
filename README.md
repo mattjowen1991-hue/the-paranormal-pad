@@ -37,7 +37,7 @@ the-paranormal-pad/
 └── images/
     ├── reporter.jpg
     ├── reports/008/cover.jpg, 01.png …   # Cover + in-report photos, one folder per report
-    └── tapes/005/cover.jpg …             # Cassette cover, one folder per tape
+    └── tapes/006/cover.jpg …             # Cassette cover, one folder per tape
 ```
 
 Pages are switched with the address hash, so every page has its own link:

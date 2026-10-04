@@ -178,17 +178,20 @@ function startApp() {
     if (fromOtherView && !phone) $('#files').scrollIntoView({ block: 'start' });
   });
 
-  // tapes page: reel-to-reel decks driven by the tape's YouTube video
+  // tapes page: reel-to-reel decks driven by the tape's YouTube video or Spotify episode
   const ytIdOf = f => (CONTENT[keyOf(f)] || '').match(/data-yt="([\w-]{11})"/)?.[1];
+  const spIdOf = f => (CONTENT[keyOf(f)] || '').match(/data-sp="(\w{22})"/)?.[1];
+  const ytLink = (id, sec) => `https://www.youtube.com/watch?v=${id}${sec ? `&t=${sec}s` : ''}`;
+  const spLink = (id, sec) => `https://open.spotify.com/episode/${id}${sec ? `?t=${sec}` : ''}`;
   const clock = sec => { sec = Math.max(0, Math.floor(sec || 0)); const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s2 = String(sec % 60).padStart(2, '0'); return h ? `${h}:${String(m).padStart(2, '0')}:${s2}` : `${String(m).padStart(2, '0')}:${s2}`; };
 
   // Order: pinned tape first (the radio interview), then newest number down, so Tape 001 is always last.
   const tapeOrder = (a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || b.no.localeCompare(a.no);
   function cassetteHTML(f) {
-    const yt = ytIdOf(f), first = f.sides?.[0];
+    const yt = ytIdOf(f), sp = !yt && spIdOf(f), first = f.sides?.[0];
     const start = first ? first.start : 0;
     return `
-    <article class="deck cassette${f.sides?.length > 1 ? ' two-sided' : ''}" data-no="${f.no}" data-yt="${yt || ''}">
+    <article class="deck cassette${f.sides?.length > 1 ? ' two-sided' : ''}" data-no="${f.no}" data-yt="${yt || ''}" data-sp="${sp || ''}">
       <div class="cassette-label">
         <div class="side"><span class="side-name">Side ${first ? first.side : 'A'} • Incident Tape ${f.no}</span>${f.sides?.length > 1
           ? `<div class="sides" role="group" aria-label="Choose a side">${f.sides.map((sd, i) =>
@@ -209,7 +212,7 @@ function startApp() {
         <img class="sepia-photo" src="images/${f.img}" alt="">
       </div>
       <div class="cassette-head">
-        <a class="btn blood play" href="https://www.youtube.com/watch?v=${yt}${start ? `&t=${start}s` : ''}" target="_blank" rel="noopener">▶ Play tape</a>
+        <a class="btn blood play" href="${sp ? spLink(sp, start) : ytLink(yt, start)}" target="_blank" rel="noopener">▶ Play tape</a>
         <a class="btn light" href="${href(f)}">Open tape file</a>
       </div>
     </article>`;
@@ -240,16 +243,42 @@ function startApp() {
     });
     return ytApi;
   }
+  // Spotify's embed API, for tapes that live on Spotify. Gives up after 8s (blocked network).
+  let spApi = null;
+  function loadSpotifyApi() {
+    if (spApi) return spApi;
+    spApi = new Promise((res, rej) => {
+      const prev = window.onSpotifyIframeApiReady;
+      window.onSpotifyIframeApiReady = api => { prev?.(api); res(api); };
+      const tag = document.createElement('script');
+      tag.src = 'https://open.spotify.com/embed/iframe-api/v1';
+      tag.async = true;
+      tag.onerror = rej;
+      document.head.appendChild(tag);
+      setTimeout(() => rej(new Error('Spotify unreachable')), 8000);
+    });
+    spApi.catch(() => { spApi = null; });
+    return spApi;
+  }
+  // A Spotify player in `el` for an episode; `onUpdate` gets {isPaused, isBuffering, position, duration} (ms).
+  const spotifyPlayer = (api, el, id, onUpdate) => new Promise(res => {
+    api.createController(el, { uri: `spotify:episode:${id}`, width: '100%', height: '100%' }, ctl => {
+      ctl.addListener('ready', () => ctl.play());
+      ctl.addListener('playback_update', ev => onUpdate(ev.data));
+      res(ctl);
+    });
+  });
 
   const decks = [];
   function initDeck(d) {
-    const id = d.dataset.yt;
+    const id = d.dataset.yt, sp = d.dataset.sp;
     const btn = d.querySelector('.play');
     const counter = d.querySelector('.counter'), photo = d.querySelector('.screen');
     const spools = d.querySelectorAll('.spool');
     const file = FILES.find(x => x.kind === 'tape' && x.no === d.dataset.no);
     const sides = file.sides || [{ side: 'A', title: file.title, start: 0, end: 0 }];
-    const deck = { el: d, player: null, timer: 0, side: 0 };
+    const deck = { el: d, player: null, timer: 0, side: 0, playing: false, at: 0, needSeek: false, seekTarget: null };
+    deck.pause = () => sp ? deck.playing && deck.player?.pause?.() : deck.player?.pauseVideo?.();
     decks.push(deck);
     const cur = () => sides[deck.side];
 
@@ -257,18 +286,66 @@ function startApp() {
       d.classList.toggle('playing', on);
       btn.textContent = on ? '❚❚ Pause tape' : '▶ Play tape';
     };
-    const tick = () => {
-      const p = deck.player; if (!p?.getCurrentTime) return;
-      const sd = cur(), end = sd.end || p.getDuration?.() || 0;
-      const now = p.getCurrentTime(), t = now - sd.start, len = end - sd.start;
-      const done = len > 0 ? Math.min(1, Math.max(0, t / len)) : 0;
-      counter.textContent = clock(now);   // matches YouTube's own timer
+    const show = (now, dur) => {
+      const sd = cur(), end = sd.end || dur || 0, len = end - sd.start;
+      const done = len > 0 ? Math.min(1, Math.max(0, (now - sd.start) / len)) : 0;
+      counter.textContent = clock(now);   // matches the player's own timer
       spools[0].style.setProperty('--fill', (.95 - .43 * done).toFixed(3));
       spools[1].style.setProperty('--fill', (.52 + .43 * done).toFixed(3));
+    };
+    const tick = () => {
+      const p = deck.player; if (!p?.getCurrentTime) return;
+      show(p.getCurrentTime(), p.getDuration?.());
+    };
+    // Spotify reports its position as it plays. Episodes start at 0, so the first update jumps
+    // to this side's story, and the tape stops at the side's end like YouTube's `end` does.
+    const seekTo = sec => { deck.seekTarget = sec; deck.player.seek(sec); };
+    const onSpotify = ({ isPaused, isBuffering, position, duration }) => {
+      const sd = cur(), now = position / 1000;
+      // Spotify pauses after a seek and sends a stale position or two first: wait for it to land, then carry on.
+      if (deck.seekTarget != null) {
+        if (Math.abs(now - deck.seekTarget) > 3) return;
+        deck.seekTarget = null;
+        if (isPaused) { deck.player.resume(); return; }
+      }
+      deck.at = now;
+      if (!isPaused && deck.needSeek) {
+        deck.needSeek = false;
+        if (Math.abs(now - sd.start) > 2) { seekTo(sd.start); return; }
+      }
+      // Only as it runs off the end: just after a side flip Spotify still reports the old side's position.
+      if (!isPaused && sd.end && now >= sd.end && now < sd.end + 3) deck.player.pause();
+      if (!isPaused && !deck.playing) decks.forEach(o => o !== deck && o.pause());
+      deck.playing = !isPaused;
+      setPlaying(!isPaused);
+      if (!isPaused && (isBuffering || !position)) btn.textContent = 'Loading…';
+      show(now, duration / 1000);
     };
 
     photo.addEventListener('click', e => { if (!deck.player) { e.preventDefault(); btn.click(); } });
     btn.addEventListener('click', async e => {
+        if (sp) {
+          e.preventDefault();
+          if (deck.player) {
+            const sd = cur();
+            // Finished this side (or never started it)? Start the side again.
+            if (!deck.playing && (deck.at < sd.start - 2 || (sd.end && deck.at >= sd.end - 1))) deck.needSeek = true;
+            deck.player.togglePlay();
+            return;
+          }
+          btn.textContent = 'Loading…';
+          try {
+            const api = await loadSpotifyApi();
+            photo.classList.add('has-video', 'has-audio');   // Spotify's player docks under the cover
+            photo.insertAdjacentHTML('beforeend', '<div></div>');
+            deck.needSeek = true;
+            deck.player = await spotifyPlayer(api, photo.lastElementChild, sp, onSpotify);
+          } catch (err) {
+            btn.textContent = '▶ Play tape';
+            window.open(btn.href, '_blank', 'noopener');   // Spotify blocked here: open it there
+          }
+          return;
+        }
         if (!id || ytOk === false) return;           // YouTube blocked: let the link open it
         e.preventDefault();
         if (ytOk === null && !(await ytReachable)) { window.open(btn.href, '_blank', 'noopener'); return; }
@@ -290,7 +367,7 @@ function startApp() {
               onReady: ev => { ev.target.playVideo(); tick(); },
               onStateChange: ev => {
                 const playing = ev.data === YT.PlayerState.PLAYING;
-                if (playing) decks.forEach(o => o !== deck && o.player?.pauseVideo?.());
+                if (playing) decks.forEach(o => o !== deck && o.pause());
                 setPlaying(playing);
                 // YouTube adverts and buffering don't count as playing: show that something's happening.
                 if (ev.data === YT.PlayerState.UNSTARTED || ev.data === YT.PlayerState.BUFFERING) btn.textContent = 'Loading…';
@@ -308,7 +385,7 @@ function startApp() {
     // Two-sided tapes: choosing a side flips the cassette and moves the tape to that story.
     const setSide = i => {
       if (i === deck.side || !sides[i]) return;
-      const wasPlaying = deck.player?.getPlayerState?.() === 1;
+      const wasPlaying = sp ? deck.playing : deck.player?.getPlayerState?.() === 1;
       deck.side = i;
       const sd = cur(), other = sides[(i + 1) % sides.length];
       d.classList.remove('flipping'); void d.offsetWidth; d.classList.add('flipping');
@@ -318,11 +395,14 @@ function startApp() {
       d.querySelectorAll('.sides button').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.side) === i)));
       const hint = d.querySelector('.flip-hint');
       if (hint) hint.innerHTML = `⇄ Flip to Side ${other.side}: <span>${esc(other.title)}</span>`;
-      btn.href = `https://www.youtube.com/watch?v=${id}&t=${sd.start}s`;
+      btn.href = sp ? spLink(sp, sd.start) : ytLink(id, sd.start);
       counter.textContent = clock(sd.start);
       spools[0].style.setProperty('--fill', '.95');
       spools[1].style.setProperty('--fill', '.52');
-      if (deck.player?.loadVideoById) {
+      if (sp && deck.player) {
+        deck.at = sd.start;
+        wasPlaying ? seekTo(sd.start) : (deck.needSeek = true);
+      } else if (deck.player?.loadVideoById) {
         const opts = { videoId: id, startSeconds: sd.start, ...(sd.end ? { endSeconds: sd.end } : {}) };
         wasPlaying ? deck.player.loadVideoById(opts) : deck.player.cueVideoById(opts);
       }
@@ -342,7 +422,7 @@ function startApp() {
     }
   }
   // Pause any tape that isn't on the page being shown.
-  const pauseTapesOutside = view => decks.forEach(o => { if (!o.el.closest(`[data-view="${view}"]`)) o.player?.pauseVideo?.(); });
+  const pauseTapesOutside = view => decks.forEach(o => { if (!o.el.closest(`[data-view="${view}"]`)) o.pause(); });
 
   // contact form → The Reporter's inbox (js/email.js)
   const contactForm = $('#submit-form'), contactNote = $('#sent'), contactBtn = contactForm.querySelector('button[type="submit"]');
@@ -448,7 +528,7 @@ function startApp() {
       <nav class="file-nav" aria-label="More files">${navLink(older, 'prev', isTape ? '← Previous tape' : '← Older file')}${navLink(newer, 'next', isTape ? 'Next tape →' : 'Newer file →')}</nav>`;
     // Tapes open with their video: lift it out of the text column so it's full width.
     const prose = $('#view-file .prose'), first = prose?.firstElementChild;
-    if (isTape && first?.matches('.evidence[data-yt]')) {
+    if (isTape && first?.matches('.evidence[data-yt], .evidence[data-sp]')) {
       first.classList.add('hero');
       prose.before(first);
     }
@@ -488,9 +568,51 @@ function startApp() {
       // The player itself links to YouTube, so the separate button isn't needed.
       card.querySelector(':scope > a')?.remove();
     });
+    // Spotify recordings: the tape's cover with a play button, swapped for Spotify's player on click.
+    root.querySelectorAll('.evidence[data-sp]').forEach(card => {
+      const id = card.dataset.sp, start = Number(card.dataset.start || 0);
+      const caption = card.querySelector('p')?.textContent || 'Audio evidence';
+      const player = document.createElement('div');
+      player.className = 'player';
+      player.innerHTML = `<a class="player-start" href="${spLink(id, start)}" target="_blank" rel="noopener" aria-label="Play recording: ${esc(caption)}">
+          <img class="sepia-photo" src="${esc(card.dataset.img || '')}" alt="">
+          <span class="play">Play evidence</span>
+        </a>`;
+      let ctl = null, pending = null, target = null;
+      const seekTo = sec => { target = sec; ctl.seek(sec); };
+      card.playFrom = sec => {
+        if (ctl) { seekTo(sec); return true; }
+        pending = sec;
+        if (player.dataset.loading) return true;
+        player.dataset.loading = '1';
+        loadSpotifyApi().then(api => {
+          player.innerHTML = '<div></div>';
+          player.classList.add('spotify');
+          return spotifyPlayer(api, player.firstElementChild, id, ({ isPaused, position }) => {
+            const now = position / 1000;
+            if (target != null) {   // Spotify pauses after a seek: resume once it lands
+              if (Math.abs(now - target) > 3) return;
+              target = null;
+              if (isPaused) ctl.resume();
+              return;
+            }
+            if (isPaused || pending == null) return;
+            const to = pending; pending = null;
+            if (Math.abs(now - to) > 2) seekTo(to);   // episodes start at 0: jump to the story
+          });
+        }).then(c => { ctl = c; }, () => {
+          delete player.dataset.loading;
+          window.open(spLink(id, pending ?? start), '_blank', 'noopener');   // Spotify blocked here
+        });
+        return true;
+      };
+      player.querySelector('a').addEventListener('click', e => { e.preventDefault(); card.playFrom(start); });
+      card.querySelector('.label').after(player);
+      card.querySelector(':scope > a')?.remove();
+    });
     // "▶ Play Side A/B" buttons in a tape file jump the page's main player to that story.
     root.querySelectorAll('[data-seek]').forEach(a => a.addEventListener('click', e => {
-      const card = root.querySelector('.evidence[data-yt]');
+      const card = root.querySelector('.evidence[data-yt], .evidence[data-sp]');
       if (card?.playFrom?.(Number(a.dataset.seek))) {
         e.preventDefault();
         card.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });

@@ -10,8 +10,10 @@ accounts, in the style of a 1920s case archive.
 
 - **Incident Reports** - written accounts: Matt's own experiences, and stories told to him by
   family, friends and colleagues, researched and written up in his voice.
-- **Incident Tapes** - YouTube narrations of those reports by other channels (Mortis Media,
-  Paranormal M, Midnight Narrative) plus Matt's radio interview, shown as playable cassettes.
+- **Incident Tapes** - YouTube and Spotify narrations of those reports by other channels (Mortis
+  Media, Paranormal M, Midnight Narrative, Chillers & Thrillers) plus Matt's radio interview, shown
+  as playable cassettes. A Spotify tape's content file uses `data-sp="EPISODE_ID"` where YouTube
+  ones use `data-yt`; the cassette then drives Spotify's embed API.
 - **Witness statements** - moderated comments under every report and tape.
 
 ## 2. Tech in one paragraph
@@ -62,9 +64,9 @@ tools/claude_project_kit.py, tools/sync_prompts.py   refresh the Claude Project 
   "img": "reports/008/cover.jpg", "loc": "Smethwick, Birmingham",
   "tags": ["Hauntings", "Shadow People"], "excerpt": "First lines for cards and share previews..." }
 ```
-Tape entry adds `"url"` (YouTube), `"narrator"`, `"dur"` (seconds), `"sides"`:
+Tape entry adds `"url"` (YouTube video or Spotify episode), `"narrator"`, `"dur"` (seconds), `"sides"`:
 `[{ "side": "A", "report": "002", "title": "...", "start": 1775, "end": 3470 }]`, and
-optionally `"pinned": true` (only the radio interview, Tape 005 - always shown first).
+optionally `"pinned": true` (only the radio interview, Tape 006 - always shown first).
 `tags` must come from `SUBJECTS`. `FEATURED` picks the homepage case.
 
 Numbering: reports and tapes each count up (009, 010 ...). New tapes take the next free
