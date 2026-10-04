@@ -321,12 +321,13 @@ aside { display: grid; gap: 1.25rem; }
 .evidence p { margin: 0; font-size: 14px; line-height: 1.6; }
 .evidence a { font-family: var(--f-type); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; background: var(--btn-dark); color: var(--paper); padding: .5rem .85rem; }
 .evidence a:hover { background: var(--btn-dark-hi); }
-.evidence[data-yt] { justify-items: stretch; }
+.evidence[data-yt], .evidence[data-sp] { justify-items: stretch; }
 .report .evidence.hero { max-width: 900px; margin: 2rem 0 0; }
 .prose .side-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.15em; }
 /* inline YouTube player: thumbnail + play button, swapped for the real player on click */
 .player { position: relative; aspect-ratio: 16 / 9; width: 100%; background: #1a1714; border: 1px solid var(--rule); overflow: hidden; }
 .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player.spotify { aspect-ratio: auto; height: 352px; border: 0; background: none; }   /* Spotify's full player is 352px tall */
 .player-start { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: #1a1714; cursor: pointer; display: grid; place-items: center; text-decoration: none; }
 .player-start img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .player-start img.missing { display: none; }
@@ -371,6 +372,11 @@ aside { display: grid; gap: 1.25rem; }
 .cassette-label .narrator { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 /* single short lines: sit the text just above the rule at the bottom of their line */
 .label-lines .narrator, .label-lines .flip-hint { box-sizing: border-box; height: var(--lh); line-height: 1; padding: 0; padding-top: calc(var(--lh) - 1em - 7px); margin: 0; }
+/* narrator on the left, the YouTube / Spotify mark on the right */
+.label-lines .narrator { display: flex; justify-content: space-between; align-items: baseline; gap: .8em; white-space: nowrap; }
+.label-lines .narrator > span:first-child { overflow: hidden; text-overflow: ellipsis; }
+.cassette-label .platform { display: inline-flex; align-items: center; gap: .4em; flex: none; color: var(--ink-2); font-weight: 700; }
+.cassette-label .platform svg { width: 16px; height: 16px; margin: -4px 0 -3px; }
 /* keep the flip line on its ruled line on narrow screens */
 .label-lines .flip-hint { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sides { display: inline-flex; border: 1.5px solid var(--ink-2); }
@@ -421,6 +427,7 @@ aside { display: grid; gap: 1.25rem; }
 .screen img { width: 100%; height: 100%; object-fit: cover; }
 .screen iframe { width: 100%; height: 100%; border: 0; display: block; }
 .screen.has-video { cursor: auto; }
+.screen.has-audio iframe { position: absolute; inset: auto 0 0; height: 152px; }   /* Spotify's compact player over the cover */
 /* trapezoid head section along the bottom edge, with the two drive holes */
 .cassette-head {
   position: relative; align-self: center; width: 86%;

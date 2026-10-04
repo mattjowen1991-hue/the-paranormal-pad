@@ -4,7 +4,7 @@ Generated from the live site by tools/claude_project_kit.py. Use it for continui
 numbers, what has already been published, and the allowed subjects.
 
 - Site: https://theparanormalpad.com - Matt is "The Reporter".
-- Next report number: **009** (don't put it in the draft - it's assigned automatically). Next tape: **006**.
+- Next report number: **009** (don't put it in the draft - it's assigned automatically). Next tape: **007**.
 - Current Featured Case: Report 008.
 - Allowed subjects: Hauntings, Shadow People, Poltergeist, Sleep Paralysis, Dreams, Ouija Board, UAP. A new subject needs adding to the site first - say so.
 - Comments on the site are called **witness statements**.
@@ -30,7 +30,8 @@ numbers, what has already been published, and the allowed subjects.
 | 002 | Shadows of the Past & The Stranger at the Door | 2024-11-09 | Paranormal M | Side A: Report 002 29:35-57:50; Side B: Report 001 00:22-29:35 |
 | 003 | Letters on the Board | 2026-05-22 | Midnight Narrative | Side A: Report 006 09:31-19:33 |
 | 004 | A Night That Time Stood Still | 2024-10-10 | The Reporter & J | Side A: Report 003 00:00-09:08 |
-| 005 | Our Haunted House Interview (The Stranger at the Door case) | 2026-06-14 | - | - (pinned first) |
+| 005 | The Medford Shadow & The Stranger at the Door | 2026-10-03 | Chillers & Thrillers | Side A: Report 007 23:16-37:30; Side B: Report 001 00:32-23:15 |
+| 006 | Our Haunted House Interview (The Stranger at the Door case) | 2026-06-14 | - | - (pinned first) |
 
 ## People who appear in reports (keep names and pseudonyms consistent)
 

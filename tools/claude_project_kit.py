@@ -137,7 +137,7 @@ Josh English (006). Matt's Nan and Grandad, partner and daughter appear in 001 a
     write('04-example-reports.md', ''.join(parts), changed)
 
     parts = ['# Example tapes - every published Incident Tape page, in the draft format\n\n'
-             'Tape 004 (the radio interview) predates the tape format and is written differently; follow 001-003.\n']
+             'Tape 006 (the radio interview) predates the tape format and is written differently; follow the others.\n']
     for t in sorted(tapes, key=lambda t: t['no']):
         raw = open(os.path.join(ROOT, 'content', 'tapes', t['no'] + '.html'), encoding='utf-8').read()
         raw = re.sub(r'^\s*<div class="evidence".*?</div>', '', raw, count=1, flags=re.S)   # the engine adds the video itself

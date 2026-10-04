@@ -131,7 +131,7 @@ You can still edit the draft on the card (the **...** menu on the issue → **Ed
 ## Adding a tape
 
 Usually you don't need the Claude Project for tapes.
-1. Open the **New tape** form: paste the YouTube link, write which of your stories it is and
+1. Open the **New tape** form: paste the YouTube or Spotify episode link, write which of your stories it is and
    where it starts and ends (one line per story; two lines make a double-sided cassette), and
    say how the narrator gave permission. Submit.
 2. Drag the card to **Ready**.

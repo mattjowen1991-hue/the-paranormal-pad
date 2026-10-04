@@ -117,10 +117,10 @@ const REPORTS = [
 const TAPES = [
   {
     "kind": "tape",
-    "no": "005",
+    "no": "006",
     "title": "Our Haunted House Interview (The Stranger at the Door case)",
     "date": "2026-06-14",
-    "img": "tapes/005/cover.jpg",
+    "img": "tapes/006/cover.jpg",
     "loc": "Black Country Extra radio",
     "tags": [
       "Hauntings"
@@ -129,6 +129,39 @@ const TAPES = [
     "url": "https://theparanormalpad.wordpress.com/2026/06/14/incident-tape-002-radio-interview-the-stranger-at-the-door-case/",
     "dur": 1805,
     "pinned": true
+  },
+  {
+    "kind": "tape",
+    "no": "005",
+    "title": "The Medford Shadow & The Stranger at the Door",
+    "date": "2026-10-03",
+    "img": "tapes/005/cover.jpg",
+    "loc": "Chillers & Thrillers (Spotify)",
+    "tags": [
+      "Hauntings",
+      "Shadow People",
+      "Poltergeist"
+    ],
+    "excerpt": "Two of my Incident Reports were narrated by M on Chillers and Thrillers: A Paranormal Podcast, a podcast that recounts true stories of people's encounters with the strange and unexplained. Both feature in…",
+    "url": "https://open.spotify.com/episode/18DXC8ddQYqAgYRS3wrKIK",
+    "narrator": "Chillers & Thrillers",
+    "dur": 2217,
+    "sides": [
+      {
+        "side": "A",
+        "report": "007",
+        "title": "The Medford Shadow",
+        "start": 1396,
+        "end": 2250
+      },
+      {
+        "side": "B",
+        "report": "001",
+        "title": "The Stranger at the Door",
+        "start": 32,
+        "end": 1395
+      }
+    ]
   },
   {
     "kind": "tape",

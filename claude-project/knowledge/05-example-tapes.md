@@ -1,6 +1,6 @@
 # Example tapes - every published Incident Tape page, in the draft format
 
-Tape 004 (the radio interview) predates the tape format and is written differently; follow 001-003.
+Tape 006 (the radio interview) predates the tape format and is written differently; follow the others.
 
 
 ==================== TAPE 001 ====================
@@ -127,6 +127,42 @@ Presented by The Reporter and J. The full written account is [Incident Report 00
 
 
 ==================== TAPE 005 ====================
+
+---
+kind: tape
+title: The Medford Shadow & The Stranger at the Door
+date: 2026-10-03
+narrator: Chillers & Thrillers
+video: https://open.spotify.com/episode/18DXC8ddQYqAgYRS3wrKIK
+subjects: Hauntings, Shadow People, Poltergeist
+sides:
+  - A | 007 | The Medford Shadow | 23:16 | 37:30
+  - B | 001 | The Stranger at the Door | 00:32 | 23:15
+---
+## Narrated by Chillers & Thrillers
+
+Two of my Incident Reports were narrated by M on [Chillers and Thrillers: A Paranormal Podcast](https://open.spotify.com/show/6amiFSG8j17DQGlPXN9KCG), a podcast that recounts true stories of people's encounters with the strange and unexplained. Both feature in *Tormented by the Supernatural*, published on 3 October 2026, and they're shared here with M's permission.
+
+The episode holds three stories in total. This tape plays the two that are mine, one on each side. This is the first time The Medford Shadow has been narrated, so it takes Side A.
+
+### Side A: The Medford Shadow
+
+Starts at 23:16. In 2009, my colleague Lou moved from Arizona to Medford, Oregon, and signed a six-month lease on an apartment with his friend Jesse. What followed is the first case I've written about that carries a genuinely demonic aura.
+
+[PLAY SIDE A]
+
+### Side B: The Stranger at the Door
+
+Starts at 00:32. The events in my home that began in the summer of 2020: knocking from the other side of a bedroom wall with nothing behind it, a Ring doorbell alert with nobody on the path, and the bang on the bedroom door that followed.
+
+[PLAY SIDE B]
+
+## Credits
+
+Narration by M on Chillers and Thrillers: A Paranormal Podcast. Stories by The Reporter. Shared with permission.
+
+
+==================== TAPE 006 ====================
 
 ---
 kind: tape
