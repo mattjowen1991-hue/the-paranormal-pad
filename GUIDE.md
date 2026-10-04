@@ -20,7 +20,7 @@ There are **two different things** readers can send you, and they work different
 
 ## 1. Contact form submissions
 
-1. An email arrives in **mattjowen1991@gmail.com** titled **"New incident submission — …"**.
+1. An email arrives in **theparanormalpad@gmail.com** titled **"New incident submission — …"**.
    It contains their name, email, where it happened, and their story.
 2. If it says **"Keep identity confidential: YES — do not publish their name"**, don't use their real name if you write it up.
 3. Hit **Reply** — it goes straight to the person who wrote in.
@@ -54,7 +54,7 @@ Once you've entered the PIN you won't be asked again until you close the browser
 |---|---|---|
 | The website | GitHub Pages | github.com/mattjowen1991-hue/the-paranormal-pad → Settings → Pages |
 | Comments + moderator sign-in | Google Firebase (free plan) | console.firebase.google.com → *the-paranormal-pad* |
-| Contact form + comment alert emails | Web3Forms (free: 250 emails/month) | web3forms.com (signed in as mattjowen1991@gmail.com) |
+| Contact form + comment alert emails | Web3Forms (free: 250 emails/month) | web3forms.com (signed in as theparanormalpad@gmail.com) |
 | Tape videos | YouTube (each narrator's channel) | — |
 | Domain (theparanormalpad.com) | WordPress.com — domain only, auto-renews every October (next: Oct 2027) | wordpress.com → Domains (don't change its DNS records unless moving the site) |
 

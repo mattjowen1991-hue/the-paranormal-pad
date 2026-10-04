@@ -105,7 +105,7 @@ Until step 6 is done, each page shows "The statements desk opens soon."
 
 The **Contact** page form emails each submission to The Reporter (reply goes straight to the sender; ticking "Keep my identity confidential" is flagged in the email). Every new witness statement also triggers an alert email with links to the report and the moderation desk. Both use [Web3Forms](https://web3forms.com) (free: 250 emails/month).
 
-**Setup:** on web3forms.com enter `mattjowen1991@gmail.com` to get an access key by email, then paste it into `EMAIL.web3formsKey` in `js/data.js` (it's designed to be public). Set `commentAlerts: false` there to stop the comment emails. Until a key is added the form says it isn't connected yet.
+**Setup:** on web3forms.com, signed in as `theparanormalpad@gmail.com` (the inbox submissions go to), create a form to get an access key by email, then paste it into `EMAIL.web3formsKey` in `js/data.js` (it's designed to be public). Set `commentAlerts: false` there to stop the comment emails. Until a key is added the form says it isn't connected yet.
 
 ## Share preview (WhatsApp, Facebook, etc.)
 
