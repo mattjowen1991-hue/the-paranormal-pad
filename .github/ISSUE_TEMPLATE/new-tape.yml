@@ -27,6 +27,16 @@ body:
         Report 006 - Letters on the Board - starts 09:31 - ends 19:33
     validations:
       required: true
+  - type: dropdown
+    id: narration
+    attributes:
+      label: Is it a narration?
+      description: Narrations become the "Listen instead" player on their reports. Interviews and talk-throughs show as an "Also on tape" link instead.
+      options:
+        - Yes, someone reads my story
+        - No, it's an interview, discussion or revisit
+    validations:
+      required: true
   - type: input
     id: permission
     attributes:

@@ -96,6 +96,10 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
   `side | report number | title | start | end` (times as `mm:ss` or `h:mm:ss`). Two lines make a
   double-sided cassette with a Side A / Side B switch.
 - `[PLAY SIDE A]` becomes the "Play" and "Read Report" buttons for that side.
+- Every side's report gets a **Listen instead** player at the top, playing just that story (the
+  newest narration is the default; older ones are listed as choices). For a tape that isn't a
+  narration (an interview, a revisit, a discussion) add `narration: no`: its reports then show an
+  "Also on tape" link instead. If it has no sides, name the reports with `about: 001` (comma list).
 
 ## Text rules (both)
 

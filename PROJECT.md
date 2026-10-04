@@ -67,6 +67,9 @@ tools/claude_project_kit.py, tools/sync_prompts.py   refresh the Claude Project 
 Tape entry adds `"url"` (YouTube video or Spotify episode), `"narrator"`, `"dur"` (seconds), `"sides"`:
 `[{ "side": "A", "report": "002", "title": "...", "start": 1775, "end": 3470 }]`, and
 optionally `"pinned": true` (only the radio interview, Tape 006 - always shown first).
+Each side's `report` also puts a **Listen instead** player on that report (newest narration first,
+worked out in js/main.js `narrationsOf`). `"narration": false` (Tapes 004 and 006) turns a tape into
+an "Also on tape" link instead; `"reports": ["001"]` names the reports of a tape with no sides.
 `tags` must come from `SUBJECTS`. `FEATURED` picks the homepage case.
 
 Numbering: reports and tapes each count up (009, 010 ...). New tapes take the next free
