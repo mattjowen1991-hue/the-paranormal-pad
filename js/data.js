@@ -149,21 +149,21 @@ const TAPES = [
     "excerpt": "Two of my Incident Reports were narrated by M on Chillers and Thrillers: A Paranormal Podcast, a podcast that recounts true stories of people's encounters with the strange and unexplained. Both feature in…",
     "url": "https://open.spotify.com/episode/18DXC8ddQYqAgYRS3wrKIK",
     "narrator": "Chillers & Thrillers",
-    "dur": 2217,
+    "dur": 2223,
     "sides": [
       {
         "side": "A",
         "report": "007",
         "title": "The Medford Shadow",
-        "start": 1396,
-        "end": 2250
+        "start": 1430,
+        "end": 2284
       },
       {
         "side": "B",
         "report": "001",
         "title": "The Stranger at the Door",
-        "start": 32,
-        "end": 1395
+        "start": 60,
+        "end": 1429
       }
     ]
   },

@@ -136,24 +136,24 @@ narrator: Chillers & Thrillers
 video: https://open.spotify.com/episode/18DXC8ddQYqAgYRS3wrKIK
 subjects: Hauntings, Shadow People, Poltergeist
 sides:
-  - A | 007 | The Medford Shadow | 23:16 | 37:30
-  - B | 001 | The Stranger at the Door | 00:32 | 23:15
+  - A | 007 | The Medford Shadow | 23:50 | 38:04
+  - B | 001 | The Stranger at the Door | 01:00 | 23:49
 ---
 ## Narrated by Chillers & Thrillers
 
 Two of my Incident Reports were narrated by M on [Chillers and Thrillers: A Paranormal Podcast](https://open.spotify.com/show/6amiFSG8j17DQGlPXN9KCG), a podcast that recounts true stories of people's encounters with the strange and unexplained. Both feature in *Tormented by the Supernatural*, published on 3 October 2026, and they're shared here with M's permission.
 
-The episode holds three stories in total. This tape plays the two that are mine, one on each side. This is the first time The Medford Shadow has been narrated, so it takes Side A.
+The episode holds three stories in total. This tape plays the two that are mine, one on each side. The podcast plays adverts at the start that can vary in length, so the times below may be a few seconds out depending on when you listen. This is the first time The Medford Shadow has been narrated, so it takes Side A.
 
 ### Side A: The Medford Shadow
 
-Starts at 23:16. In 2009, my colleague Lou moved from Arizona to Medford, Oregon, and signed a six-month lease on an apartment with his friend Jesse. What followed is the first case I've written about that carries a genuinely demonic aura.
+Starts at around 23:50. In 2009, my colleague Lou moved from Arizona to Medford, Oregon, and signed a six-month lease on an apartment with his friend Jesse. What followed is the first case I've written about that carries a genuinely demonic aura.
 
 [PLAY SIDE A]
 
 ### Side B: The Stranger at the Door
 
-Starts at 00:32. The events in my home that began in the summer of 2020: knocking from the other side of a bedroom wall with nothing behind it, a Ring doorbell alert with nobody on the path, and the bang on the bedroom door that followed.
+Starts at around 01:00. The events in my home that began in the summer of 2020: knocking from the other side of a bedroom wall with nothing behind it, a Ring doorbell alert with nobody on the path, and the bang on the bedroom door that followed.
 
 [PLAY SIDE B]
 
