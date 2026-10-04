@@ -278,7 +278,8 @@ aside { display: grid; gap: 1.25rem; }
 .report .plate .frame { border: 0; }
 /* "Listen instead": a narrated report's player, between the header and the text */
 .listen { display: grid; gap: .75rem; max-width: 760px; margin-top: 1.8rem; padding: .85rem 1rem; background: #efe6d4; border: 2px solid var(--rule); border-top: 6px solid var(--blood); box-shadow: 3px 3px 0 0 rgba(43,39,35,.15); }
-.listen-bar { display: flex; align-items: center; gap: .6rem 1.1rem; }
+.listen-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.1rem; }
+.listen > * { min-width: 0; }
 .listen-play { flex: none; min-width: 11rem; justify-content: center; }
 .listen-time { font-family: var(--f-mono); font-size: 13px; letter-spacing: .08em; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .listen-info { display: grid; justify-items: start; gap: .3rem; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; line-height: 1.6; text-transform: uppercase; color: var(--ink-3); }
@@ -620,7 +621,8 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
   .tags button { min-height: 38px; padding: .3rem .65rem; }
   .tags-toggle { min-height: 44px; justify-content: space-between; }
   .drawer .tools { width: 100%; margin-left: 0; }
-  .drawer .tools > * { flex: 1 1 0; min-width: 0; }
+  .drawer .tools > * { flex: 1 1 auto; min-width: 0; }
+  .sort select { flex: 1; min-width: 0; }
   .sort { padding-block: .2rem; }
   .sort select { padding-block: .55rem; }
   .sides button { padding: .55rem .85rem; }
