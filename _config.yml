@@ -9,5 +9,6 @@ exclude:
   - docs
   - tools
   - claude-project
+  - brand
   - firebase.json
   - firestore.rules

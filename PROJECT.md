@@ -43,6 +43,7 @@ tools/new_file.py       draft (+ pictures) -> content, images, data.js entry, sh
 tools/share_pages.py    rebuilds reports/NNN/ and tapes/NNN/ share pages
 tools/board.py          moves cards on the project board
 tools/share-card.html   source of images/share.jpg (site-wide share preview)
+brand/                  avatar.svg / avatar-1024.png - display picture for YouTube, bio.site, Reddit
 PUBLISHING.md           step-by-step guide for Matt: Claude Project setup, writing, filing, building, going live
 HOUSE-STYLE.md          how reports and tapes are written - the editorial standard
 docs/DRAFT-FORMAT.md    the exact draft format the Claude Project produces and new_file.py reads

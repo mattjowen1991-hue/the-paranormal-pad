@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Display picture for YouTube / bio.site / Reddit (cropped to a circle by each platform).
+       Built from favicon.svg: the typewriter-key "P" with the oxblood stamp dot. -->
+  <defs>
+    <radialGradient id="paper" cx="45%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#F6F0E4"/>
+      <stop offset="70%" stop-color="#E8DECB"/>
+      <stop offset="100%" stop-color="#CDBFA5"/>
+    </radialGradient>
+    <radialGradient id="key-surface" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FAF6EE"/>
+      <stop offset="85%" stop-color="#EBE3D3"/>
+      <stop offset="100%" stop-color="#DDD3C0"/>
+    </radialGradient>
+    <linearGradient id="metal-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A3632"/>
+      <stop offset="50%" stop-color="#1A1817"/>
+      <stop offset="100%" stop-color="#2D2926"/>
+    </linearGradient>
+    <filter id="drop-shadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#1A1817" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- parchment disc filling the square (platforms crop to a circle) -->
+  <rect width="1024" height="1024" fill="url(#paper)"/>
+  <!-- inked rim and stitched dossier ring, just inside the circular crop -->
+  <circle cx="512" cy="512" r="496" fill="none" stroke="#1A1817" stroke-width="22"/>
+  <circle cx="512" cy="512" r="458" fill="none" stroke="#B9AA8D" stroke-width="5" stroke-dasharray="16,11"/>
+
+  <!-- oxblood stamp dot, top right -->
+  <circle cx="790" cy="236" r="34" fill="#8B1E1E"/>
+  <circle cx="790" cy="236" r="47" fill="none" stroke="#8B1E1E" stroke-width="5" stroke-dasharray="8,6"/>
+
+  <!-- the typewriter key (favicon key, scaled up and centred) -->
+  <g transform="translate(512 520) scale(2.05) translate(-256 -256)">
+    <g filter="url(#drop-shadow)">
+      <circle cx="256" cy="256" r="162" fill="url(#metal-bezel)"/>
+      <circle cx="256" cy="256" r="144" fill="none" stroke="#D8C6A5" stroke-width="4.5" stroke-opacity="0.85"/>
+      <circle cx="256" cy="256" r="138" fill="url(#key-surface)"/>
+      <circle cx="256" cy="256" r="126" fill="none" stroke="#8C7D68" stroke-width="2" stroke-opacity="0.45"/>
+    </g>
+    <g fill="#1A1817">
+      <path d="M 186 156 L 274 156 C 324 156 354 184 354 226 C 354 268 324 296 274 296 L 236 296 L 236 348 L 256 348 L 256 364 L 166 364 L 166 348 L 186 348 Z"/>
+      <path d="M 236 194 L 270 194 C 298 194 312 206 312 226 C 312 246 298 258 270 258 L 236 258 Z" fill="url(#key-surface)"/>
+    </g>
+  </g>
+</svg>
