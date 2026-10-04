@@ -141,7 +141,7 @@ function startApp() {
   }
   $('#pager').addEventListener('click', e => {
     const b = e.target.closest('button[data-page]'); if (!b || b.disabled) return;
-    state.page = Number(b.dataset.page); renderGrid();
+    state.page = Number(b.dataset.page); renderGrid(); savePlace();
     $('#files').scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
   phoneQuery.addEventListener('change', () => renderGrid());
@@ -856,9 +856,36 @@ function startApp() {
     $('#files h2').textContent = page === 'reports' ? 'Case files // Incident reports' : 'Case files // The full archive';
     renderGrid();
   }
+  // Going back (back button or swipe) returns you to where you were: each history entry keeps
+  // its scroll position and ledger page. Pages reached by a link open at the top as usual.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  let saveTimer = 0;
+  const savePlace = () => {
+    clearTimeout(saveTimer);
+    try { history.replaceState({ ...(history.state || {}), y: Math.round(scrollY), page: state.page }, ''); } catch (err) { /* private mode limits */ }
+  };
+  window.addEventListener('scroll', () => { clearTimeout(saveTimer); saveTimer = setTimeout(savePlace, 150); }, { passive: true });
+  // Save the exact spot just before a link takes you somewhere else on the site.
+  document.addEventListener('click', e => { if (e.target.closest('a[href^="#"]')) savePlace(); }, true);
+  // Images further up can still be loading, so settle on the spot over a moment, unless you scroll first.
+  function restoreScroll(y) {
+    let last = null;
+    const go = () => {
+      if (last !== null && Math.abs(scrollY - last) > 2) return;
+      window.scrollTo(0, y);
+      last = scrollY;
+    };
+    go();
+    requestAnimationFrame(go);
+    setTimeout(go, 300);
+    setTimeout(go, 900);
+  }
+
   let moderateMounted = false;
   function route() {
     searchOpened = false;
+    clearTimeout(saveTimer);
+    const back = typeof history.state?.y === 'number' ? history.state : null;
     const h = (location.hash || '#archive').slice(1);
     let view = h, tab = h;
     if (h === 'reports') { view = 'archive'; state.kind = 'report'; }
@@ -870,7 +897,10 @@ function startApp() {
     if (!document.querySelector(`[data-view="${view}"]`)) { view = 'archive'; tab = 'archive'; }
     show(view, tab, view === 'archive' ? (h === 'reports' || h === 'files' ? h : 'archive') : view);
     if (view === 'moderate' && !moderateMounted) { moderateMounted = true; Statements.mountModerator($('#moderate-desk')); }
-    if (h === 'files') $('#files').scrollIntoView({ block: 'start' });
+    if (back) {
+      if (view === 'archive' && back.page > 1) { state.page = back.page; renderGrid(); }
+      restoreScroll(back.y);
+    } else if (h === 'files') $('#files').scrollIntoView({ block: 'start' });
     else window.scrollTo(0, 0);
   }
   window.addEventListener('hashchange', route);
