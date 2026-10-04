@@ -296,7 +296,7 @@ def build(draft_path, media, number=None, dry=False):
         sp = mkind == 'sp'
         hero = (f'<div class="evidence" data-{mkind}="{vid}"' + (f' data-start="{first["start"]}"' if first['start'] else '')
                 + (f' data-end="{first["end"]}"' if first['end'] and len(sides) == 1 else '')
-                + (f' data-img="images/{folder}/{no}/cover.jpg"' if sp else '')
+                + (f' data-img="images/{folder}/{no}/cover.jpg?v={meta["date"].replace("-", "")}"' if sp else '')
                 + f'><span class="label">{"Audio" if sp else "Video"} evidence</span><p>{esc(meta.get("video_title", meta["title"]))}'
                 + f', narrated by {esc(meta["narrator"])}.</p><a href="{media_link(mkind, vid)}" rel="noopener" target="_blank">'
                 + f'{"Listen on Spotify" if sp else "Watch on YouTube"} ↗</a></div>')

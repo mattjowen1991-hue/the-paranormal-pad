@@ -65,6 +65,8 @@ function startApp() {
   const fmt = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
   const label = f => (f.kind === 'tape' ? 'Incident Tape ' : 'Incident Report ') + f.no;
   const href = f => (f.kind === 'tape' ? '#tape-' : '#file-') + f.no;
+  // Cover pictures carry the file's date, so a renumbered file never shows a browser's cached old picture.
+  const imgSrc = f => `images/${f.img}?v=${f.date.replace(/-/g, '')}`;
   const ext = () => '';
 
 
@@ -84,7 +86,7 @@ function startApp() {
       <div class="top"><span class="code">${label(f)}</span><span class="stamp small ${isTape ? 'sepia' : 'red'}">${isTape ? 'Tape' : 'Report'}</span></div>
       <h3><a href="${esc(href(f))}"${ext(f)}>${esc(f.title)}</a></h3>
       <div class="meta">Filed ${fmt(f.date)} • ${esc(f.loc)}</div>
-      <a class="photo" href="${esc(href(f))}"${ext(f)} tabindex="-1"><img class="sepia-photo" src="images/${f.img}" alt="" loading="lazy"></a>
+      <a class="photo" href="${esc(href(f))}"${ext(f)} tabindex="-1"><img class="sepia-photo" src="${imgSrc(f)}" alt="" loading="lazy"></a>
       <p>${esc(f.excerpt)}</p>
       <div class="foot"><a class="btn dark" href="${esc(href(f))}"${ext(f)}>${isTape ? 'Listen to tape' : 'Read report'} ${f.no}</a><small>${esc(f.tags[0] || (isTape ? 'Audio' : 'First-hand'))}</small></div>
     </article>`;
@@ -217,7 +219,7 @@ function startApp() {
         </div>
       </div>
       <div class="screen">
-        <img class="sepia-photo" src="images/${f.img}" alt="">
+        <img class="sepia-photo" src="${imgSrc(f)}" alt="">
       </div>
       <div class="cassette-head">
         <a class="btn blood play" href="${sp ? spLink(sp, start) : ytLink(yt, start)}" target="_blank" rel="noopener">▶ Play tape</a>
@@ -656,7 +658,7 @@ function startApp() {
             <h2><a href="${href(f)}">${esc(f.title)}</a></h2>
             <div class="where">⌖ ${esc(x.where || f.loc)}</div>
             <figure class="plate">
-              <a class="frame" href="${href(f)}" style="display:block"><img class="sepia-photo" src="images/${f.img}" alt="Illustration for ${label(f)}"></a>
+              <a class="frame" href="${href(f)}" style="display:block"><img class="sepia-photo" src="${imgSrc(f)}" alt="Illustration for ${label(f)}"></a>
               <figcaption><span></span><span>Report ${f.no}</span></figcaption>
             </figure>
           </div>
