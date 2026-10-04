@@ -79,11 +79,8 @@ function startApp() {
   });
   // The tags stay folded away until asked for; the toggle names the tag in use.
   const tagToggle = $('.tags-toggle');
-  tagToggle.addEventListener('click', () => {
-    const open = tagToggle.getAttribute('aria-expanded') !== 'true';
-    tagToggle.setAttribute('aria-expanded', String(open));
-    tagBox.hidden = !open;
-  });
+  const setTagsOpen = open => { tagToggle.setAttribute('aria-expanded', String(open)); tagBox.hidden = !open; };
+  tagToggle.addEventListener('click', () => setTagsOpen(tagToggle.getAttribute('aria-expanded') !== 'true'));
 
   function card(f) {
     if (f.kind === 'tape') return cassetteHTML(f);
@@ -130,7 +127,7 @@ function startApp() {
     renderPager(pages);
     document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === state.kind)));
     document.querySelectorAll('#tags button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tag === state.tag)));
-    $('.tags-current').textContent = state.tag ? `: ${state.tag}` : '';
+    $('.tags-current').textContent = state.tag ? ' (1)' : '';   // fixed width: the open row shows which
   }
 
   const pad = n => String(n).padStart(2, '0');
@@ -154,10 +151,10 @@ function startApp() {
   });
   phoneQuery.addEventListener('change', () => renderGrid());
 
-  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => { state.kind = b.dataset.kind; state.page = 1; renderGrid(); }));
+  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => { state.kind = b.dataset.kind; state.page = 1; renderGrid(); savePlace(); }));
   tagBox.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
-    state.tag = state.tag === b.dataset.tag ? null : b.dataset.tag; state.page = 1; renderGrid();
+    state.tag = state.tag === b.dataset.tag ? null : b.dataset.tag; state.page = 1; renderGrid(); savePlace();
   });
   $('#sort').addEventListener('change', e => { state.sort = e.target.value; state.page = 1; renderGrid(); });
   // Set when typing opened the results over another page, so clearing the box can go back.
@@ -870,7 +867,7 @@ function startApp() {
   let saveTimer = 0;
   const savePlace = () => {
     clearTimeout(saveTimer);
-    try { history.replaceState({ ...(history.state || {}), y: Math.round(scrollY), page: state.page }, ''); } catch (err) { /* private mode limits */ }
+    try { history.replaceState({ ...(history.state || {}), y: Math.round(scrollY), page: state.page, tag: state.tag, kind: state.kind }, ''); } catch (err) { /* private mode limits */ }
   };
   window.addEventListener('scroll', () => { clearTimeout(saveTimer); saveTimer = setTimeout(savePlace, 150); }, { passive: true });
   // Save the exact spot just before a link takes you somewhere else on the site.
@@ -897,7 +894,10 @@ function startApp() {
     const h = (location.hash || '#archive').slice(1);
     let view = h, tab = h;
     if (h === 'reports') { view = 'archive'; state.kind = 'report'; }
-    if (h === 'archive') { state.kind = 'all'; }
+    if (h === 'archive') { state.kind = back?.kind || 'all'; }
+    // A page opened from a link starts unfiltered; going back brings its filter with it.
+    state.tag = back?.tag || null;
+    setTagsOpen(!!state.tag);
     if (h === 'files') { view = 'archive'; tab = 'reports'; }
     const fm = h.match(/^(file|tape)-(\d{3})$/);
     const file = fm && FILES.find(x => x.kind === (fm[1] === 'tape' ? 'tape' : 'report') && x.no === fm[2]);
