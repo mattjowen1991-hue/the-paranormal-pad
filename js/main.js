@@ -193,9 +193,14 @@ function startApp() {
     sp: ['Spotify', '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.5" fill="#000"/><path fill="#1ed760" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>'],
   };
 
+  const platformOf = f => PLATFORMS[ytIdOf(f) ? 'yt' : spIdOf(f) ? 'sp' : ''];
   const platformBadge = f => {
-    const p = PLATFORMS[ytIdOf(f) ? 'yt' : spIdOf(f) ? 'sp' : ''];
+    const p = platformOf(f);
     return p ? `<span class="platform" title="Plays from ${p[0]}">${p[1]}${p[0]}</span>` : '';
+  };
+  const platformIcon = f => {
+    const p = platformOf(f);
+    return p ? p[1].replace('aria-hidden="true"', `role="img" aria-label="${p[0]}"`) : '';
   };
 
   // Order: pinned tape first (the radio interview), then newest number down, so Tape 001 is always last.
@@ -526,10 +531,12 @@ function startApp() {
     return `<section class="listen" aria-label="Listen to this report">
       ${list.length ? `<div class="listen-bar">
           <button type="button" class="btn blood listen-play">▶ Listen instead</button>
-          <div class="listen-info"></div>
+          <b class="listen-time"></b>
         </div>
-        ${list.length > 1 ? `<div class="listen-choices" role="group" aria-label="Choose a narration"><span>${list.length} narrations:</span>${
-          list.map((x, i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${esc(x.tape.narrator)}</button>`).join('')}</div>` : ''}
+        <div class="listen-info"></div>
+        ${list.length > 1 ? `<div class="listen-choices" role="group" aria-label="Choose a narration"><span>${list.length} narrations</span>${
+          list.map((x, i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}"><span class="n">${esc(x.tape.narrator)}</span>
+            <span class="m">${platformIcon(x.tape)}${sideLen(x) ? clock(sideLen(x)) : ''}</span></button>`).join('')}</div>` : ''}
         <div class="listen-screen" hidden></div>` : ''}
       ${also.length ? `<p class="also-on-tape">Also on tape: ${also.map(t =>
         `<a href="${href(t)}">Incident Tape ${t.no}: ${esc(t.title)}</a>`).join(' • ')}</p>` : ''}
@@ -541,20 +548,21 @@ function startApp() {
     const box = root.querySelector('.listen'), btn = box?.querySelector('.listen-play');
     if (!btn) return;
     const list = narrationsOf(f.no), info = box.querySelector('.listen-info'), screen = box.querySelector('.listen-screen');
+    const time = box.querySelector('.listen-time');
     let i = 0, player = null, spt = null, playing = false, timer = 0;
     const cur = () => list[i].side;
     const media = x => { const yt = ytIdOf(x.tape); return yt ? ['yt', yt] : ['sp', spIdOf(x.tape)]; };
     const link = x => { const [k, id] = media(x); return k === 'yt' ? ytLink(id, x.side.start) : spLink(id, x.side.start); };
     const setInfo = () => {
       const x = list[i], t = x.tape, len = sideLen(x);
-      info.innerHTML = `${len ? `<b class="listen-time">${clock(len)}</b>` : ''}
-        <span class="listen-by">Narrated by ${esc(t.narrator)} ${platformBadge(t)}</span>
+      time.textContent = len ? clock(len) : '';
+      info.innerHTML = `<span class="listen-by">Narrated by ${esc(t.narrator)} ${platformBadge(t)}</span>
         <a href="${href(t)}">Incident Tape ${t.no}${t.sides.length > 1 ? `, Side ${x.side.side}` : ''}</a>`;
     };
     // While playing, the time shows how far into this story you are.
     const showTime = now => {
-      const el = info.querySelector('.listen-time'), len = sideLen(list[i]);
-      if (el && len) el.textContent = `${clock(Math.min(len, Math.max(0, now - cur().start)))} / ${clock(len)}`;
+      const len = sideLen(list[i]);
+      if (len) time.textContent = `${clock(Math.min(len, Math.max(0, now - cur().start)))} / ${clock(len)}`;
     };
     const setPlaying = on => {
       playing = on;
