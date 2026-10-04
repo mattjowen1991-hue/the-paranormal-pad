@@ -660,3 +660,20 @@ html.lb-open, html.lb-open body { overflow: hidden; }
   .lb-prev, .lb-next { position: absolute; bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem); width: 56px; height: 48px; }
   .lb-prev { left: calc(50% - 64px); } .lb-next { left: calc(50% + 8px); }
 }
+
+/* moderation desk: tabs + incident submissions */
+.desk-tabs { display: flex; flex-wrap: wrap; gap: .4rem; border-bottom: 2px solid var(--rule); padding-bottom: .6rem; }
+.desk-tabs button { font-family: var(--f-type); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: .55rem .9rem; border: 1px solid #7a7061; background: var(--paper-2); color: var(--ink-2); cursor: pointer; min-height: 40px; }
+.desk-tabs button:hover { background: var(--paper-3); }
+.desk-tabs button[aria-selected="true"] { background: #1f1d1a; color: var(--paper); border-color: #141312; }
+.desk-intro { font-size: 13px; color: var(--ink-3); }
+.sub-card { background: #fbf8f1; border: 1px solid #cfc4b2; padding: .9rem 1rem; display: grid; gap: .5rem; box-shadow: 2px 2px 0 rgba(43,39,35,.1); }
+.sub-card header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .3rem 1rem; border-bottom: 1px dashed var(--rule-soft); padding-bottom: .4rem; }
+.sub-card header b { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--blood); }
+.sub-card header time { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.sub-who { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; }
+.sub-status { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--rule-soft); padding: .15rem .45rem; color: var(--ink-3); }
+.sub-email { font-size: 13px; }
+.sub-email a { color: var(--blood); overflow-wrap: anywhere; }
+.sub-card > p { margin: 0; font-size: 14px; line-height: 1.65; white-space: pre-line; overflow-wrap: anywhere; }
+.sub-card textarea { min-height: 3.5rem; }

@@ -18,7 +18,7 @@ the-paranormal-pad/
 ├── js/
 │   ├── data.js             # Every report & tape, the featured case, subject tags, comment settings
 │   ├── email.js            # Sends the Contact form + new-comment alerts via Web3Forms
-│   ├── comments.js         # "Witness statements" comments + the private moderation desk (#moderate)
+│   ├── comments.js         # witness statements, contact-form copies ("Incident submissions") + the private moderation desk (#moderate)
 │   └── main.js             # Partial + content loader, archive, search, report pages, cassette players
 ├── partials/
 │   ├── header.html         # Title, search box, tab navigation
@@ -72,7 +72,7 @@ cards from `docs/prompts/`), `tools/claude_project_kit.py` (refresh the Claude P
 
 Every report and tape page ends with a **Witness statements** section. Readers leave a name and a statement; nothing appears until it's approved. Comments are stored in Google Firebase (free plan).
 
-**Moderating:** type the secret word into the site's search box (or go to `/#moderate`), enter the PIN, then sign in with Google as `mattjowen1991@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. The secret word and PIN are in the private repo **mattjowen1991-hue/the-paranormal-pad-notes** (only stored as hashes in this public code; they hide the desk, but the real protection is the Google sign-in). Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
+**Moderating:** type the secret word into the site's search box (or go to `/#moderate`), enter the PIN, then sign in with Google as `theparanormalpad@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. The secret word and PIN are in the private repo **mattjowen1991-hue/the-paranormal-pad-notes** (only stored as hashes in this public code; they hide the desk, but the real protection is the Google sign-in). Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
 
 ### One-time setup
 
@@ -91,7 +91,7 @@ const COMMENTS = {
     projectId: 'the-paranormal-pad',
     appId: '…'
   },
-  moderator: 'mattjowen1991@gmail.com'
+  moderator: 'theparanormalpad@gmail.com'
 };
 ```
 
@@ -103,7 +103,7 @@ Until step 6 is done, each page shows "The statements desk opens soon."
 
 ## Contact form & email alerts
 
-The **Contact** page form emails each submission to The Reporter (reply goes straight to the sender; ticking "Keep my identity confidential" is flagged in the email). Every new witness statement also triggers an alert email with links to the report and the moderation desk. Both use [Web3Forms](https://web3forms.com) (free: 250 emails/month).
+The **Contact** page form saves each submission to the moderation desk (Incident submissions tab, moderator-only) and emails it to The Reporter (reply goes straight to the sender; ticking "Keep my identity confidential" is flagged in the email). Every new witness statement also triggers an alert email with links to the report and the moderation desk. Both use [Web3Forms](https://web3forms.com) (free: 250 emails/month).
 
 **Setup:** on web3forms.com, signed in as `theparanormalpad@gmail.com` (the inbox submissions go to), create a form to get an access key by email, then paste it into `EMAIL.web3formsKey` in `js/data.js` (it's designed to be public). Set `commentAlerts: false` there to stop the comment emails. Until a key is added the form says it isn't connected yet.
 

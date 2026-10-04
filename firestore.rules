@@ -1,22 +1,28 @@
 rules_version = '2';
 
-// Security rules for the "Witness statements" comments.
-// Paste into Firebase console → Firestore Database → Rules, then Publish.
+// Security rules for The Paranormal Pad: witness statements (comments) and incident submissions.
+// Paste into Firebase console -> Firestore Database -> Rules, then Publish.
 //
-//   Readers:   can read approved comments, and add new (unapproved) ones.
-//   Moderator: the Google account below can read, approve, reply to and delete anything.
+//   comments     Readers: read approved ones, add new (unapproved) ones.
+//                Moderator: read, approve, reply to and delete anything.
+//   submissions  The contact form. Anyone can add one; ONLY the moderator can read, update
+//                or delete them (they hold people's email addresses).
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
     function isModerator() {
       return request.auth != null
-        && request.auth.token.email == 'mattjowen1991@gmail.com'
+        && request.auth.token.email == 'theparanormalpad@gmail.com'
         && request.auth.token.email_verified == true;
     }
 
     function validText(value, max) {
       return value is string && value.trim().size() > 0 && value.size() <= max;
+    }
+
+    function optionalText(value, max) {
+      return value is string && value.size() <= max;
     }
 
     match /comments/{commentId} {
@@ -38,6 +44,27 @@ service cloud.firestore {
         && request.resource.data.approved is bool
         && (!('reply' in request.resource.data) || request.resource.data.reply is string && request.resource.data.reply.size() <= 3000);
       allow delete: if isModerator();
+    }
+
+    match /submissions/{submissionId} {
+      // The contact form: anyone can send one, it always arrives as "new".
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'where', 'story', 'anonymous', 'createdAt', 'status'])
+        && request.resource.data.keys().hasAll(['email', 'story', 'anonymous', 'createdAt', 'status'])
+        && (!('name' in request.resource.data) || optionalText(request.resource.data.name, 80))
+        && (!('where' in request.resource.data) || optionalText(request.resource.data.where, 160))
+        && validText(request.resource.data.email, 120)
+        && request.resource.data.email.matches('^[^@ ]+@[^@ ]+[.][^@ ]+$')
+        && validText(request.resource.data.story, 20000)
+        && request.resource.data.anonymous is bool
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.status == 'new';
+
+      // Only the moderator can see them or change them.
+      allow read, delete: if isModerator();
+      allow update: if isModerator()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'note', 'updatedAt'])
+        && request.resource.data.status in ['new', 'replied', 'report', 'archived']
+        && (!('note' in request.resource.data) || optionalText(request.resource.data.note, 3000));
     }
   }
 }

@@ -1,7 +1,10 @@
-// ─── Witness statements (comments) ───────────────────────────────
-// Comments under every report and tape, stored in Google Firebase (Firestore).
+// ─── Witness statements (comments) + incident submissions ─────────
+// Comments under every report and tape, and copies of contact form submissions,
+// stored in Google Firebase (Firestore).
 //   Readers:   file a statement (name + message). It stays hidden until approved.
-//   Moderator: the private page #moderate — sign in with Google to approve, reply or delete.
+//              The contact form saves a submission here as well as emailing it.
+//   Moderator: the private page #moderate. Sign in with Google to approve, reply or delete
+//              statements, and to read and track submissions (only the moderator can read those).
 // Setup: COMMENTS in js/data.js, rules in firestore.rules, steps in README → Comments.
 //
 // Local testing against the Firebase emulator: open the site on localhost with ?emulator=1
@@ -85,7 +88,7 @@ const Statements = (() => {
     });
   }
 
-  const moderator = () => settings().moderator || 'mattjowen1991@gmail.com';
+  const moderator = () => settings().moderator || 'theparanormalpad@gmail.com';
   const titleFor = pageId => {
     const [kind, no] = pageId.split('-');
     const f = FILES.find(x => (x.kind === 'tape' ? 'tape' : 'report') === kind && x.no === no);
@@ -179,6 +182,17 @@ const Statements = (() => {
     });
   }
 
+  // ---------- incident submissions (contact form copies) ----------
+  async function saveSubmission({ name, email, where, story, anonymous }) {
+    if (!enabled()) throw new Error('Firebase is not set up');
+    const { db, collection, addDoc, serverTimestamp } = await firebase();
+    await addDoc(collection(db, 'submissions'), {
+      name: name || '', email, where: where || '', story, anonymous: !!anonymous,
+      createdAt: serverTimestamp(), status: 'new'
+    });
+  }
+  const SUB_STATUS = { new: 'New', replied: 'Replied', report: 'Turned into a report', archived: 'Archived' };
+
   // ---------- moderation desk (#moderate) ----------
   async function mountModerator(root) {
     if (!enabled()) {
@@ -196,7 +210,7 @@ const Statements = (() => {
         root.innerHTML = `<div class="moderate-sheet">
           <div class="docket"><div class="left"><span class="stamp red">Restricted</span><span class="code">Moderation desk</span></div></div>
           <h1>Moderation desk</h1>
-          <p>Sign in with the Reporter’s Google account to read and approve witness statements.</p>
+          <p>Sign in with the Reporter’s Google account (theparanormalpad@gmail.com) to read witness statements and incident submissions.</p>
           <div><button class="btn dark" type="button" data-act="signin">Sign in with Google</button></div>
           <p class="statement-note" role="status" hidden></p>
         </div>`;
@@ -218,13 +232,27 @@ const Statements = (() => {
         <div class="docket"><div class="left"><span class="stamp red">Restricted</span><span class="code">Moderation desk</span></div>
           <span class="clear">${esc(user.email)} · <button class="linkish" type="button" data-act="signout">Sign out</button></span></div>
         <h1>Moderation desk</h1>
-        <h2 class="mod-head">Awaiting review <span data-count="pending"></span></h2>
-        <div class="mod-list" data-list="pending"><p class="statements-empty">Loading…</p></div>
-        <h2 class="mod-head">On the file <span data-count="approved"></span></h2>
-        <div class="mod-list" data-list="approved"><p class="statements-empty">Loading…</p></div>
+        <div class="desk-tabs" role="tablist">
+          <button type="button" role="tab" data-tab="statements">Witness statements <span data-count="pending-badge"></span></button>
+          <button type="button" role="tab" data-tab="submissions">Incident submissions <span data-count="new-badge"></span></button>
+        </div>
+        <section data-panel="statements">
+          <h2 class="mod-head">Awaiting review <span data-count="pending"></span></h2>
+          <div class="mod-list" data-list="pending"><p class="statements-empty">Loading…</p></div>
+          <h2 class="mod-head">On the file <span data-count="approved"></span></h2>
+          <div class="mod-list" data-list="approved"><p class="statements-empty">Loading…</p></div>
+        </section>
+        <section data-panel="submissions" hidden>
+          <p class="desk-intro">Every story sent through the Contact page, also emailed to you. Only you can see these.</p>
+          <h2 class="mod-head">New <span data-count="sub-new"></span></h2>
+          <div class="mod-list" data-list="sub-new"><p class="statements-empty">Loading…</p></div>
+          <h2 class="mod-head">Handled <span data-count="sub-done"></span></h2>
+          <div class="mod-list" data-list="sub-done"><p class="statements-empty">Loading…</p></div>
+        </section>
       </div>`;
       root.querySelector('[data-act="signout"]').onclick = () => A.signOut(A.auth);
-      await load();
+      showTab(currentTab());
+      await Promise.all([load(), loadSubmissions()]);
     }
 
     let flash = null;   // { id, text }: confirmation shown on a card after it's reloaded
@@ -239,6 +267,7 @@ const Statements = (() => {
       fill('pending', pending, 'Nothing waiting. All statements have been read.');
       fill('approved', approved.slice(0, 40), 'No statements on the file yet.');
       root.querySelector('[data-count="pending"]').textContent = `(${pending.length})`;
+      root.querySelector('[data-count="pending-badge"]').textContent = pending.length ? `(${pending.length})` : '';
       root.querySelector('[data-count="approved"]').textContent = `(${approved.length})`;
     }
 
@@ -308,7 +337,98 @@ const Statements = (() => {
         card.insertAdjacentHTML('beforeend', `<p class="statement-note bad">That didn’t save (${esc(err.code || err.message)}).</p>`);
       }
     });
+
+    // ---- tabs ----
+    function currentTab() { try { return sessionStorage.getItem('pp-desk-tab') || 'statements'; } catch (e) { return 'statements'; } }
+    function showTab(name) {
+      root.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
+      root.querySelectorAll('[data-panel]').forEach(p => { p.hidden = p.dataset.panel !== name; });
+      try { sessionStorage.setItem('pp-desk-tab', name); } catch (e) {}
+    }
+    root.addEventListener('click', e => { const t = e.target.closest('[data-tab]'); if (t) showTab(t.dataset.tab); });
+
+    // ---- incident submissions ----
+    let subFlash = null;
+    async function loadSubmissions() {
+      const { db, collection, getDocs } = await firebase();
+      let all;
+      try {
+        all = (await getDocs(collection(db, 'submissions'))).docs.map(d => ({ id: d.id, ...d.data() }));
+      } catch (err) {
+        console.error(err);
+        root.querySelector('[data-list="sub-new"]').innerHTML = `<p class="statements-empty">Submissions couldn’t be loaded (${esc(err.code || err.message)}). If this says permission-denied, the latest firestore.rules haven’t been published in Firebase yet.</p>`;
+        root.querySelector('[data-list="sub-done"]').innerHTML = '';
+        return;
+      }
+      all.sort((a, b) => byDate(b, a));
+      const fresh = all.filter(x => (x.status || 'new') === 'new'), done = all.filter(x => (x.status || 'new') !== 'new');
+      if (subFlash && !all.some(x => x.id === subFlash.id)) subFlash = null;
+      fillSubs('sub-new', fresh, 'No new submissions.');
+      fillSubs('sub-done', done.slice(0, 60), 'Nothing handled yet.');
+      root.querySelector('[data-count="sub-new"]').textContent = `(${fresh.length})`;
+      root.querySelector('[data-count="sub-done"]').textContent = `(${done.length})`;
+      root.querySelector('[data-count="new-badge"]').textContent = fresh.length ? `(${fresh.length})` : '';
+    }
+    function fillSubs(listName, items, empty) {
+      const box = root.querySelector(`[data-list="${listName}"]`);
+      box.innerHTML = items.length ? items.map(x => {
+        const status = x.status || 'new';
+        const subject = encodeURIComponent('Your story for The Paranormal Pad');
+        return `<article class="statement-card sub-card" data-sid="${esc(x.id)}">
+          <header><b>${esc(x.where || 'Place not given')}</b><time>${esc(when(x.createdAt))}</time></header>
+          <div class="sub-who">
+            <b class="mod-name">${esc(x.name || 'No name given')}</b>
+            ${x.anonymous ? '<span class="stamp red small">Keep identity confidential</span>' : ''}
+            ${status !== 'new' ? `<span class="sub-status">${esc(SUB_STATUS[status] || status)}</span>` : ''}
+          </div>
+          <p class="sub-email"><a href="mailto:${esc(x.email)}?subject=${subject}">${esc(x.email)}</a></p>
+          <p>${esc(x.story)}</p>
+          <div class="field"><label for="note-${esc(x.id)}">Private note (only you see this)</label>
+            <textarea id="note-${esc(x.id)}" maxlength="3000" placeholder="e.g. Replied 4 Oct, waiting for photos" data-saved="${esc(x.note || '')}">${esc(x.note || '')}</textarea></div>
+          <div class="mod-actions">
+            <a class="btn dark" href="mailto:${esc(x.email)}?subject=${subject}">Reply by email</a>
+            ${status === 'new'
+              ? '<button class="btn light" type="button" data-sact="replied">Mark replied</button><button class="btn light" type="button" data-sact="report">Turned into a report</button><button class="btn light" type="button" data-sact="archived">Archive</button>'
+              : '<button class="btn light" type="button" data-sact="new">Move back to New</button>'}
+            <button class="btn light" type="button" data-sact="note" disabled>Save note</button>
+            <button class="btn light" type="button" data-sact="delete">Delete</button>
+            <span class="mod-confirm" hidden>Delete for good? <button class="btn blood" type="button" data-sact="really-delete">Yes, delete</button><button class="btn light" type="button" data-sact="cancel">Cancel</button></span>
+          </div>
+          ${subFlash?.id === x.id ? `<p class="statement-note" role="status">${esc(subFlash.text)}</p>` : ''}
+        </article>`;
+      }).join('') : `<p class="statements-empty">${empty}</p>`;
+    }
+    root.addEventListener('input', e => {
+      const card = e.target.closest('.sub-card'); if (!card) return;
+      const t = card.querySelector('textarea');
+      card.querySelector('[data-sact="note"]').disabled = t.value.trim() === (t.dataset.saved || '');
+    });
+    root.addEventListener('click', async e => {
+      const btn = e.target.closest('.sub-card [data-sact]'); if (!btn) return;
+      const card = btn.closest('.sub-card'), id = card.dataset.sid, act = btn.dataset.sact;
+      const confirmBox = card.querySelector('.mod-confirm');
+      if (act === 'delete') { confirmBox.hidden = false; return; }
+      if (act === 'cancel') { confirmBox.hidden = true; return; }
+      const { db, doc, updateDoc, deleteDoc, serverTimestamp } = await firebase();
+      card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+      try {
+        if (act === 'really-delete') { await deleteDoc(doc(db, 'submissions', id)); subFlash = null; }
+        else if (act === 'note') {
+          await updateDoc(doc(db, 'submissions', id), { note: card.querySelector('textarea').value.trim(), updatedAt: serverTimestamp() });
+          subFlash = { id, text: 'Note saved.' };
+        } else {
+          await updateDoc(doc(db, 'submissions', id), { status: act, updatedAt: serverTimestamp() });
+          subFlash = { id, text: act === 'new' ? 'Moved back to New.' : `Marked: ${SUB_STATUS[act]}.` };
+        }
+        await loadSubmissions();
+        if (subFlash) root.querySelector(`.sub-card[data-sid="${CSS.escape(subFlash.id)}"]`)?.scrollIntoView({ block: 'nearest' });
+      } catch (err) {
+        console.error(err);
+        card.querySelectorAll('button').forEach(b => { b.disabled = false; });
+        card.insertAdjacentHTML('beforeend', `<p class="statement-note bad">That didn’t save (${esc(err.code || err.message)}).</p>`);
+      }
+    });
   }
 
-  return { mount, mountModerator, enabled, isSecretWord };
+  return { mount, mountModerator, enabled, isSecretWord, saveSubmission };
 })();

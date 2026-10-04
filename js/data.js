@@ -265,7 +265,7 @@ const COMMENTS = {
     messagingSenderId: '299735710392',
     appId: '1:299735710392:web:dfa9ed37772cc0201cd24d'
   },
-  moderator: 'mattjowen1991@gmail.com'   // the only Google account that can approve comments at #moderate
+  moderator: 'theparanormalpad@gmail.com'   // the only Google account that can approve comments at #moderate
 };
 
 // Email via Web3Forms (https://web3forms.com): the Contact form, plus an alert

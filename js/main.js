@@ -353,17 +353,25 @@ function startApp() {
     if (f.namedItem('botcheck').checked) { contactForm.reset(); contactSay('<b>Thank you.</b> Your statement has been sent.'); return; }
     if (!val('story')) { contactSay('Tell us what happened before sending.', true); f.namedItem('story').focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) { contactSay('Add an email address so The Reporter can get back to you.', true); f.namedItem('email').focus(); return; }
-    if (!Email.enabled()) { contactSay('<b>Not connected yet:</b> this form can’t send until the Web3Forms key is added (README → Contact form).', true); return; }
+    if (!Email.enabled() && !Statements.enabled()) { contactSay('<b>Not connected yet:</b> this form can’t send until the Web3Forms key or Firebase is set up (README).', true); return; }
     const anon = f.namedItem('anonymous').checked;
     contactBtn.disabled = true; contactBtn.textContent = 'Sending…';
     try {
-      await Email.send(`New incident submission${val('where') ? ` - ${val('where')}` : ''}`, {
+      // Saved to the moderation desk AND emailed; it counts as sent if either works.
+      const saved = Statements.enabled()
+        ? Statements.saveSubmission({ name: val('name'), email: val('email'), where: val('where'), story: val('story'), anonymous: anon })
+        : Promise.reject(new Error('Firebase not set up'));
+      const emailed = !Email.enabled() ? Promise.reject(new Error('Email not set up')) : Email.send(`New incident submission${val('where') ? ` - ${val('where')}` : ''}`, {
         'Name': val('name') || '(not given)',
         'Email': val('email'),
         'Where it happened': val('where') || '(not given)',
         'Keep identity confidential': anon ? 'YES - do not publish their name' : 'No',
         'What happened': val('story')
       }, val('email'));
+      const [savedResult, emailedResult] = await Promise.allSettled([saved, emailed]);
+      if (savedResult.status === 'rejected') console.warn('Submission not saved to the desk', savedResult.reason);
+      if (emailedResult.status === 'rejected') console.warn('Submission not emailed', emailedResult.reason);
+      if (savedResult.status === 'rejected' && emailedResult.status === 'rejected') throw emailedResult.reason;
       contactForm.reset();
       contactSay(`<b>Thank you.</b> Your statement is with The Reporter, who’ll be in touch by email.${anon ? ' Your identity will be kept confidential.' : ''}`);
     } catch (err) {
