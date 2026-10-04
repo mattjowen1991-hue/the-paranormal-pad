@@ -284,7 +284,7 @@ const FEATURED = {
   "where": "Astbury Avenue, Smethwick, Birmingham",
   "identity": "Witness identity: withheld",
   "stamp": "Told by a sceptic",
-  "statement": "Fran explained that when she was a little girl, she would often hear children playing on the landing outside her door after she’d gone to bed. On one occasion, one of the children came into her bedroom and asked her to come out and play.",
+  "statement": "Fran explained that when she was a little girl, she woke in the early hours of the morning to something tugging at the bottom of her quilt. Standing at the end of her bed was a small shadow figure with no face. It kept asking her to come downstairs and play with it and its friends.",
   "quote": "“Come on,” it said. “Come with me and come and play with us downstairs.”",
   "witness": "“Fran” (anonymised)",
   "place": "Smethwick, B’ham",
