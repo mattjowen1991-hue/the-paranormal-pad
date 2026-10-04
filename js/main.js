@@ -59,7 +59,7 @@ function startApp() {
 
   const state = { kind: 'all', tag: null, q: '', sort: 'new', page: 1 };
   const phoneQuery = matchMedia('(max-width: 700px)');
-  const perPage = () => phoneQuery.matches ? Infinity : 4;
+  const perPage = () => 4;   // phones too: four cards, then the page buttons
   const $ = (s, r = document) => r.querySelector(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const fmt = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
@@ -76,6 +76,13 @@ function startApp() {
     const b = document.createElement('button');
     b.type = 'button'; b.textContent = '[•] ' + t; b.dataset.tag = t; b.setAttribute('aria-pressed', 'false');
     tagBox.appendChild(b);
+  });
+  // The tags stay folded away until asked for; the toggle names the tag in use.
+  const tagToggle = $('.tags-toggle');
+  tagToggle.addEventListener('click', () => {
+    const open = tagToggle.getAttribute('aria-expanded') !== 'true';
+    tagToggle.setAttribute('aria-expanded', String(open));
+    tagBox.hidden = !open;
   });
 
   function card(f) {
@@ -123,6 +130,7 @@ function startApp() {
     renderPager(pages);
     document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === state.kind)));
     document.querySelectorAll('#tags button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tag === state.tag)));
+    $('.tags-current').textContent = state.tag ? `: ${state.tag}` : '';
   }
 
   const pad = n => String(n).padStart(2, '0');

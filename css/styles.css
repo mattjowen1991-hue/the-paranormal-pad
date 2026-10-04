@@ -206,8 +206,16 @@ main { padding-block: 1.5rem 3rem; }
 .sort { display: flex; align-items: center; gap: .4rem; border: 1px solid #6b6254; background: #f5efe5; padding: .3rem .5rem; }
 .sort span { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--ink-3); }
 .sort select { border: 0; background: transparent; font: inherit; font-size: 12px; text-transform: uppercase; color: var(--ink); }
+.drawer .tools { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-left: auto; }
+/* "Subject tags ▾": opens the tag row below; shows the tag in use when folded */
+.tags-toggle { display: inline-flex; align-items: center; gap: .45rem; border: 1px solid #6b6254; background: #f5efe5; padding: .45rem .6rem; font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); cursor: pointer; }
+.tags-toggle:hover { background: #ebe3d5; }
+.tags-toggle .tags-current { color: var(--blood); letter-spacing: .06em; }
+body[data-page="reports"] .drawer .tools { margin-left: 0; }
+.tags-toggle .chev { font-size: 11px; color: var(--ink); transition: transform .15s; }
+.tags-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .tags { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; border-top: 1px solid #c5baa8; padding-top: .7rem; }
-.tags .label { font-size: 10px; margin-right: .2rem; }
+.tags[hidden] { display: none; }
 .tags button { font: inherit; font-size: 12px; padding: .15rem .5rem; border: 1px solid #8f8474; background: var(--paper); color: #2c2824; cursor: pointer; }
 .tags button:hover { background: var(--ink); color: var(--paper); }
 .tags button[aria-pressed="true"] { background: var(--blood-tint); border-color: var(--blood); color: var(--blood); font-weight: 700; }
@@ -610,6 +618,9 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
   .btn { min-height: 44px; padding-inline: 1rem; }
   .cassette-head .btn { min-height: 40px; font-size: 11.5px; }
   .tags button { min-height: 38px; padding: .3rem .65rem; }
+  .tags-toggle { min-height: 44px; justify-content: space-between; }
+  .drawer .tools { width: 100%; margin-left: 0; }
+  .drawer .tools > * { flex: 1 1 0; min-width: 0; }
   .sort { padding-block: .2rem; }
   .sort select { padding-block: .55rem; }
   .sides button { padding: .55rem .85rem; }
