@@ -282,7 +282,7 @@ const FILES = [...REPORTS, ...TAPES];
 const FEATURED = {
   "no": "008",
   "where": "Astbury Avenue, Smethwick, Birmingham",
-  "identity": "Witness identity: withheld",
+  "identity": "Witness identity: “Fran” (anonymised)",
   "stamp": "Told by a sceptic",
   "statement": "Fran explained that when she was a little girl, she woke in the early hours of the morning to something tugging at the bottom of her quilt. Standing at the end of her bed was a small shadow figure with no face. It kept asking her to come downstairs and play with it and its friends.",
   "quote": "“Come on,” it said. “Come with me and come and play with us downstairs.”",

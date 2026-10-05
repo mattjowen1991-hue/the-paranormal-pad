@@ -110,7 +110,7 @@ const Statements = (() => {
       <div class="docket">
         <div class="left"><span class="stamp red">Witness statements</span><span class="code statement-count"></span></div>
       </div>
-      <p class="statements-intro">Had something similar happen, or have a theory about this one? File your statement below. The Reporter reads every statement before it’s added to the file.</p>
+      <p class="statements-intro">Had something similar happen, or have a theory about this one? File your statement below! The Reporter reads every statement before it’s added to the file.</p>
       <div class="statement-list" aria-live="polite"></div>
       ${enabled() ? `
       <form class="statement-form" novalidate>
