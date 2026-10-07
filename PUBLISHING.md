@@ -182,7 +182,8 @@ list is saved as `tools/reddit_timing_out/reddit_timing_my_posts.csv`.
   run for a new sub downloads its whole year, so it can take a while.
 - `--demo` shows a preview with made-up data.
 
-**Reddit API access:** applied for on 7 October 2026. If Reddit approves it, create a **script**
+**Reddit API access:** applied for on 7 October 2026 and refused the same day, so the report runs
+on the archive alone, which works fine. If you ever do get Reddit API access, create a **script**
 app at reddit.com/prefs/apps and save its ID and secret in
 `tools/reddit_timing_out/reddit_credentials.json` (kept out of git) like this:
 `{"client_id": "...", "client_secret": "..."}`. The next run then checks every post with Reddit
