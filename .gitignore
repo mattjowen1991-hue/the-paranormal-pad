@@ -2,3 +2,6 @@
 *.log
 .firebase/
 claude-project/to-upload/
+
+# reddit_timing.py output and download cache
+tools/reddit_timing_out/
