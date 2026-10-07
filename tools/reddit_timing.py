@@ -610,6 +610,7 @@ table.strip tr.labels td { height:auto; font-size:11px; white-space:nowrap; over
 .caption { margin:0; font-family:var(--f-mono); font-size:12px; color:var(--muted); }
 footer { border-top:2px solid var(--rule); padding-top:18px; color:var(--ink-2); font-size:14.5px; display:grid; gap:10px; }
 footer p { max-width:66ch; margin:0; }
+footer code { font-family:var(--f-mono); font-size:13px; background:var(--card); padding:1px 5px; white-space:nowrap; }
 @media (max-width:520px) {
   .picks li { grid-template-columns:auto 1fr auto; }
   .picks .ev { grid-column:2; justify-self:start; }
@@ -691,6 +692,12 @@ average, and those with under {MIN_POSTS} posts are dotted and never recommended
 real, thin could be noise. {source_note}</p>
 <p>This shows which times have worked, not a guarantee. A strong story still beats good timing. Rerun it
 every few months and compare it with how your own posts do.</p>
+<h3>Rerun it</h3>
+<p>In Terminal: <code>cd ~/projects/the-paranormal-pad</code> then <code>python3 tools/reddit_timing.py</code>.
+Add <code>--awake 09-02</code> to change your hours (up at 09:00, in bed by 02:00),
+<code>--subs Paranormal Ghosts Experiencers</code> to check particular subs (a new sub's first run downloads
+its whole year, so it can take a while), or <code>--demo</code> for a preview with made-up data.
+Full notes are in PUBLISHING.md under "Posting to Reddit".</p>
 </footer>
 </main></body></html>"""
 

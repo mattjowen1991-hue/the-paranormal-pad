@@ -147,6 +147,41 @@ Usually you don't need the Claude Project for tapes.
 - To do the work: **PROMPT: open-ticket** (builds it, preview, Review), then
   **PROMPT: close-ticket** once you've checked it (publishes, tidies up, moves to Live).
 
+## Posting to Reddit: best times
+
+`tools/reddit_timing.py` works out the best UK times to post to each subreddit, from a year of
+real posts. Its report has a one-week rota (one subreddit a day) and a heatmap for each sub.
+
+**See the latest report:** open `tools/reddit_timing_out/reddit_timing_report.html`, or in Terminal:
+
+```
+open ~/projects/the-paranormal-pad/tools/reddit_timing_out/reddit_timing_report.html
+```
+
+**Refresh it** (every few months is plenty). In Terminal:
+
+```
+cd ~/projects/the-paranormal-pad
+python3 tools/reddit_timing.py
+```
+
+It fetches new posts, rebuilds the report and opens it. Usually a minute or two. Or just ask
+Claude Code to "run the reddit timing script".
+
+**Options** (add them after the command):
+
+- `--awake 09-02` changes your hours if your routine changes. This example means up at 09:00
+  and in bed by 02:00. The default is `08-01`.
+- `--subs Paranormal Ghosts Experiencers` checks particular subs, including new ones. The first
+  run for a new sub downloads its whole year, so it can take a while.
+- `--demo` shows a preview with made-up data.
+
+**Reddit API access:** applied for on 7 October 2026. If Reddit approves it, create a **script**
+app at reddit.com/prefs/apps and save its ID and secret in
+`tools/reddit_timing_out/reddit_credentials.json` (kept out of git) like this:
+`{"client_id": "...", "client_secret": "..."}`. The next run then checks every post with Reddit
+for exact scores and removals.
+
 ## Every month or two
 
 Run **PROMPT: site-health-check** in Claude Code. It checks every page, video, share link,
@@ -177,4 +212,5 @@ the certificate and the domain, and offers tickets for anything wrong.
 | Draft format | `docs/DRAFT-FORMAT.md` |
 | The prompts | pinned on the board, and in `docs/prompts/` |
 | Claude Project files | `claude-project/` |
+| Best times to post on Reddit | `tools/reddit_timing_out/reddit_timing_report.html` (see "Posting to Reddit") |
 | Secret word and PIN for the moderation desk | private repo `the-paranormal-pad-notes` |
