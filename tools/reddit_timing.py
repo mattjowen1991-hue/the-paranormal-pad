@@ -19,9 +19,14 @@ Usage (from the repo folder)
                                                  up from 08:00, in bed by 01:00)
     python3 tools/reddit_timing.py --refresh     download everything again
 
+It also finds your own posts in those subreddits (u/MattJowen, or --user) and shows how each did:
+how many of the subreddit's posts it beat, how good its time slot was, and whether it got no
+reaction at all (often a sign it was removed).
+
 Output (tools/reddit_timing_out/, or --out; kept out of git)
-    reddit_timing_report.html    best times, a one-week posting rota and a heatmap per subreddit
+    reddit_timing_report.html    best times, a one-week posting rota, your posts and a heatmap per subreddit
     reddit_timing_data.csv       the numbers behind them
+    reddit_timing_my_posts.csv   your posts and how each did
     cache/                       downloaded posts; later runs only fetch what's new
 
 The first run can take a long time (r/Paranormal alone is about 25,000 posts a year, and the
@@ -41,6 +46,7 @@ Checking with Reddit (optional)
 
 import argparse
 import base64
+import bisect
 import csv
 import html
 import json
@@ -87,6 +93,10 @@ QUIET_PER_DAY = 3       # below this many posts a day, timing barely matters
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 OUT_DEFAULT = Path(__file__).resolve().parent / "reddit_timing_out"
+MY_USER = "MattJowen"
+CLOSE_MINUTES = 30      # posts this close together across subs look like a blast to spam filters
+GOOD_SLOT = 1.1         # a slot at least this much better than average counts as a good one
+COMPARE_MIN = 8         # posts needed in each group before comparing good slots with the rest
 
 
 # ---------------------------------------------------------------- fetching
@@ -144,6 +154,31 @@ def fetch_range(sub, start, end):
         after = posts[-1]["t"] - 1   # overlap by a second so posts sharing a timestamp aren't lost
         time.sleep(PAGE_DELAY)
     print()
+    return posts
+
+
+def load_my_posts(user, subs):
+    """All your posts in the subreddits being analysed, newest first."""
+    wanted = {s.lower() for s in subs}
+    posts, seen, before = [], set(), None
+    while True:
+        params = {"author": user, "limit": 100, "sort": "desc", "fields": FIELDS + ",subreddit,title"}
+        if before:
+            params["before"] = int(before)
+        page = get_json(f"{ARCHIVE}?{urllib.parse.urlencode(params)}")
+        fresh = [p for p in page if p.get("id") not in seen]
+        for p in fresh:
+            seen.add(p["id"])
+            if (p.get("subreddit") or "").lower() in wanted:
+                posts.append({
+                    "id": p["id"], "t": p["created_utc"], "score": p.get("score") or 0,
+                    "comments": p.get("num_comments") or 0, "mod": bool(p.get("distinguished")),
+                    "sub": p["subreddit"], "title": p.get("title") or "",
+                })
+        if len(page) < 100 or not fresh:
+            break
+        before = page[-1]["created_utc"] + 1
+        time.sleep(PAGE_DELAY)
     return posts
 
 
@@ -370,13 +405,60 @@ def analyse(sub, posts, tz, allowed):
     span = (max(p["t"] for p in kept) - min(p["t"] for p in kept)) / 86400
 
     return {
-        "sub": sub, "grid": grid, "hours": hours, "days": days,
+        "sub": sub, "grid": grid, "hours": hours, "days": days, "scores": scores,
         "candidates": candidates, "picks": candidates[:3],
         "weakest": min(eligible, key=lambda c: c["lift"]) if eligible else None,
         "best_day": max(days, key=lambda d: d["lift"]),
         "n": n, "n_all": len(posts), "per_day": len(posts) / max(span, 1),
         "checked": sum(1 for p in posts if p.get("checked")) / len(posts),
         "strong_at": strong_at, "top_at": top_at, "span_days": span,
+    }
+
+
+def rate_my_posts(mine, results, tz, now):
+    """How each of your posts did against its subreddit, and whether good slots are paying off."""
+    by_sub = {r["sub"].lower(): r for r in results if "error" not in r}
+    times_sorted = sorted(p["t"] for p in mine)
+    rated = []
+    for p in sorted(mine, key=lambda p: p["t"], reverse=True):
+        r = by_sub.get(p["sub"].lower())
+        dt = datetime.fromtimestamp(p["t"], tz)
+        slot = None
+        if r:
+            c = r["grid"][dt.weekday()][dt.hour // BLOCK]
+            slot = c["lift"] if c["posts"] >= MIN_POSTS else None
+        if now - p["t"] < SETTLE_HOURS * 3600:
+            status = "settling"
+        elif p["mod"]:
+            status = "mod post"
+        elif p.get("checked") and p["removed"]:
+            status = "removed"
+        elif not p.get("checked") and p["score"] < 2 and p["comments"] < 2:
+            status = "no reaction"
+        else:
+            status = "ok"
+        beat = None
+        if r and status == "ok":
+            sc = r["scores"]
+            below = bisect.bisect_left(sc, p["score"])
+            ties = bisect.bisect_right(sc, p["score"]) - below
+            beat = (below + ties / 2) / len(sc)
+        i = bisect.bisect_left(times_sorted, p["t"])
+        gaps = [abs(times_sorted[j] - p["t"]) for j in (i - 1, i + 1) if 0 <= j < len(times_sorted)]
+        close = min(gaps) / 60 if gaps and min(gaps) < CLOSE_MINUTES * 60 else None
+        rated.append({**p, "dt": dt, "slot": slot, "status": status, "beat": beat, "close": close,
+                      "older": p["t"] < now - YEAR})
+
+    # the heatmaps describe the past year, so only posts from that year count towards the comparison
+    scored = [p for p in rated if p["beat"] is not None and p["slot"] is not None and not p["older"]]
+    good = [p["beat"] for p in scored if p["slot"] >= GOOD_SLOT]
+    other = [p["beat"] for p in scored if p["slot"] < GOOD_SLOT]
+    return {
+        "posts": rated,
+        "good": good, "other": other,
+        "no_reaction": sum(p["status"] in ("no reaction", "removed") for p in rated),
+        "close": sum(p["close"] is not None for p in rated),
+        "ready": len(good) >= COMPARE_MIN and len(other) >= COMPARE_MIN,
     }
 
 
@@ -438,6 +520,101 @@ def print_summary(r):
               f"from {c['posts']} posts ({evidence(c)} evidence)")
     if r["weakest"]:
         print(f"    Weakest: {block_label(r['weakest'])} ({r['weakest']['lift']:.2f}x)")
+
+
+def slot_word(lift):
+    if lift is None:
+        return "unrated"
+    return "good" if lift >= GOOD_SLOT else "weak" if lift <= 0.85 else "average"
+
+
+def comparison_text(m):
+    if not m["ready"]:
+        n = len(m["good"]) + len(m["other"])
+        return (f"Too early to compare good slots with the rest: {n} scored posts in the past year, and it needs "
+                f"at least {COMPARE_MIN} in each group ({len(m['good'])} in good slots, "
+                f"{len(m['other'])} elsewhere).")
+    g, o = statistics.mean(m["good"]), statistics.mean(m["other"])
+    return (f"Posts in good slots beat {g:.0%} of their subreddit's posts on average, against {o:.0%} "
+            f"for posts at other times ({len(m['good'])} and {len(m['other'])} posts).")
+
+
+def print_my_posts(m, user):
+    print(f"\nYour posts (u/{user})")
+    if not m["posts"]:
+        print("    None found in these subreddits.")
+        return
+    for p in m["posts"][:15]:
+        result = f"beat {p['beat']:.0%}" if p["beat"] is not None else p["status"]
+        print(f"    {p['dt'].strftime('%a %d %b %Y %H:%M')}  r/{p['sub']:<22} {slot_word(p['slot']):<8} "
+              f"{p['score']:>4} pts  {result}")
+    if len(m["posts"]) > 15:
+        print(f"    ... and {len(m['posts']) - 15} more in the report")
+    print(f"    {comparison_text(m)}")
+
+
+def write_my_csv(m, path):
+    with open(path, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["posted_uk", "subreddit", "title", "score", "comments", "older_than_a_year", "slot_lift", "status",
+                    "beat_share", "minutes_from_nearest_post", "link"])
+        for p in m["posts"]:
+            w.writerow([p["dt"].strftime("%Y-%m-%d %H:%M"), p["sub"], p["title"], p["score"], p["comments"],
+                        "yes" if p["older"] else "",
+                        f"{p['slot']:.2f}" if p["slot"] is not None else "", p["status"],
+                        f"{p['beat']:.3f}" if p["beat"] is not None else "",
+                        f"{p['close']:.0f}" if p["close"] is not None else "",
+                        f"https://www.reddit.com/r/{p['sub']}/comments/{p['id']}/"])
+
+
+def my_posts_html(m, user):
+    if m is None:
+        return ""
+    if not m["posts"]:
+        return (f'<section class="mine"><h3>Your posts</h3><p class="note">No posts by u/{html.escape(user)} '
+                f'in these subreddits.</p></section>')
+    rows = []
+    for p in m["posts"]:
+        title = p["title"] if len(p["title"]) <= 70 else p["title"][:67].rstrip() + "..."
+        link = f"https://www.reddit.com/r/{p['sub']}/comments/{p['id']}/"
+        if p["beat"] is not None:
+            result = f'<span class="beat">beat {p["beat"]:.0%}</span>'
+        else:
+            result = f'<span class="flag flag-{p["status"].replace(" ", "-")}">{p["status"]}</span>'
+        close = (f'<span class="close">{p["close"]:.0f} min from another post</span>'
+                 if p["close"] is not None else "")
+        slot = slot_word(p["slot"])
+        rows.append(
+            ('<tr class="older">' if p["older"] else "<tr>") + f'<td class="w">{p["dt"].strftime("%a %d %b")}<br>'
+            f'{p["dt"].strftime("%Y" if p["older"] else "%H:%M")}'
+            + (f'<br>{p["dt"].strftime("%H:%M")}' if p["older"] else "") + '</td>'
+            f'<td><a href="{html.escape(link)}">{html.escape(title)}</a>'
+            f'<span class="where">r/{html.escape(p["sub"])} &middot; {p["score"]} pts &middot; '
+            f'{p["comments"]} comments</span>{close}</td>'
+            f'<td class="s s-{slot}">{slot}'
+            + (f'<br>{times(p["slot"])}' if p["slot"] is not None else "")
+            + f'</td><td class="r">{result}</td></tr>'
+        )
+    flags = []
+    if m["no_reaction"]:
+        flags.append(f'{m["no_reaction"]} got no reaction at all. That usually means a mod or Reddit\'s '
+                     f'filters removed them: open them while logged out to check, and read the sub\'s rules.')
+    if m["close"]:
+        flags.append(f'{m["close"]} went up within {CLOSE_MINUTES} minutes of another of your posts. '
+                     f'Spacing them out (the rota above) is less likely to trip spam filters.')
+    flag_html = "".join(f'<p class="advice">{html.escape(f)}</p>' for f in flags)
+    return f"""
+<section class="mine">
+  <h3>Your posts</h3>
+  <p class="note">Everything u/{html.escape(user)} has posted in these subreddits. "Beat" is the share of
+  that subreddit's posts from the past year your post scored higher than. The slot is how good that time has
+  been in the heatmap. Posts over a year old are shaded: they're measured against this year's posts, and
+  they're left out of the comparison below.</p>
+  {flag_html}
+  <p class="compare">{html.escape(comparison_text(m))}</p>
+  <div class="scroll"><table class="myposts"><thead><tr><th>Posted</th><th>Post</th><th>Slot</th><th>Result</th></tr></thead>
+  <tbody>{"".join(rows)}</tbody></table></div>
+</section>"""
 
 
 def write_csv(results, path):
@@ -611,6 +788,24 @@ table.strip tr.labels td { height:auto; font-size:11px; white-space:nowrap; over
 footer { border-top:2px solid var(--rule); padding-top:18px; color:var(--ink-2); font-size:14.5px; display:grid; gap:10px; }
 footer p { max-width:66ch; margin:0; }
 footer code { font-family:var(--f-mono); font-size:13px; background:var(--card); padding:1px 5px; white-space:nowrap; }
+.mine { display:grid; gap:12px; }
+.mine h3 { border-bottom:1px solid var(--rule); padding-bottom:8px; }
+.compare { margin:0; font-family:var(--f-mono); font-size:13px; color:var(--ink-2); }
+.myposts { width:100%; min-width:520px; border-collapse:collapse; font-size:14px; }
+.myposts th { text-align:left; font-weight:400; font-family:var(--f-mono); font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); padding:0 10px 6px 0; }
+.myposts td { padding:9px 10px 9px 0; border-top:1px dashed var(--rule-soft); vertical-align:top; }
+.myposts td.w, .myposts td.s, .myposts td.r { font-family:var(--f-mono); font-size:12.5px; white-space:nowrap;
+  font-variant-numeric:tabular-nums; }
+.myposts a { display:block; line-height:1.4; }
+.myposts .where, .myposts .close { display:block; font-family:var(--f-mono); font-size:11.5px; color:var(--muted); margin-top:3px; }
+.myposts .close { color:var(--warn); }
+.s-good { color:var(--ok); } .s-weak { color:var(--blood); } .s-average, .s-unrated { color:var(--muted); }
+.beat { font-weight:700; }
+.myposts tr.older td { background:var(--card); }
+.flag { font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:1px 6px; border:1px solid currentColor; }
+.flag-no-reaction, .flag-removed { color:var(--blood); }
+.flag-settling, .flag-mod-post { color:var(--muted); }
 @media (max-width:520px) {
   .picks li { grid-template-columns:auto 1fr auto; }
   .picks .ev { grid-column:2; justify-self:start; }
@@ -619,7 +814,7 @@ footer code { font-family:var(--f-mono); font-size:13px; background:var(--card);
 """
 
 
-def page_html(results, tz_name, awake, demo):
+def page_html(results, tz_name, awake, demo, mine=None, user=MY_USER):
     rota = build_rota(results)
     rota_rows = "".join(
         f'<tr><td class="d">{DAY_NAMES[c["day"]]}</td><td class="t">{hhmm(c["post_at"])}'
@@ -679,6 +874,7 @@ def page_html(results, tz_name, awake, demo):
   <div class="scroll"><table class="glance"><thead><tr><th>Subreddit</th><th>Best</th><th>Runner-up</th></tr></thead>
   <tbody>{glance}</tbody></table></div>
 </section>
+{my_posts_html(mine, user)}
 <div class="legend"><span>Weaker</span><span class="bar"></span><span>Stronger</span></div>
 {sections}
 <footer>
@@ -691,7 +887,7 @@ average, and those with under {MIN_POSTS} posts are dotted and never recommended
 <p>Evidence shows how unlikely a result is to be luck: solid is well clear of chance, fair is probably
 real, thin could be noise. {source_note}</p>
 <p>This shows which times have worked, not a guarantee. A strong story still beats good timing. Rerun it
-every few months and compare it with how your own posts do.</p>
+every few months, and watch "Your posts" to see whether the good slots are paying off for you.</p>
 <h3>Rerun it</h3>
 <p>In Terminal: <code>cd ~/projects/the-paranormal-pad</code> then <code>python3 tools/reddit_timing.py</code>.
 Add <code>--awake 09-02</code> to change your hours (up at 09:00, in bed by 02:00),
@@ -714,6 +910,7 @@ def main():
     ap.add_argument("--out", default=str(OUT_DEFAULT), help="folder for the report and data")
     ap.add_argument("--no-open", action="store_true", help="don't open the report when done")
     ap.add_argument("--no-reddit", action="store_true", help="don't check posts with Reddit")
+    ap.add_argument("--user", default=MY_USER, help="whose posts to track (default MattJowen)")
     args = ap.parse_args()
 
     try:
@@ -727,12 +924,15 @@ def main():
     now = time.time()
     token = None if args.demo or args.no_reddit else reddit_token(out)
 
-    results = []
+    results, demo_mine = [], []
     for sub in args.subs:
         sub = sub.removeprefix("r/").strip("/")
         print(f"\nr/{sub}")
         if args.demo:
             posts = demo_posts(sub, now)
+            rng = random.Random(sub)
+            demo_mine += [{**p, "sub": sub, "title": f"Demo post {i + 1} in r/{sub}"}
+                          for i, p in enumerate(rng.sample(posts, 3))]
         else:
             try:
                 posts = load_posts(sub, cache, now, args.refresh, token)
@@ -744,9 +944,20 @@ def main():
     print("\nBest times (UK)")
     for r in results:
         print_summary(r)
+
+    if args.demo:
+        mine_raw = demo_mine
+    else:
+        print(f"\nLooking up u/{args.user}'s posts")
+        mine_raw = load_my_posts(args.user, [r["sub"] for r in results])
+        if token and mine_raw:
+            reddit_check("your posts", mine_raw, token, lambda: None)
+    mine = rate_my_posts(mine_raw, results, tz, now)
+    print_my_posts(mine, args.user)
+    write_my_csv(mine, out / "reddit_timing_my_posts.csv")
     report = out / "reddit_timing_report.html"
     write_csv(results, out / "reddit_timing_data.csv")
-    report.write_text(page_html(results, args.tz, args.awake, args.demo), encoding="utf-8")
+    report.write_text(page_html(results, args.tz, args.awake, args.demo, mine, args.user), encoding="utf-8")
     print(f"\nReport: {report.resolve()}")
     print(f"Data:   {(out / 'reddit_timing_data.csv').resolve()}")
     if not args.no_open:
