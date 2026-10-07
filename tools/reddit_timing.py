@@ -571,8 +571,9 @@ def my_posts_html(m, user):
     if m is None:
         return ""
     if not m["posts"]:
-        return (f'<section class="mine"><h3>Your posts</h3><p class="note">No posts by u/{html.escape(user)} '
-                f'in these subreddits.</p></section>')
+        return (f'<details class="mine fold" id="your-posts"><summary>{TOG}<h3>Your posts</h3>'
+                f'<span class="sum-meta">none yet</span></summary><div class="fold-body">'
+                f'<p class="note">No posts by u/{html.escape(user)} in these subreddits.</p></div></details>')
     rows = []
     for p in m["posts"]:
         title = p["title"] if len(p["title"]) <= 70 else p["title"][:67].rstrip() + "..."
@@ -604,8 +605,10 @@ def my_posts_html(m, user):
                      f'Spacing them out (the rota above) is less likely to trip spam filters.')
     flag_html = "".join(f'<p class="advice">{html.escape(f)}</p>' for f in flags)
     return f"""
-<section class="mine">
-  <h3>Your posts</h3>
+<details class="mine fold" id="your-posts">
+  <summary>{TOG}<h3>Your posts</h3><span class="sum-meta">{len(m["posts"])} posts
+  &middot; {m["no_reaction"]} no reaction</span></summary>
+  <div class="fold-body">
   <p class="note">Everything u/{html.escape(user)} has posted in these subreddits. "Beat" is the share of
   that subreddit's posts from the past year your post scored higher than. The slot is how good that time has
   been in the heatmap. Posts over a year old are shaded: they're measured against this year's posts, and
@@ -614,7 +617,8 @@ def my_posts_html(m, user):
   <p class="compare">{html.escape(comparison_text(m))}</p>
   <div class="scroll"><table class="myposts"><thead><tr><th>Posted</th><th>Post</th><th>Slot</th><th>Result</th></tr></thead>
   <tbody>{"".join(rows)}</tbody></table></div>
-</section>"""
+  </div>
+</details>"""
 
 
 def write_csv(results, path):
@@ -652,12 +656,16 @@ def cell(c, label):
             f'{c["lift"]:.1f}</td>')
 
 
+TOG = '<span class="tog" aria-hidden="true"></span>'
+
+
 def section_html(r):
     sub = html.escape(r["sub"])
     anchor = sub.lower()
     if "error" in r:
-        return (f'<section class="sub" id="{anchor}"><h2>r/{sub}</h2>'
-                f'<p class="note">{html.escape(r["error"])}</p></section>')
+        return (f'<details class="sub fold" id="{anchor}"><summary>{TOG}<h2>r/{sub}</h2>'
+                f'<span class="sum-meta">no data</span></summary><div class="fold-body">'
+                f'<p class="note">{html.escape(r["error"])}</p></div></details>')
     quiet = r["per_day"] < QUIET_PER_DAY
     picks = "".join(
         f'<li><span class="when">{when(c)}</span>'
@@ -678,6 +686,11 @@ def section_html(r):
         wk = r["weakest"]
         weakest = (f'<p class="note">Avoid {DAY_NAMES[wk["day"]]} {hhmm(wk["start"])}&ndash;'
                    f'{hhmm(wk["end"])} ({times(wk["lift"])} average).</p>')
+    if r["picks"]:
+        top = r["picks"][0]
+        meta = f'best {when(top, short=True)} &middot; {times(top["lift"])}'
+    else:
+        meta = "too quiet to call" if quiet else "no clear best time"
     head = "".join(f"<th>{b * BLOCK:02d}</th>" for b in range(24 // BLOCK))
     body = "".join(
         f"<tr><th>{DAYS[d]}</th>" + "".join(cell(c, block_label(c)) for c in r["grid"][d]) + "</tr>"
@@ -686,18 +699,19 @@ def section_html(r):
     strip = "".join(cell(c, f"{hhmm(c['hour'])} any day") for c in r["hours"])
     hour_labels = "".join(f"<td>{h:02d}</td>" if h % 3 == 0 else "<td></td>" for h in range(24))
     return f"""
-<section class="sub" id="{anchor}">
-  <header class="sub-head">
-    <h2>r/{sub}</h2>
-    <p class="file">{r['n']:,} posts &middot; ~{r['per_day']:.0f}/day &middot; strong = {r['strong_at']:.0f}+ upvotes</p>
-  </header>
+<details class="sub fold" id="{anchor}">
+  <summary>{TOG}<h2>r/{sub}</h2><span class="sum-meta">{meta}</span></summary>
+  <div class="fold-body">
+  <p class="file">{r['n']:,} posts &middot; ~{r['per_day']:.0f}/day &middot; strong = {r['strong_at']:.0f}+ upvotes</p>
   {advice}
   <ol class="picks">{picks}</ol>
   {weakest}
   <div class="scroll"><table class="heat"><thead><tr><th></th>{head}</tr></thead><tbody>{body}</tbody></table></div>
   <p class="caption">Each block is three hours from the time shown. By hour, any day:</p>
   <div class="scroll"><table class="strip"><tbody><tr>{strip}</tr><tr class="labels">{hour_labels}</tr></tbody></table></div>
-</section>"""
+  <div class="legend"><span>Weaker</span><span class="bar"></span><span>Stronger</span></div>
+  </div>
+</details>"""
 
 
 CSS = """
@@ -727,7 +741,7 @@ CSS = """
 body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 var(--f-serif); }
 main { max-width:780px; margin:0 auto; padding-block:40px 72px; padding-inline:18px; display:grid; gap:36px;
   grid-template-columns:minmax(0, 1fr); }
-main > *, .sub > * { min-width:0; }
+main > * { min-width:0; }
 h1, h2, h3 { font-family:var(--f-type); font-weight:400; text-transform:uppercase; line-height:1.1; text-wrap:balance; margin:0; }
 h1 { font-size:clamp(30px, 6vw, 46px); }
 h2 { font-size:22px; letter-spacing:.04em; }
@@ -738,9 +752,27 @@ a:focus-visible { outline:2px solid var(--blood); outline-offset:2px; }
 .lede { max-width:62ch; color:var(--ink-2); margin:12px 0 0; }
 .meta { font-family:var(--f-mono); font-size:12.5px; color:var(--muted); margin:10px 0 0; }
 .warning { border:1px solid var(--blood); color:var(--blood); padding:10px 14px; font-family:var(--f-mono); font-size:13px; margin:0; }
-.panel { background:var(--card); border:1px solid var(--rule); padding:18px 18px 8px; }
-.panel h3 { border-bottom:1px solid var(--rule); padding-bottom:8px; margin-bottom:4px; }
-.panel p.note { margin:10px 0 8px; }
+.panel { background:var(--card); border:1px solid var(--rule); padding:16px 18px; }
+.panel p.note { margin:0; }
+.toolbar { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; margin-bottom:-20px; }
+.toolbar button { font-family:var(--f-type); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  padding:.4rem .75rem; border:1px solid var(--rule-soft); background:var(--card); color:var(--ink-2); cursor:pointer; }
+.toolbar button:hover { border-color:var(--rule); color:var(--ink); }
+.toolbar button:focus-visible, details.fold > summary:focus-visible { outline:2px solid var(--blood); outline-offset:3px; }
+details.fold > summary { list-style:none; cursor:pointer; display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:4px 12px; padding-block:2px; }
+details.fold > summary::-webkit-details-marker { display:none; }
+details.fold > summary h2, details.fold > summary h3 { flex:1 1 auto; }
+details.fold > summary .tog { width:12px; flex:none; align-self:center; display:inline-flex; justify-content:center; }
+details.fold > summary .tog::before { content:""; border-left:7px solid var(--blood);
+  border-top:5px solid transparent; border-bottom:5px solid transparent; transition:transform .15s ease; }
+details.fold[open] > summary .tog::before { transform:rotate(90deg); }
+details.fold > summary:hover h2, details.fold > summary:hover h3 { color:var(--blood); }
+.sum-meta { font-family:var(--f-mono); font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums; }
+.fold-body { display:grid; gap:14px; grid-template-columns:minmax(0, 1fr); padding-top:14px; }
+.fold-body > * { min-width:0; }
+details.panel[open] > summary, details.mine[open] > summary { border-bottom:1px solid var(--rule); padding-bottom:8px; }
+@media (prefers-reduced-motion: reduce) { details.fold > summary .tog::before { transition:none; } }
 .rota { width:100%; border-collapse:collapse; font-family:var(--f-mono); font-size:14px; font-variant-numeric:tabular-nums; }
 .rota td { padding:9px 10px 9px 0; border-bottom:1px dashed var(--rule-soft); vertical-align:baseline; }
 .rota tr:last-child td { border-bottom:0; }
@@ -754,8 +786,11 @@ a:focus-visible { outline:2px solid var(--blood); outline-offset:2px; }
 .legend { display:flex; align-items:center; gap:10px; font-family:var(--f-mono); font-size:12px; color:var(--muted); }
 .legend .bar { flex:1; height:10px; border:1px solid var(--rule-soft);
   background:linear-gradient(90deg, var(--cold), var(--mid), var(--blood)); }
-.sub { border-top:2px solid var(--rule); padding-top:20px; display:grid; gap:14px; grid-template-columns:minmax(0, 1fr); }
-.sub-head { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 16px; }
+.subs { display:grid; grid-template-columns:minmax(0, 1fr); border-top:2px solid var(--rule); }
+.subs-head { margin:0; padding-top:10px; font-family:var(--f-mono); font-size:11.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); }
+.sub { border-bottom:1px dashed var(--rule-soft); padding-block:14px; }
+.sub:last-child { border-bottom:0; }
 .file { font-family:var(--f-mono); font-size:12px; color:var(--muted); margin:0; }
 .advice { margin:0; padding:10px 14px; background:var(--card); border-left:3px solid var(--warn); font-size:15px; max-width:66ch; }
 .note { color:var(--muted); margin:0; font-size:14.5px; }
@@ -785,11 +820,10 @@ table.strip td { height:22px; font-size:0; }
 table.strip td.thin { font-size:0; }
 table.strip tr.labels td { height:auto; font-size:11px; white-space:nowrap; overflow:visible; color:var(--muted); background:none; border:0; }
 .caption { margin:0; font-family:var(--f-mono); font-size:12px; color:var(--muted); }
-footer { border-top:2px solid var(--rule); padding-top:18px; color:var(--ink-2); font-size:14.5px; display:grid; gap:10px; }
+footer { border-top:2px solid var(--rule); padding-top:18px; color:var(--ink-2); font-size:14.5px; display:grid; gap:14px; }
 footer p { max-width:66ch; margin:0; }
 footer code { font-family:var(--f-mono); font-size:13px; background:var(--card); padding:1px 5px; white-space:nowrap; }
-.mine { display:grid; gap:12px; }
-.mine h3 { border-bottom:1px solid var(--rule); padding-bottom:8px; }
+
 .compare { margin:0; font-family:var(--f-mono); font-size:13px; color:var(--ink-2); }
 .myposts { width:100%; min-width:520px; border-collapse:collapse; font-size:14px; }
 .myposts th { text-align:left; font-weight:400; font-family:var(--f-mono); font-size:11.5px; letter-spacing:.1em;
@@ -864,21 +898,34 @@ def page_html(results, tz_name, awake, demo, mine=None, user=MY_USER):
   <p class="meta">{html.escape(tz_name)} &middot; past 12 months &middot; generated {generated}</p>
 </header>
 {demo_note}
-<section class="panel">
-  <h3>A week's rota for one report</h3>
+<div class="toolbar">
+  <button type="button" data-fold="open">Expand all</button>
+  <button type="button" data-fold="close">Collapse all</button>
+</div>
+<details class="panel fold" id="rota" open>
+  <summary>{TOG}<h3>A week's rota for one report</h3></summary>
+  <div class="fold-body">
   <p class="note">One subreddit a day, each at its best time on a free day, so a report never goes
   out everywhere at once. Skip the subs a report doesn't suit.</p>
   <div class="scroll"><table class="rota"><tbody>{rota_rows}</tbody></table></div>
-</section>
-<section>
+  </div>
+</details>
+<details class="fold" id="glance" open>
+  <summary>{TOG}<h3>Best times at a glance</h3></summary>
+  <div class="fold-body">
   <div class="scroll"><table class="glance"><thead><tr><th>Subreddit</th><th>Best</th><th>Runner-up</th></tr></thead>
   <tbody>{glance}</tbody></table></div>
-</section>
+  </div>
+</details>
 {my_posts_html(mine, user)}
-<div class="legend"><span>Weaker</span><span class="bar"></span><span>Stronger</span></div>
+<div class="subs">
+<p class="subs-head">Subreddits</p>
 {sections}
+</div>
 <footer>
-<h3>How it's worked out</h3>
+<details class="fold" id="method">
+<summary>{TOG}<h3>How it's worked out</h3></summary>
+<div class="fold-body">
 <p>Every post from the past year, leaving out anything under 48 hours old and {removal_note} A post
 counts as strong if it reached the subreddit's top quarter of scores, and as a top post if it reached the
 top 5%. Each time slot is scored on how often its posts did either, compared with the subreddit's
@@ -888,14 +935,39 @@ average, and those with under {MIN_POSTS} posts are dotted and never recommended
 real, thin could be noise. {source_note}</p>
 <p>This shows which times have worked, not a guarantee. A strong story still beats good timing. Rerun it
 every few months, and watch "Your posts" to see whether the good slots are paying off for you.</p>
-<h3>Rerun it</h3>
+</div>
+</details>
+<details class="fold" id="rerun">
+<summary>{TOG}<h3>Rerun it</h3></summary>
+<div class="fold-body">
 <p>In Terminal: <code>cd ~/projects/the-paranormal-pad</code> then <code>python3 tools/reddit_timing.py</code>.
 Add <code>--awake 09-02</code> to change your hours (up at 09:00, in bed by 02:00),
 <code>--subs Paranormal Ghosts Experiencers</code> to check particular subs (a new sub's first run downloads
 its whole year, so it can take a while), or <code>--demo</code> for a preview with made-up data.
 Full notes are in PUBLISHING.md under "Posting to Reddit".</p>
+</div>
+</details>
 </footer>
-</main></body></html>"""
+</main>
+<script>
+// Expand or collapse every section, and open a section when a link points to it.
+document.querySelectorAll("[data-fold]").forEach(function (b) {{
+  b.addEventListener("click", function () {{
+    var open = b.getAttribute("data-fold") === "open";
+    document.querySelectorAll("details.fold").forEach(function (d) {{ d.open = open; }});
+  }});
+}});
+function openFold(id) {{
+  var d = id && document.getElementById(id);
+  if (d && d.tagName === "DETAILS") d.open = true;
+}}
+document.addEventListener("click", function (e) {{
+  var a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (a) openFold(a.getAttribute("href").slice(1));
+}});
+openFold(decodeURIComponent(location.hash.slice(1)));
+</script>
+</body></html>"""
 
 
 # ---------------------------------------------------------------- main
