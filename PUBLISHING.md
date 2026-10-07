@@ -168,7 +168,7 @@ python3 tools/reddit_timing.py
 It fetches new posts, rebuilds the report and opens it. Usually a minute or two. Or just ask
 Claude Code to "run the reddit timing script".
 
-**Your posts:** the report also lists your own posts in these subs over the past year: how many
+**Your posts:** the report also lists every post you've made in these subs (ones over a year old are shaded): how many
 of the sub's posts each one beat, how good its time slot was, and a warning if it got no reaction
 at all (usually a sign it was removed) or went up within 30 minutes of another of your posts.
 Once there are enough posts it compares how you do in good slots against other times. The same

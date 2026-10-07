@@ -157,8 +157,8 @@ def fetch_range(sub, start, end):
     return posts
 
 
-def load_my_posts(user, subs, now):
-    """Your posts from the past year in the subreddits being analysed, newest first."""
+def load_my_posts(user, subs):
+    """All your posts in the subreddits being analysed, newest first."""
     wanted = {s.lower() for s in subs}
     posts, seen, before = [], set(), None
     while True:
@@ -169,13 +169,13 @@ def load_my_posts(user, subs, now):
         fresh = [p for p in page if p.get("id") not in seen]
         for p in fresh:
             seen.add(p["id"])
-            if (p.get("subreddit") or "").lower() in wanted and p.get("created_utc", 0) >= now - YEAR:
+            if (p.get("subreddit") or "").lower() in wanted:
                 posts.append({
                     "id": p["id"], "t": p["created_utc"], "score": p.get("score") or 0,
                     "comments": p.get("num_comments") or 0, "mod": bool(p.get("distinguished")),
                     "sub": p["subreddit"], "title": p.get("title") or "",
                 })
-        if len(page) < 100 or not fresh or page[-1]["created_utc"] < now - YEAR:
+        if len(page) < 100 or not fresh:
             break
         before = page[-1]["created_utc"] + 1
         time.sleep(PAGE_DELAY)
@@ -446,9 +446,11 @@ def rate_my_posts(mine, results, tz, now):
         i = bisect.bisect_left(times_sorted, p["t"])
         gaps = [abs(times_sorted[j] - p["t"]) for j in (i - 1, i + 1) if 0 <= j < len(times_sorted)]
         close = min(gaps) / 60 if gaps and min(gaps) < CLOSE_MINUTES * 60 else None
-        rated.append({**p, "dt": dt, "slot": slot, "status": status, "beat": beat, "close": close})
+        rated.append({**p, "dt": dt, "slot": slot, "status": status, "beat": beat, "close": close,
+                      "older": p["t"] < now - YEAR})
 
-    scored = [p for p in rated if p["beat"] is not None and p["slot"] is not None]
+    # the heatmaps describe the past year, so only posts from that year count towards the comparison
+    scored = [p for p in rated if p["beat"] is not None and p["slot"] is not None and not p["older"]]
     good = [p["beat"] for p in scored if p["slot"] >= GOOD_SLOT]
     other = [p["beat"] for p in scored if p["slot"] < GOOD_SLOT]
     return {
@@ -529,7 +531,7 @@ def slot_word(lift):
 def comparison_text(m):
     if not m["ready"]:
         n = len(m["good"]) + len(m["other"])
-        return (f"Too early to compare good slots with the rest: {n} scored posts so far, and it needs "
+        return (f"Too early to compare good slots with the rest: {n} scored posts in the past year, and it needs "
                 f"at least {COMPARE_MIN} in each group ({len(m['good'])} in good slots, "
                 f"{len(m['other'])} elsewhere).")
     g, o = statistics.mean(m["good"]), statistics.mean(m["other"])
@@ -538,13 +540,13 @@ def comparison_text(m):
 
 
 def print_my_posts(m, user):
-    print(f"\nYour posts (u/{user}, past year)")
+    print(f"\nYour posts (u/{user})")
     if not m["posts"]:
         print("    None found in these subreddits.")
         return
     for p in m["posts"][:15]:
         result = f"beat {p['beat']:.0%}" if p["beat"] is not None else p["status"]
-        print(f"    {p['dt'].strftime('%a %d %b %H:%M')}  r/{p['sub']:<22} {slot_word(p['slot']):<8} "
+        print(f"    {p['dt'].strftime('%a %d %b %Y %H:%M')}  r/{p['sub']:<22} {slot_word(p['slot']):<8} "
               f"{p['score']:>4} pts  {result}")
     if len(m["posts"]) > 15:
         print(f"    ... and {len(m['posts']) - 15} more in the report")
@@ -554,10 +556,11 @@ def print_my_posts(m, user):
 def write_my_csv(m, path):
     with open(path, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["posted_uk", "subreddit", "title", "score", "comments", "slot_lift", "status",
+        w.writerow(["posted_uk", "subreddit", "title", "score", "comments", "older_than_a_year", "slot_lift", "status",
                     "beat_share", "minutes_from_nearest_post", "link"])
         for p in m["posts"]:
             w.writerow([p["dt"].strftime("%Y-%m-%d %H:%M"), p["sub"], p["title"], p["score"], p["comments"],
+                        "yes" if p["older"] else "",
                         f"{p['slot']:.2f}" if p["slot"] is not None else "", p["status"],
                         f"{p['beat']:.3f}" if p["beat"] is not None else "",
                         f"{p['close']:.0f}" if p["close"] is not None else "",
@@ -569,7 +572,7 @@ def my_posts_html(m, user):
         return ""
     if not m["posts"]:
         return (f'<section class="mine"><h3>Your posts</h3><p class="note">No posts by u/{html.escape(user)} '
-                f'in these subreddits in the past year.</p></section>')
+                f'in these subreddits.</p></section>')
     rows = []
     for p in m["posts"]:
         title = p["title"] if len(p["title"]) <= 70 else p["title"][:67].rstrip() + "..."
@@ -582,7 +585,9 @@ def my_posts_html(m, user):
                  if p["close"] is not None else "")
         slot = slot_word(p["slot"])
         rows.append(
-            f'<tr><td class="w">{p["dt"].strftime("%a %d %b")}<br>{p["dt"].strftime("%H:%M")}</td>'
+            ('<tr class="older">' if p["older"] else "<tr>") + f'<td class="w">{p["dt"].strftime("%a %d %b")}<br>'
+            f'{p["dt"].strftime("%Y" if p["older"] else "%H:%M")}'
+            + (f'<br>{p["dt"].strftime("%H:%M")}' if p["older"] else "") + '</td>'
             f'<td><a href="{html.escape(link)}">{html.escape(title)}</a>'
             f'<span class="where">r/{html.escape(p["sub"])} &middot; {p["score"]} pts &middot; '
             f'{p["comments"]} comments</span>{close}</td>'
@@ -601,8 +606,10 @@ def my_posts_html(m, user):
     return f"""
 <section class="mine">
   <h3>Your posts</h3>
-  <p class="note">u/{html.escape(user)} in these subreddits over the past year. "Beat" is the share of that
-  subreddit's posts your post scored higher than. The slot is how good that time has been in the heatmap.</p>
+  <p class="note">Everything u/{html.escape(user)} has posted in these subreddits. "Beat" is the share of
+  that subreddit's posts from the past year your post scored higher than. The slot is how good that time has
+  been in the heatmap. Posts over a year old are shaded: they're measured against this year's posts, and
+  they're left out of the comparison below.</p>
   {flag_html}
   <p class="compare">{html.escape(comparison_text(m))}</p>
   <div class="scroll"><table class="myposts"><thead><tr><th>Posted</th><th>Post</th><th>Slot</th><th>Result</th></tr></thead>
@@ -795,6 +802,7 @@ footer code { font-family:var(--f-mono); font-size:13px; background:var(--card);
 .myposts .close { color:var(--warn); }
 .s-good { color:var(--ok); } .s-weak { color:var(--blood); } .s-average, .s-unrated { color:var(--muted); }
 .beat { font-weight:700; }
+.myposts tr.older td { background:var(--card); }
 .flag { font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:1px 6px; border:1px solid currentColor; }
 .flag-no-reaction, .flag-removed { color:var(--blood); }
 .flag-settling, .flag-mod-post { color:var(--muted); }
@@ -941,7 +949,7 @@ def main():
         mine_raw = demo_mine
     else:
         print(f"\nLooking up u/{args.user}'s posts")
-        mine_raw = load_my_posts(args.user, [r["sub"] for r in results], now)
+        mine_raw = load_my_posts(args.user, [r["sub"] for r in results])
         if token and mine_raw:
             reddit_check("your posts", mine_raw, token, lambda: None)
     mine = rate_my_posts(mine_raw, results, tz, now)
