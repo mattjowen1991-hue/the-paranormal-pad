@@ -61,7 +61,14 @@ def to_draft_body(content):
         cap = re.search(r'<p>(.*?)</p>', block, re.S)
         times = f' | {clock(st.group(1)) if st else "00:00"}-{clock(en.group(1)) if en else ""}' if (st or en) else ''
         return f'\n\n[VIDEO: https://youtu.be/{vid.group(1)} | {md_inline(cap.group(1)) if cap else ""}{times}]\n\n'
+    k = [0]
+    def sketch(m):
+        k[0] += 1
+        alt = re.search(r'alt="([^"]*)"', m.group(0))
+        what = re.sub(r'^Ink sketch:\s*', '', html.unescape(alt.group(1))) if alt else ''
+        return f'\n\n[SKETCH {k[0]}: {what}]\n\n'
     s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)
+    s = re.sub(r'<figure class="sketch".*?</figure>', sketch, s, flags=re.S)
     s = re.sub(r'<figure.*?</figure>', photo, s, flags=re.S)
     s = re.sub(r'<div class="evidence".*?</div>', video, s, flags=re.S)
     s = re.sub(r'<div class="side-actions">.*?data-seek="(\d+)".*?</div>', '\n\n[PLAY SIDE]\n\n', s, flags=re.S)

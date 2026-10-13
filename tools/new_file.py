@@ -4,15 +4,16 @@
     python3 tools/new_file.py DRAFT.md --media FOLDER [--no 009] [--dry-run]
 
 DRAFT.md is written in the draft format (docs/DRAFT-FORMAT.md): a short header block
-between --- lines, then the text in Markdown with [PHOTO n: caption] and
-[VIDEO: url | caption | start-end] markers.
+between --- lines, then the text in Markdown with [PHOTO n: caption],
+[SKETCH n: what it shows] and [VIDEO: url | caption | start-end] markers.
 
-FOLDER holds the pictures: cover.jpg (the card/share picture) and 1.jpg, 2.png, ...
-matching the [PHOTO n] markers. Any common image type works; they're resized to JPEG.
+FOLDER holds the pictures: cover.jpg (the card/share picture), 1.jpg, 2.png, ...
+matching the [PHOTO n] markers, and sketch-1.png, sketch-2.png ... matching the
+[SKETCH n] markers. Any common image type works; they're resized to JPEG.
 
 What it does:
   - writes content/reports/NNN.html (or content/tapes/NNN.html)
-  - copies pictures to images/reports/NNN/ (cover.jpg, 01.jpg, ...)
+  - copies pictures to images/reports/NNN/ (cover.jpg, 01.jpg, ..., sketch-1.jpg, ...)
   - adds the entry to REPORTS / TAPES in js/data.js (and FEATURED if asked)
   - rebuilds the share pages (tools/share_pages.py)
 It never touches git. Standard library only (uses macOS `sips` for pictures).
@@ -107,8 +108,11 @@ def media_link(kind, mid, sec=0):
     return f'https://www.youtube.com/watch?v={mid}' + (f'&amp;t={sec}s' if sec else '')
 
 
-def body_to_html(body, photos, kind, used):
-    """photos: {n: 'images/reports/009/01.jpg'}; used: set of photo numbers seen."""
+def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
+    """photos: {n: 'images/reports/009/01.jpg'}; used: set of photo numbers seen.
+    sketches: {n: ('images/reports/009/sketch-1.jpg', width, height)}; used_sketches: likewise."""
+    sketches = sketches or {}
+    used_sketches = used_sketches if used_sketches is not None else set()
     blocks, para, lst = [], [], []
     def flush():
         if para:
@@ -123,6 +127,7 @@ def body_to_html(body, photos, kind, used):
             flush(); continue
         h = re.match(r'(#{2,4})\s+(.*)', line)
         pm = re.match(r'\[PHOTO\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
+        km = re.match(r'\[SKETCH\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
         vm = re.match(r'\[VIDEO\s*:\s*(.*?)\]$', line, re.I)
         sm = re.match(r'\[PLAY SIDE\s+([AB])\]$', line, re.I)
         if h:
@@ -137,6 +142,20 @@ def body_to_html(body, photos, kind, used):
             alt = html.escape(re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', cap).replace('*', ''), quote=True)
             blocks.append(f'<figure><img alt="{alt}" loading="lazy" src="{photos[n]}"/>'
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure>')
+        elif km:
+            # An ink sketch beside the next paragraph (brand/sketch-style/STYLE.md). The marker's
+            # text says what it shows, for screen readers; the caption is always the AI label.
+            flush()
+            n = int(km.group(1))
+            if n not in sketches:
+                raise DraftError(f'[SKETCH {n}] is in the draft but there is no picture named sketch-{n} in the media folder.')
+            if not km.group(2).strip():
+                raise DraftError(f'[SKETCH {n}] needs a short description of what it shows, e.g. [SKETCH {n}: A small girl floating above her bed].')
+            used_sketches.add(n)
+            src, w, h = sketches[n]
+            alt = html.escape('Ink sketch: ' + km.group(2).strip().replace('*', ''), quote=True)
+            blocks.append(f'<figure class="sketch"><img alt="{alt}" height="{h}" loading="lazy" src="{src}" width="{w}"/>'
+                          '<figcaption>AI recreation of the scene</figcaption></figure>')
         elif vm:
             flush()
             bits = [b.strip() for b in vm.group(1).split('|')]
@@ -211,12 +230,13 @@ def excerpt_from(body_html, limit=210):
 
 # ---------------------------------------------------------------- pictures
 IMG_EXT = ('.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif', '.gif', '.tif', '.tiff')
+SKETCH_PX = 900   # sharp at 3x on a phone, and in the 16rem desktop margin
 
 
 def find_media(folder):
-    cover, photos = None, {}
+    cover, photos, sketches = None, {}, {}
     if not folder:
-        return cover, photos
+        return cover, photos, sketches
     for name in sorted(os.listdir(folder)):
         stem, ext = os.path.splitext(name)
         if ext.lower() not in IMG_EXT:
@@ -225,15 +245,32 @@ def find_media(folder):
             cover = os.path.join(folder, name)
         elif re.fullmatch(r'(?:photo[-_ ]?)?0*(\d+)', stem, re.I):
             photos[int(re.fullmatch(r'(?:photo[-_ ]?)?0*(\d+)', stem, re.I).group(1))] = os.path.join(folder, name)
-    return cover, photos
+        elif re.fullmatch(r'sketch[-_ ]?0*(\d+)', stem, re.I):
+            sketches[int(re.fullmatch(r'sketch[-_ ]?0*(\d+)', stem, re.I).group(1))] = os.path.join(folder, name)
+    return cover, photos, sketches
 
 
-def save_jpeg(src, dest, max_px):
+def pixel_size(src):
+    out = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', src], capture_output=True, text=True).stdout
+    dims = [int(n) for n in re.findall(r'pixel(?:Width|Height): (\d+)', out)]
+    if len(dims) != 2:
+        raise DraftError(f'Could not read the size of picture {src}.')
+    return dims[0], dims[1]
+
+
+def shrunk(size, max_px):
+    """The size save_jpeg will give a picture: longest side at most max_px, never enlarged."""
+    w, h = size
+    k = min(1, max_px / max(w, h))
+    return round(w * k), round(h * k)
+
+
+def save_jpeg(src, dest, max_px, quality=82):
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     size = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', src], capture_output=True, text=True).stdout
     dims = [int(n) for n in re.findall(r'pixel(?:Width|Height): (\d+)', size)]
     shrink = ['-Z', str(max_px)] if dims and max(dims) > max_px else []   # only ever shrink, never enlarge
-    r = subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', '82', *shrink, src, '--out', dest],
+    r = subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(quality), *shrink, src, '--out', dest],
                        capture_output=True, text=True)
     if r.returncode or not os.path.exists(dest):
         raise DraftError(f'Could not convert picture {src}: {r.stderr.strip()}')
@@ -264,12 +301,13 @@ def build(draft_path, media, number=None, dry=False):
         raise DraftError(f'{kind.title()} {no} already exists. Pick another number or leave "no" blank.')
 
     folder = 'reports' if kind == 'report' else 'tapes'
-    cover, photo_files = find_media(media)
+    cover, photo_files, sketch_files = find_media(media)
     if not cover:
         raise DraftError(f'No cover picture found. Put one in the media folder named cover.jpg (or .png).')
     photos = {n: f'images/{folder}/{no}/{n:02d}.jpg' for n in photo_files}
-    used = set()
-    body_html = body_to_html(body, photos, kind, used)
+    sketches = {n: (f'images/{folder}/{no}/sketch-{n}.jpg', *shrunk(pixel_size(p), SKETCH_PX)) for n, p in sketch_files.items()}
+    used, used_sketches = set(), set()
+    body_html = body_to_html(body, photos, kind, used, sketches, used_sketches)
     unused = sorted(set(photo_files) - used)
 
     entry = {'kind': kind, 'no': no, 'title': meta['title'], 'date': meta['date'],
@@ -334,7 +372,8 @@ def build(draft_path, media, number=None, dry=False):
                     'quote': meta.get('featured_quote', ''), 'witness': meta.get('featured_witness', ''),
                     'place': meta.get('featured_place') or entry['loc'], 'status': meta.get('featured_status', 'Unexplained')}
 
-    report = {'kind': kind, 'no': no, 'entry': entry, 'photos_used': sorted(used), 'photos_unused': unused, 'featured': bool(featured),
+    report = {'kind': kind, 'no': no, 'entry': entry, 'photos_used': sorted(used), 'photos_unused': unused,
+              'sketches_used': sorted(used_sketches), 'sketches_unused': sorted(set(sketch_files) - used_sketches), 'featured': bool(featured),
               'content_file': f'content/{folder}/{no}.html', 'share_page': f'https://theparanormalpad.com/{folder}/{no}/',
               'page': f'https://theparanormalpad.com/#{"tape" if kind == "tape" else "file"}-{no}'}
     if dry:
@@ -345,6 +384,8 @@ def build(draft_path, media, number=None, dry=False):
     save_jpeg(cover, os.path.join(ROOT, 'images', folder, no, 'cover.jpg'), 1400)
     for n in used:
         save_jpeg(photo_files[n], os.path.join(ROOT, photos[n]), 1600)
+    for n in used_sketches:   # dense hatching compresses badly: smaller and lower quality keeps them near 280 KB
+        save_jpeg(sketch_files[n], os.path.join(ROOT, sketches[n][0]), SKETCH_PX, quality=65)
     with open(os.path.join(ROOT, report['content_file']), 'w', encoding='utf-8') as out:
         out.write(body_html + '\n')
     if kind == 'report':
@@ -365,7 +406,7 @@ def build(draft_path, media, number=None, dry=False):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('draft')
-    ap.add_argument('--media', help='folder with cover.jpg and 1.jpg, 2.jpg ... (optional for tapes if you give a cover)')
+    ap.add_argument('--media', help='folder with cover.jpg, 1.jpg, 2.jpg ... and sketch-1.jpg ... (optional for tapes if you give a cover)')
     ap.add_argument('--no', help='force a number, e.g. 009')
     ap.add_argument('--dry-run', action='store_true', help='check the draft and show what would happen, change nothing')
     a = ap.parse_args()
