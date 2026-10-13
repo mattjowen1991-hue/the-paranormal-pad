@@ -424,7 +424,7 @@ subjects: Hauntings, Shadow People
 ---
 This is one of the incidents I’m most hesitant to discuss openly when sharing my experiences, and truthfully, I’m not entirely sure why. Talking about what happened makes me feel deeply uneasy. But before we delve into the incident itself, let me provide some brief background on the location where it occurred.
 
-Nestled in the tranquil Worcestershire countryside, the once imposing structure of Barnsley Hall Hospital cast a long and shadowy silhouette against its serene surroundings. This imposing structure was originally conceived as the second County Asylum for the north of Worcestershire, following the overcrowding of the Powick Asylum in 1852. In 1899, a 327-hectare site was acquired, and the renowned asylum architect George Thomas Hine was commissioned to bring his vision to life.
+Nestled in the tranquil Worcestershire countryside, the once imposing structure of Barnsley Hall Hospital cast a long and shadowy silhouette against its serene surroundings. This imposing structure was originally conceived as the second County Asylum for the north of Worcestershire, after the county’s first asylum at Powick, opened in 1852, had reached capacity. In 1899, a site was acquired at Bromsgrove, and the renowned asylum architect George Thomas Hine won the competition to design it. Building ran from 1903, and the asylum opened in 1907.
 
 Constructed of red brick with stone dressings, it featured a compact echelon plan connected by brick corridors, largely symmetrical except for two slightly larger dormitories on the female side. The administrative block, while attractive, lacked the clock tower often associated with Hine’s designs. However, the water tower, with its gothic red brick and sandstone detailing, crenellations, and spires, was among the most striking examples of Hine’s architectural prowess.
 
@@ -434,11 +434,11 @@ Named after the great hall of the local Barnsley family, which had been demolish
 
 During the Second World War, Barnsley Hall was repurposed as a war hospital. Three wards were allocated for wartime use, and additional temporary wards were erected to accommodate soldiers from the frontlines and civilian casualties from nearby air raids. The asylum’s grounds, previously a haven of isolation, now buzzed with the urgent activity of wartime care.
 
-The hospital’s reputation was mixed. While it aimed to provide care, the treatments of the time were far from advanced, and stories of harsh conditions began to surface. The corridors of Barnsley Hall, once filled with the laughter of its aristocratic past, now echoed with the cries and whispers of its troubled patients. The institution came under scrutiny in 1976 when reports surfaced about fire exit doors being routinely locked. Further scandal emerged in 1980 when a Charge Nurse, John Whitehouse, was sentenced to six months in prison for poisoning two colleagues. Such incidents casted a shadow over the asylum’s operations.
+The hospital’s reputation was mixed. While it aimed to provide care, the treatments of the time were far from advanced, and stories of harsh conditions began to surface. The institution came under scrutiny in 1976 when reports surfaced about fire exit doors being routinely locked. Further scandal emerged in 1980 when a Charge Nurse, John Whitehouse, was sentenced to six months in prison for poisoning two colleagues. Such incidents cast a shadow over the asylum’s operations.
 
-As the decades passed, the institution faced increasing scrutiny over its methods and living conditions. By the 1970s, the tide of public opinion had turned against such establishments, and Barnsley Hall was no exception. The hospital’s closure came in 1989, a decision influenced by a combination of modern psychiatric care advances, scandals, and the relentless push for deinstitutionalization. Once the last patient left and the staff departed, the hall stood empty – a looming reminder of a darker chapter in mental health care.
+As the decades passed, the institution faced increasing scrutiny over its methods and living conditions. By the 1970s, the tide of public opinion had turned against such establishments, and Barnsley Hall was no exception. As care moved away from the big asylums and into the community, Powick closed in 1989, and for a few more years Barnsley Hall carried on the county’s psychiatric care alone. It finally closed in 1996, when its last 45 patients moved into community-based accommodation. Some say the scandals played their part in the closure too, although that’s only rumour; I haven’t found anything that confirms it. Once the staff departed, the hall stood empty, a looming reminder of a darker chapter in mental health care.
 
-In 1995, after years of neglect and decay, Barnsley Hall Hospital was demolished. The site, now a shadow of its former self, was cleared to make way for new developments. Yet, for those who remember, or those who dare to wander near the site, the remnants of its unsettling history seem to have left an indelible mark. The following recounts a personal experience I had near the site – strangely, next to one of the few original buildings still standing.
+By 1999 the land had been sold for housing, and almost every original building was demolished to make way for the new estate. Campaigners and the local council tried to save the ornate water tower, but it came down in April 2000. Only the lodges, the administration block, the chapel and one airing court shelter survived, and the shelter has since been moved to Avoncroft Museum in Bromsgrove. Yet, for those who remember, or those who dare to wander near the site, the remnants of its unsettling history seem to have left an indelible mark. The following recounts a personal experience I had near the site – strangely, next to one of the few original buildings still standing.
 
 ## **Incident Report 003:**
 
@@ -496,7 +496,7 @@ Later, after doing some research, I discovered something that added another laye
 
 [PHOTO 8: A photo from Google Maps.]
 
-Below is a much older photo of the building, taken back when the hospital was closed down in the late 80s. As you can see, very little has changed about it.
+Below is a much older photo of the building, taken after the hospital had closed, with a site cabin outside and some of the windows boarded up. As you can see, very little has changed about it.
 
 [PHOTO 9: *The Administration Block. Image: [County Asylums](https://www.countyasylums.co.uk/barnsley-hall-bromsgrove/)*]
 
