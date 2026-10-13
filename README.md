@@ -36,7 +36,7 @@ the-paranormal-pad/
 ├── firebase.json           # Firebase CLI settings (only needed for local testing)
 └── images/
     ├── reporter.jpg
-    ├── reports/008/cover.jpg, 01.png …   # Cover + in-report photos, one folder per report
+    ├── reports/008/cover.jpg, 01.png …   # Cover + in-report photos (+ sketch-1.jpg … ink sketches), one folder per report
     └── tapes/006/cover.jpg …             # Cassette cover, one folder per tape
 ```
 
