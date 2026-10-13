@@ -363,9 +363,8 @@ aside { display: grid; gap: 1.25rem; }
   -webkit-mask-composite: source-in;
   mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent), linear-gradient(transparent, #000 7%, #000 93%, transparent);
   mask-composite: intersect;
-  transition: opacity 1.8s ease-out, filter 1.8s ease-out;
+  transition: opacity 1s ease-out, filter 1s ease-out;
 }
-.prose figure.sketch figcaption { text-align: center; font-size: 10px; padding-top: 0; }
 /* set by main.js until the sketch scrolls into view: it then develops like ink */
 .prose figure.sketch.ink-pending img { opacity: 0; filter: brightness(1.03) blur(5px); }
 @media (min-width: 1180px) {

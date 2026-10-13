@@ -144,7 +144,7 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure>')
         elif km:
             # An ink sketch beside the next paragraph (brand/sketch-style/STYLE.md). The marker's
-            # text says what it shows, for screen readers; the caption is always the AI label.
+            # text says what it shows, for screen readers. Sketches carry no caption.
             flush()
             n = int(km.group(1))
             if n not in sketches:
@@ -154,8 +154,7 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
             used_sketches.add(n)
             src, w, h = sketches[n]
             alt = html.escape('Ink sketch: ' + km.group(2).strip().replace('*', ''), quote=True)
-            blocks.append(f'<figure class="sketch"><img alt="{alt}" height="{h}" loading="lazy" src="{src}" width="{w}"/>'
-                          '<figcaption>AI recreation of the scene</figcaption></figure>')
+            blocks.append(f'<figure class="sketch"><img alt="{alt}" height="{h}" loading="lazy" src="{src}" width="{w}"/></figure>')
         elif vm:
             flush()
             bits = [b.strip() for b in vm.group(1).split('|')]

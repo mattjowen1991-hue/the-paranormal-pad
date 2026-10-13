@@ -41,7 +41,9 @@ while they talked. That difference is the point, so the two never mix.
   witness describes as featureless stays featureless: no eyes, no mouth.
 - **Background is neutral.** Plain furniture, wallpaper, a picture frame or a door are fine.
   Nothing that adds to the story (no extra figures, objects that move, symbols, marks).
-- **Every sketch is labelled** as an AI recreation, like any AI image on the site.
+- **No caption or label.** A sketch is plainly a drawing, not evidence, so unlike the
+  photo-like AI recreations elsewhere on the site it carries no "AI recreation" caption. That makes
+  the rules above matter more: the drawing itself must never claim more than the witness said.
 
 ## 4. Making one in ChatGPT
 

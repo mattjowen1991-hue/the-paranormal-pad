@@ -85,7 +85,7 @@ number; the pinned radio tape stays at the top of the Tapes page whatever its nu
   phones keep the old files. Content and partials don't need it.
 - After adding/changing a report or tape, run `python3 tools/share_pages.py` (new_file.py does this).
 - Never invent facts, dates, sources or quotes in a report. Mark AI-generated images as
-  "AI recreation" in the caption. Keep people's anonymity exactly as the draft says.
+  "AI recreation" in the caption (not the ink sketches, which have no caption). Keep people's anonymity exactly as the draft says.
 - Keep the look: case-file parchment, typewriter headings, stamps, paperclipped photos. No new
   fonts or colours without a ticket saying so.
 - Test on phone width (390px) as well as desktop - most readers are on mobile.
