@@ -10,7 +10,7 @@ Makes (from the live content, so it stays current as reports are added):
   knowledge/03-site-facts.md       every report and tape: number, title, date, place, subjects
   knowledge/04-example-reports.md  every published report, converted back to the draft format
   knowledge/05-example-tapes.md    every tape page, in the draft format
-  knowledge/06-sketch-style.md     copy of brand/sketch-style/STYLE.md
+  knowledge/14-sketch-style.md     copy of brand/sketch-style/STYLE.md
 Prints which files changed.
 
 Keeping the claude.ai Project in step (claude.ai has no upload API, so the upload itself is manual):
@@ -151,7 +151,7 @@ Josh English (006). Matt's Nan and Grandad, partner and daughter appear in 001 a
                      + (f'sides:{sides}\n' if sides else '') + f'---\n{body}\n')
     write('05-example-tapes.md', ''.join(parts), changed)
 
-    write('06-sketch-style.md', open(os.path.join(ROOT, 'brand', 'sketch-style', 'STYLE.md'), encoding='utf-8').read(), changed)
+    write('14-sketch-style.md', open(os.path.join(ROOT, 'brand', 'sketch-style', 'STYLE.md'), encoding='utf-8').read(), changed)
 
     print('Rebuilt from the site - these files changed:' if changed else 'Kit rebuilt - no files changed.')
     for c in changed:

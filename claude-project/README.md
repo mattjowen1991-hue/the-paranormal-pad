@@ -11,7 +11,9 @@ be built straight onto the site.
    [`INSTRUCTIONS.md`](INSTRUCTIONS.md).
 3. Under **Project knowledge**, upload the six files in [`knowledge/`](knowledge/):
    `01-house-style.md`, `02-draft-format.md`, `03-site-facts.md`, `04-example-reports.md`,
-   `05-example-tapes.md`, `06-sketch-style.md`.
+   `05-example-tapes.md`, `14-sketch-style.md`.
+   The Project also holds `06-reddit-...` to `13-reddit-router.md` (the Reddit post guides). They
+   aren't in this repo, so keep them when swapping files.
 
 ## Keeping it current
 

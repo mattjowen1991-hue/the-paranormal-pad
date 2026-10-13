@@ -2,7 +2,7 @@
 
 The standard for the small ink sketches that sit beside a witness's own words. It is read by
 Matt when he makes a sketch in ChatGPT, and by the Claude Project when it suggests sketches for
-a draft (it gets this file as `06-sketch-style.md`).
+a draft (it gets this file as `14-sketch-style.md`).
 
 The reference image is [`master.png`](master.png) (Report 008, Fran's second nightmare).
 

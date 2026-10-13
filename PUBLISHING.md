@@ -32,7 +32,7 @@ If you're on another computer, download them from GitHub: open each file below a
 - `claude-project/knowledge/03-site-facts.md`
 - `claude-project/knowledge/04-example-reports.md`
 - `claude-project/knowledge/05-example-tapes.md`
-- `claude-project/knowledge/06-sketch-style.md`
+- `claude-project/knowledge/14-sketch-style.md`
 
 **Step 2 - Create the Project.**
 1. Go to **claude.ai** and sign in.
