@@ -46,8 +46,8 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - Serve locally: python3 -m http.server 8080 (in the background).
    - Check http://localhost:8080/#file-NNN at 1280px and 390px wide (headless Chrome screenshots):
      every photo loads and opens in the viewer, videos show a thumbnail, headings and dividers look
-     right, the Share button is there, no sideways scrolling. Sketches: in the margin beside their
-     paragraph at 1280px, between paragraphs at 390px, no visible square around them.
+     right, the Share button is there, no sideways scrolling. Sketches: centred just before their
+     paragraph at both widths, no visible square around them.
    - Check the homepage: counts, Latest dispatch, the new card first; Featured Case if chosen.
    - Check http://localhost:8080/reports/NNN/ forwards to the report and carries the right
      og:title, og:description and og:image.

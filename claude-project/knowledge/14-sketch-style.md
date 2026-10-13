@@ -25,9 +25,9 @@ while they talked. That difference is the point, so the two never mix.
 - Each sketch belongs to one paragraph: the one that describes that moment. In the draft, its
   `[SKETCH n: what it shows]` marker goes on its own line just **before** that paragraph. The text
   after the colon is what screen readers say, so describe the picture plainly in a few words.
-- On wide screens sketches sit in the margin beside their paragraph; on phones they sit between
-  paragraphs. Two sketches on back-to-back paragraphs are fine (the second waits just below the
-  first), but never three in a row.
+- On every screen a sketch sits centred between paragraphs, just before the one it belongs to,
+  so the reader meets the picture as they reach the moment (up to 520px wide on desktop, full
+  width on phones). Two sketches on back-to-back paragraphs are fine; never three in a row.
 
 ## 3. Honesty rules (non-negotiable)
 

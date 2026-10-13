@@ -118,7 +118,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `> "A line"` | Pull quote |
 | `- item` | Bullet list |
 | `[PHOTO 3: Caption. Image: Source]` | Photo number 3 as a paperclipped print with caption |
-| `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing beside the paragraph after it (in the margin on wide screens), with no caption. The text after the colon is read out by screen readers. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
+| `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing centred just before the paragraph after it, with no caption. The text after the colon is read out by screen readers. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
 | `[VIDEO: https://youtu.be/xxxx \| Caption \| 0:05-1:30]` | Playable YouTube evidence (start-end optional) |
 
 ## Pictures
