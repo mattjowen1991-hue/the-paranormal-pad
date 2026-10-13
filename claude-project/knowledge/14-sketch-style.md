@@ -76,7 +76,8 @@ Start with `Scene:` and describe one moment in plain sentences:
   *Do not draw any creature or figure behind her.*
 
 Keep it to what is in the account. If a detail would help the picture but the witness never said
-it, leave it out rather than guess.
+it, leave it out rather than guess. That includes the time of day: don't say "at night" unless
+they did.
 
 ### Examples (Report 008, Fran's Story)
 
@@ -87,12 +88,12 @@ Scene: A girl of about five or six floats in mid-air above her own bed in a smal
 
 Beside "In the first, I was running up a hill...":
 ```
-Scene: Seen from behind, a small girl runs up a steep hill at night towards a road of houses at the top. Behind her there is nothing visible, only deeper, heavier hatching, as if something is there that cannot be seen. Do not draw any creature or figure behind her.
+Scene: Seen from behind, a girl of about five or six runs up a steep hill towards a road of houses at the top. Behind her there is nothing visible, only deeper, heavier hatching, as if something is there that cannot be seen. Do not draw any creature, figure or shadow shape behind her.
 ```
 
 Beside "It was a small figure, no taller than an eight-year-old child...":
 ```
-Scene: Viewed from just behind a girl's head as she lies in bed, looking down the bed towards an open bedroom door. At the foot of the bed stands a small figure, the height of an eight-year-old child, completely black like a shadow, with no features at all, holding the bottom edge of the quilt. Through the open door, a strange soft glow lights the landing as if a lamp had been switched on, and at the far end of the landing is a closed bathroom door.
+Scene: Viewed from just behind a girl's head as she lies in bed, looking down the bed towards an open bedroom door. At the foot of the bed stands a small figure, the height of an eight-year-old child, completely black like a shadow, with no features at all and nothing to show whether it is a boy or a girl, holding the bottom edge of the quilt. Do not give it eyes, a face, hair or clothing. Through the open door, a strange soft glow lights the landing as if a lamp had been switched on, and at the far end of the landing is a closed bathroom door.
 ```
 
 ## 7. Checking a result
