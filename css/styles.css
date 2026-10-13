@@ -348,12 +348,14 @@ aside { display: grid; gap: 1.25rem; }
 .prose .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .75rem; margin: 1.6rem 0; }
 .prose .gallery .gallery-item { width: auto; margin: 1rem 0 0; }
 .prose .gallery img { aspect-ratio: 4 / 3; object-fit: cover; }
-/* sketches: ink drawings beside a witness's own words (brand/sketch-style/STYLE.md).
+/* sketches: ink drawings in a witness's own words (brand/sketch-style/STYLE.md).
    Photos are prints clipped to the file; sketches are drawn straight onto the page, so no
    print, clip or tilt. The drawing is multiplied onto the paper and its edges feathered, so
-   its off-white background disappears into the card. */
+   its off-white background disappears into the card. Each sits centred just before the
+   paragraph it illustrates, on every screen, so it lands as a reveal. 520px keeps the
+   900px files sharp. */
 .prose figure.sketch {
-  width: min(100%, 440px); margin: 2rem auto 2.2rem; padding: 0;
+  width: min(100%, 520px); margin: 2rem auto 2.2rem; padding: 0;
   background: none; border: 0; box-shadow: none; transform: none;
 }
 .prose figure.sketch::before, .prose figure.sketch::after { display: none; }
@@ -367,13 +369,6 @@ aside { display: grid; gap: 1.25rem; }
 }
 /* set by main.js until the sketch scrolls into view: it then develops like ink */
 .prose figure.sketch.ink-pending img { opacity: 0; filter: brightness(1.03) blur(5px); }
-@media (min-width: 1180px) {
-  /* wide screens: the sketch sits in the margin beside its paragraph; the text column keeps its width.
-     It starts a little above the paragraph; the matching bottom margin keeps sketches on
-     back-to-back paragraphs from overlapping (the second one waits below the first). */
-  .prose.has-sketches { display: flow-root; max-width: calc(66ch + 21rem); padding-right: 21rem; }
-  .prose.has-sketches figure.sketch { float: right; clear: right; width: 16rem; margin: -5rem -20rem 6rem 0; }
-}
 .evidence { display: grid; gap: .4rem; justify-items: start; border: 2px solid var(--rule); background: var(--paper-2); padding: .9rem 1rem; margin: 1.6rem 0; box-shadow: 3px 3px 0 0 rgba(43,39,35,.15); }
 .evidence .label { color: var(--blood); }
 .evidence p { margin: 0; font-size: 14px; line-height: 1.6; }

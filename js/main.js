@@ -676,7 +676,7 @@ function startApp() {
           </div>
         </header>
         ${isTape ? '' : listenHTML(f)}
-        <div class="prose${/class="sketch"/.test(CONTENT[keyOf(f)] || '') ? ' has-sketches' : ''}">${CONTENT[keyOf(f)] || ''}</div>
+        <div class="prose">${CONTENT[keyOf(f)] || ''}</div>
         <div class="share-bar">
           <span>Know someone who should read this ${isTape ? 'tape' : 'report'}?</span>
           ${shareButton(f)}
