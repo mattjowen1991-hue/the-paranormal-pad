@@ -9,11 +9,9 @@ be built straight onto the site.
 1. On **claude.ai**, go to **Projects -> Create project**. Name it *The Paranormal Pad - Reports*.
 2. Open **Set project instructions** (or "Instructions") and paste in the whole of
    [`INSTRUCTIONS.md`](INSTRUCTIONS.md).
-3. Under **Project knowledge**, upload the six files in [`knowledge/`](knowledge/):
-   `01-house-style.md`, `02-draft-format.md`, `03-site-facts.md`, `04-example-reports.md`,
-   `05-example-tapes.md`, `14-sketch-style.md`.
-   The Project also holds `06-reddit-...` to `13-reddit-router.md` (the Reddit post guides). They
-   aren't in this repo, so keep them when swapping files.
+3. Under **Project knowledge**, upload all the files in [`knowledge/`](knowledge/):
+   `01-house-style.md` to `05-example-tapes.md` (rebuilt from the site), `06-reddit-paranormal.md`
+   to `13-reddit-router.md` (the Reddit post guides, written by hand) and `14-sketch-style.md`.
 
 ## Keeping it current
 

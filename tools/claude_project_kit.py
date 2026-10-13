@@ -11,6 +11,8 @@ Makes (from the live content, so it stays current as reports are added):
   knowledge/04-example-reports.md  every published report, converted back to the draft format
   knowledge/05-example-tapes.md    every tape page, in the draft format
   knowledge/14-sketch-style.md     copy of brand/sketch-style/STYLE.md
+The Reddit post guides (knowledge/06-reddit-*.md to 13-reddit-router.md) are written by hand:
+the rebuild leaves them alone, but --status still tracks them.
 Prints which files changed.
 
 Keeping the claude.ai Project in step (claude.ai has no upload API, so the upload itself is manual):
