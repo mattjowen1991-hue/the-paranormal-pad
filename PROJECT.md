@@ -37,7 +37,7 @@ js/email.js             Web3Forms sending
 js/lightbox.js          full-screen photo viewer
 partials/*.html         header, archive (home), file, tapes, reporter, contact, moderate, footer
 content/reports/NNN.html, content/tapes/NNN.html     the text of each report / tape
-images/reports/NNN/     cover.jpg + 01.jpg, 02.jpg ... (in-report photos)
+images/reports/NNN/     cover.jpg + 01.jpg, 02.jpg ... (in-report photos) + sketch-1.jpg ... (ink sketches)
 images/tapes/NNN/       cover.jpg
 reports/NNN/, tapes/NNN/  share pages (generated - never edit by hand)
 404.html                forwards old WordPress links to the new pages

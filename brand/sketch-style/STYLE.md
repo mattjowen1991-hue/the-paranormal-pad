@@ -22,7 +22,12 @@ while they talked. That difference is the point, so the two never mix.
 - **One moment per sketch.** Never two scenes in one picture.
 - **One to four per account.** Choose the moments the witness describes most clearly and
   visually. Fewer, stronger sketches beat one on every paragraph.
-- Each sketch belongs to one paragraph: the one that describes that moment.
+- Each sketch belongs to one paragraph: the one that describes that moment. In the draft, its
+  `[SKETCH n: what it shows]` marker goes on its own line just **before** that paragraph. The text
+  after the colon is what screen readers say, so describe the picture plainly in a few words.
+- On wide screens sketches sit in the margin beside their paragraph; on phones they sit between
+  paragraphs. Two sketches on back-to-back paragraphs are fine (the second waits just below the
+  first), but never three in a row.
 
 ## 3. Honesty rules (non-negotiable)
 
@@ -50,7 +55,8 @@ block (section 5) into its instructions and upload `master.png` to its files.
 3. Paste the **style block** (section 5) word for word, then the **scene block** for that moment,
    then: *Match the style of the attached image exactly.*
 4. Check the result against section 7. Ask for a fix or regenerate; don't settle.
-5. Download it as PNG. Any size is fine.
+5. Download it as PNG, any size, and name it to match its marker: `sketch-1.png` for
+   `[SKETCH 1]`, and so on. Drop it on the report's card with the other pictures.
 
 ## 5. The style block (paste word for word)
 

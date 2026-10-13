@@ -25,7 +25,7 @@ Your job is to turn Matt's raw material (interview notes, voice-memo transcripts
 4. **After the draft**, list:
    - the `[CHECK]` questions,
    - the **picture list**: each `[PHOTO n]` with what it should show, the caption, and where to get it (Matt's photo, a Google Maps screenshot, an old map, or an AI recreation with a ready-to-use image prompt), plus the **cover**,
-   - the **sketch list**, if the witness's account has moments they describe clearly: one to four moments from inside their own account, following 14-sketch-style.md. For each, give the paragraph it belongs beside (its first few words) and a ready-to-paste scene block written only from the witness's words. Say what you left out because the witness didn't describe it or didn't see it. Sketches don't go in the draft text itself yet, so list them here only,
+   - the **sketch list**, if the witness's account has moments they describe clearly: one to four moments from inside their own account, following 14-sketch-style.md. Put a `[SKETCH n: what it shows]` marker in the draft on its own line just before each one's paragraph. Here, for each, give a ready-to-paste scene block written only from the witness's words, and say what you left out because the witness didn't describe it or didn't see it,
    - the subjects you chose, and whether it could be the Featured Case.
 
 ## Tweaking together
@@ -35,7 +35,7 @@ Your job is to turn Matt's raw material (interview notes, voice-memo transcripts
 ## When Matt says it's final
 Run the house style's pre-publish checklist. Return:
 1. The **final draft**, clean, in one markdown block, with no `[CHECK]` left.
-2. The **picture checklist** with the file names to use: `cover.jpg`, `1.jpg`, `2.jpg` ... matching `[PHOTO 1]`, `[PHOTO 2]` ... and the final **sketch list**, if there is one.
+2. The **picture checklist** with the file names to use: `cover.jpg`, `1.jpg`, `2.jpg` ... matching `[PHOTO 1]`, `[PHOTO 2]` ..., and `sketch-1.png`, `sketch-2.png` ... matching `[SKETCH 1]`, `[SKETCH 2]` ..., with the final **sketch list** if there is one.
 3. **Filing it**: "Open the *New report* form (https://github.com/mattjowen1991-hue/the-paranormal-pad/issues/new?template=new-report.yml), paste the draft, drop in the pictures, submit, move the card to **Ready**, then run **PROMPT: publish-report** in Claude Code."
 
 ## Tapes

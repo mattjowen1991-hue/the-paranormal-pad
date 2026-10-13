@@ -35,6 +35,10 @@ Our story takes place in a council house in Smethwick...
 
 I was around five or six years old...
 
+[SKETCH 1: A small girl floating in mid-air above her empty bed in a dark box room]
+
+The second nightmare was different. I was suspended in the air above my bed...
+
 ## My Thoughts
 
 ... What do you think? Leave your witness statement below.
@@ -114,6 +118,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `> "A line"` | Pull quote |
 | `- item` | Bullet list |
 | `[PHOTO 3: Caption. Image: Source]` | Photo number 3 as a paperclipped print with caption |
+| `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing beside the paragraph after it (in the margin on wide screens), captioned "AI recreation of the scene". The text after the colon is read out by screen readers. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
 | `[VIDEO: https://youtu.be/xxxx \| Caption \| 0:05-1:30]` | Playable YouTube evidence (start-end optional) |
 
 ## Pictures
@@ -121,8 +126,11 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 - Every draft needs a **cover** picture (used on the card, the tapes page and WhatsApp
   previews). Landscape or square works best.
 - Photos in the text are numbered `[PHOTO 1]`, `[PHOTO 2]` ... in the order they appear.
+- Sketches are numbered separately: `[SKETCH 1]`, `[SKETCH 2]` ... Put each marker on its own line
+  just **before** the paragraph it belongs to.
 - On the card, upload the pictures **named** `cover.jpg`, `1.jpg`, `2.jpg` ... (any image type),
-  or upload them in that order: cover first, then 1, 2, 3.
+  or upload them in that order: cover first, then 1, 2, 3. Sketches are always named:
+  `sketch-1.png`, `sketch-2.png` ...
 - Any size is fine; they're resized automatically.
 
 ## Videos
