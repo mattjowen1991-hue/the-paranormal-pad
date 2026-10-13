@@ -676,7 +676,7 @@ function startApp() {
           </div>
         </header>
         ${isTape ? '' : listenHTML(f)}
-        <div class="prose">${CONTENT[keyOf(f)] || ''}</div>
+        <div class="prose${/class="sketch"/.test(CONTENT[keyOf(f)] || '') ? ' has-sketches' : ''}">${CONTENT[keyOf(f)] || ''}</div>
         <div class="share-bar">
           <span>Know someone who should read this ${isTape ? 'tape' : 'report'}?</span>
           ${shareButton(f)}
@@ -690,6 +690,20 @@ function startApp() {
       first.classList.add('hero');
       prose.before(first);
     }
+  }
+
+  // ---------- sketches ----------
+  // The ink sketches in a witness's account stay blank until they scroll into view, then
+  // develop like ink (styles.css). Skipped for reduced motion or old browsers: they just show.
+  function inkSketches(root) {
+    const figs = root.querySelectorAll('.prose figure.sketch');
+    if (!figs.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.remove('ink-pending');
+      io.unobserve(e.target);
+    }), { rootMargin: '0px 0px -12% 0px', threshold: 0.25 });
+    figs.forEach(fig => { fig.classList.add('ink-pending'); io.observe(fig); });
   }
 
   // ---------- YouTube players ----------
@@ -901,7 +915,7 @@ function startApp() {
     if (h === 'files') { view = 'archive'; tab = 'reports'; }
     const fm = h.match(/^(file|tape)-(\d{3})$/);
     const file = fm && FILES.find(x => x.kind === (fm[1] === 'tape' ? 'tape' : 'report') && x.no === fm[2]);
-    if (file) { renderFile(file); mountPlayers($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
+    if (file) { renderFile(file); mountPlayers($('#view-file')); inkSketches($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
     if (!document.querySelector(`[data-view="${view}"]`)) { view = 'archive'; tab = 'archive'; }
     show(view, tab, view === 'archive' ? (h === 'reports' || h === 'files' ? h : 'archive') : view);
     if (view === 'moderate' && !moderateMounted) { moderateMounted = true; Statements.mountModerator($('#moderate-desk')); }

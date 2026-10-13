@@ -37,7 +37,7 @@ js/email.js             Web3Forms sending
 js/lightbox.js          full-screen photo viewer
 partials/*.html         header, archive (home), file, tapes, reporter, contact, moderate, footer
 content/reports/NNN.html, content/tapes/NNN.html     the text of each report / tape
-images/reports/NNN/     cover.jpg + 01.jpg, 02.jpg ... (in-report photos)
+images/reports/NNN/     cover.jpg + 01.jpg, 02.jpg ... (in-report photos) + sketch-1.jpg ... (ink sketches)
 images/tapes/NNN/       cover.jpg
 reports/NNN/, tapes/NNN/  share pages (generated - never edit by hand)
 404.html                forwards old WordPress links to the new pages
@@ -47,6 +47,7 @@ tools/board.py          moves cards on the project board
 tools/share-card.html   source of images/share.jpg (site-wide share preview)
 tools/reddit_timing.py  best UK times to post to each subreddit (report in tools/reddit_timing_out/, not in git)
 brand/                  avatar.svg / avatar-1024.png - display picture for YouTube, bio.site, Reddit
+brand/sketch-style/     STYLE.md + master.png - the ink sketches in witness accounts (ChatGPT prompt and rules)
 PUBLISHING.md           step-by-step guide for Matt: Claude Project setup, writing, filing, building, going live
 HOUSE-STYLE.md          how reports and tapes are written - the editorial standard
 docs/DRAFT-FORMAT.md    the exact draft format the Claude Project produces and new_file.py reads
@@ -84,7 +85,7 @@ number; the pinned radio tape stays at the top of the Tapes page whatever its nu
   phones keep the old files. Content and partials don't need it.
 - After adding/changing a report or tape, run `python3 tools/share_pages.py` (new_file.py does this).
 - Never invent facts, dates, sources or quotes in a report. Mark AI-generated images as
-  "AI recreation" in the caption. Keep people's anonymity exactly as the draft says.
+  "AI recreation" in the caption (not the ink sketches, which have no caption). Keep people's anonymity exactly as the draft says.
 - Keep the look: case-file parchment, typewriter headings, stamps, paperclipped photos. No new
   fonts or colours without a ticket saying so.
 - Test on phone width (390px) as well as desktop - most readers are on mobile.

@@ -17,10 +17,11 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      /tmp/pad-ISSUE_NUMBER/draft.md.
    - Download every picture in the "Pictures" section into /tmp/pad-ISSUE_NUMBER/media/:
      curl -sL -H "Authorization: Bearer $(gh auth token)" "URL" -o FILE
-     Name each from its alt text / file name (cover, 1, 2, ...). If they're unnamed, the first is
-     the cover and the rest are 1, 2, 3 in order. Keep the real extension (check with `file`).
-   - Show me the mapping (picture -> cover / PHOTO n) and each [PHOTO n] caption. If the number of
-     pictures doesn't match the [PHOTO n] markers, or there's no cover, stop and ask.
+     Name each from its alt text / file name (cover, 1, 2, ..., sketch-1, sketch-2, ...). If they're
+     unnamed, the first is the cover and the rest are 1, 2, 3 in order (sketches are always named).
+     Keep the real extension (check with `file`).
+   - Show me the mapping (picture -> cover / PHOTO n / SKETCH n) and each [PHOTO n] caption. If the
+     pictures don't match the [PHOTO n] and [SKETCH n] markers, or there's no cover, stop and ask.
    - The "Featured Case" dropdown overrides the draft header unless it says "As the draft says".
    - Any links in "Videos" fill [VIDEO] markers that are missing a link.
 
@@ -29,7 +30,8 @@ Repo: mattjowen1991-hue/the-paranormal-pad
      hyphen; obvious typos and doubled words; "comments below" -> "witness statement below".
    - Everything else goes in a list of QUESTIONS for me, not into the text: anything that reads as
      invented or unverifiable, a real name that might need anonymising, a caption missing its
-     source, an AI image not labelled, a subject that doesn't fit.
+     source, an AI image not labelled, a subject that doesn't fit, a [SKETCH n] outside the witness's
+     own account or showing something they didn't describe (brand/sketch-style/STYLE.md).
    - Check the opening works as the excerpt (it's what WhatsApp shows).
    - Dry run: python3 tools/new_file.py /tmp/pad-ISSUE_NUMBER/draft.md --media /tmp/pad-ISSUE_NUMBER/media --dry-run
      Fix any DRAFT PROBLEM it reports (tell me what you changed).
@@ -44,7 +46,8 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - Serve locally: python3 -m http.server 8080 (in the background).
    - Check http://localhost:8080/#file-NNN at 1280px and 390px wide (headless Chrome screenshots):
      every photo loads and opens in the viewer, videos show a thumbnail, headings and dividers look
-     right, the Share button is there, no sideways scrolling.
+     right, the Share button is there, no sideways scrolling. Sketches: in the margin beside their
+     paragraph at 1280px, between paragraphs at 390px, no visible square around them.
    - Check the homepage: counts, Latest dispatch, the new card first; Featured Case if chosen.
    - Check http://localhost:8080/reports/NNN/ forwards to the report and carries the right
      og:title, og:description and og:image.

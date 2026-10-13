@@ -24,7 +24,8 @@ body:
       label: Pictures
       description: |
         Drag the pictures in here. Name them cover.jpg, 1.jpg, 2.jpg ... to match [PHOTO 1], [PHOTO 2] in the draft,
-        or drop them in that order (cover first). Any size or type.
+        or drop them in that order (cover first). Sketches are named sketch-1.png, sketch-2.png ... to match
+        [SKETCH 1], [SKETCH 2]. Any size or type.
       placeholder: Drop images here
     validations:
       required: true

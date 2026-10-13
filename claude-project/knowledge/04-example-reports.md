@@ -923,7 +923,11 @@ I was around five or six years old and living at the house on Astbury Avenue. Ap
 
 I was sleeping in the box room when it happened. Whenever I slept in that room, I had horrible, recurring nightmares and night terrors. Two of them I can still remember clearly.
 
+[SKETCH 1: a small girl, seen from behind, running up a steep hill towards a row of houses, with heavy darkness behind her.]
+
 In the first, I was running up a hill towards the road our house was on, being chased by something. I had no idea what it was. I just remember being absolutely terrified and knowing I had to reach the top of the hill. Every time I got there, I could feel this thing right behind me, and the moment I turned around to look at it, I would wake up.
+
+[SKETCH 2: a small girl floating in mid-air above her empty bed in a dark box room, sitting upright with her legs straight out in front of her.]
 
 The second nightmare was different. I was suspended in the air above my bed, sitting upright with my legs out in front of me. I couldn’t get myself back down onto the bed, and I couldn’t scream or call for help. The room was always dark around me. I had that dream a lot as a child when I stayed in the box room.
 
@@ -934,6 +938,8 @@ On the night it happened, I was asleep in bed. I remember opening my eyes and re
 There was no light in the bedroom. My bed faced out towards the landing, and at the far end of the landing was the bathroom. My bedroom door was open, the bathroom door was closed and the house was silent. It must have been the early hours of the morning, because everyone was asleep. There was a window to my right, but there wasn’t any natural light coming through it. Opposite the window was a big wardrobe built into the space over the stairs, with a large door on it.
 
 I did see some sort of light on the landing, but it’s really hard to describe. There was a window above the stairs, so it could have been natural light coming from somewhere, but it looked more like a lamp had been switched on. There were no lamps on the landing, though. There was nothing electrical up there at all other than the landing light on the ceiling. Whatever it was, the light was bright enough to show me what was standing at the bottom of my bed.
+
+[SKETCH 3: a small, featureless black figure at the foot of a child's bed, holding the quilt, with a strange glow on the landing behind it.]
 
 It was a small figure, no taller than an eight-year-old child. It was completely black, like a shadow, with no facial features and nothing to tell me whether it was a boy or a girl. Even though I couldn’t see a face, I had the feeling it was a child. When it spoke to me, it felt like it spoke inside my head rather than out loud, and I can’t remember whether the voice sounded male or female.
 

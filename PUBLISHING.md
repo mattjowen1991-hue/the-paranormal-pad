@@ -32,6 +32,8 @@ If you're on another computer, download them from GitHub: open each file below a
 - `claude-project/knowledge/03-site-facts.md`
 - `claude-project/knowledge/04-example-reports.md`
 - `claude-project/knowledge/05-example-tapes.md`
+- `claude-project/knowledge/06-reddit-paranormal.md` to `13-reddit-router.md` (the Reddit post guides)
+- `claude-project/knowledge/14-sketch-style.md`
 
 **Step 2 - Create the Project.**
 1. Go to **claude.ai** and sign in.
@@ -50,15 +52,15 @@ If you're on another computer, download them from GitHub: open each file below a
 **Step 4 - Add the knowledge files.**
 1. In the same right-hand panel, find **Files** / **Project knowledge** and click **+**.
 2. Choose **Upload from device**.
-3. Select the five files from `claude-project/knowledge/` (you can select them all at once) and upload.
-4. Check all five appear in the list.
+3. Select all the files in `claude-project/knowledge/` (you can select them all at once) and upload.
+4. Check they all appear in the list.
 
 **Step 5 - Test it.**
 Start a new chat in the project and type:
 > What are the main rules of my house style, and what's the next report number?
 
 It should answer with the house style points (first person, British, no em dashes, My Thoughts
-ending with a question...) and the next free number. If it doesn't, check the five files uploaded.
+ending with a question...) and the next free number. If it doesn't, check all the files uploaded.
 
 **Keeping it up to date:** after each report or tape goes live, run **PROMPT: close-report**
 (Part 5). It works out which files your Project is missing, opens just those in Finder, and walks

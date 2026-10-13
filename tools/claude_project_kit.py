@@ -10,6 +10,9 @@ Makes (from the live content, so it stays current as reports are added):
   knowledge/03-site-facts.md       every report and tape: number, title, date, place, subjects
   knowledge/04-example-reports.md  every published report, converted back to the draft format
   knowledge/05-example-tapes.md    every tape page, in the draft format
+  knowledge/14-sketch-style.md     copy of brand/sketch-style/STYLE.md
+The Reddit post guides (knowledge/06-reddit-*.md to 13-reddit-router.md) are written by hand:
+the rebuild leaves them alone, but --status still tracks them.
 Prints which files changed.
 
 Keeping the claude.ai Project in step (claude.ai has no upload API, so the upload itself is manual):
@@ -58,7 +61,14 @@ def to_draft_body(content):
         cap = re.search(r'<p>(.*?)</p>', block, re.S)
         times = f' | {clock(st.group(1)) if st else "00:00"}-{clock(en.group(1)) if en else ""}' if (st or en) else ''
         return f'\n\n[VIDEO: https://youtu.be/{vid.group(1)} | {md_inline(cap.group(1)) if cap else ""}{times}]\n\n'
+    k = [0]
+    def sketch(m):
+        k[0] += 1
+        alt = re.search(r'alt="([^"]*)"', m.group(0))
+        what = re.sub(r'^Ink sketch:\s*', '', html.unescape(alt.group(1))) if alt else ''
+        return f'\n\n[SKETCH {k[0]}: {what}]\n\n'
     s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)
+    s = re.sub(r'<figure class="sketch".*?</figure>', sketch, s, flags=re.S)
     s = re.sub(r'<figure.*?</figure>', photo, s, flags=re.S)
     s = re.sub(r'<div class="evidence".*?</div>', video, s, flags=re.S)
     s = re.sub(r'<div class="side-actions">.*?data-seek="(\d+)".*?</div>', '\n\n[PLAY SIDE]\n\n', s, flags=re.S)
@@ -149,6 +159,8 @@ Josh English (006). Matt's Nan and Grandad, partner and daughter appear in 001 a
                      f'narrator: {t.get("narrator", "")}\nvideo: {t.get("url", "")}\nsubjects: {", ".join(t["tags"])}\n'
                      + (f'sides:{sides}\n' if sides else '') + f'---\n{body}\n')
     write('05-example-tapes.md', ''.join(parts), changed)
+
+    write('14-sketch-style.md', open(os.path.join(ROOT, 'brand', 'sketch-style', 'STYLE.md'), encoding='utf-8').read(), changed)
 
     print('Rebuilt from the site - these files changed:' if changed else 'Kit rebuilt - no files changed.')
     for c in changed:

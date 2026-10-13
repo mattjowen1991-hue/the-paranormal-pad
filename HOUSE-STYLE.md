@@ -95,7 +95,11 @@ Use the sections the story needs; this is the usual order.
 - Keep the witness's words and meaning; tidy grammar, never change what happened.
 - Anonymity: use exactly the pseudonyms and details Matt approves. Note that a name has been
   changed the first time it appears.
-- AI-generated images are labelled in the caption ("AI recreation of the scene").
+- AI-generated images are labelled in the caption ("AI recreation of the scene"), except the sketches.
+- **Sketches** (the ink drawings beside a witness's words) go only inside the witness's own
+  account and show only what they described. They are plainly drawings, so they have no caption
+  or label. The rules and the ChatGPT prompt are in
+  `brand/sketch-style/STYLE.md` (the Claude Project has it as `14-sketch-style.md`).
 - Sensitive history (abuse, illness, death) - mention only what the story needs, gently, and say
   when something "isn't my story to speculate on".
 - Don't oversell. "I have no idea what it was" is a perfectly good sentence.
@@ -159,4 +163,5 @@ A tape page is short. It has:
 - [ ] Ends with a question and a pointer to witness statements.
 - [ ] No em dashes; British spelling.
 - [ ] Every [PHOTO n] has a picture and a caption with its source; AI images labelled.
+- [ ] Every [SKETCH n] sits inside the witness's own account, says what it shows, and shows only what they described.
 - [ ] Subjects chosen from the site's list.

@@ -9,9 +9,9 @@ be built straight onto the site.
 1. On **claude.ai**, go to **Projects -> Create project**. Name it *The Paranormal Pad - Reports*.
 2. Open **Set project instructions** (or "Instructions") and paste in the whole of
    [`INSTRUCTIONS.md`](INSTRUCTIONS.md).
-3. Under **Project knowledge**, upload the five files in [`knowledge/`](knowledge/):
-   `01-house-style.md`, `02-draft-format.md`, `03-site-facts.md`, `04-example-reports.md`,
-   `05-example-tapes.md`.
+3. Under **Project knowledge**, upload all the files in [`knowledge/`](knowledge/):
+   `01-house-style.md` to `05-example-tapes.md` (rebuilt from the site), `06-reddit-paranormal.md`
+   to `13-reddit-router.md` (the Reddit post guides, written by hand) and `14-sketch-style.md`.
 
 ## Keeping it current
 
@@ -29,8 +29,9 @@ By hand: `python3 tools/claude_project_kit.py --status`, `--stage`, `--mark-uplo
    says it was the landing, not the stairs"), or copy the draft into Notes / Google Docs / any
    editor, change it yourself, and paste it back with "here's my version - check it". Your edits
    always win. Anything it isn't sure of is marked `[CHECK: ...]` - answer those.
-4. **Say "final".** You get the clean draft, the picture checklist (`cover.jpg`, `1.jpg`, ...)
-   and a cover-image prompt if you want one.
+4. **Say "final".** You get the clean draft, the picture checklist (`cover.jpg`, `1.jpg`, ...),
+   a cover-image prompt if you want one, and the sketch list (scene descriptions for the ink
+   sketches in the witness's account - see [`brand/sketch-style/STYLE.md`](../brand/sketch-style/STYLE.md)).
 5. **Get the pictures ready.** Your photos, Google Maps screenshots, AI recreations - named to
    match the checklist. Videos go on YouTube (unlisted is fine) and the link goes in the draft.
 6. **File it on the board.** Open the **New report** form
