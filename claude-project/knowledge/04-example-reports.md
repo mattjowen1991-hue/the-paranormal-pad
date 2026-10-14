@@ -662,9 +662,9 @@ To set the scene: we are looking at Josh’s great-granddad, *Joseph,* and his g
 
 Before Joseph met Jane, he had been married previously and had a daughter from that relationship called *Caroline*. From what Josh’s family remembers, Caroline usually lived with her biological mother. However, for a period of a few weeks during the 1940s, she came to stay with Joseph, Jane, and little Elizabeth.
 
-If you’ve ever navigated the complexities of a blended family, you know how high tensions can run. Jane and her stepdaughter, Caroline, were no exception, and simply did not get along, clashing constantly under the same roof. The atmosphere in the house grew thick with resentment, and Jane was rapidly reaching her breaking point. She desperately wanted Caroline to return to her mother’s, but time seemed to drag. As each day slowly rolled past, the energy within her home grew suffocatingly heavy.
+[SKETCH 1: a woman sitting alone at a table in a dim 1940s living room, her back to us.]
 
-[PHOTO 1: AI recreation of scene]
+If you’ve ever navigated the complexities of a blended family, you know how high tensions can run. Jane and her stepdaughter, Caroline, were no exception, and simply did not get along, clashing constantly under the same roof. The atmosphere in the house grew thick with resentment, and Jane was rapidly reaching her breaking point. She desperately wanted Caroline to return to her mother’s, but time seemed to drag. As each day slowly rolled past, the energy within her home grew suffocatingly heavy.
 
 ### An Unexpected Message
 
@@ -678,7 +678,7 @@ Nothing happened.
 
 She asked a second time. The same stillness followed. The atmosphere in the room started to tighten; her friends noticing the shifting energy. A few snidey remarks were thrown around the table at whoever was supposedly pushing the planchette “*Not so brave now, are we? Has Jane scared you?*” followed by some giggling, everyone assuming the group’s prankster had just lost their nerve. But Jane wasn’t laughing. She had become focused on the board.
 
-[PHOTO 2: AI recreation of scene]
+[SKETCH 2: a group of friends in a darkened room with their fingers on the planchette of a Ouija board.]
 
 She asked for a third time, this time with conviction in her voice. That was the moment the energy in the room turned ice-cold. Josh said his Nan described it as an instant, full-body chill hitting everyone at the exact same time. The planchette, which had just been lazily sliding around spelling out jokes, violently darted across the board with everyone’s fingers still glued to it.
 
@@ -701,13 +701,13 @@ The family travelled down to the airport to see her off. Joseph and Jane stood w
 
 ### A Cruel Coincidence
 
+[SKETCH 3: a man and a woman, seen from behind at the edge of an airfield, watching a small plane fall nose-first.]
+
 It was at this point, right before their eyes, that disaster decided to strike. The plane suffered a catastrophic engine failure. It completely lost power, dropped out of the sky, and crashed right near the airport.
 
 Caroline was tragically killed in the wreckage.
 
 Just days after the Ouija board emphatically promised Jane that the girl would be *“gone soon,”* she was dead.
-
-[PHOTO 3: AI recreation of scene]
 
 ## The Investigation
 
