@@ -775,6 +775,8 @@ The kitchen and the breakfast nook quickly became the centre point of whatever w
 
 Jesse had brought a Casio keyboard with her when she moved in, and we kept it in the breakfast nook. We would occasionally go out to the bars, knowing for a fact that the keyboard was turned off and the apartment was silent. When we’d return, we’d hear it playing from the hallway. We’d walk in, and the keyboard would be on, looping a pre-set drum beat.
 
+[SKETCH 1: an electronic keyboard switched on in a dark breakfast nook beside the kitchen, with nobody near it.]
+
 Things with the keyboard got really weird on one particular occasion in the middle of the night. I woke up to a loud, solid electronic note blaring through the apartment, just a continuous *beeeeeep*. I bolted out of bed, thinking the fire alarm was going off. When I walked into the breakfast nook, the keyboard was on, playing a single note, but no keys were depressed. Jesse was fast asleep. Fed up, I finally pulled the plug from the wall.
 
 Annoyingly, this was an older Casio model, and the keyboard had a backup battery built into it. Even when we’d unplugged it from the wall, it continued to turn itself on until we finally removed the batteries. It’s important to note that from what Jesse told me, the keyboard never did this before moving into the apartment.
@@ -782,6 +784,8 @@ Annoyingly, this was an older Casio model, and the keyboard had a backup battery
 ### Part 3: Physical Manifestation
 
 While the physical activity was mostly confined to the kitchen, Jesse was dealing with her own torment in her bedroom. Almost from the moment she moved in, she started having severe, recurring nightmares.
+
+[SKETCH 2: a tall, featureless black figure standing in an open bedroom doorway, seen from the bed.]
 
 She would dream that her bedroom door was wide open, and standing in the doorway was a shadowy figure. She described it as being blacker than the shadows around it, roughly human-shaped, but slightly mutated or distorted. In these dreams, the figure radiated bad intent.
 
@@ -794,6 +798,8 @@ One morning around 5:30 AM, I was jolted awake by the sound of Jesse screaming a
 I rushed out of my room and found her bedroom door wide open (we had locks on our bedroom doors, and we would frequently lock them when we went to sleep). Jesse was in bed, absolutely consumed by fear. Every single sheet and blanket had been stripped off her body and piled up in the furthest corner of her bedroom. When I managed to calm her down, I saw three distinct scratch marks running down her neck and chest, and also a separate set down her back. They were welting up as if dragged by three really long fingernails.
 
 She told me she had been dreaming about the shadow figure again. Only this time, it hadn’t stayed in the doorway. It had come into her room, held her down, and started scratching her. She had been physically paralyzed, completely unable to move or wake up for what felt like hours, until she finally managed to scream.
+
+[SKETCH 3: looking down a short hallway into a dark kitchen where every cupboard door and every drawer stands open.]
 
 When I stepped out of her room to get my bearings, I looked down the hallway into the kitchen. Every single cupboard and every single drawer was standing wide open.
 
@@ -808,6 +814,8 @@ Wanting some kind of normalcy, we started using safety in numbers as a coping me
 [PHOTO 4: A Bell Ct kitchen & living room layout. Image: [zumper.com](https://www.zumper.com/apartment-buildings/p128141/2379-bell-court-medford-or?gallery#focus=14)]
 
 I was standing in the kitchen entrance when I saw a flash of movement out of the corner of my eye. One of the drinking glasses physically lifted out of the dish drying rack in the back corner, flew across the width of the kitchen, and violently smashed into the subway tile right behind Lindsay’s head. It missed her by inches.
+
+[SKETCH 4: a woman sitting on a kitchen counter as a glass smashes into the tiles behind her head, with friends standing nearby.]
 
 It hit the wall with such force that it literally pulverized into tiny shards of glass. Lindsay immediately burst into tears. The rest of us stood there in absolute shock. Survival mode kicked in, and I ordered everyone out of the apartment. Before I left, I spoke to the empty room, telling whatever was there that it needed to leave and wasn’t welcome. This was the first time I had openly spoke to whatever was in the apartment. We all slept at a friend’s house that night.
 
@@ -842,6 +850,8 @@ At the time, I was in college and living in my childhood home in Arizona. For co
 One weekend, a best friend of mine was visiting from California. It was around 3:00 AM, and we were both fast asleep in my room. Suddenly, we were both jolted awake by the distinct sound of someone whispering.
 
 The sound wasn’t coming from the hallway or outside the window. It sounded like it was coming from above our heads in the top corner of the bedroom. Neither of us could make out any specific words; it was just a localized, disembodied, whispery noise.
+
+[SKETCH 5: a glowing ball of light in the top corner of a dark bedroom, seen from the bed.]
 
 Startled, we both turned our attention to the upper corner of the room where the sound was coming from. Hovering right there in the darkness was a distinct, glowing ball of light. It hung there for a moment before simply dissipating into thin air.
 
