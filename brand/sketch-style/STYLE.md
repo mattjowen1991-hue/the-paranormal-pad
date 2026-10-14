@@ -72,6 +72,16 @@ Do not include: text, letters, numbers, signatures, borders, frames, paper textu
 Square image, 1:1.
 ```
 
+**The setting sentence is the one part to swap.** The last sentence of the first paragraph
+("Setting feels like working-class Britain...") suits most reports. When a report is set somewhere
+else, replace that sentence with a setting line for that report and add *Ignore any British
+setting in the project instructions.* (the ChatGPT Project's instructions carry the British one).
+Keep everything else word for word. Examples:
+
+- Report 002 (Nan's house): `Setting: a council-estate house near Birmingham, England, from the late 1990s to the early 2010s: plain furniture, simple wallpaper.`
+- Report 007 (the Medford apartment): `Setting: a modest American apartment in 2009.`
+- Report 007's Addendum: `Setting: an ordinary American family home in Arizona, built in 1970.`
+
 ## 6. Writing a scene block
 
 Start with `Scene:` and describe one moment in plain sentences:
