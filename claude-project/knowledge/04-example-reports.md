@@ -815,8 +815,6 @@ Wanting some kind of normalcy, we started using safety in numbers as a coping me
 
 I was standing in the kitchen entrance when I saw a flash of movement out of the corner of my eye. One of the drinking glasses physically lifted out of the dish drying rack in the back corner, flew across the width of the kitchen, and violently smashed into the subway tile right behind Lindsay’s head. It missed her by inches.
 
-[SKETCH 4: a woman sitting on a kitchen counter as a glass smashes into the tiles behind her head, with friends standing nearby.]
-
 It hit the wall with such force that it literally pulverized into tiny shards of glass. Lindsay immediately burst into tears. The rest of us stood there in absolute shock. Survival mode kicked in, and I ordered everyone out of the apartment. Before I left, I spoke to the empty room, telling whatever was there that it needed to leave and wasn’t welcome. This was the first time I had openly spoke to whatever was in the apartment. We all slept at a friend’s house that night.
 
 ### Conclusion
@@ -851,7 +849,7 @@ One weekend, a best friend of mine was visiting from California. It was around 3
 
 The sound wasn’t coming from the hallway or outside the window. It sounded like it was coming from above our heads in the top corner of the bedroom. Neither of us could make out any specific words; it was just a localized, disembodied, whispery noise.
 
-[SKETCH 5: a glowing ball of light in the top corner of a dark bedroom, seen from the bed.]
+[SKETCH 4: a glowing ball of light in the top corner of a dark bedroom, seen from the bed.]
 
 Startled, we both turned our attention to the upper corner of the room where the sound was coming from. Hovering right there in the darkness was a distinct, glowing ball of light. It hung there for a moment before simply dissipating into thin air.
 
