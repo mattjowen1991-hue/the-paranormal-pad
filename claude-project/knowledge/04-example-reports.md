@@ -14,15 +14,15 @@ date: 2025-06-01
 location: Bromsgrove, UK
 subjects: Hauntings, Poltergeist
 ---
-Like many of us, I’ve had my share of spooky happenings, some stretching back to my childhood. However, in this post, I want to focus on a series of events that took place in my current home – a series that still leaves me questioning what truly happened.
+Like many of us, I’ve had my share of spooky happenings, some stretching back to my childhood. However, in this post, I want to focus on a series of events that took place in my current home - a series that still leaves me questioning what truly happened.
 
-I live just outside of Birmingham, on a council estate. For those unfamiliar, a council estate in the UK is somewhat akin to the projects in the USA -government-subsidized housing. The estate I live on isn’t particularly old; the houses were built in the early 1960’s and from what I know, there haven’t been many occupants before us.
+I live just outside of Birmingham, on a council estate. For those unfamiliar, a council estate in the UK is somewhat akin to the projects in the USA - government-subsidized housing. The estate I live on isn’t particularly old; the houses were built in the early 1960’s and from what I know, there haven’t been many occupants before us.
 
 Our house is a modest two-bedroom with spacious front and back gardens. Below is an example of what my property looks like, and what a typical council house in rural England looks like. It should be noted that my front garden is roughly three to four times the size of the front garden in the below picture (which is an important factor for later!).
 
 [PHOTO 1: *A typical council house. Image: [Wikipedia](https://en.wikipedia.org/wiki/Council_house)*]
 
-For the first two years, everything was completely normal. The house never had a menacing or intimidating feel to it, nor did I ever sense any unusual energy. It was just an ordinary home – until the summer of 2020.
+For the first two years, everything was completely normal. The house never had a menacing or intimidating feel to it, nor did I ever sense any unusual energy. It was just an ordinary home - until the summer of 2020.
 
 Around July or August of that year, right in the midst of the COVID pandemic, things started to change. What followed over the next two to three months was a series of events that still give me chills when I think about them.[](https://preview.redd.it/stranger-at-the-door-v0-5kf9i1vi9ujd1.png?width=3264&format=png&auto=webp&s=94fca8662f11443cf16a9730041e45b7c7b189e9)
 
@@ -30,27 +30,29 @@ Around July or August of that year, right in the midst of the COVID pandemic, th
 
 This first incident might seem insignificant on its own, but it’s worth mentioning as it marks the beginning of the strange occurrences in our home. It was late at night, and my partner and I were in bed when we both heard a knocking noise. At first, it seemed like it was coming from outside, but the strangest part was that it sounded like it was coming from the other side of our bedroom wall.
 
-Now, here’s the thing – there’s nothing on the other side of that wall. If someone (or something) had been knocking where we thought the sound was coming from, they would’ve had to be suspended about 20 feet in the air. The knocking continued for a while, following a pattern with brief pauses before resuming. It wasn’t loud or aggressive, but it had a distinctly human quality to it, like someone gently tapping.
+Now, here’s the thing - there’s nothing on the other side of that wall. If someone (or something) had been knocking where we thought the sound was coming from, they would’ve had to be suspended about 20 feet in the air. The knocking continued for a while, following a pattern with brief pauses before resuming. It wasn’t loud or aggressive, but it had a distinctly human quality to it, like someone gently tapping.
 
 We were both puzzled and a bit uneasy, trying to figure out how the sound could be coming from such an impossible location. In the end, we brushed it off as one of those unexplainable oddities and went to sleep. It’s important to note that this has never happened again since that night.
 
 ### Incident 2
 
-It was around 11 PM on a weeknight, just an ordinary evening with no strange occurrences leading up to it – at least, none that I can recall. My partner and I were in the bedroom when our Ring Doorbell suddenly went off, chiming as if someone was walking past.
+It was around 11 PM on a weeknight, just an ordinary evening with no strange occurrences leading up to it - at least, none that I can recall. My partner and I were in the bedroom when our Ring Doorbell suddenly went off, chiming as if someone was walking past.
 
-Now, our driveway is quite long, and the Ring is set to pick up motion only when someone is well up the pathway, within a specific range. This made the alert unusual, as it’s never happened before or since without a clear cause. Instantly on edge, I got out of bed and peered out the window. Living on a council estate in England, it’s not uncommon to encounter some colourful characters late at night, but I saw nothing – no one was on the front garden path, and everything seemed quiet.
+Now, our driveway is quite long, and the Ring is set to pick up motion only when someone is well up the pathway, within a specific range. This made the alert unusual, as it’s never happened before or since without a clear cause. Instantly on edge, I got out of bed and peered out the window. Living on a council estate in England, it’s not uncommon to encounter some colourful characters late at night, but I saw nothing - no one was on the front garden path, and everything seemed quiet.
 
 [VIDEO: https://youtu.be/FbAwpd9jYUY | The ring doorbell footage from when the events at our property started.]
 
 The front light, however, had been triggered, which wasn’t too unusual given the wildlife that sometimes roams around. But as I turned to my partner to comment on the strange alert, we were both startled by a loud, forceful bang on our bedroom door.
 
-The door was shut, and it sounded as if someone had slammed their fist against it, right in the middle of the frame. The door didn’t open, but it shook with enough force that I could feel the impact. I was close enough to it that a wave of fear washed over me, while my partner, oddly enough, burst into nervous laughter. When I asked her what she found funny, she admitted she didn’t know – it was just a gut reaction to the sudden shock.
+The door was shut, and it sounded as if someone had slammed their fist against it, right in the middle of the frame. The door didn’t open, but it shook with enough force that I could feel the impact. I was close enough to it that a wave of fear washed over me, while my partner, oddly enough, burst into nervous laughter. When I asked her what she found funny, she admitted she didn’t know - it was just a gut reaction to the sudden shock.
 
 I opened the door, expecting to find… something. But the hallway was empty. My daughter, who was around three or four at the time, was asleep in her cot, and our cat was sitting calmly in the hallway, staring at me as if nothing out of the ordinary had happened.
 
-The timing of the Ring Doorbell alert just seconds before this loud bang left us both feeling incredibly uneasy. Although nothing else happened that night, the tension lingered, making it hard to shake the feeling that something was off. The Ring Doorbell did capture footage, but it showed nothing unusual – just an empty path, though something clearly set off the motion sensor.
+The timing of the Ring Doorbell alert just seconds before this loud bang left us both feeling incredibly uneasy. Although nothing else happened that night, the tension lingered, making it hard to shake the feeling that something was off. The Ring Doorbell did capture footage, but it showed nothing unusual - just an empty path, though something clearly set off the motion sensor.
 
 Adding to the creepiness was the specific alert on my phone. Instead of the usual “There’s motion outside your front door” notification, which typically triggers when something is at the edge of the detection range, this time it read, “Someone is at your front door.” The specificity of that alert, given what followed, made the whole experience ten times scarier.
+
+It’s worth saying here that we never tried to communicate with whatever it was, that night or at any point after. When I was little, someone told me (I can’t remember who) that if something ever knocks, you don’t knock back. That’s always stayed with me, and the bang on our bedroom door didn’t feel inviting. It almost felt like an announcement. I was worried that if we started trying to communicate, we might make things worse and the activity would intensify, and my partner agreed.
 
 ### Incident 3
 
@@ -62,7 +64,7 @@ I reached the bottom of the stairs and glanced toward the kitchen, thinking mayb
 
 [PHOTO 2: *Image of the kitchen after a leak from the bathroom bought down the ceiling*.]
 
-As I stepped into the hallway and looked directly into the kitchen, I saw something that made my stomach drop – both tap handles were pushed fully forward, and water was gushing out at full blast. My cat was sitting calmly on the kitchen floor, staring at me like nothing was out of the ordinary.
+As I stepped into the hallway and looked directly into the kitchen, I saw something that made my stomach drop - both tap handles were pushed fully forward, and water was gushing out at full blast. My cat was sitting calmly on the kitchen floor, staring at me like nothing was out of the ordinary.
 
 I was completely freaked out. In a panic, I video-called my mum on WhatsApp. I had already mentioned the previous incidents to my family, but they had mostly shrugged them off as nothing significant. But when my mum saw the taps wide open, she freaked out too. I think I needed someone to witness what was happening in real-time to validate my own fear.
 
@@ -92,17 +94,17 @@ By this point, the strange occurrences in our home had become sporadic but frequ
 
 The atmosphere in the house had become thick with tension. We were both on edge, and it felt like the anxiety in our home was feeding on itself. We started arguing more frequently, which could have been due to a combination of pandemic stress, the fear from these strange events, or perhaps just the general pressure of everything happening around us. Whatever the cause, it was clear that these incidents were taking a toll on our relationship and our sense of peace.
 
-While there wasn’t a single, standout event during this time, it’s important to note that these little things were happening consistently. Interestingly, the knocking on doors seemed to be something my partner experienced more than I did – especially when she was alone in the bathroom. I never heard the knocking myself when I was alone, but I did notice strange behavior with our baby monitor during the nights, particularly when my partner was working night shifts at the local city hospital.
+While there wasn’t a single, standout event during this time, it’s important to note that these little things were happening consistently. Interestingly, the knocking on doors seemed to be something my partner experienced more than I did, especially when she was alone in the bathroom. I never heard the knocking myself when I was alone, but I did notice strange behavior with our baby monitor during the nights, particularly when my partner was working night shifts at the local city hospital, where she was a neonatal nurse at the time.
 
-The baby monitor would often suffer from intense RF (radio frequency) signal interference and visual glitches that made it nearly unusable. Sometimes the video feed would become so distorted that I’d turn it off for a few minutes hoping to reset it, though it rarely helped. Around this same time, I was regularly recording a podcast from our bedroom using a Rode NT1-A condenser microphone. For context, it’s an industry-standard studio mic known for having an exceptionally low self-noise floor (around 5.5 dBA) – it’s designed to capture ultra-clean audio without background self-noise. Yet during editing, our sound engineer kept running into post-production problems, asking what on earth was going on in my room. My recordings were picking up severe, unexplainable feedback anomalies and electromagnetic static that would render the audio completely unusable.
+The baby monitor would often suffer from intense RF (radio frequency) signal interference and visual glitches that made it nearly unusable, almost every day. It didn’t matter where I took the monitor in the house: white lines would jump all over the screen, and the picture would pause, lag and glitch. Sometimes the video feed would become so distorted that I’d turn it off for a few minutes hoping to reset it, though it rarely helped. As far as I can remember, the sound was never affected, and I always had the volume turned up full so I could act quickly if my daughter needed me. Visually, though, it was awful. Around this same time, I was regularly recording a podcast from our bedroom using a Rode NT1-A condenser microphone. For context, it’s an industry-standard studio mic known for having an exceptionally low self-noise floor (around 5.5 dBA), and it’s designed to capture ultra-clean audio without background self-noise. Yet during editing, our sound engineer kept running into post-production problems, asking what on earth was going on in my room. My recordings were picking up severe, unexplainable feedback anomalies and electromagnetic static that would render the audio completely unusable.
 
 It got to the point where even our Ring doorbell started displaying strange visual distortions when we would use the live view. I remember joking to my mates on the podcast that there must be a spaceship hovering over the house because so many of our electrical devices were malfunctioning at the same time. Yet, looking back, the timing was undeniable: the moment the strange phenomena in our home ceased, those microphone feedback anomalies and signal disruptions vanished completely. I still record in that same room with the exact same gear today, and it hasn’t happened a single time since.
 
 ### Incident 6
 
-It was around 3 AM, and I was wide awake, watching Netflix in bed. I glanced over at the baby monitor on our bedside table to check on my daughter, and that’s when I saw it – a white mist moving across the screen. At first, I couldn’t believe what I was seeing, so I kept watching. My jaw dropped when I saw the unmistakable silhouette of someone moving through my daughter’s bedroom.
+It was around 3 AM, and I was wide awake, watching Netflix in bed. I glanced over at the baby monitor on our bedside table to check on my daughter, and that’s when I saw it - a white mist moving across the screen. At first, I couldn’t believe what I was seeing, so I kept watching. My jaw dropped when I saw the unmistakable silhouette of someone moving through my daughter’s bedroom.
 
-The figure walked up to the side of her cot, looked in, then walked away – only to repeat the same motion over and over. This wasn’t just a shadow or a trick of the light. It was a clear, human-shaped silhouette, with distinct arms and legs moving as if it were a person pacing around the room. I couldn’t make out any features to determine if it was a man or a woman, but the way it moved was eerily natural, as if it were a living person checking on my daughter.
+The figure walked up to the side of her cot, looked in, then walked away - only to repeat the same motion over and over. This wasn’t just a shadow or a trick of the light. It was a clear, human-shaped silhouette, with distinct arms and legs moving as if it were a person pacing around the room. I couldn’t make out any features to determine if it was a man or a woman, but the way it moved was eerily natural, as if it were a living person checking on my daughter.
 
 Her bedroom backs onto our garden, surrounded by other gardens on all sides. There’s no road where a passing car could cast headlights into the room, so there was no rational explanation for what I was seeing. The layout of our home and the surrounding area made it impossible for this to be a reflection or an outside shadow. Below is an example of how our garden is laid out, with other gardens on either side and behind us. We are part of a long row of houses, and this layout continues on both sides for many rows.
 
@@ -110,13 +112,13 @@ Her bedroom backs onto our garden, surrounded by other gardens on all sides. The
 
 Terrified, I shook my partner awake. She was understandably annoyed at being woken up in the middle of the night, but I was so scared I couldn’t even speak. I was afraid that if I said anything aloud, we might somehow attract the attention of whatever was in the room with our daughter. Instead, I grabbed my phone and frantically typed out what I was seeing.
 
-I typed out/told her we needed to get our daughter, leave the house, and go to my mum’s immediately. She refused, demanding to know what was going on. I handed her the phone, still too shaken to say a word, and pointed at the baby monitor. We both watched in stunned silence as the silhouette continued its routine – walking up to the cot, stopping, then walking away, only to repeat the process. This went on for what felt like an eternity, though it was probably just a couple of minutes.
+I typed out/told her we needed to get our daughter, leave the house, and go to my mum’s immediately. She refused, demanding to know what was going on. I handed her the phone, still too shaken to say a word, and pointed at the baby monitor. We both watched in stunned silence as the silhouette continued its routine - walking up to the cot, stopping, then walking away, only to repeat the process. This went on for what felt like an eternity, though it was probably just a couple of minutes.
 
 What happened next still amazes me. Here I was, the supposed “man of the house,” too frightened to even speak, while my partner suddenly jumped out of bed and ran straight into our daughter’s bedroom. I grabbed a metal baseball bat from beside the bed and followed her, though in hindsight, I had no idea what I thought I’d accomplish with it.
 
-My partner burst into our daughter’s room, fearless, and we were both shocked to find everything perfectly normal. Our daughter was fast asleep, the room was still, and there was no sign of anything unusual. We checked the room thoroughly – nothing seemed out of place, and there was no bad or menacing energy.
+My partner burst into our daughter’s room, fearless, and we were both shocked to find everything perfectly normal. Our daughter was fast asleep, the room was still, and there was no sign of anything unusual. We checked the room thoroughly - nothing seemed out of place, and there was no bad or menacing energy.
 
-We returned to our bedroom, where we checked the baby monitor again. The silhouette was still there, but it was fading, growing more and more translucent. As soon as I got my phone out to film it, the figure completely disappeared. I have no idea how we managed to fall asleep that night. I was desperate to leave and go to my mum’s house, but my partner insisted that we stay – it was our home, after all.
+We returned to our bedroom, where we checked the baby monitor again. The silhouette was still there, but it was fading, growing more and more translucent. As soon as I got my phone out to film it, the figure completely disappeared. I have no idea how we managed to fall asleep that night. I was desperate to leave and go to my mum’s house, but my partner insisted that we stay - it was our home, after all.
 
 It’s worth noting that this had never happened before, and it hasn’t happened since. But the memory of that night still messes with me and my partner. We believe this incident alone is proof that what we were experiencing in our property was truly unexplainable.
 
@@ -156,9 +158,9 @@ Adding to the intrigue, we had to replace our kitchen after a catastrophic event
 
 ## The Need for CCTV
 
-One Sunday, before the intense period of disturbances we’d experienced, an unsettling incident occurred. It was close to my birthday, and I was bedridden with a particularly nasty virus, feeling weak and disoriented. My partner went to our local supermarket to pick up a few items, and I was left at home, hoping to recover in peace.
+One Sunday in the autumn of 2019, before the intense period of disturbances we’d experienced, an unsettling incident occurred. It was close to my birthday, and I was bedridden with a particularly nasty virus, feeling weak and disoriented. My partner went to our local supermarket to pick up a few items, and I was left at home, hoping to recover in peace.
 
-She returned much sooner than expected. When I asked why she was back so quickly, she revealed that the supermarket was closed – something she hadn’t realized until making it halfway to the store. What unsettled her was what happened on the way home.
+She returned much sooner than expected. When I asked why she was back so quickly, she revealed that the supermarket was closed - something she hadn’t realized until making it halfway to the store. What unsettled her was what happened on the way home.
 
 As she approached our house, she saw something disturbing at the bottom of our front garden path: a Sunday Carvery fork, pointing directly toward our front door. She seemed visibly shaken as she described this odd sight. The fork had not been there when she left, and the path had been empty. Her memory of any other people in the area was hazy at best, and she hadn’t seen anyone who could have left the fork behind. The reason she seemed shaken was due to the fork not being there when she left, and suddenly appearing so soon when she returned. Obviously, it’s just a fork, but this really freaked her out.
 
@@ -178,13 +180,13 @@ Here is a picture of where I found the knife:
 
 The knife’s appearance in our hedge, paired with the earlier fork incident, seemed too deliberate to ignore. The fact that it was from the same set and placed so conspicuously made it clear that someone, or something, was trying to communicate or unsettle us. The pattern of these unsettling occurrences, each involving objects that seemed to have no business being there, continued to blur the lines between coincidence and something more sinister. Also to note, in the UK we love a cavery, and it’s traditional to have them on a Sunday. Both of these items appeared on separate Sundays. Mind fuck or what?
 
-Needless to say, I contacted the police again immediately. This time, the mood was far more serious: just days earlier, a domestic stabbing had occurred around the corner from us, resulting in a tragic murder.
+Needless to say, I contacted the police again immediately. This time, the mood was far more serious. Just days earlier, in October 2019, a man had been stabbed and killed with a kitchen knife by his partner, around the corner from us ([BBC News](https://www.bbc.co.uk/news/uk-england-hereford-worcester-54645226)).
 
-The police were extremely interested in the knife. An officer came out to take my statement and bagged the weapon as evidence. After I walked him through the whole timeline – including the carving fork pointing at the door two weeks prior – he stopped typing on his laptop, looked me dead in the eye, and asked: *“Do you have any enemies, mate?”*
+The police were extremely interested in the knife. An officer came out to take my statement and bagged the weapon as evidence. After I walked him through the whole timeline (including the carving fork pointing at the door two weeks prior) he stopped typing on his laptop, looked me dead in the eye, and asked: *“Do you have any enemies, mate?”*
 
 He seemed entirely convinced this was intentional, given that the knife had been placed at eye level precisely to guarantee I’d find it. He advised me that I might need to testify in court if the knife ended up being tied to the murder investigation. He confirmed that this was now documented and on file, and recommended I should get some CCTV installed and contact them again immediately should anything else happen.
 
-I never heard back from the police on that front, and the individual responsible for the local crime was eventually convicted of manslaughter. It appears the knife in our hedge was unrelated to that tragedy, leaving its true origin completely unexplained.
+I never heard back from the police on that front. His partner was later cleared of murder but convicted of manslaughter. It appears the knife in our hedge was unrelated to that tragedy, leaving its true origin completely unexplained.
 
 That whole ordeal forced our hand. For our own safety and peace of mind, we installed CCTV cameras around the property to monitor for intruders and try to identify who was targeting us.
 
@@ -214,21 +216,29 @@ He kindly said he would ask his mother if she had any additional stories or info
 
 ## My Thoughts
 
-Reflecting on everything that happened, I genuinely believe something extraordinary occurred. Despite the fear and confusion, I lean towards the idea that it might have been a positive presence, or someone’s way of saying goodbye to my partner or me. It felt like a mixture of unsettling and deeply personal experiences, which might suggest an attempt to communicate or offer reassurance.
+Reflecting on everything that happened, I genuinely believe something extraordinary occurred in our home. Despite the fear and confusion, I lean towards the idea that it might have been a positive presence, or someone’s way of saying goodbye to my partner or me. It felt like a mixture of unsettling and deeply personal experiences, which might suggest an attempt to communicate or offer reassurance.
 
 Looking back, I keep returning to the song in the kitchen, because it wasn’t the only time something like this would happen to us.
 
-Years later, in 2024, my partner’s other Grandad sadly passed away. It hit her hard. She was going through a particularly difficult time in her life, and she was struggling to understand what life means and what happens to us when we die. One day, as we were reversing onto our driveway, her phone, which was connected to the car’s Bluetooth, started playing “Heaven” by DJ Sammy and Yanou featuring Do, completely on its own.
+Years later, in 2024, my partner’s other Grandad sadly passed away. It hit her really hard. She was finding it difficult to accept, and she kept questioning where he was, what happens after we pass over, and what the meaning of life is if none of it means anything. It sent her down quite a dark path.
 
-The strange thing is that it didn’t start from the beginning. It started right on the chorus, on the words about being in heaven. My partner took it as a sign from her Grandad, letting her know he was okay and that she could stop worrying.
+One day, on the drive home, she was talking to me about how she was feeling. Just after we reversed onto our driveway, her phone (which was connected to the car’s Bluetooth) started playing “Heaven” by DJ Sammy and Yanou featuring Do, completely on its own.
 
-This makes me wonder about that evening in the kitchen. Was “Fields of Gold” the same thing, the Grandad she lost in 2015 reaching out in whatever way he could? The more I think about what was happening in our house in 2020, the more I wonder whether something else was in there with us, and her Grandad came to ease things, either by getting rid of whatever it was or by helping it move on. The vicar’s suggestion that the elderly lady who lived here before us might need help moving on has stayed with me because of this.
+The strange thing is that it didn’t start from the beginning. It started right on the chorus: *“I’m finding it hard to believe, we’re in heaven.”* Reading that back, it’s almost as if there was a bit of humour in it too, with that line about finding it hard to believe. I was sitting right next to her when it happened, and it was really weird. My partner took it as a sign from her Grandad, letting her know he was okay and that she could stop worrying.
 
-I often wonder whether it was him on the baby monitor that night too: the figure walking up to our daughter’s cot, stopping, then walking away, over and over, as if checking she was okay. And whether it was him who kicked the side of our bed and gave me that overwhelming urge to go and check on her, only to find her soaked from a spilt drink.
+I also find it interesting that it only started once we had reversed onto the drive. Once again, we were in close proximity to the house.
+
+This makes me wonder about that evening in the kitchen. Was “Fields of Gold” the same thing, the Grandad she lost in 2015 reaching out in whatever way he could? The more I think about what was happening in our house in 2020, the more I wonder whether something else was in there with us, and her Grandad came to ease things.
+
+I often think about whether it was him on the baby monitor that night too: the figure walking up to our daughter’s cot, stopping, then walking away, over and over, as if checking she was okay. Could it also have been him who kicked the side of our bed and gave me that overwhelming urge to go and check on our daughter, only to find her soaked from a spilt drink?
+
+If it was him, I question whether he came for two reasons. The vicar thought the activity might have been coming from our daughter in the form of a poltergeist. She was very young, we were in the middle of the pandemic, and she may have been picking up on our own fears and feeling things she couldn’t yet understand or process. Maybe he was there to soothe her, and in calming her, stopped that energy from manifesting. If the elderly lady who lived here before us really was still in the house (as the vicar suggested), maybe he helped her move on to the next place too.
+
+I can’t say for sure, but I find it very interesting that the activity slowed right down after the night we saw that figure. The vicar had offered to come round, bless the house and say prayers in each room where things had been happening (he took it all very seriously), but we never needed to call him back.
 
 To keep things balanced, there are everyday explanations for both songs. Phones and car Bluetooth connections can do strange things, Spotify can start playing on its own, and grief can make all of us look harder for signs.
 
-But of all the songs that could have played, it was her Grandad’s funeral song that started right after the bang on the door. And years later, it was a song about heaven, starting right on the chorus, while she was grieving and troubled by thoughts of what happens when we die. None of that proves anything, but it’s hard for either of us to put it down to coincidence, especially given the intensity and frequency of the events in 2020.
+But of all the songs that could have played, it was her Grandad’s funeral song that started right after the bang on the front door while she was in the kitchen. Years later, it was a song about heaven, starting right on the chorus, while she was grieving and troubled by thoughts of what happens when we die. None of that proves anything, but it’s hard for either of us to put it down to coincidence, especially given the intensity and frequency of the events in 2020.
 
 What do you think? Could it have been her Grandad watching over our daughter, or was something else at play in our house? I’d love to hear your thoughts, so please do leave your witness statement below, especially if a song or a sign has ever turned up for you at exactly the right moment. Thank you so much for taking the time to read through my story!
 
