@@ -104,7 +104,7 @@ const REPORTS = [
       "Hauntings",
       "Poltergeist"
     ],
-    "excerpt": "Like many of us, I’ve had my share of spooky happenings, some stretching back to my childhood. However, in this post, I want to focus on a series of events that took place in my current home – a series that…"
+    "excerpt": "Like many of us, I’ve had my share of spooky happenings, some stretching back to my childhood. However, in this post, I want to focus on a series of events that took place in my current home - a series that…"
   }
 ];
 
