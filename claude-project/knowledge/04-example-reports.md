@@ -672,7 +672,7 @@ To set the scene: we are looking at Josh’s great-granddad, *Joseph,* and his g
 
 Before Joseph met Jane, he had been married previously and had a daughter from that relationship called *Caroline*. From what Josh’s family remembers, Caroline usually lived with her biological mother. However, for a period of a few weeks during the 1940s, she came to stay with Joseph, Jane, and little Elizabeth.
 
-[SKETCH 1: a woman sitting alone at a table in a dim 1940s living room, her back to us.]
+[SKETCH 1: Jane alone at home as the atmosphere grew heavier by the day.]
 
 If you’ve ever navigated the complexities of a blended family, you know how high tensions can run. Jane and her stepdaughter, Caroline, were no exception, and simply did not get along, clashing constantly under the same roof. The atmosphere in the house grew thick with resentment, and Jane was rapidly reaching her breaking point. She desperately wanted Caroline to return to her mother’s, but time seemed to drag. As each day slowly rolled past, the energy within her home grew suffocatingly heavy.
 
@@ -688,7 +688,7 @@ Nothing happened.
 
 She asked a second time. The same stillness followed. The atmosphere in the room started to tighten; her friends noticing the shifting energy. A few snidey remarks were thrown around the table at whoever was supposedly pushing the planchette “*Not so brave now, are we? Has Jane scared you?*” followed by some giggling, everyone assuming the group’s prankster had just lost their nerve. But Jane wasn’t laughing. She had become focused on the board.
 
-[SKETCH 2: a group of friends in a darkened room with their fingers on the planchette of a Ouija board.]
+[SKETCH 2: the moment the planchette darted across the board with everyone’s fingers still on it.]
 
 She asked for a third time, this time with conviction in her voice. That was the moment the energy in the room turned ice-cold. Josh said his Nan described it as an instant, full-body chill hitting everyone at the exact same time. The planchette, which had just been lazily sliding around spelling out jokes, violently darted across the board with everyone’s fingers still glued to it.
 
@@ -711,7 +711,7 @@ The family travelled down to the airport to see her off. Joseph and Jane stood w
 
 ### A Cruel Coincidence
 
-[SKETCH 3: a man and a woman, seen from behind at the edge of an airfield, watching a small plane fall nose-first.]
+[SKETCH 3: Joseph and Jane watching the plane drop out of the sky.]
 
 It was at this point, right before their eyes, that disaster decided to strike. The plane suffered a catastrophic engine failure. It completely lost power, dropped out of the sky, and crashed right near the airport.
 
@@ -785,7 +785,7 @@ The kitchen and the breakfast nook quickly became the centre point of whatever w
 
 Jesse had brought a Casio keyboard with her when she moved in, and we kept it in the breakfast nook. We would occasionally go out to the bars, knowing for a fact that the keyboard was turned off and the apartment was silent. When we’d return, we’d hear it playing from the hallway. We’d walk in, and the keyboard would be on, looping a pre-set drum beat.
 
-[SKETCH 1: an electronic keyboard switched on in a dark breakfast nook beside the kitchen, with nobody near it.]
+[SKETCH 1: the keyboard Lou found playing a single note in the middle of the night, with no keys pressed.]
 
 Things with the keyboard got really weird on one particular occasion in the middle of the night. I woke up to a loud, solid electronic note blaring through the apartment, just a continuous *beeeeeep*. I bolted out of bed, thinking the fire alarm was going off. When I walked into the breakfast nook, the keyboard was on, playing a single note, but no keys were depressed. Jesse was fast asleep. Fed up, I finally pulled the plug from the wall.
 
@@ -795,7 +795,7 @@ Annoyingly, this was an older Casio model, and the keyboard had a backup battery
 
 While the physical activity was mostly confined to the kitchen, Jesse was dealing with her own torment in her bedroom. Almost from the moment she moved in, she started having severe, recurring nightmares.
 
-[SKETCH 2: a tall, featureless black figure standing in an open bedroom doorway, seen from the bed.]
+[SKETCH 2: the shadowy figure Jesse would dream of, standing in her bedroom doorway.]
 
 She would dream that her bedroom door was wide open, and standing in the doorway was a shadowy figure. She described it as being blacker than the shadows around it, roughly human-shaped, but slightly mutated or distorted. In these dreams, the figure radiated bad intent.
 
@@ -809,7 +809,7 @@ I rushed out of my room and found her bedroom door wide open (we had locks on ou
 
 She told me she had been dreaming about the shadow figure again. Only this time, it hadn’t stayed in the doorway. It had come into her room, held her down, and started scratching her. She had been physically paralyzed, completely unable to move or wake up for what felt like hours, until she finally managed to scream.
 
-[SKETCH 3: looking down a short hallway into a dark kitchen where every cupboard door and every drawer stands open.]
+[SKETCH 3: the kitchen as Lou found it, with every cupboard and drawer standing wide open.]
 
 When I stepped out of her room to get my bearings, I looked down the hallway into the kitchen. Every single cupboard and every single drawer was standing wide open.
 
@@ -859,7 +859,7 @@ One weekend, a best friend of mine was visiting from California. It was around 3
 
 The sound wasn’t coming from the hallway or outside the window. It sounded like it was coming from above our heads in the top corner of the bedroom. Neither of us could make out any specific words; it was just a localized, disembodied, whispery noise.
 
-[SKETCH 4: a glowing ball of light in the top corner of a dark bedroom, seen from the bed.]
+[SKETCH 4: the ball of light Lou and a friend saw hovering in the corner of the bedroom.]
 
 Startled, we both turned our attention to the upper corner of the room where the sound was coming from. Hovering right there in the darkness was a distinct, glowing ball of light. It hung there for a moment before simply dissipating into thin air.
 
@@ -941,11 +941,11 @@ I was around five or six years old and living at the house on Astbury Avenue. Ap
 
 I was sleeping in the box room when it happened. Whenever I slept in that room, I had horrible, recurring nightmares and night terrors. Two of them I can still remember clearly.
 
-[SKETCH 1: a small girl, seen from behind, running up a steep hill towards a row of houses, with heavy darkness behind her.]
+[SKETCH 1: a recurring nightmare Fran would have of being chased up a hill.]
 
 In the first, I was running up a hill towards the road our house was on, being chased by something. I had no idea what it was. I just remember being absolutely terrified and knowing I had to reach the top of the hill. Every time I got there, I could feel this thing right behind me, and the moment I turned around to look at it, I would wake up.
 
-[SKETCH 2: a small girl floating in mid-air above her empty bed in a dark box room, sitting upright with her legs straight out in front of her.]
+[SKETCH 2: a recurring nightmare Fran would have of being suspended above her bed and not being able to get back down.]
 
 The second nightmare was different. I was suspended in the air above my bed, sitting upright with my legs out in front of me. I couldn’t get myself back down onto the bed, and I couldn’t scream or call for help. The room was always dark around me. I had that dream a lot as a child when I stayed in the box room.
 
@@ -957,7 +957,7 @@ There was no light in the bedroom. My bed faced out towards the landing, and at 
 
 I did see some sort of light on the landing, but it’s really hard to describe. There was a window above the stairs, so it could have been natural light coming from somewhere, but it looked more like a lamp had been switched on. There were no lamps on the landing, though. There was nothing electrical up there at all other than the landing light on the ceiling. Whatever it was, the light was bright enough to show me what was standing at the bottom of my bed.
 
-[SKETCH 3: a small, featureless black figure at the foot of a child's bed, holding the quilt, with a strange glow on the landing behind it.]
+[SKETCH 3: a depiction of the small, featureless black figure stood at the foot of Fran’s bed.]
 
 It was a small figure, no taller than an eight-year-old child. It was completely black, like a shadow, with no facial features and nothing to tell me whether it was a boy or a girl. Even though I couldn’t see a face, I had the feeling it was a child. When it spoke to me, it felt like it spoke inside my head rather than out loud, and I can’t remember whether the voice sounded male or female.
 
@@ -981,7 +981,9 @@ After interviewing Fran, I asked John whether anything like this had ever happen
 
 There are two more memories I think are worth including in this report. They didn’t take place in the box room, and they’re both from my childhood. I’ll explain why I’ve included them at the end.
 
-When I was around 9 or 10 (the year would have been around 2001), my Nan would ring our family home most nights to tell my mum about something she kept seeing in the sky over the house. This probably went on for a few months. She described it as diamond-shaped and flashing beautiful colours, and she couldn’t believe what she was seeing. My mum said it was probably a star, but given my curiosity about this sort of thing, I was hooked.
+[SKETCH 4: the diamond-shaped craft in the sky above Astbury Avenue.]
+
+When I was around 9 or 10 (the year would have been around 2001), my Nan would ring our family home most nights to tell my mum about something she kept seeing in the sky over the house. This probably went on for a few months. She described it as diamond-shaped and flashing beautiful colours, and she couldn’t believe what she was seeing. She really struggled to explain it, but she did draw it: a diamond shape with little lights going round it almost in a circle, each light flashing a different colour. It stayed in one place for hours before it disappeared. My mum said it was probably a star, but given my curiosity about this sort of thing, I was hooked.
 
 One night, my Grandad actually filmed it on an old VHS camcorder. When he zoomed in on the object, it went further out of focus, and when he zoomed back out, it snapped back to normal.
 
@@ -989,9 +991,13 @@ I told everyone in my science class about it at school, and of course nobody bel
 
 I later lent that tape to a friend and never got it back. I’m fairly sure he taped over it. I’m gutted, because it would have been amazing to include here, but I believe that footage is lost to history.
 
-Then there was one night when my Nan was staying with us at our family home in Bromsgrove while my parents were out for the evening. Again, I would have been around the age of 10, and it was during the period when my Nan was ringing the family house about the diamond lights in the sky. We were in the back room, looking out over the garden at the stars. It was a clear night, and my Nan was telling me about the objects she and my Grandad kept seeing. I asked her whether the flashing stars could be what she’d been seeing (stars that seem to flash different colours when you look at them), and she said no, they looked nothing like them.
+Then there was one night when my Nan was staying with us at our family home in Bromsgrove while my parents were out for the evening. Again, I would have been around the age of 10, and it was during the period when my Nan was ringing the family house about the diamond lights in the sky. We were in the back bedroom, looking out of the window over the garden at the stars. It was a clear night, and my Nan was telling me about the objects she and my Grandad kept seeing. I asked her whether the flashing stars could be what she’d been seeing (stars that seem to flash different colours when you look at them), and she said no, they looked nothing like them.
 
-As we were talking, something huge flew over the house. It was almost invisible, but it had small lights along it that gave it an outline, and I can’t remember it making any sound. In terms of shape, it was like a big, rectangular craft with rounded edges. It passed over the garden and the houses behind it, made a quick U-turn, and then shot up into the night sky, and the higher it got, the more it looked like an extremely slow-moving shooting star with a huge tail behind it. My Nan and I went out the front of the house and watched it climb higher and higher until it seemed to stop moving altogether. We then came back into the house.
+[SKETCH 5: the craft witnessed over the houses in Bromsgrove from the back bedroom.]
+
+As we were talking, something huge flew over the house. It was almost invisible, but it had small lights along it that gave it an outline, and I can’t remember it making any sound. In terms of shape, it was like a big, rectangular craft with rounded edges, about the size of a small house. It passed over the garden and the houses behind it, made a quick U-turn, and then shot up into the night sky, and the higher it got, the more it looked like an extremely slow-moving shooting star with a huge tail behind it. My Nan and I went out the front of the house and watched it climb higher and higher until it seemed to stop moving altogether. We then came back into the house.
+
+[SKETCH 6: the craft shooting up into the night sky, leaving a tail behind it.]
 
 I have no idea what it was. Even compared with UAP accounts I’ve read about since then, I’ve never come across anything that moved quite like that. The closest thing I could describe it as being is an illuminated rectangular comet that flew over the house behind our garden and then shot back off into space, producing a tail the higher it got in the sky. Whatever it was, it absolutely amazed both of us, and it’s an experience my Nan and I shared and have never been able to explain.
 
