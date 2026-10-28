@@ -144,13 +144,13 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure>')
         elif km:
             # An ink sketch beside the next paragraph (brand/sketch-style/STYLE.md). The marker's
-            # text says what it shows, for screen readers. Sketches carry no caption.
+            # text names the memory it shows, for screen readers and the photo viewer. Sketches carry no caption.
             flush()
             n = int(km.group(1))
             if n not in sketches:
                 raise DraftError(f'[SKETCH {n}] is in the draft but there is no picture named sketch-{n} in the media folder.')
             if not km.group(2).strip():
-                raise DraftError(f'[SKETCH {n}] needs a short description of what it shows, e.g. [SKETCH {n}: A small girl floating above her bed].')
+                raise DraftError(f'[SKETCH {n}] needs a short description of what it shows, e.g. [SKETCH {n}: a recurring nightmare Fran would have of floating above her bed].')
             used_sketches.add(n)
             src, w, h = sketches[n]
             alt = html.escape('Ink sketch: ' + km.group(2).strip().replace('*', ''), quote=True)

@@ -35,7 +35,7 @@ Our story takes place in a council house in Smethwick...
 
 I was around five or six years old...
 
-[SKETCH 1: A small girl floating in mid-air above her empty bed in a dark box room]
+[SKETCH 1: a recurring nightmare Fran would have of being suspended above her bed]
 
 The second nightmare was different. I was suspended in the air above my bed...
 
@@ -118,7 +118,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `> "A line"` | Pull quote |
 | `- item` | Bullet list |
 | `[PHOTO 3: Caption. Image: Source]` | Photo number 3 as a paperclipped print with caption |
-| `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing centred just before the paragraph after it, with no caption. The text after the colon is read out by screen readers. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
+| `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing centred just before the paragraph after it, with no caption. The text after the colon is read out by screen readers and shown in the photo viewer, so name the memory it shows, not the drawing. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
 | `[VIDEO: https://youtu.be/xxxx \| Caption \| 0:05-1:30]` | Playable YouTube evidence (start-end optional) |
 
 ## Pictures
