@@ -369,6 +369,41 @@ aside { display: grid; gap: 1.25rem; }
 }
 /* set by main.js until the sketch scrolls into view: it then develops like ink */
 .prose figure.sketch.ink-pending img { opacity: 0; filter: brightness(1.03) blur(5px); }
+/* clipped pairs: a sketch of the moment clipped over a photo of the same spot (STYLE.md).
+   Both prints share one grid cell under one clip; main.js marks the back one .behind, which
+   nudges it down and turns it so its edge shows, and adds the Sketch / Photo switch. The
+   print going behind slides out and tucks under the other. */
+.prose .pair {
+  --pair-tilt: -1.1deg; --clip-left: 14%;
+  position: relative; display: grid; width: min(92%, 620px); margin: 2.6rem 0 2.2rem 2%;
+}
+.prose .pair::before, .prose .pair::after {
+  content: ''; position: absolute; z-index: 4; left: var(--clip-left);
+  border: 2.5px solid #6d665e; border-radius: 9px; transform: rotate(-3deg);
+}
+.prose .pair::before { top: -20px; width: 15px; height: 46px; }
+.prose .pair::after { top: -13px; margin-left: 3.5px; width: 8px; height: 31px; border-color: #948c82; border-radius: 6px; }
+.prose .pair > figure {
+  grid-area: 1 / 1; z-index: 2; width: auto; margin: 0;
+  transform: rotate(var(--pair-tilt)); transition: transform .45s ease;
+}
+.prose .pair > figure::before, .prose .pair > figure::after { display: none; }
+.prose .pair > figure.behind { z-index: 1; transform: translate(12px, 14px) rotate(calc(var(--pair-tilt) + 3deg)); }
+.prose .pair > figure.behind img { cursor: pointer; }
+.prose .pair > figure.behind figcaption { visibility: hidden; }
+.prose .pair .pair-sketch img { mix-blend-mode: multiply; }
+.prose .pair > figure.tucking { animation: pair-tuck .5s ease-in-out; }
+@keyframes pair-tuck {
+  0% { z-index: 3; transform: rotate(var(--pair-tilt)); }
+  45% { z-index: 3; transform: translate(-34%, -3%) rotate(calc(var(--pair-tilt) - 6deg)); }
+  55% { z-index: 0; transform: translate(-34%, -3%) rotate(calc(var(--pair-tilt) - 6deg)); }
+  100% { z-index: 1; transform: translate(12px, 14px) rotate(calc(var(--pair-tilt) + 3deg)); }
+}
+.prose .pair .seg { grid-area: 2 / 1; justify-self: end; margin-top: 1.6rem; }
+@media (prefers-reduced-motion: reduce) {
+  .prose .pair > figure { transition: none; }
+  .prose .pair > figure.tucking { animation: none; }
+}
 .evidence { display: grid; gap: .4rem; justify-items: start; border: 2px solid var(--rule); background: var(--paper-2); padding: .9rem 1rem; margin: 1.6rem 0; box-shadow: 3px 3px 0 0 rgba(43,39,35,.15); }
 .evidence .label { color: var(--blood); }
 .evidence p { margin: 0; font-size: 14px; line-height: 1.6; }
