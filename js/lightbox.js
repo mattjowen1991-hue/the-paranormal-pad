@@ -4,7 +4,7 @@
 // between the photos in that report.
 
 (() => {
-  const PHOTOS = '.prose figure img, .prose .gallery img';
+  const PHOTOS = '.prose figure:not(.behind) img, .prose .gallery img';   // not the print tucked behind in a clipped pair
   let list = [], index = 0, open = false, startX = null;
 
   const box = document.createElement('div');
@@ -82,7 +82,11 @@
     document.querySelectorAll(PHOTOS).forEach(el => {
       if (el.tabIndex !== 0) { el.tabIndex = 0; el.setAttribute('role', 'button'); el.setAttribute('aria-label', `Open photo${el.alt ? ': ' + el.alt : ''}`); }
     });
-  }).observe(document.body, { childList: true, subtree: true });
+    // a clipped pair's back print isn't a photo button until it comes to the front
+    document.querySelectorAll('.prose figure.behind img[tabindex]').forEach(el => {
+      el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label');
+    });
+  }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 
   close.addEventListener('click', () => shut());
   prev.addEventListener('click', () => show(index - 1));

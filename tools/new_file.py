@@ -128,6 +128,7 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
         h = re.match(r'(#{2,4})\s+(.*)', line)
         pm = re.match(r'\[PHOTO\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
         km = re.match(r'\[SKETCH\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
+        am = re.match(r'\[PAIR\s*:\s*SKETCH\s+(\d+)\s*:?\s*(.*?)\s*\|\s*PHOTO\s+(\d+)\s*:?\s*(.*)\]$', line, re.I)
         vm = re.match(r'\[VIDEO\s*:\s*(.*?)\]$', line, re.I)
         sm = re.match(r'\[PLAY SIDE\s+([AB])\]$', line, re.I)
         if h:
@@ -142,6 +143,26 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
             alt = html.escape(re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', cap).replace('*', ''), quote=True)
             blocks.append(f'<figure><img alt="{alt}" loading="lazy" src="{photos[n]}"/>'
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure>')
+        elif am:
+            # A clipped pair: the sketch of the moment on top of a photo of the same spot, with
+            # a switch between them (brand/sketch-style/STYLE.md). Both prints carry a caption.
+            flush()
+            k, n = int(am.group(1)), int(am.group(3))
+            if k not in sketches:
+                raise DraftError(f'[PAIR: SKETCH {k}] is in the draft but there is no picture named sketch-{k} in the media folder.')
+            if n not in photos:
+                raise DraftError(f'[PAIR: ... PHOTO {n}] is in the draft but there is no picture numbered {n} in the media folder.')
+            what = am.group(2).strip()
+            if not what:
+                raise DraftError(f'[PAIR: SKETCH {k}] needs a short description of the memory it shows before the |.')
+            used_sketches.add(k); used.add(n)
+            src, w, h = sketches[k]
+            cap = am.group(4).strip()
+            alt = html.escape(re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', cap).replace('*', ''), quote=True)
+            blocks.append(f'<div class="pair"><figure class="pair-sketch"><img alt="{html.escape("Ink sketch: " + what.replace("*", ""), quote=True)}" '
+                          f'height="{h}" loading="lazy" src="{src}" width="{w}"/><figcaption>{inline("Ink sketch: " + what)}</figcaption></figure>'
+                          f'<figure><img alt="{alt}" loading="lazy" src="{photos[n]}"/>'
+                          + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure></div>')
         elif km:
             # An ink sketch beside the next paragraph (brand/sketch-style/STYLE.md). The marker's
             # text names the memory it shows, for screen readers and the photo viewer. Sketches carry no caption.
@@ -230,6 +251,7 @@ def excerpt_from(body_html, limit=210):
 # ---------------------------------------------------------------- pictures
 IMG_EXT = ('.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif', '.gif', '.tif', '.tiff')
 SKETCH_PX = 900   # sharp at 3x on a phone, and in the 16rem desktop margin
+PAIR_PX = 1600    # a paired sketch is a full-size print, like the photo it's clipped to
 
 
 def find_media(folder):
@@ -304,7 +326,9 @@ def build(draft_path, media, number=None, dry=False):
     if not cover:
         raise DraftError(f'No cover picture found. Put one in the media folder named cover.jpg (or .png).')
     photos = {n: f'images/{folder}/{no}/{n:02d}.jpg' for n in photo_files}
-    sketches = {n: (f'images/{folder}/{no}/sketch-{n}.jpg', *shrunk(pixel_size(p), SKETCH_PX)) for n, p in sketch_files.items()}
+    paired = {int(k) for k in re.findall(r'\[PAIR\s*:\s*SKETCH\s+(\d+)', body, re.I)}
+    sketch_px = {n: PAIR_PX if n in paired else SKETCH_PX for n in sketch_files}
+    sketches = {n: (f'images/{folder}/{no}/sketch-{n}.jpg', *shrunk(pixel_size(p), sketch_px[n])) for n, p in sketch_files.items()}
     used, used_sketches = set(), set()
     body_html = body_to_html(body, photos, kind, used, sketches, used_sketches)
     unused = sorted(set(photo_files) - used)
@@ -384,7 +408,7 @@ def build(draft_path, media, number=None, dry=False):
     for n in used:
         save_jpeg(photo_files[n], os.path.join(ROOT, photos[n]), 1600)
     for n in used_sketches:   # dense hatching compresses badly: smaller and lower quality keeps them near 280 KB
-        save_jpeg(sketch_files[n], os.path.join(ROOT, sketches[n][0]), SKETCH_PX, quality=65)
+        save_jpeg(sketch_files[n], os.path.join(ROOT, sketches[n][0]), sketch_px[n], quality=65)
     with open(os.path.join(ROOT, report['content_file']), 'w', encoding='utf-8') as out:
         out.write(body_html + '\n')
     if kind == 'report':

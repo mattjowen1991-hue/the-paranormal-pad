@@ -47,10 +47,10 @@ def md_inline(h):
 
 def to_draft_body(content):
     n = [0]
-    def photo(m):
+    def photo(fig):
         n[0] += 1
-        cap = re.search(r'<figcaption>(.*?)</figcaption>', m.group(0), re.S)
-        return f'\n\n[PHOTO {n[0]}: {md_inline(cap.group(1)) if cap else ""}]\n\n'
+        cap = re.search(r'<figcaption>(.*?)</figcaption>', fig, re.S)
+        return f'PHOTO {n[0]}: {md_inline(cap.group(1)) if cap else ""}'
     def video(m):
         block = m.group(0)
         vid = re.search(r'data-yt="([\w-]+)"', block)
@@ -62,14 +62,20 @@ def to_draft_body(content):
         times = f' | {clock(st.group(1)) if st else "00:00"}-{clock(en.group(1)) if en else ""}' if (st or en) else ''
         return f'\n\n[VIDEO: https://youtu.be/{vid.group(1)} | {md_inline(cap.group(1)) if cap else ""}{times}]\n\n'
     k = [0]
-    def sketch(m):
+    def sketch(fig):
         k[0] += 1
-        alt = re.search(r'alt="([^"]*)"', m.group(0))
+        alt = re.search(r'alt="([^"]*)"', fig)
         what = re.sub(r'^Ink sketch:\s*', '', html.unescape(alt.group(1))) if alt else ''
-        return f'\n\n[SKETCH {k[0]}: {what}]\n\n'
+        return f'SKETCH {k[0]}: {what}'
+    def picture(m):   # one pass, so photos and sketches are numbered in the order they appear
+        block = m.group(0)
+        if block.startswith('<div class="pair">'):
+            sk, ph = re.findall(r'<figure.*?</figure>', block, re.S)
+            return f'\n\n[PAIR: {sketch(sk)} | {photo(ph)}]\n\n'
+        marker = sketch(block) if block.startswith('<figure class="sketch"') else photo(block)
+        return f'\n\n[{marker}]\n\n'
     s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)
-    s = re.sub(r'<figure class="sketch".*?</figure>', sketch, s, flags=re.S)
-    s = re.sub(r'<figure.*?</figure>', photo, s, flags=re.S)
+    s = re.sub(r'<div class="pair">.*?</div>|<figure.*?</figure>', picture, s, flags=re.S)
     s = re.sub(r'<div class="evidence".*?</div>', video, s, flags=re.S)
     s = re.sub(r'<div class="side-actions">.*?data-seek="(\d+)".*?</div>', '\n\n[PLAY SIDE]\n\n', s, flags=re.S)
     s = re.sub(r'<h([234])>(.*?)</h\1>', lambda m: f'\n\n{"#" * int(m.group(1))} {md_inline(m.group(2))}\n\n', s, flags=re.S)

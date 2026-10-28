@@ -100,6 +100,9 @@ Use the sections the story needs; this is the usual order.
   account and show only what they described. They are plainly drawings, so they have no caption
   or label. The rules and the ChatGPT prompt are in
   `brand/sketch-style/STYLE.md` (the Claude Project has it as `14-sketch-style.md`).
+  Where there's a real photo taken from the spot, the sketch can be clipped over it as a pair,
+  so the reader can switch between the memory and the place (STYLE.md section 8). A paired
+  sketch is a print, so it has a caption: "Ink sketch: " and the memory it shows.
 - Sensitive history (abuse, illness, death) - mention only what the story needs, gently, and say
   when something "isn't my story to speculate on".
 - Don't oversell. "I have no idea what it was" is a perfectly good sentence.
@@ -164,4 +167,5 @@ A tape page is short. It has:
 - [ ] No em dashes; British spelling.
 - [ ] Every [PHOTO n] has a picture and a caption with its source; AI images labelled.
 - [ ] Every [SKETCH n] sits inside the witness's own account, names the memory it shows, and shows only what they described.
+- [ ] Every [PAIR] pairs a sketch with a real photo of the same spot, and the sketch copies its layout.
 - [ ] Subjects chosen from the site's list.

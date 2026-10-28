@@ -12,7 +12,9 @@ The reference image is [`master.png`](master.png) (Report 008, Fran's second nig
 
 Photos are **evidence**: real places and objects, shown as paperclipped prints. Sketches are
 **memory**: what the witness saw, drawn straight onto the page as if the investigator sketched it
-while they talked. That difference is the point, so the two never mix.
+while they talked. That difference is the point, so the two never mix: a sketch is never passed
+off as a photo. A clipped pair (section 8) puts the two side by side on purpose, each labelled for
+what it is.
 
 ## 2. Where sketches go
 
@@ -47,6 +49,8 @@ while they talked. That difference is the point, so the two never mix.
 - **No caption or label on the page.** A sketch is plainly a drawing, not evidence, so unlike the
   photo-like AI recreations elsewhere on the site it carries no "AI recreation" caption. That makes
   the rules above matter more: the drawing itself must never claim more than the witness said.
+  (A sketch clipped over a photo is the exception: as a print it carries an "Ink sketch:" caption,
+  section 8.)
 
 ## 4. Making one in ChatGPT
 
@@ -127,7 +131,31 @@ Scene: Viewed from just behind a girl's head as she lies in bed, looking down th
 - [ ] Sepia and brown-black only.
 - [ ] It looks like it came from the same hand as `master.png`.
 
-## 8. The master
+## 8. Clipped pairs: a sketch over the real photo
+
+When the report has a real photo taken from where the moment happened (the swings they sat on,
+the view from where they saw it), the sketch can be clipped over that photo instead of standing
+alone. The reader sees the sketch first and can switch to the photo: the memory, then the place
+as it is now. Report 003 has two.
+
+- **Only with a real photo of the same spot, from the same viewpoint.** Never an AI image, a map
+  or a photo of somewhere nearby. The honesty rules above still apply in full.
+- **The sketch copies the photo's layout** and draws the moment over it: same viewpoint, same
+  fixed things (swing frame, fence, building), at the time of day the witness gave.
+- **It's a print, not a drawing on the page.** It sits where the photo would, under the photo's
+  paperclip, with no ink fade-in, and it does carry a caption: "Ink sketch: " and then the memory
+  it shows, in the report's own words. The photo keeps its own caption.
+- **In ChatGPT:** attach `master.png` first, then the photo. Use the style block with a setting
+  line for the place and swap the last line for
+  `Portrait image, 3:4, the same shape as the attached photo.` (or `Landscape image, 4:3, ...`).
+  After the scene block, end with
+  *Match the style of the first attached image exactly; use the photo only for the layout.*
+  Then check it against section 7, and that it matches the photo's layout.
+- In the draft, a pair is one marker in place of the photo's:
+  `[PAIR: SKETCH 1: the memory it shows | PHOTO 5: the photo's caption]`
+  (`docs/DRAFT-FORMAT.md`).
+
+## 9. The master
 
 `master.png` was made in ChatGPT on 13 October 2026 from the first example above. (The edges
 sentence in the style block was written after the first attempt came out too square.) Replace it

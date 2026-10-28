@@ -125,7 +125,7 @@ function startApp() {
       ? `Showing ${start + 1}–${start + shown.length} of ${list.length}`
       : `Showing ${list.length} of ${total}`;
     renderPager(pages);
-    document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === state.kind)));
+    document.querySelectorAll('.seg button[data-kind]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === state.kind)));
     document.querySelectorAll('#tags button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tag === state.tag)));
     $('.tags-current').textContent = state.tag ? ' (1)' : '';   // fixed width: the open row shows which
   }
@@ -151,7 +151,7 @@ function startApp() {
   });
   phoneQuery.addEventListener('change', () => renderGrid());
 
-  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => { state.kind = b.dataset.kind; state.page = 1; renderGrid(); savePlace(); }));
+  document.querySelectorAll('.seg button[data-kind]').forEach(b => b.addEventListener('click', () => { state.kind = b.dataset.kind; state.page = 1; renderGrid(); savePlace(); }));
   tagBox.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     state.tag = state.tag === b.dataset.tag ? null : b.dataset.tag; state.page = 1; renderGrid(); savePlace();
@@ -706,6 +706,43 @@ function startApp() {
     figs.forEach(fig => { fig.classList.add('ink-pending'); io.observe(fig); });
   }
 
+  // ---------- clipped pairs ----------
+  // A sketch of the moment clipped over a photo of the same spot, sketch on top. The Sketch /
+  // Photo switch, or a tap on the print behind, brings that one to the front (styles.css).
+  // A tap on the front print still opens the photo viewer, which skips the one behind.
+  function clippedPairs(root) {
+    root.querySelectorAll('.prose .pair').forEach(pair => {
+      const prints = [...pair.querySelectorAll(':scope > figure')];
+      if (prints.length !== 2) return;
+      const seg = document.createElement('div');
+      seg.className = 'seg';
+      seg.setAttribute('role', 'group');
+      seg.setAttribute('aria-label', 'Show the sketch or the photo');
+      seg.innerHTML = '<button type="button" aria-pressed="true">Sketch</button><button type="button" aria-pressed="false">Photo</button>';
+      const buttons = [...seg.children];
+      let front = 0;
+      const show = (i, animate) => {
+        if (i === front) return;
+        const out = prints[front];
+        if (animate && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          out.classList.add('tucking');
+          out.addEventListener('animationend', () => out.classList.remove('tucking'), { once: true });
+        }
+        front = i;
+        prints.forEach((p, j) => p.classList.toggle('behind', j !== i));
+        buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+      };
+      prints[1].classList.add('behind');
+      buttons.forEach((b, i) => b.addEventListener('click', () => show(i, true)));
+      prints.forEach((p, i) => p.addEventListener('click', e => {
+        if (!p.classList.contains('behind')) return;
+        e.stopPropagation();   // it's in front by the time the photo viewer would see this tap
+        show(i, true);
+      }));
+      pair.appendChild(seg);
+    });
+  }
+
   // ---------- YouTube players ----------
   // Each video card shows its thumbnail with a play button. Clicking swaps in the real
   // YouTube player. Where other sites are blocked (e.g. the private preview), the
@@ -915,7 +952,7 @@ function startApp() {
     if (h === 'files') { view = 'archive'; tab = 'reports'; }
     const fm = h.match(/^(file|tape)-(\d{3})$/);
     const file = fm && FILES.find(x => x.kind === (fm[1] === 'tape' ? 'tape' : 'report') && x.no === fm[2]);
-    if (file) { renderFile(file); mountPlayers($('#view-file')); inkSketches($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
+    if (file) { renderFile(file); mountPlayers($('#view-file')); inkSketches($('#view-file')); clippedPairs($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
     if (!document.querySelector(`[data-view="${view}"]`)) { view = 'archive'; tab = 'archive'; }
     show(view, tab, view === 'archive' ? (h === 'reports' || h === 'files' ? h : 'archive') : view);
     if (view === 'moderate' && !moderateMounted) { moderateMounted = true; Statements.mountModerator($('#moderate-desk')); }
