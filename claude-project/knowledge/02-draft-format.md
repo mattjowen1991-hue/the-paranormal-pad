@@ -119,6 +119,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `- item` | Bullet list |
 | `[PHOTO 3: Caption. Image: Source]` | Photo number 3 as a paperclipped print with caption |
 | `[SKETCH 1: What it shows]` | Sketch number 1, an ink drawing centred just before the paragraph after it, with no caption. The text after the colon is read out by screen readers and shown in the photo viewer, so name the memory it shows, not the drawing. Only inside the witness's own account (`brand/sketch-style/STYLE.md`). |
+| `[PAIR: SKETCH 1: What it shows \| PHOTO 5: Caption]` | A clipped pair: sketch 1 on top of photo 5, with a Sketch / Photo switch. For a real photo taken from where the moment happened; the sketch copies its layout. Both prints show their caption. See `brand/sketch-style/STYLE.md` section 8. |
 | `[VIDEO: https://youtu.be/xxxx \| Caption \| 0:05-1:30]` | Playable YouTube evidence (start-end optional) |
 
 ## Pictures
@@ -128,6 +129,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 - Photos in the text are numbered `[PHOTO 1]`, `[PHOTO 2]` ... in the order they appear.
 - Sketches are numbered separately: `[SKETCH 1]`, `[SKETCH 2]` ... Put each marker on its own line
   just **before** the paragraph it belongs to.
+- A `[PAIR: ...]` uses up one sketch number and one photo number, and goes where that photo would.
 - On the card, upload the pictures **named** `cover.jpg`, `1.jpg`, `2.jpg` ... (any image type),
   or upload them in that order: cover first, then 1, 2, 3. Sketches are always named:
   `sketch-1.png`, `sketch-2.png` ...

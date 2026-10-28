@@ -472,7 +472,7 @@ Here’s a close-up photo of The Chapel as it stands now, taken from just in fro
 
 When we reached the play area, we slipped into our familiar routine – settling onto the swings, the chains creaking softly as we swayed back and forth. For the next hour and a half, we talked about whatever came to mind, the smoke from our cigarettes swirling up into the night sky, disappearing into the shadows.
 
-[PHOTO 5: *A photo of the swings we were sat on*.]
+[PAIR: SKETCH 1: my friend and me on the swings, drifting into a conversation we probably shouldn’t have been having, given where we were. | PHOTO 5: *A photo of the swings we were sat on*.]
 
 As the night wore on, our conversation drifted into territory that, in hindsight, felt unsettling to discuss out in the open. The topic had shifted to the Bible – how ancient it is, and how much of its content might have changed as it was passed down through generations. Without diving too deep into specifics, I’ll just say it was a curious conversation, one where we questioned the fundamentals of something sacred, pondering how much of it could have been altered by human hands over the centuries.
 
@@ -482,11 +482,11 @@ It’s hard to put into words, but suddenly, everything just stopped. Both my fr
 
 I remember locking eyes with my friend, both of us frozen in that eerie, unnatural silence. His expression mirrored my own – confusion mixed with a creeping sense of dread. Then, for reasons I still can’t explain, I felt an overwhelming urge to turn my head and look to my right. That’s when I saw it.
 
+[PAIR: SKETCH 2: the tall, dark shadow standing across the street, staring right at us. | PHOTO 6: The view from where we saw the shadow watching us.]
+
 Standing across from us, bathed in the dim, flickering glow of the street lamps, was a tall, dark shadow. It seemed to absorb the light rather than reflect it. I couldn’t make out any features, anything that might make it seem more human, there was nothing – just a solid, impenetrable black mass that somehow felt like it was staring right at us from the other side of the street.
 
 I say “staring,” but that doesn’t quite capture it. It had no eyes, no discernible face, yet there was an undeniable, piercing focus directed straight at us. The kind that sends a chill racing down your spine, making you feel exposed, vulnerable. It was a horrible feeling to feel.
-
-[PHOTO 6: The view from where we saw the shadow watching us.]
 
 The moment I saw the shadow, it was as if time itself slowed down, every second stretching into an eternity. My heart pounded in my chest as I turned back to my friend, my fear mirrored in his eyes. Before I could even process what I had seen, he looked straight at me, his voice trembling as he whispered, “Run.”
 
