@@ -163,5 +163,5 @@ A tape page is short. It has:
 - [ ] Ends with a question and a pointer to witness statements.
 - [ ] No em dashes; British spelling.
 - [ ] Every [PHOTO n] has a picture and a caption with its source; AI images labelled.
-- [ ] Every [SKETCH n] sits inside the witness's own account, says what it shows, and shows only what they described.
+- [ ] Every [SKETCH n] sits inside the witness's own account, names the memory it shows, and shows only what they described.
 - [ ] Subjects chosen from the site's list.

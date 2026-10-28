@@ -24,7 +24,10 @@ while they talked. That difference is the point, so the two never mix.
   visually. Fewer, stronger sketches beat one on every paragraph.
 - Each sketch belongs to one paragraph: the one that describes that moment. In the draft, its
   `[SKETCH n: what it shows]` marker goes on its own line just **before** that paragraph. The text
-  after the colon is what screen readers say, so describe the picture plainly in a few words.
+  after the colon is what screen readers say and what the photo viewer shows under the sketch.
+  Write it as the memory the sketch shows, in the report's own words, not as a description of the
+  drawing: *a recurring nightmare Fran would have of being chased up a hill*, not *a small girl
+  running up a hill*. The site puts "Ink sketch:" in front of it.
 - On every screen a sketch sits centred between paragraphs, just before the one it belongs to,
   so the reader meets the picture as they reach the moment (up to 520px wide on desktop, full
   width on phones). Two sketches on back-to-back paragraphs are fine; never three in a row.
@@ -41,7 +44,7 @@ while they talked. That difference is the point, so the two never mix.
   witness describes as featureless stays featureless: no eyes, no mouth.
 - **Background is neutral.** Plain furniture, wallpaper, a picture frame or a door are fine.
   Nothing that adds to the story (no extra figures, objects that move, symbols, marks).
-- **No caption or label.** A sketch is plainly a drawing, not evidence, so unlike the
+- **No caption or label on the page.** A sketch is plainly a drawing, not evidence, so unlike the
   photo-like AI recreations elsewhere on the site it carries no "AI recreation" caption. That makes
   the rules above matter more: the drawing itself must never claim more than the witness said.
 
