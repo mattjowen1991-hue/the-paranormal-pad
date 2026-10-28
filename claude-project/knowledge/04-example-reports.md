@@ -530,6 +530,8 @@ It started like most of my episodes. I was asleep in bed and became suddenly awa
 
 And then I saw it.
 
+[SKETCH 1: the tall, thin, pitch-black figure standing directly beside me as I lay frozen in bed.]
+
 There was a tall, thin, pitch-black figure standing directly beside me. No facial features. No glowing eyes. Just a void in the shape of an eerily stretched person, darker than the darkness of the room itself. The curtains were slightly cracked, letting in a soft line of natural light from outside, but somehow that only made the figure more visible. It was as if the absence of light had taken on form and weight.
 
 Then it started speaking.
@@ -543,10 +545,6 @@ The figure kept speaking. Fast, intentional and deep, until suddenly I heard as 
 “And now you can wake up.”
 
 And just like that, I jolted awake. Soaked in sweat, heart racing like I’d sprinted a mile. The room was empty. Silent. I was alone.
-
-I asked ChatGPT to recreate the image for me, using pictures of my actual room as a reference. This is what it generated, which is very close to what I experienced when in the sleep paralysis state.
-
-[PHOTO 1: ]
 
 I’ve had other sleep paralysis episodes. I’ve seen other black figures. Sometimes tall, sometimes short. Once I even felt myself flying toward the ceiling, only to wake up just before impact. And I’ve been diagnosed with something called Exploding Head Syndrome, where I’ll shift from a dream straight into a sleep paralysis state with an intense, painful vibration that feels like my skull is about to burst. It hurts so much that I’m convinced I’m about to die, until I suddenly snap awake, crawling with pins and needles, the pain gone like it never happened.
 
