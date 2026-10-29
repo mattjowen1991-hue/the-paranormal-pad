@@ -280,7 +280,7 @@ The next incident follows a similar pattern, with my Nan recalling the event. At
 
 As we sat together, she noticed movement on the living room floor. It wasn’t just a shadow or a trick of the light – it was more distinct. She describes seeing a pair of trousers, ones my Grandad often wore, moving across the floor. The rest of the figure was faded, almost like a silhouette, but unmistakable. The apparition walked across the room and gradually faded into nothingness.
 
-[PHOTO 3: *A picture of the living room, where both Incidents 1 and 2 took place. *]
+[PAIR: SKETCH 1 (Incident 1): my Grandad walking calmly around the living room in his scout uniform. | SKETCH 2 (Incident 2): a pair of trousers, ones my Grandad often wore, moving across the floor. | PHOTO 3: *A picture of the living room, where both Incidents 1 and 2 took place. *]
 
 This was an incident we both experienced, though once again, I can’t remember it myself. My Nan, however, has recounted this event numerous times, and her story has never wavered. It remains as consistent and clear as the day she first told me.
 
@@ -288,7 +288,7 @@ This was an incident we both experienced, though once again, I can’t remember 
 
 One day, while my Nan was in the kitchen preparing dinner, something particularly unsettling happened. The kitchen is moderately sized, with one half serving as the dining area and the other as the cooking space. Next to the fridge, there’s a chair that my Grandad used to sit in whenever he was in the kitchen – a spot that still feels like his.
 
-[PHOTO 4: *A picture of the kitchen, including the chair my Grandad would sit on.*]
+[PAIR: SKETCH 3: a shadow rising from the chair where my Grandad used to sit. | PHOTO 4: *A picture of the kitchen, including the chair my Grandad would sit on.*]
 
 As my Nan was taking something off the stove, she turned around to place it on a small island that divided the kitchen from the dining room (this is no longer in the kitchen, but would have ran where the carpet meets the floor). In that moment, she saw something that stopped her cold. She remembers seeing a shadow rise from the chair where my Grandad used to sit, cross the room, and then fade away. The sight startled her so much that she nearly dropped what she was holding. The incident left her feeling shaken, the shock of it lingering long after the shadow had vanished.
 
@@ -299,6 +299,8 @@ Growing up, there were always odd little things happening at my Nan’s house �
 [PHOTO 5: *A picture of the bedroom I would stay in when I was little, minus the other single bed that would have been on the left-hand side of the remaining bed.*]
 
 Outside the room, there’s a landing with an old storage cupboard at the top of the stairs, a bathroom, my Nan’s master bedroom, and a spare bedroom that’s now used more for storage. I sometimes stayed in that spare bedroom as a small child, but I quickly grew to dread it. I frequently had awful dreams in there, and so did my sister. We both came to associate that room with a sense of discomfort, and over time, no one chose to sleep in it.
+
+[SKETCH 4: lying in bed at night, feeling as though someone had bumped into the side of the bed.]
 
 When I stayed in the main bedroom, it wasn’t uncommon for me to be lying in bed at night, listening to music on my iPod or chatting with friends on Blackberry Messenger, only to suddenly feel as though someone had bumped into the side of the bed. The bed would rock slightly, just enough to make me look around, wondering what had happened. This happened so often that it eventually became normal to me, no longer startling me as it once did. Many nights, just as I was about to drift off to sleep, the bed would again feel like someone had walked into it, a subtle but unsettling sensation that I grew accustomed to over the years.
 
@@ -311,6 +313,8 @@ As I entered my teenage years, I began to have vividly distressing dreams when s
 In this dream, I found myself outside the front of my Nan’s house, casually chatting with some friends when a sudden, inexplicable urge to go back inside overcame me. The moment I stepped through the front door, into the corridor, and closed the door behind me, a dreadful realization washed over me – I had done something terribly wrong. A wave of fear hit me like a physical force, and I was instantly filled with a sense of impending doom.
 
 Just then, my Nan came running into the corridor from the kitchen, her face a mask of terror. She frantically told me that something was very wrong, and we had to turn all the mirrors in the house around to prevent whatever was about to happen. Panic gripped me as we rushed through the house together, flipping every mirror to face the wall, desperately trying to block out the reflections.
+
+[PAIR: SKETCH 5: the dark shadow lurking behind the back door, sliding away just out of sight. | PHOTO 6: *A picture of the corridor leading from the front door directly to the back door.*]
 
 As we neared the end of this frantic task, I found myself at the back door, which was at the far end of the corridor. I opened it, intending to leave, but something caught my eye – a dark shadow, lurking behind the door. I froze, something wanted me to check what the shadow was, despite the fear coursing through me. Each time I pulled the door shut slightly to see better, the shadow would shift, sliding away just out of sight.
 
@@ -325,6 +329,8 @@ In the next two dreams, the fear I felt was overwhelming, and the details remain
 In the first of these dreams, I was lying in bed in my room at my Nan’s house. The familiar surroundings should have been comforting, but instead, a horrible, echoing laughter filled the house, reverberating through the walls. It was a chilling sound, unnatural and taunting. As I lay there, frozen with fear, I could hear my Nan’s voice from the next room. She was pleading with whatever was causing the laughter, telling it to stop and to leave us alone. The fear in her voice was unmistakable, and hearing her so terrified only heightened my own sense of dread.
 
 The second dream followed the same theme, but this time it was even more disturbing. Once again, I found myself in bed, but now things in the room were moving on their own, levitating as if lifted by some unseen force. Books, toys, and small objects floated in the air, twisting and turning as if they had a life of their own. I was paralyzed with fear, unable to move or scream.
+
+[SKETCH 6: books, toys and small objects floating in the air, and my Nan in the doorway with my Grandad’s legs beside her, his shoes starting at her waist and his legs disappearing into the ceiling.]
 
 As I lay there, my eyes were drawn to the doorway. Standing there was my Nan, smiling at me, as if trying to reassure me that everything was fine. But something was terribly wrong. Next to her stood my Grandad, or at least, part of him. His legs were there, but they extended upward, with his shoes starting at my Nan’s waist and his legs disappearing into the ceiling. As silly as it might sound now, in the dream, this image of my Grandad screamed that something was wrong and horrified me, and I remember waking up in a panic, my heart racing, drenched in sweat.
 
@@ -346,11 +352,11 @@ Her response made my heart skip a beat. She insisted that she hadn’t gone down
 
 Alarmed, I asked her why she thought I had been downstairs. She explained that when she went to make a cup of tea in the morning, she noticed the ashtray (now back on the table) was full of ash. Confused, I asked if she was joking, but she remained serious, clearly unsettled.
 
-[PHOTO 6: *The ashtray that appeared back on the table full of ash. *]
+[PHOTO 7: *The ashtray that appeared back on the table full of ash. *]
 
 A thought clicked in my mind, and I asked her if there were any cigarette butts in the ashtray. She said there weren’t, just ash. Then it hit me – I asked, “Didn’t Grandad used to smoke a pipe?” She paused, and I could see the realization dawning on her as she confirmed that yes, he did. I pointed out that if it were Grandad who had been downstairs, putting the ashtray back on the table and smoking his pipe, there wouldn’t be any cigarette butts, only ash.
 
-[PHOTO 7: *My grandads original pipe that my Nan has still kept for all these years. *]
+[PHOTO 8: *My grandads original pipe that my Nan has still kept for all these years. *]
 
 What’s even stranger is that we both seemed to have been awake at the same time, each of us hearing the movement in the kitchen and on the stairs. Yet, when I called out to her twice during the night, she didn’t hear me, even though the house was so quiet that we could clearly hear someone moving around downstairs. This has always baffled and slightly unnerved me – how could she hear those noises but not my voice, especially with just a single wall separating our bedrooms? To this day, we have no explanation for what happened that night. Given the strange occurrences that have happened in the house before, we’ve both come to agree that this incident defies any logical explanation and might well be another one of the house’s eerie, unexplained events.
 
@@ -360,9 +366,11 @@ The next incident is by far the most intense paranormal experience I had at my N
 
 At the time, there were two single beds pushed together in the room – separated only when my sister was staying over. The room was dimly lit by a streetlamp further down the road, with the curtains half-drawn, allowing just enough light to faintly illuminate the bedroom.
 
+[SKETCH 7: the tall, dark shadow standing at the end of the other single bed.]
+
 As I woke, I found myself staring into the large mirror on the far side of the room, which sat atop a long table parallel to the beds. But what caught my attention next was far more unsettling. At the end of the other single bed, I saw a tall, dark shadow – a figure standing there. It was a type of black that’s hard to explain, so overwhelmingly dark it stood out in the already dimly lit room.
 
-[PHOTO 8: *The bedroom where I saw the shadow figure. I’ve circled where the figure was standing.*]
+[PHOTO 9: *The bedroom where I saw the shadow figure. I’ve circled where the figure was standing.*]
 
 I’ve always joked with friends that if I ever saw a ghost, I’d light up a cigarette and start speaking to it. But in that moment, all I felt was pure terror, something I’ve never experienced before or since. I stared at the shadow, frozen with fear, before instinctively pulling the bedsheets over my head. I lay there shaking, unable to act or even think clearly. The fear was so overwhelming that the idea of uncovering myself and running out of the room felt impossible.
 
@@ -381,6 +389,8 @@ I’m not sure how I managed to fall asleep again that night. I remember spendin
 This incident still completely baffles me to this day. During my teenage years, I would visit my Nan’s house every Sunday for a traditional Sunday dinner. These moments were a refuge for me, offering a sense of peace and safety during a chaotic time in my life. My Nan also happens to be the best gravy maker in the history of the world, which was also a huge bonus.
 
 One Sunday, we were sitting down, enjoying our meal, when suddenly I heard the front door fly open. A huge gust of wind rushed down the hallway, causing the kitchen door to slam shut with such force that I’m surprised it didn’t come off its hinges – it absolutely smacked into the doorframe. At the same moment, the back door also flung open and then slammed shut. It’s also worth noting that the gust of wind made a loud sound as it came hurtling down the hallway, almost like a roaring noise.
+
+[PAIR: SKETCH 8: the kitchen door slamming shut during Sunday dinner. | PHOTO 10: *A picture of the kitchen, including the chair my Grandad would sit on.*]
 
 Completely bewildered, my Nan and I jumped up and rushed to the kitchen door. Initially, I didn’t think anything strange had happened; I was more concerned about how the front door could have blown open like that. But when we stepped into the hallway, we found both the front and back doors closed.
 
@@ -420,7 +430,7 @@ However, there are two incidents that still make me uneasy: the shadow that appe
 
 What do you think? Could it be my Grandad, or is something else at play? Let me know in the comments, and thank you for taking the time to read my story!
 
-[PHOTO 9: *Four generations in the same house. From the left: Myself, my daughter, my Dad and my Nan, just to put some faces to the names mentioned in the above incidents!*]
+[PHOTO 11: *Four generations in the same house. From the left: Myself, my daughter, my Dad and my Nan, just to put some faces to the names mentioned in the above incidents!*]
 
 
 ==================== REPORT 003 ====================
@@ -438,7 +448,7 @@ Nestled in the tranquil Worcestershire countryside, the once imposing structure 
 
 Constructed of red brick with stone dressings, it featured a compact echelon plan connected by brick corridors, largely symmetrical except for two slightly larger dormitories on the female side. The administrative block, while attractive, lacked the clock tower often associated with Hine’s designs. However, the water tower, with its gothic red brick and sandstone detailing, crenellations, and spires, was among the most striking examples of Hine’s architectural prowess.
 
-[Barnsley Hall, Asylum](https://www.flickr.com/photos/83699930@N02/8326740642/in/photostream/)
+[FLICKR: https://www.flickr.com/photos/83699930@N02/8326740642/ | *Barnsley Hall, Asylum. Image: [rgm1987 on Flickr](https://www.flickr.com/photos/83699930@N02/8326740642/)*]
 
 Named after the great hall of the local Barnsley family, which had been demolished in 1771, the asylum was built to house 705 patients, including those in a detached admissions block. The choice of location was not merely practical; the isolation of the countryside was believed to offer patients a peaceful retreat from the chaos of urban life. However, this isolation also cloaked the hospital in an eerie silence, as if it was perpetually on the brink of something otherworldly.
 
