@@ -73,6 +73,10 @@ def to_draft_body(content):
         if block.startswith('<div class="pair">'):
             *sks, ph = re.findall(r'<figure.*?</figure>', block, re.S)
             return f'\n\n[PAIR: {" | ".join(sketch(sk) for sk in sks)} | {photo(ph)}]\n\n'
+        fl = re.match(r'<figure data-flickr="([^"]+)"', block)
+        if fl:   # shown from Flickr, so it has no photo number; the caption keeps its credit
+            cap = re.search(r'<figcaption>(.*?)</figcaption>', block, re.S)
+            return f'\n\n[FLICKR: {html.unescape(fl.group(1))} | {md_inline(cap.group(1)) if cap else ""}]\n\n'
         marker = sketch(block) if block.startswith('<figure class="sketch"') else photo(block)
         return f'\n\n[{marker}]\n\n'
     s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)

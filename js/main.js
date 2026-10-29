@@ -706,6 +706,24 @@ function startApp() {
     figs.forEach(fig => { fig.classList.add('ink-pending'); io.observe(fig); });
   }
 
+  // ---------- photos from Flickr ----------
+  // Someone else's photo, loaded from Flickr ([FLICKR] in the draft). If its owner ever takes
+  // it down or turns embedding off, the print becomes a link to where it was.
+  function flickrPhotos(root) {
+    root.querySelectorAll('.prose figure[data-flickr] img').forEach(img => {
+      const fig = img.closest('figure');
+      const gone = () => {
+        const box = document.createElement('div');
+        box.className = 'evidence';
+        box.innerHTML = `<span class="label">Photo evidence</span><p>${esc(img.alt)}</p>`
+          + `<a href="${esc(fig.dataset.flickr)}" rel="noopener" target="_blank">View on Flickr ↗</a>`;
+        fig.replaceWith(box);
+      };
+      if (img.complete && !img.naturalWidth) gone();
+      else img.addEventListener('error', gone, { once: true });
+    });
+  }
+
   // ---------- clipped pairs ----------
   // A sketch of the moment clipped over a photo of the same spot, sketch on top; or two
   // sketches of things that happened in the same spot, over its photo. The switch, or a tap
@@ -959,7 +977,7 @@ function startApp() {
     if (h === 'files') { view = 'archive'; tab = 'reports'; }
     const fm = h.match(/^(file|tape)-(\d{3})$/);
     const file = fm && FILES.find(x => x.kind === (fm[1] === 'tape' ? 'tape' : 'report') && x.no === fm[2]);
-    if (file) { renderFile(file); mountPlayers($('#view-file')); inkSketches($('#view-file')); clippedPairs($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
+    if (file) { renderFile(file); mountPlayers($('#view-file')); inkSketches($('#view-file')); clippedPairs($('#view-file')); flickrPhotos($('#view-file')); mountListen($('#view-file'), file); Statements.mount($('#statements')); view = 'file'; tab = file.kind === 'tape' ? 'tapes' : 'reports'; }
     if (!document.querySelector(`[data-view="${view}"]`)) { view = 'archive'; tab = 'archive'; }
     show(view, tab, view === 'archive' ? (h === 'reports' || h === 'files' ? h : 'archive') : view);
     if (view === 'moderate' && !moderateMounted) { moderateMounted = true; Statements.mountModerator($('#moderate-desk')); }
