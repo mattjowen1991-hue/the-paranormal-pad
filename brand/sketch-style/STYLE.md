@@ -64,6 +64,12 @@ block (section 5) into its instructions and upload `master.png` to its files.
 3. Paste the **style block** (section 5) word for word, then the **scene block** for that moment,
    then: *Match the style of the attached image exactly.*
 4. Check the result against section 7. Ask for a fix or regenerate; don't settle.
+   - ChatGPT never edits a picture: it redraws the whole thing, so "change only the door" can
+     still swap the people. For a big fix, start a new chat, attach `master.png` and then the
+     best try, and spell out every person (age, hair, clothes) in the scene block.
+   - A small fix (add or remove an object) works best as a short reply in the same chat.
+   - Never say a figure's legs or feet "hang" or "dangle": ChatGPT blocks it as self-harm.
+     Say they stand, feet flat, on thin air (Report 002's Laughter in the Dark).
 5. Download it as PNG, any size, and name it to match its marker: `sketch-1.png` for
    `[SKETCH 1]`, and so on. Drop it on the report's card with the other pictures.
 
