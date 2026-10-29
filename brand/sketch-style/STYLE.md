@@ -157,6 +157,10 @@ as it is now. Report 003 has two; Report 002 has several, one of them a stack.
   Incident 1 / Incident 2 / Photo). Never more than two sketches.
 - **One photo can carry two pairs** when two moments far apart in the report happened in the
   same room (Report 002's kitchen). Use it again rather than a photo of somewhere nearby.
+- **If the photo's angle beats ChatGPT, let the sketch stand alone.** Report 002's bedroom photo
+  looks across one bed at a slant, and three tries couldn't add the second bed beside it. Drawn
+  from the pillow instead (from an earlier sketch of the same room), it came out first time, and
+  the photo sits just below it. Don't clip a sketch over a photo from a different viewpoint.
 - **It's a print, not a drawing on the page.** It sits where the photo would, under the photo's
   paperclip, with no ink fade-in, and it does carry a caption: "Ink sketch: " and then the memory
   it shows, in the report's own words. The photo keeps its own caption.
