@@ -707,32 +707,39 @@ function startApp() {
   }
 
   // ---------- clipped pairs ----------
-  // A sketch of the moment clipped over a photo of the same spot, sketch on top. The Sketch /
-  // Photo switch, or a tap on the print behind, brings that one to the front (styles.css).
-  // A tap on the front print still opens the photo viewer, which skips the one behind.
+  // A sketch of the moment clipped over a photo of the same spot, sketch on top; or two
+  // sketches of things that happened in the same spot, over its photo. The switch, or a tap
+  // on a print behind, brings that one to the front and tucks the old front just under it
+  // (styles.css). A tap on the front print still opens the photo viewer, which skips the rest.
+  // Each print's switch label is its data-label, or Sketch / Photo.
   function clippedPairs(root) {
     root.querySelectorAll('.prose .pair').forEach(pair => {
       const prints = [...pair.querySelectorAll(':scope > figure')];
-      if (prints.length !== 2) return;
+      if (prints.length < 2) return;
+      const label = p => p.dataset.label || (p.classList.contains('pair-sketch') ? 'Sketch' : 'Photo');
       const seg = document.createElement('div');
       seg.className = 'seg';
       seg.setAttribute('role', 'group');
-      seg.setAttribute('aria-label', 'Show the sketch or the photo');
-      seg.innerHTML = '<button type="button" aria-pressed="true">Sketch</button><button type="button" aria-pressed="false">Photo</button>';
+      seg.setAttribute('aria-label', prints.length > 2 ? 'Show a sketch or the photo' : 'Show the sketch or the photo');
+      seg.innerHTML = prints.map((p, i) => `<button type="button" aria-pressed="${i === 0}">${esc(label(p))}</button>`).join('');
       const buttons = [...seg.children];
-      let front = 0;
+      let order = prints.map((p, i) => i);   // front first
+      const stack = () => order.forEach((i, depth) => {
+        prints[i].classList.toggle('behind', depth > 0);
+        prints[i].classList.toggle('deeper', depth > 1);
+      });
       const show = (i, animate) => {
-        if (i === front) return;
-        const out = prints[front];
+        if (i === order[0]) return;
+        const out = prints[order[0]];
         if (animate && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
           out.classList.add('tucking');
           out.addEventListener('animationend', () => out.classList.remove('tucking'), { once: true });
         }
-        front = i;
-        prints.forEach((p, j) => p.classList.toggle('behind', j !== i));
+        order = [i, ...order.filter(j => j !== i)];
+        stack();
         buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
       };
-      prints[1].classList.add('behind');
+      stack();
       buttons.forEach((b, i) => b.addEventListener('click', () => show(i, true)));
       prints.forEach((p, i) => p.addEventListener('click', e => {
         if (!p.classList.contains('behind')) return;

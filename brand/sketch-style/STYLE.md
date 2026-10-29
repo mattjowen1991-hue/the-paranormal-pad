@@ -64,6 +64,12 @@ block (section 5) into its instructions and upload `master.png` to its files.
 3. Paste the **style block** (section 5) word for word, then the **scene block** for that moment,
    then: *Match the style of the attached image exactly.*
 4. Check the result against section 7. Ask for a fix or regenerate; don't settle.
+   - ChatGPT never edits a picture: it redraws the whole thing, so "change only the door" can
+     still swap the people. For a big fix, start a new chat, attach `master.png` and then the
+     best try, and spell out every person (age, hair, clothes) in the scene block.
+   - A small fix (add or remove an object) works best as a short reply in the same chat.
+   - Never say a figure's legs or feet "hang" or "dangle": ChatGPT blocks it as self-harm.
+     Say they stand, feet flat, on thin air (Report 002's Laughter in the Dark).
 5. Download it as PNG, any size, and name it to match its marker: `sketch-1.png` for
    `[SKETCH 1]`, and so on. Drop it on the report's card with the other pictures.
 
@@ -136,12 +142,25 @@ Scene: Viewed from just behind a girl's head as she lies in bed, looking down th
 When the report has a real photo taken from where the moment happened (the swings they sat on,
 the view from where they saw it), the sketch can be clipped over that photo instead of standing
 alone. The reader sees the sketch first and can switch to the photo: the memory, then the place
-as it is now. Report 003 has two.
+as it is now. Report 003 has two; Report 002 has several, one of them a stack.
 
 - **Only with a real photo of the same spot, from the same viewpoint.** Never an AI image, a map
   or a photo of somewhere nearby. The honesty rules above still apply in full.
 - **The sketch copies the photo's layout** and draws the moment over it: same viewpoint, same
   fixed things (swing frame, fence, building), at the time of day the witness gave.
+- **Draw the place as it was then.** The photo shows it now. Where the witness says something has
+  changed since (Report 002: a second single bed, since got rid of; a kitchen island, since
+  taken out), the scene block puts it back. Things added since (a flat-screen TV, aids for an
+  older person) are left out by name. Only what the witness says was there goes back in.
+- **Two moments in the same spot can share one photo** as a stack: both sketches over it, in the
+  order they happened, and the switch names each one (Report 002's living room:
+  Incident 1 / Incident 2 / Photo). Never more than two sketches.
+- **One photo can carry two pairs** when two moments far apart in the report happened in the
+  same room (Report 002's kitchen). Use it again rather than a photo of somewhere nearby.
+- **If the photo's angle beats ChatGPT, let the sketch stand alone.** Report 002's bedroom photo
+  looks across one bed at a slant, and three tries couldn't add the second bed beside it. Drawn
+  from the pillow instead (from an earlier sketch of the same room), it came out first time, and
+  the photo sits just below it. Don't clip a sketch over a photo from a different viewpoint.
 - **It's a print, not a drawing on the page.** It sits where the photo would, under the photo's
   paperclip, with no ink fade-in, and it does carry a caption: "Ink sketch: " and then the memory
   it shows, in the report's own words. The photo keeps its own caption.
@@ -152,7 +171,9 @@ as it is now. Report 003 has two.
   *Match the style of the first attached image exactly; use the photo only for the layout.*
   Then check it against section 7, and that it matches the photo's layout.
 - In the draft, a pair is one marker in place of the photo's:
-  `[PAIR: SKETCH 1: the memory it shows | PHOTO 5: the photo's caption]`
+  `[PAIR: SKETCH 1: the memory it shows | PHOTO 5: the photo's caption]`, and a stack names
+  each sketch for the switch:
+  `[PAIR: SKETCH 1 (Incident 1): ... | SKETCH 2 (Incident 2): ... | PHOTO 5: ...]`
   (`docs/DRAFT-FORMAT.md`).
 
 ## 9. The master

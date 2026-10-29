@@ -128,7 +128,7 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
         h = re.match(r'(#{2,4})\s+(.*)', line)
         pm = re.match(r'\[PHOTO\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
         km = re.match(r'\[SKETCH\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
-        am = re.match(r'\[PAIR\s*:\s*SKETCH\s+(\d+)\s*:?\s*(.*?)\s*\|\s*PHOTO\s+(\d+)\s*:?\s*(.*)\]$', line, re.I)
+        am = re.match(r'\[PAIR\s*:\s*(.*)\]$', line, re.I)
         vm = re.match(r'\[VIDEO\s*:\s*(.*?)\]$', line, re.I)
         sm = re.match(r'\[PLAY SIDE\s+([AB])\]$', line, re.I)
         if h:
@@ -145,23 +145,39 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure>')
         elif am:
             # A clipped pair: the sketch of the moment on top of a photo of the same spot, with
-            # a switch between them (brand/sketch-style/STYLE.md). Both prints carry a caption.
+            # a switch between them (brand/sketch-style/STYLE.md). Two moments in the same spot
+            # can share the photo: each sketch then has a label for the switch, e.g.
+            # SKETCH 1 (Incident 1): ... Every print carries a caption.
             flush()
-            k, n = int(am.group(1)), int(am.group(3))
-            if k not in sketches:
-                raise DraftError(f'[PAIR: SKETCH {k}] is in the draft but there is no picture named sketch-{k} in the media folder.')
+            *parts, last = re.split(r'\s*\|\s*(?=(?:SKETCH|PHOTO)\s+\d)', am.group(1).strip(), flags=re.I)
+            ph = re.match(r'PHOTO\s+(\d+)\s*:?\s*(.*)$', last, re.I | re.S)
+            if not parts or len(parts) > 2 or not ph:
+                raise DraftError('A [PAIR: ...] is one or two sketches, then the photo: [PAIR: SKETCH 1: what it shows | PHOTO 5: caption].')
+            n = int(ph.group(1))
             if n not in photos:
                 raise DraftError(f'[PAIR: ... PHOTO {n}] is in the draft but there is no picture numbered {n} in the media folder.')
-            what = am.group(2).strip()
-            if not what:
-                raise DraftError(f'[PAIR: SKETCH {k}] needs a short description of the memory it shows before the |.')
-            used_sketches.add(k); used.add(n)
-            src, w, h = sketches[k]
-            cap = am.group(4).strip()
+            prints = []
+            for part in parts:
+                sk = re.match(r'SKETCH\s+(\d+)\s*(?:\(([^)]*)\))?\s*:?\s*(.*)$', part, re.I | re.S)
+                if not sk:
+                    raise DraftError(f'[PAIR: ...] has "{part}" before the photo. Only sketches go there: SKETCH 1: what it shows.')
+                k, label, what = int(sk.group(1)), (sk.group(2) or '').strip(), sk.group(3).strip()
+                if k not in sketches:
+                    raise DraftError(f'[PAIR: SKETCH {k}] is in the draft but there is no picture named sketch-{k} in the media folder.')
+                if not what:
+                    raise DraftError(f'[PAIR: SKETCH {k}] needs a short description of the memory it shows before the |.')
+                if len(parts) > 1 and not label:
+                    raise DraftError(f'[PAIR: SKETCH {k}] shares its photo with another sketch, so it needs a label for the switch: SKETCH {k} (Incident 1): ...')
+                used_sketches.add(k)
+                src, w, h = sketches[k]
+                prints.append(f'<figure class="pair-sketch"' + (f' data-label="{html.escape(label, quote=True)}"' if label else '')
+                              + f'><img alt="{html.escape("Ink sketch: " + what.replace("*", ""), quote=True)}" '
+                              f'height="{h}" loading="lazy" src="{src}" width="{w}"/><figcaption>{inline("Ink sketch: " + what)}</figcaption></figure>')
+            used.add(n)
+            cap = ph.group(2).strip()
             alt = html.escape(re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', cap).replace('*', ''), quote=True)
-            blocks.append(f'<div class="pair"><figure class="pair-sketch"><img alt="{html.escape("Ink sketch: " + what.replace("*", ""), quote=True)}" '
-                          f'height="{h}" loading="lazy" src="{src}" width="{w}"/><figcaption>{inline("Ink sketch: " + what)}</figcaption></figure>'
-                          f'<figure><img alt="{alt}" loading="lazy" src="{photos[n]}"/>'
+            blocks.append('<div class="pair">' + ''.join(prints)
+                          + f'<figure><img alt="{alt}" loading="lazy" src="{photos[n]}"/>'
                           + (f'<figcaption>{inline(cap)}</figcaption>' if cap else '') + '</figure></div>')
         elif km:
             # An ink sketch beside the next paragraph (brand/sketch-style/STYLE.md). The marker's
@@ -326,7 +342,7 @@ def build(draft_path, media, number=None, dry=False):
     if not cover:
         raise DraftError(f'No cover picture found. Put one in the media folder named cover.jpg (or .png).')
     photos = {n: f'images/{folder}/{no}/{n:02d}.jpg' for n in photo_files}
-    paired = {int(k) for k in re.findall(r'\[PAIR\s*:\s*SKETCH\s+(\d+)', body, re.I)}
+    paired = {int(k) for pair in re.findall(r'\[PAIR\s*:.*\]', body, re.I) for k in re.findall(r'SKETCH\s+(\d+)', pair, re.I)}
     sketch_px = {n: PAIR_PX if n in paired else SKETCH_PX for n in sketch_files}
     sketches = {n: (f'images/{folder}/{no}/sketch-{n}.jpg', *shrunk(pixel_size(p), sketch_px[n])) for n, p in sketch_files.items()}
     used, used_sketches = set(), set()
