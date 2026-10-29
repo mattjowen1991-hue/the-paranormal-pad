@@ -122,6 +122,7 @@ Narration by Midnight Narrative Horror. Story by The Reporter.
 | `[PAIR: SKETCH 1: What it shows \| PHOTO 5: Caption]` | A clipped pair: sketch 1 on top of photo 5, with a Sketch / Photo switch. For a real photo taken from where the moment happened; the sketch copies its layout. Both prints show their caption. See `brand/sketch-style/STYLE.md` section 8. |
 | `[PAIR: SKETCH 1 (Incident 1): What it shows \| SKETCH 2 (Incident 2): What it shows \| PHOTO 5: Caption]` | A stack: two moments that happened in the same spot, both sketched over its photo, in the order they happened. The words in brackets label the switch (Incident 1 / Incident 2 / Photo). Never more than two sketches. |
 | `[VIDEO: https://youtu.be/xxxx \| Caption \| 0:05-1:30]` | Playable YouTube evidence (start-end optional) |
+| `[FLICKR: https://www.flickr.com/photos/name/12345/ \| Caption]` | Someone else's Flickr photo, shown as a print like the others but loaded from Flickr, since we can't keep a copy. The caption gets "Image: owner on Flickr" added, linking back to the photo. It doesn't use up a photo number. If the owner ever takes it down or turns embedding off, it becomes a "View on Flickr" link. |
 
 ## Pictures
 

@@ -5,7 +5,8 @@
 
 DRAFT.md is written in the draft format (docs/DRAFT-FORMAT.md): a short header block
 between --- lines, then the text in Markdown with [PHOTO n: caption],
-[SKETCH n: what it shows] and [VIDEO: url | caption | start-end] markers.
+[SKETCH n: what it shows], [FLICKR: photo page | caption] and
+[VIDEO: url | caption | start-end] markers.
 
 FOLDER holds the pictures: cover.jpg (the card/share picture), 1.jpg, 2.png, ...
 matching the [PHOTO n] markers, and sketch-1.png, sketch-2.png ... matching the
@@ -18,7 +19,7 @@ What it does:
   - rebuilds the share pages (tools/share_pages.py)
 It never touches git. Standard library only (uses macOS `sips` for pictures).
 """
-import argparse, html, json, os, re, shutil, subprocess, sys
+import argparse, html, json, os, re, shutil, subprocess, sys, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'js', 'data.js')
@@ -102,6 +103,27 @@ def tape_media(url):
     return 'yt', yt_id(url)
 
 
+def flickr_figure(url, cap):
+    """Someone else's Flickr photo as a print, shown straight from Flickr through its embed: we
+    can't keep a copy (most are All Rights Reserved). The caption credits the owner and links back
+    to the photo, as Flickr asks. main.js turns it into a link if the photo is ever taken down."""
+    if not re.match(r'https?://(?:www\.)?flickr\.com/photos/[^/]+/\d+', url):
+        raise DraftError(f'[FLICKR: ...] needs a Flickr photo page (flickr.com/photos/name/12345...): {url}')
+    api = 'https://www.flickr.com/services/oembed/?format=json&maxwidth=1600&url=' + urllib.parse.quote(url, safe='')
+    try:
+        with urllib.request.urlopen(api, timeout=20) as r:
+            o = json.load(r)
+    except Exception as e:
+        raise DraftError(f'Flickr won\'t share {url} (private, or its owner has turned embedding off?): {e}')
+    page = o.get('web_page') or url
+    if 'flickr.com' not in cap:   # a caption from the kit already carries its credit
+        cap = (cap + ' ' if cap else '') + f'Image: [{o["author_name"]} on Flickr]({page})'
+    alt = html.escape(re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', cap.split(' Image: ')[0]).replace('*', ''), quote=True)
+    return (f'<figure data-flickr="{html.escape(page, quote=True)}"><img alt="{alt}" height="{o["height"]}" '
+            f'loading="lazy" referrerpolicy="no-referrer" src="{html.escape(o["url"], quote=True)}" width="{o["width"]}"/>'
+            f'<figcaption>{inline(cap)}</figcaption></figure>')
+
+
 def media_link(kind, mid, sec=0):
     if kind == 'sp':
         return f'https://open.spotify.com/episode/{mid}' + (f'?t={sec}' if sec else '')
@@ -130,6 +152,7 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
         km = re.match(r'\[SKETCH\s+(\d+)\s*:?\s*(.*?)\]$', line, re.I)
         am = re.match(r'\[PAIR\s*:\s*(.*)\]$', line, re.I)
         vm = re.match(r'\[VIDEO\s*:\s*(.*?)\]$', line, re.I)
+        fm = re.match(r'\[FLICKR\s*:\s*([^\s|\]]+)\s*(?:\|\s*(.*))?\]$', line, re.I)
         sm = re.match(r'\[PLAY SIDE\s+([AB])\]$', line, re.I)
         if h:
             flush(); lvl = len(h.group(1)); blocks.append(f'<h{lvl}>{inline(h.group(2))}</h{lvl}>')
@@ -206,6 +229,8 @@ def body_to_html(body, photos, kind, used, sketches=None, used_sketches=None):
             blocks.append(f'<div class="evidence"{attrs}><span class="label">Video evidence</span>'
                           + (f'<p>{inline(cap)}</p>' if cap else '')
                           + f'<a href="https://www.youtube.com/watch?v={vid}{t}" rel="noopener" target="_blank">Watch on YouTube ↗</a></div>')
+        elif fm:
+            flush(); blocks.append(flickr_figure(fm.group(1), (fm.group(2) or '').strip()))
         elif sm:
             flush(); blocks.append(f'\x01SIDE {sm.group(1).upper()}\x01')
         elif line.startswith('>'):
