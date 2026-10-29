@@ -136,12 +136,21 @@ Scene: Viewed from just behind a girl's head as she lies in bed, looking down th
 When the report has a real photo taken from where the moment happened (the swings they sat on,
 the view from where they saw it), the sketch can be clipped over that photo instead of standing
 alone. The reader sees the sketch first and can switch to the photo: the memory, then the place
-as it is now. Report 003 has two.
+as it is now. Report 003 has two; Report 002 has several, one of them a stack.
 
 - **Only with a real photo of the same spot, from the same viewpoint.** Never an AI image, a map
   or a photo of somewhere nearby. The honesty rules above still apply in full.
 - **The sketch copies the photo's layout** and draws the moment over it: same viewpoint, same
   fixed things (swing frame, fence, building), at the time of day the witness gave.
+- **Draw the place as it was then.** The photo shows it now. Where the witness says something has
+  changed since (Report 002: a second single bed, since got rid of; a kitchen island, since
+  taken out), the scene block puts it back. Things added since (a flat-screen TV, aids for an
+  older person) are left out by name. Only what the witness says was there goes back in.
+- **Two moments in the same spot can share one photo** as a stack: both sketches over it, in the
+  order they happened, and the switch names each one (Report 002's living room:
+  Incident 1 / Incident 2 / Photo). Never more than two sketches.
+- **One photo can carry two pairs** when two moments far apart in the report happened in the
+  same room (Report 002's kitchen). Use it again rather than a photo of somewhere nearby.
 - **It's a print, not a drawing on the page.** It sits where the photo would, under the photo's
   paperclip, with no ink fade-in, and it does carry a caption: "Ink sketch: " and then the memory
   it shows, in the report's own words. The photo keeps its own caption.
@@ -152,7 +161,9 @@ as it is now. Report 003 has two.
   *Match the style of the first attached image exactly; use the photo only for the layout.*
   Then check it against section 7, and that it matches the photo's layout.
 - In the draft, a pair is one marker in place of the photo's:
-  `[PAIR: SKETCH 1: the memory it shows | PHOTO 5: the photo's caption]`
+  `[PAIR: SKETCH 1: the memory it shows | PHOTO 5: the photo's caption]`, and a stack names
+  each sketch for the switch:
+  `[PAIR: SKETCH 1 (Incident 1): ... | SKETCH 2 (Incident 2): ... | PHOTO 5: ...]`
   (`docs/DRAFT-FORMAT.md`).
 
 ## 9. The master

@@ -66,12 +66,13 @@ def to_draft_body(content):
         k[0] += 1
         alt = re.search(r'alt="([^"]*)"', fig)
         what = re.sub(r'^Ink sketch:\s*', '', html.unescape(alt.group(1))) if alt else ''
-        return f'SKETCH {k[0]}: {what}'
+        label = re.search(r'<figure[^>]*data-label="([^"]*)"', fig)
+        return f'SKETCH {k[0]}' + (f' ({html.unescape(label.group(1))})' if label else '') + f': {what}'
     def picture(m):   # one pass, so photos and sketches are numbered in the order they appear
         block = m.group(0)
         if block.startswith('<div class="pair">'):
-            sk, ph = re.findall(r'<figure.*?</figure>', block, re.S)
-            return f'\n\n[PAIR: {sketch(sk)} | {photo(ph)}]\n\n'
+            *sks, ph = re.findall(r'<figure.*?</figure>', block, re.S)
+            return f'\n\n[PAIR: {" | ".join(sketch(sk) for sk in sks)} | {photo(ph)}]\n\n'
         marker = sketch(block) if block.startswith('<figure class="sketch"') else photo(block)
         return f'\n\n[{marker}]\n\n'
     s = re.sub(r'<div class="gallery">(.*?)</div>', r'\1', content, flags=re.S)
