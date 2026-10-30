@@ -671,7 +671,7 @@ def section_html(r):
         f'<li><span class="when">{when(c)}</span>'
         f'<span class="lift">{times(c["lift"])}</span>'
         f'<span class="ev ev-{evidence(c)}">{evidence(c)}</span>'
-        f'<span class="from">{c["posts"]} posts in {hhmm(c["start"])}&ndash;{hhmm(c["end"])}</span></li>'
+        f'<span class="from">{c["posts"]} posts in {hhmm(c["start"])}-{hhmm(c["end"])}</span></li>'
         for c in r["picks"]
     ) or '<li class="none">No time has enough posts yet to recommend.</li>'
     advice = ""
@@ -684,7 +684,7 @@ def section_html(r):
     weakest = ""
     if r["weakest"]:
         wk = r["weakest"]
-        weakest = (f'<p class="note">Avoid {DAY_NAMES[wk["day"]]} {hhmm(wk["start"])}&ndash;'
+        weakest = (f'<p class="note">Avoid {DAY_NAMES[wk["day"]]} {hhmm(wk["start"])}-'
                    f'{hhmm(wk["end"])} ({times(wk["lift"])} average).</p>')
     if r["picks"]:
         top = r["picks"][0]
