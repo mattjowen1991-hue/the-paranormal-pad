@@ -1,4 +1,4 @@
-# Running The Paranormal Pad — day-to-day guide
+# Running The Paranormal Pad - day-to-day guide
 
 The site: **https://theparanormalpad.com** · Moderation desk: **https://theparanormalpad.com/#moderate**
 
@@ -20,9 +20,9 @@ There are **two different things** readers can send you, and they work different
 
 ## 1. Contact form submissions
 
-1. An email arrives in **theparanormalpad@gmail.com** titled **"New incident submission — …"**.
+1. An email arrives in **theparanormalpad@gmail.com** titled **"New incident submission - …"**.
    It contains their name, email, where it happened, and their story.
-2. If it says **"Keep identity confidential: YES — do not publish their name"**, don't use their real name if you write it up.
+2. If it says **"Keep identity confidential: YES - do not publish their name"**, don't use their real name if you write it up.
 3. Hit **Reply** - it goes straight to the person who wrote in.
 4. A copy is also on the **moderation desk → Incident submissions** tab (only you can see it). There you can:
    - **Reply by email** (opens your email app addressed to them),
@@ -39,17 +39,17 @@ If these emails ever land in spam, mark one as **Not spam**.
 
 1. Someone files a statement under a report or tape. It's saved but **hidden**.
 2. You get an alert email titled **"New witness statement on …"** with their comment and two links.
-   (Replying to this email does **not** reach them — it comes from the form service, and commenters don't give an email address.)
+   (Replying to this email does **not** reach them - it comes from the form service, and commenters don't give an email address.)
 3. Open the **moderation desk**:
-   - type the **secret word** into the site's *Search files* box — or go to `…/#moderate`
+   - type the **secret word** into the site's *Search files* box - or go to `…/#moderate`
    - enter the **PIN**
    - **Sign in with Google** as **theparanormalpad@gmail.com** (your personal account no longer works here)
    - The secret word and PIN are in the private repo: **github.com/mattjowen1991-hue/the-paranormal-pad-notes**
 4. The desk has two tabs: **Witness statements** and **Incident submissions** (see section 1). Under
    **Witness statements → Awaiting review**, for each statement:
-   - **Approve** — it appears under the report.
-   - Type in the reply box first to **Approve with reply** — your reply shows under theirs as *"The Reporter replies:"*.
-   - **Delete** → **Yes, delete** — for spam or anything you don't want.
+   - **Approve** - it appears under the report.
+   - Type in the reply box first to **Approve with reply** - your reply shows under theirs as *"The Reporter replies:"*.
+   - **Delete** → **Yes, delete** - for spam or anything you don't want.
 5. Under **On the file** (already approved) you can **Add / Update / Remove reply**, **Hide** it again (back to Awaiting review), or **Delete** it.
 
 Once you've entered the PIN you won't be asked again until you close the browser.
@@ -63,8 +63,8 @@ Once you've entered the PIN you won't be asked again until you close the browser
 | The website | GitHub Pages | github.com/mattjowen1991-hue/the-paranormal-pad → Settings → Pages |
 | Comments + moderator sign-in | Google Firebase (free plan) | console.firebase.google.com → *the-paranormal-pad* |
 | Contact form + comment alert emails | Web3Forms (free: 250 emails/month) | web3forms.com (signed in as theparanormalpad@gmail.com) |
-| Tape videos | YouTube (each narrator's channel) | — |
-| Domain (theparanormalpad.com) | WordPress.com — domain only, auto-renews every October (next: Oct 2027) | wordpress.com → Domains (don't change its DNS records unless moving the site) |
+| Tape videos | YouTube (each narrator's channel) | - |
+| Domain (theparanormalpad.com) | WordPress.com - domain only, auto-renews every October (next: Oct 2027) | wordpress.com → Domains (don't change its DNS records unless moving the site) |
 
 ## If something stops working
 

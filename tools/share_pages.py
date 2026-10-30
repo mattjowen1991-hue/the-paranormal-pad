@@ -44,7 +44,7 @@ def page(f):
     desc = f['excerpt']
     e = lambda s: html.escape(s, quote=True)
     return folder, f"""<!DOCTYPE html>
-<!-- Made by tools/share_pages.py — edit data.js and re-run it rather than editing this file. -->
+<!-- Made by tools/share_pages.py - edit data.js and re-run it rather than editing this file. -->
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">

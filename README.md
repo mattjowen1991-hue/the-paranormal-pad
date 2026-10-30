@@ -6,13 +6,13 @@
 
 **Live at https://theparanormalpad.com**
 
-*Echoes of the past.* First-hand accounts of the unexplained — Incident Reports and Incident Tapes, collected and retold by The Reporter. Built to replace the WordPress site at theparanormalpad.com.
+*Echoes of the past.* First-hand accounts of the unexplained - Incident Reports and Incident Tapes, collected and retold by The Reporter. Built to replace the WordPress site at theparanormalpad.com.
 
 ## Structure
 
 ```
 the-paranormal-pad/
-├── index.html              # Entry point — loads all partials, data and scripts
+├── index.html              # Entry point - loads all partials, data and scripts
 ├── css/
 │   └── styles.css          # All styles (parchment case-file look, cassettes, phone layout)
 ├── js/
@@ -72,7 +72,7 @@ cards from `docs/prompts/`), `tools/claude_project_kit.py` (refresh the Claude P
 
 Every report and tape page ends with a **Witness statements** section. Readers leave a name and a statement; nothing appears until it's approved. Comments are stored in Google Firebase (free plan).
 
-**Moderating:** type the secret word into the site's search box (or go to `/#moderate`), enter the PIN, then sign in with Google as `theparanormalpad@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. The secret word and PIN are in the private repo **mattjowen1991-hue/the-paranormal-pad-notes** (only stored as hashes in this public code; they hide the desk, but the real protection is the Google sign-in). Only that one account can moderate — change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
+**Moderating:** type the secret word into the site's search box (or go to `/#moderate`), enter the PIN, then sign in with Google as `theparanormalpad@gmail.com`, then for each statement: **Approve** (optionally with a reply shown as "The Reporter replies"), or **Delete**. Approved ones can later have their reply changed, be hidden again, or deleted. The secret word and PIN are in the private repo **mattjowen1991-hue/the-paranormal-pad-notes** (only stored as hashes in this public code; they hide the desk, but the real protection is the Google sign-in). Only that one account can moderate - change `moderator` in `js/data.js` *and* the email in `firestore.rules` if that ever changes.
 
 ### One-time setup
 
@@ -95,7 +95,7 @@ const COMMENTS = {
 };
 ```
 
-7. Bump the `?v=` numbers in `index.html`, commit and push. (These config values are meant to be public — the security rules are what protect the comments.)
+7. Bump the `?v=` numbers in `index.html`, commit and push. (These config values are meant to be public - the security rules are what protect the comments.)
 
 Until step 6 is done, each page shows "The statements desk opens soon."
 
@@ -131,7 +131,7 @@ Bump the `?v=` number on the three links in `index.html` (`styles.css?v=3` → `
 
 Every push to `main` goes live automatically within a minute or two (Settings → Pages: deploy from branch `main`, folder `/ (root)`).
 
-- **Domain:** `theparanormalpad.com` is registered with **WordPress.com** (auto-renews each October) — only the domain is used there now, not the WordPress site.
+- **Domain:** `theparanormalpad.com` is registered with **WordPress.com** (auto-renews each October) - only the domain is used there now, not the WordPress site.
 - **DNS** (WordPress.com → Domains → theparanormalpad.com → DNS records): four `A` records `185.199.108.153` / `109` / `110` / `111`, four `AAAA` records `2606:50c0:8000::153` … `8003::153`, and `www` → `CNAME mattjowen1991-hue.github.io`.
-- **`CNAME` file** in this repo holds the domain — don't delete it. The old address `mattjowen1991-hue.github.io/the-paranormal-pad/` redirects to the domain.
+- **`CNAME` file** in this repo holds the domain - don't delete it. The old address `mattjowen1991-hue.github.io/the-paranormal-pad/` redirects to the domain.
 - **Old WordPress links** (e.g. `/2026/09/28/incident-report-008-…/`, `/contact-us/`) are forwarded to the matching page by `404.html`. When a new report is added, nothing needs changing there.

@@ -17,7 +17,7 @@ Please:
    - Read CLAUDE.md and PROJECT.md, then the files the change would touch, to confirm how it
      works today. Look at the live site if it helps (https://theparanormalpad.com).
    - Note constraints: no build step, keep the case-file look, phones first (390px), bump ?v=
-     for CSS/JS, no em dashes, never put the secret word/PIN in the repo.
+     for CSS/JS, no em or en dashes, never put the secret word/PIN in the repo.
 
 3. DRAFT the ticket body:
    ## Goal

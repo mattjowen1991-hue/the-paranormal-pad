@@ -26,7 +26,7 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - Any links in "Videos" fill [VIDEO] markers that are missing a link.
 
 3. EDITORIAL CHECK - this is my writing; don't rewrite it
-   - Silently fix only mechanical things: em/en dashes used as dashes -> comma, full stop or plain
+   - Silently fix only mechanical things: em/en dashes -> comma, full stop or plain
      hyphen; obvious typos and doubled words; "comments below" -> "witness statement below".
    - Everything else goes in a list of QUESTIONS for me, not into the text: anything that reads as
      invented or unverifiable, a real name that might need anonymising, a caption missing its

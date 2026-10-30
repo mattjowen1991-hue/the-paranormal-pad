@@ -79,7 +79,9 @@ number; the pinned radio tape stays at the top of the Tapes page whatever its nu
 
 ## 5. Conventions (important)
 
-- **No em dashes in anything new** - Matt dislikes them. Use a plain hyphen, a comma, or two sentences.
+- **Never use em dashes (—) or en dashes (–) in anything new**, for any reason, including number
+  ranges, spelt-out letters and titles quoted from elsewhere. Use a plain hyphen (-), a comma, or two
+  sentences. Check for both: the ones that got into the old reports were all en dashes.
 - British English (sceptic, colour, realise, Nan, Grandad, council estate).
 - **Bump the `?v=` number** on the CSS/JS links in `index.html` whenever CSS or JS changes, or
   phones keep the old files. Content and partials don't need it.
@@ -127,7 +129,7 @@ create-ticket -> open-ticket -> (review) -> close-ticket, as on Matt's other pro
 ## 7. Ticket types and definition of done
 
 - **Report / Tape** - page renders on desktop and 390px; photos and videos work; share page
-  exists with the right title and picture; excerpt reads well; no em dashes; nothing invented;
+  exists with the right title and picture; excerpt reads well; no em or en dashes; nothing invented;
   counts and archive updated; merged and live-checked.
 - **Feature / Fix** - acceptance criteria met; checked at 390px and desktop; `?v=` bumped if
   CSS/JS changed; README/PROJECT/GUIDE updated if behaviour changed.

@@ -5,7 +5,8 @@ it has the file map, data model, conventions and the board workflow.
 
 Key rules:
 - Everything merged to `main` goes live. Work on a branch; merge only when Matt approves.
-- No em dashes in anything new. British English.
+- Never use em dashes (—) or en dashes (–) in anything new, for any reason: only a plain hyphen (-).
+  British English.
 - Bump the `?v=` numbers in `index.html` when CSS or JS changes.
 - New reports/tapes go through `tools/new_file.py` (draft format: `docs/DRAFT-FORMAT.md`).
   Writing standard: `HOUSE-STYLE.md`. Never invent facts, quotes or sources.

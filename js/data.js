@@ -109,11 +109,11 @@ const REPORTS = [
 ];
 
 // Incident Tapes (newest first). Fields:
-//   narrator  – channel that narrated it (shown on the cassette label)
-//   sides     – one entry per story on the tape: start/end are seconds into the YouTube video.
+//   narrator  - channel that narrated it (shown on the cassette label)
+//   sides     - one entry per story on the tape: start/end are seconds into the YouTube video.
 //               Two entries = a double-sided cassette with a Side A / Side B switch.
-//   dur       – running time in seconds (shown on the tape page)
-//   pinned    – always shown first on the Tapes page
+//   dur       - running time in seconds (shown on the tape page)
+//   pinned    - always shown first on the Tapes page
 const TAPES = [
   {
     "kind": "tape",

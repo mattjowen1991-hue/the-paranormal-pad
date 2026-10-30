@@ -303,7 +303,7 @@ aside { display: grid; gap: 1.25rem; }
 .prose { max-width: 66ch; margin-top: 2rem; font-size: 16px; line-height: 1.75; color: #221f1c; }
 .prose p { margin: 0 0 1.15em; }
 .prose h2 { font-family: var(--f-type); font-weight: 400; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; margin: 2.6rem 0 1rem; }
-/* divider above headings: rule – red diamond – rule */
+/* divider above headings: rule - red diamond - rule */
 .prose h2::before {
   content: '◆'; display: block; margin-bottom: 1.4rem; text-align: center;
   font-size: 12px; line-height: 12px; color: var(--blood);
@@ -667,7 +667,7 @@ body[data-page="reports"] #view-archive :is(.advisory, .ledger, .dossier, .seg) 
 
 /* ---------- phone comfort (≤700px): tap sizes, readable labels, no iPhone zoom ---------- */
 @media (max-width: 700px) {
-  /* iPhone Safari zooms into any text box under 16px — keep them all at 16px */
+  /* iPhone Safari zooms into any text box under 16px - keep them all at 16px */
   input, textarea, select, .query input, .field input, .field textarea, .sort select { font-size: 16px; }
   .query label { padding-block: .6rem; padding-inline: .6rem; gap: .4rem; }
   .query .search-files { display: none; }

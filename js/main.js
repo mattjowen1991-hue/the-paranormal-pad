@@ -122,7 +122,7 @@ function startApp() {
     $('#grid').querySelectorAll('.deck').forEach(initDeck);
     const total = FILES.filter(f => state.kind === 'all' || f.kind === state.kind).length;
     $('#count').textContent = pages > 1
-      ? `Showing ${start + 1}–${start + shown.length} of ${list.length}`
+      ? `Showing ${start + 1}-${start + shown.length} of ${list.length}`
       : `Showing ${list.length} of ${total}`;
     renderPager(pages);
     document.querySelectorAll('.seg button[data-kind]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === state.kind)));
