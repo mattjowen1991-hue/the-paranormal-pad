@@ -36,7 +36,7 @@ We were both puzzled and a bit uneasy, trying to figure out how the sound could 
 
 ### Incident 2
 
-It was around 11 PM on a weeknight, just an ordinary evening with no strange occurrences leading up to it - at least, none that I can recall. My partner and I were in the bedroom when our Ring Doorbell suddenly went off, chiming as if someone was walking past.
+It was around 11 PM on a Saturday night, just an ordinary evening with no strange occurrences leading up to it - at least, none that I can recall. My partner and I were in the bedroom when our Ring Doorbell suddenly went off, chiming as if someone was walking past.
 
 Now, our driveway is quite long, and the Ring is set to pick up motion only when someone is well up the pathway, within a specific range. This made the alert unusual, as it’s never happened before or since without a clear cause. Instantly on edge, I got out of bed and peered out the window. Living on a council estate in England, it’s not uncommon to encounter some colourful characters late at night, but I saw nothing - no one was on the front garden path, and everything seemed quiet.
 
@@ -430,6 +430,16 @@ Knowing I hadn’t done anything to cause these marks, I started freaking out in
 
 The only remotely similar incident happened to my Nan. She once woke up with a burning sensation across her ribs and found a large scratch running from her back around to the front of her ribs. But it was just a single scratch, and she could easily dismiss it as something she might have done in her sleep. My experience was far more intense - my entire back was torn up. It didn’t hurt at all, and I had no idea the scratches were there until I saw my partner that night.
 
+The last thing I want to mention happened in March 2026, when the time finally came to move my Nan out of the house. I set up some indoor Ring Doorbells to see if I would catch anything with the energy caused by the move. By this time, any activity in the house had subsided. My Nan still complained about hearing scratching noises in the night, and the odd thing would happen here and there, but I hadn’t lived there for over 15 years and only stayed every now and again as and when needed.
+
+One night, I joked to my partner, “Shall I take a look at the bedroom and see if anything’s happening?” The camera was in the front bedroom, the same room where I saw the shadow figure in Incident 6. When I opened the live view, this is what I picked up.
+
+[VIDEO: https://youtu.be/kdwdOdO0QwY | The indoor Ring Doorbell footage from the front bedroom, just after midnight on 22 March 2026.]
+
+You can see a small orb moving up the wall on the right-hand side of the picture. For context, the front of the house is on a cul-de-sac you can’t drive down, and the only access is through two alleyways, so I ruled out car headlights coming in through the bedroom window.
+
+[PHOTO 11: *The house and the two alleyways leading into the cul-de-sac. House numbers and road names removed. Image: Google Maps*]
+
 ## My Thoughts
 
 I consider myself fortunate to have shared many of these experiences with my Nan over the years. Her presence not only validated what I went through, but also provided comfort in knowing that I could talk to someone who truly understood how unsettling these events could be.
@@ -440,7 +450,7 @@ However, there are two incidents that still make me uneasy: the shadow that appe
 
 What do you think? Could it be my Grandad, or is something else at play? Let me know in the comments, and thank you for taking the time to read my story!
 
-[PHOTO 11: *Four generations in the same house. From the left: Myself, my daughter, my Dad and my Nan, just to put some faces to the names mentioned in the above incidents!*]
+[PHOTO 12: *Four generations in the same house. From the left: Myself, my daughter, my Dad and my Nan, just to put some faces to the names mentioned in the above incidents!*]
 
 
 ==================== REPORT 003 ====================
