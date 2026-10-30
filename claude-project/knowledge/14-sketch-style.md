@@ -70,6 +70,9 @@ block (section 5) into its instructions and upload `master.png` to its files.
    - A small fix (add or remove an object) works best as a short reply in the same chat.
    - Never say a figure's legs or feet "hang" or "dangle": ChatGPT blocks it as self-harm.
      Say they stand, feet flat, on thin air (Report 002's Laughter in the Dark).
+   - A photo of a person brings their room with it. In Report 001, a reference photo of someone
+     at a sink carried her new kitchen's blind, wall fan and tea towels into the old kitchen.
+     Describe the person in words and attach only the room you want, ideally a finished sketch of it.
 5. Download it as PNG, any size, and name it to match its marker: `sketch-1.png` for
    `[SKETCH 1]`, and so on. Drop it on the report's card with the other pictures.
 
@@ -145,7 +148,8 @@ alone. The reader sees the sketch first and can switch to the photo: the memory,
 as it is now. Report 003 has two; Report 002 has several, one of them a stack.
 
 - **Only with a real photo of the same spot, from the same viewpoint.** Never an AI image, a map
-  or a photo of somewhere nearby. The honesty rules above still apply in full.
+  or a photo of somewhere nearby. The honesty rules above still apply in full. (One exception so
+  far: Report 001's teddy, where the photo shows the object in the sketch rather than the spot.)
 - **The sketch copies the photo's layout** and draws the moment over it: same viewpoint, same
   fixed things (swing frame, fence, building), at the time of day the witness gave.
 - **Draw the place as it was then.** The photo shows it now. Where the witness says something has
