@@ -46,6 +46,8 @@ The front light, however, had been triggered, which wasn’t too unusual given t
 
 The door was shut, and it sounded as if someone had slammed their fist against it, right in the middle of the frame. The door didn’t open, but it shook with enough force that I could feel the impact. I was close enough to it that a wave of fear washed over me, while my partner, oddly enough, burst into nervous laughter. When I asked her what she found funny, she admitted she didn’t know - it was just a gut reaction to the sudden shock.
 
+[SKETCH 1: the hallway empty when I opened the door, our cat sitting calmly, staring at me as if nothing out of the ordinary had happened.]
+
 I opened the door, expecting to find… something. But the hallway was empty. My daughter, who was around three or four at the time, was asleep in her cot, and our cat was sitting calmly in the hallway, staring at me as if nothing out of the ordinary had happened.
 
 The timing of the Ring Doorbell alert just seconds before this loud bang left us both feeling incredibly uneasy. Although nothing else happened that night, the tension lingered, making it hard to shake the feeling that something was off. The Ring Doorbell did capture footage, but it showed nothing unusual - just an empty path, though something clearly set off the motion sensor.
@@ -60,11 +62,11 @@ The next incident I recall happened one evening while my partner was out for a d
 
 As I headed back down the stairs, I suddenly heard the sound of running water. I was about halfway down when the noise registered, and I remember feeling a mix of confusion and alarm. My first thought was that something in the kitchen might be leaking.
 
-I reached the bottom of the stairs and glanced toward the kitchen, thinking maybe my partner had turned the washing machine on before she left for her driving lesson. The kitchen was still in its original state from the previous occupants, a bit outdated and prone to issues. Here’s a picture of how it kind of looked when we first moved in. Notice the damage to the walls and the missing ceiling due to a huge leak we had that caused us to replace it all (this happened after the events I’m detailing). The surfaces, cupboards etc are all original to the previous occupants.
-
-[PHOTO 2: *Image of the kitchen after a leak from the bathroom bought down the ceiling*.]
+I reached the bottom of the stairs and glanced toward the kitchen, thinking maybe my partner had turned the washing machine on before she left for her driving lesson. The kitchen was still in its original state from the previous occupants, a bit outdated and prone to issues. The photo behind the sketch below shows how it kind of looked when we first moved in. Notice the damage to the walls and the missing ceiling due to a huge leak we had that caused us to replace it all (this happened after the events I’m detailing). The surfaces, cupboards etc are all original to the previous occupants.
 
 As I stepped into the hallway and looked directly into the kitchen, I saw something that made my stomach drop - both tap handles were pushed fully forward, and water was gushing out at full blast. My cat was sitting calmly on the kitchen floor, staring at me like nothing was out of the ordinary.
+
+[PAIR: SKETCH 2: both tap handles pushed fully forward and water gushing out at full blast, my cat sitting calmly on the kitchen floor. | PHOTO 2: *Image of the kitchen after a leak from the bathroom brought down the ceiling*.]
 
 I was completely freaked out. In a panic, I video-called my mum on WhatsApp. I had already mentioned the previous incidents to my family, but they had mostly shrugged them off as nothing significant. But when my mum saw the taps wide open, she freaked out too. I think I needed someone to witness what was happening in real-time to validate my own fear.
 
@@ -80,7 +82,9 @@ A short while later, another unsettling event occurred. I had gone to visit my N
 
 She told me she had been in the kitchen washing up when the baby monitor started acting up, flickering, distorting and showing visual noise. Then she heard a massive bang on our front door, so loud and forceful that it immediately scared her. She said it sounded as if someone had thrown something heavy at the door, or run up the driveway and slammed into it with great force. The moment it happened, our daughter woke up and started crying in her cot.
 
-Feeling very uneasy, my partner went to get her phone to ring me. It was sitting next to the baby monitor, and as she went to pick it up, Spotify started playing a song on its own.
+[SKETCH 3: my partner going to pick up her phone as Spotify started playing a song on its own.]
+
+Feeling very uneasy, my partner went to get her phone to ring me. It was on the worktop, not far from the baby monitor, and as she went to pick it up, Spotify started playing a song on its own.
 
 It was “Fields of Gold” by Eva Cassidy, the song played at her Grandad’s funeral. He had sadly passed away in 2015, and as far as we can remember, this was the first time anything like this had happened since the funeral.
 
@@ -104,6 +108,8 @@ It got to the point where even our Ring doorbell started displaying strange visu
 
 It was around 3 AM, and I was wide awake, watching Netflix in bed. I glanced over at the baby monitor on our bedside table to check on my daughter, and that’s when I saw it - a white mist moving across the screen. At first, I couldn’t believe what I was seeing, so I kept watching. My jaw dropped when I saw the unmistakable silhouette of someone moving through my daughter’s bedroom.
 
+[SKETCH 4: the silhouette walking up to the side of my daughter’s cot, on the baby monitor.]
+
 The figure walked up to the side of her cot, looked in, then walked away - only to repeat the same motion over and over. This wasn’t just a shadow or a trick of the light. It was a clear, human-shaped silhouette, with distinct arms and legs moving as if it were a person pacing around the room. I couldn’t make out any features to determine if it was a man or a woman, but the way it moved was eerily natural, as if it were a living person checking on my daughter.
 
 Her bedroom backs onto our garden, surrounded by other gardens on all sides. There’s no road where a passing car could cast headlights into the room, so there was no rational explanation for what I was seeing. The layout of our home and the surrounding area made it impossible for this to be a reflection or an outside shadow. Below is an example of how our garden is laid out, with other gardens on either side and behind us. We are part of a long row of houses, and this layout continues on both sides for many rows.
@@ -112,9 +118,13 @@ Her bedroom backs onto our garden, surrounded by other gardens on all sides. The
 
 Terrified, I shook my partner awake. She was understandably annoyed at being woken up in the middle of the night, but I was so scared I couldn’t even speak. I was afraid that if I said anything aloud, we might somehow attract the attention of whatever was in the room with our daughter. Instead, I grabbed my phone and frantically typed out what I was seeing.
 
+[SKETCH 5: handing my partner the phone, too shaken to say a word, and pointing at the baby monitor.]
+
 I typed out/told her we needed to get our daughter, leave the house, and go to my mum’s immediately. She refused, demanding to know what was going on. I handed her the phone, still too shaken to say a word, and pointed at the baby monitor. We both watched in stunned silence as the silhouette continued its routine - walking up to the cot, stopping, then walking away, only to repeat the process. This went on for what felt like an eternity, though it was probably just a couple of minutes.
 
 What happened next still amazes me. Here I was, the supposed “man of the house,” too frightened to even speak, while my partner suddenly jumped out of bed and ran straight into our daughter’s bedroom. I grabbed a metal baseball bat from beside the bed and followed her, though in hindsight, I had no idea what I thought I’d accomplish with it.
+
+[SKETCH 6: my partner bursting into our daughter’s room, fearless, with me following behind with the baseball bat.]
 
 My partner burst into our daughter’s room, fearless, and we were both shocked to find everything perfectly normal. Our daughter was fast asleep, the room was still, and there was no sign of anything unusual. We checked the room thoroughly - nothing seemed out of place, and there was no bad or menacing energy.
 
@@ -200,7 +210,7 @@ I was jolted awake at 5 AM by a noise coming from my daughter’s bedroom. At fi
 
 To my shock, I realized the source of the noise was an old Winnie the Pooh teddy bear that had been mine as a child. It’s around 30 years old and somehow still works. My mum had given it to me when my daughter was born, and it had been placed on top of her wardrobe. For the bear to speak, you have to press down firmly on its nose, which is what made this situation even more baffling. Here’s what the teddy looks like:
 
-[PHOTO 7: *A picture of the talking teddy. *]
+[PAIR: SKETCH 7: the old Winnie the Pooh teddy bear on top of my daughter’s wardrobe. | PHOTO 7: *A picture of the talking teddy.*]
 
 Panic-stricken, I bolted to my car, rang my Nan, and rushed over to her house. I couldn’t stay another minute in the house with that eerie bear. Later that day, I went back, retrieved the bear, and took it to my Nan’s house, where it now resides. We tested it to see if we could replicate the behavior, and sure enough, it went off again on its own.
 
@@ -254,7 +264,7 @@ subjects: Hauntings
 ---
 This report details a series of unsettling events that have taken place in my Nan’s house, located on a council estate just outside of Birmingham, UK. These events include both isolated experiences and those shared between us. My Nan, the only occupant of the property since it was built, moved in reluctantly after being forced to leave her beloved cottage. The cottage, a cozy home filled with memories, was slated for demolition as part of a road-widening project.
 
-With no other choice, she found herself settling into a “new build” on a freshly constructed estate. From what I’ve gathered, her part of the estate was built on what used to be farmland – an area with its own long and likely forgotten history.
+With no other choice, she found herself settling into a “new build” on a freshly constructed estate. From what I’ve gathered, her part of the estate was built on what used to be farmland - an area with its own long and likely forgotten history.
 
 [PHOTO 1: *A picture of the house detailed in the following events.*]
 
@@ -262,7 +272,7 @@ My Grandad passed away when I was around five years old. Despite my young age, I
 
 ### Incident 1
 
-This is an incident I can barely recall – if at all. It’s possible that my memory of it is a mere fragment, a shadow shaped by hearing the story retold so many times during my childhood. At the time, I was very young, and my Grandad had recently passed away. My parents, believing I was too young to grasp the concept of death, told me he had simply gone away for a while and would return someday.
+This is an incident I can barely recall - if at all. It’s possible that my memory of it is a mere fragment, a shadow shaped by hearing the story retold so many times during my childhood. At the time, I was very young, and my Grandad had recently passed away. My parents, believing I was too young to grasp the concept of death, told me he had simply gone away for a while and would return someday.
 
 To give you a sense of the house’s layout: there’s a front door that opens into a long corridor, leading directly to the back door. On the left-hand side are the stairs, with a small downstairs toilet tucked just before the back door. On the right-hand side, you have the living room and then the kitchen/dining room. The layout allows someone to walk through the front door, down the corridor, and straight out into the garden.
 
@@ -270,15 +280,15 @@ To give you a sense of the house’s layout: there’s a front door that opens i
 
 One day, I was playing alone in the living room when the door suddenly opened. To my amazement, my Grandad walked in. He didn’t say a word, just calmly walked around the living room, and then exited back into the corridor. Excited and without a second thought, I ran down the corridor and into the kitchen, where my Mum, Dad, and Nan were deep in conversation. Bursting with excitement, I announced that my Grandad had returned.
 
-My parents were shocked and asked what I meant. I eagerly explained what I had just seen. My Nan then asked me what he was wearing, and I described it perfectly – his scout uniform. My Grandad had been deeply involved in the local Cubs and Scouts, a significant part of his life.
+My parents were shocked and asked what I meant. I eagerly explained what I had just seen. My Nan then asked me what he was wearing, and I described it perfectly - his scout uniform. My Grandad had been deeply involved in the local Cubs and Scouts, a significant part of his life.
 
 This incident, as my Nan has recounted to me many times, was the first hint of something paranormal in my life. Her account of that day has never changed, remaining as clear and vivid as when she first shared it with me. The above is recounted by my Nan, as told to her from myself when it first happened.
 
 ### Incident 2
 
-The next incident follows a similar pattern, with my Nan recalling the event. At the time, I was probably no older than six. I was sitting in the living room with my Nan, watching a film – something we did often. Friday and sometimes Saturday nights at my Nan’s were a regular part of my childhood, filled with a sense of peace, warmth, and safety that I still cherish.
+The next incident follows a similar pattern, with my Nan recalling the event. At the time, I was probably no older than six. I was sitting in the living room with my Nan, watching a film - something we did often. Friday and sometimes Saturday nights at my Nan’s were a regular part of my childhood, filled with a sense of peace, warmth, and safety that I still cherish.
 
-As we sat together, she noticed movement on the living room floor. It wasn’t just a shadow or a trick of the light – it was more distinct. She describes seeing a pair of trousers, ones my Grandad often wore, moving across the floor. The rest of the figure was faded, almost like a silhouette, but unmistakable. The apparition walked across the room and gradually faded into nothingness.
+As we sat together, she noticed movement on the living room floor. It wasn’t just a shadow or a trick of the light - it was more distinct. She describes seeing a pair of trousers, ones my Grandad often wore, moving across the floor. The rest of the figure was faded, almost like a silhouette, but unmistakable. The apparition walked across the room and gradually faded into nothingness.
 
 [PAIR: SKETCH 1 (Incident 1): my Grandad walking calmly around the living room in his scout uniform. | SKETCH 2 (Incident 2): a pair of trousers, ones my Grandad often wore, moving across the floor. | PHOTO 3: *A picture of the living room, where both Incidents 1 and 2 took place. *]
 
@@ -286,7 +296,7 @@ This was an incident we both experienced, though once again, I can’t remember 
 
 ### Incident 3
 
-One day, while my Nan was in the kitchen preparing dinner, something particularly unsettling happened. The kitchen is moderately sized, with one half serving as the dining area and the other as the cooking space. Next to the fridge, there’s a chair that my Grandad used to sit in whenever he was in the kitchen – a spot that still feels like his.
+One day, while my Nan was in the kitchen preparing dinner, something particularly unsettling happened. The kitchen is moderately sized, with one half serving as the dining area and the other as the cooking space. Next to the fridge, there’s a chair that my Grandad used to sit in whenever he was in the kitchen - a spot that still feels like his.
 
 [PAIR: SKETCH 3: a shadow rising from the chair where my Grandad used to sit. | PHOTO 4: *A picture of the kitchen, including the chair my Grandad would sit on.*]
 
@@ -294,7 +304,7 @@ As my Nan was taking something off the stove, she turned around to place it on a
 
 ### Incident 4
 
-Growing up, there were always odd little things happening at my Nan’s house – small occurrences that, while strange, were never enough to scare me away from spending time with her. The room I stayed in was a large, front-facing room with two single beds that would be pushed together when I was alone or moved apart when my younger sister stayed too. Remarkably, the room has remained almost entirely unchanged since I was a small child, and to this day, it looks just as it did during those years.
+Growing up, there were always odd little things happening at my Nan’s house - small occurrences that, while strange, were never enough to scare me away from spending time with her. The room I stayed in was a large, front-facing room with two single beds that would be pushed together when I was alone or moved apart when my younger sister stayed too. Remarkably, the room has remained almost entirely unchanged since I was a small child, and to this day, it looks just as it did during those years.
 
 [PHOTO 5: *A picture of the bedroom I would stay in when I was little, minus the other single bed that would have been on the left-hand side of the remaining bed.*]
 
@@ -304,19 +314,19 @@ Outside the room, there’s a landing with an old storage cupboard at the top of
 
 When I stayed in the main bedroom, it wasn’t uncommon for me to be lying in bed at night, listening to music on my iPod or chatting with friends on Blackberry Messenger, only to suddenly feel as though someone had bumped into the side of the bed. The bed would rock slightly, just enough to make me look around, wondering what had happened. This happened so often that it eventually became normal to me, no longer startling me as it once did. Many nights, just as I was about to drift off to sleep, the bed would again feel like someone had walked into it, a subtle but unsettling sensation that I grew accustomed to over the years.
 
-It was also common to hear faint movements on the landing in the middle of the night – soft footsteps and the occasional creak of a floorboard, as if someone were quietly walking around outside the room.
+It was also common to hear faint movements on the landing in the middle of the night - soft footsteps and the occasional creak of a floorboard, as if someone were quietly walking around outside the room.
 
 As I entered my teenage years, I began to have vividly distressing dreams when staying at my Nan’s. These dreams were unlike anything I had experienced before, and they left a lasting impression on me. Below, I’ve listed these dreams as best as I can remember them:
 
 #### Something in the Mirrors
 
-In this dream, I found myself outside the front of my Nan’s house, casually chatting with some friends when a sudden, inexplicable urge to go back inside overcame me. The moment I stepped through the front door, into the corridor, and closed the door behind me, a dreadful realization washed over me – I had done something terribly wrong. A wave of fear hit me like a physical force, and I was instantly filled with a sense of impending doom.
+In this dream, I found myself outside the front of my Nan’s house, casually chatting with some friends when a sudden, inexplicable urge to go back inside overcame me. The moment I stepped through the front door, into the corridor, and closed the door behind me, a dreadful realization washed over me - I had done something terribly wrong. A wave of fear hit me like a physical force, and I was instantly filled with a sense of impending doom.
 
 Just then, my Nan came running into the corridor from the kitchen, her face a mask of terror. She frantically told me that something was very wrong, and we had to turn all the mirrors in the house around to prevent whatever was about to happen. Panic gripped me as we rushed through the house together, flipping every mirror to face the wall, desperately trying to block out the reflections.
 
 [PAIR: SKETCH 5: the dark shadow lurking behind the back door, sliding away just out of sight. | PHOTO 6: *A picture of the corridor leading from the front door directly to the back door.*]
 
-As we neared the end of this frantic task, I found myself at the back door, which was at the far end of the corridor. I opened it, intending to leave, but something caught my eye – a dark shadow, lurking behind the door. I froze, something wanted me to check what the shadow was, despite the fear coursing through me. Each time I pulled the door shut slightly to see better, the shadow would shift, sliding away just out of sight.
+As we neared the end of this frantic task, I found myself at the back door, which was at the far end of the corridor. I opened it, intending to leave, but something caught my eye - a dark shadow, lurking behind the door. I froze, something wanted me to check what the shadow was, despite the fear coursing through me. Each time I pulled the door shut slightly to see better, the shadow would shift, sliding away just out of sight.
 
 Terrified but unable to walk away, I turned to my Nan, who was standing just behind me. I asked her what was hiding behind the door, and then, with a sense of dread, I opened it wide to reveal whatever was lurking there.
 
@@ -338,9 +348,9 @@ As I lay there, my eyes were drawn to the doorway. Standing there was my Nan, sm
 
 This next set of incidents marks the point where the activity in my Nan’s house began to escalate.
 
-One evening, I was sitting in the kitchen with my Nan, enjoying a cigarette and a warm cup of tea. It was just like any other evening – calm and relaxed, with the two of us chatting about anything and everything. We both used a green ashtray that sat on the table, and once we’d finished our cigarettes, I remember my Nan, as she always did, emptying the ashtray into the bin, washing it out, and placing it back on the windowsill. We said goodnight to each other, and I headed to my room to get ready for bed. After listening to some music on my iPod, I turned off the nightlight and drifted off to sleep.
+One evening, I was sitting in the kitchen with my Nan, enjoying a cigarette and a warm cup of tea. It was just like any other evening - calm and relaxed, with the two of us chatting about anything and everything. We both used a green ashtray that sat on the table, and once we’d finished our cigarettes, I remember my Nan, as she always did, emptying the ashtray into the bin, washing it out, and placing it back on the windowsill. We said goodnight to each other, and I headed to my room to get ready for bed. After listening to some music on my iPod, I turned off the nightlight and drifted off to sleep.
 
-I woke up around 2 AM, startled by the sound of someone moving around on the landing outside my bedroom door. Oddly, the landing light wasn’t on, which struck me as strange – my Nan would never walk around in the dark, knowing how dangerous that could be.
+I woke up around 2 AM, startled by the sound of someone moving around on the landing outside my bedroom door. Oddly, the landing light wasn’t on, which struck me as strange - my Nan would never walk around in the dark, knowing how dangerous that could be.
 
 The footsteps continued down the stairs, followed by the sound of someone moving around in the kitchen. This went on for what felt like five to ten minutes. I lay in bed, listening to these sounds, feeling uneasy but not necessarily scared. I knew there was a cricket bat behind the bed, so if anything sinister were to happen, I had something to defend myself with. Despite the strange noises, I never felt like I was in immediate danger, or that something bad was happening.
 
@@ -354,31 +364,31 @@ Alarmed, I asked her why she thought I had been downstairs. She explained that w
 
 [PHOTO 7: *The ashtray that appeared back on the table full of ash. *]
 
-A thought clicked in my mind, and I asked her if there were any cigarette butts in the ashtray. She said there weren’t, just ash. Then it hit me – I asked, “Didn’t Grandad used to smoke a pipe?” She paused, and I could see the realization dawning on her as she confirmed that yes, he did. I pointed out that if it were Grandad who had been downstairs, putting the ashtray back on the table and smoking his pipe, there wouldn’t be any cigarette butts, only ash.
+A thought clicked in my mind, and I asked her if there were any cigarette butts in the ashtray. She said there weren’t, just ash. Then it hit me - I asked, “Didn’t Grandad used to smoke a pipe?” She paused, and I could see the realization dawning on her as she confirmed that yes, he did. I pointed out that if it were Grandad who had been downstairs, putting the ashtray back on the table and smoking his pipe, there wouldn’t be any cigarette butts, only ash.
 
 [PHOTO 8: *My grandads original pipe that my Nan has still kept for all these years. *]
 
-What’s even stranger is that we both seemed to have been awake at the same time, each of us hearing the movement in the kitchen and on the stairs. Yet, when I called out to her twice during the night, she didn’t hear me, even though the house was so quiet that we could clearly hear someone moving around downstairs. This has always baffled and slightly unnerved me – how could she hear those noises but not my voice, especially with just a single wall separating our bedrooms? To this day, we have no explanation for what happened that night. Given the strange occurrences that have happened in the house before, we’ve both come to agree that this incident defies any logical explanation and might well be another one of the house’s eerie, unexplained events.
+What’s even stranger is that we both seemed to have been awake at the same time, each of us hearing the movement in the kitchen and on the stairs. Yet, when I called out to her twice during the night, she didn’t hear me, even though the house was so quiet that we could clearly hear someone moving around downstairs. This has always baffled and slightly unnerved me - how could she hear those noises but not my voice, especially with just a single wall separating our bedrooms? To this day, we have no explanation for what happened that night. Given the strange occurrences that have happened in the house before, we’ve both come to agree that this incident defies any logical explanation and might well be another one of the house’s eerie, unexplained events.
 
 ### Incident 6
 
 The next incident is by far the most intense paranormal experience I had at my Nan’s house. It occurred around the same time at night as the ashtray event, and I woke up suddenly, feeling unusually alert.
 
-At the time, there were two single beds pushed together in the room – separated only when my sister was staying over. The room was dimly lit by a streetlamp further down the road, with the curtains half-drawn, allowing just enough light to faintly illuminate the bedroom.
+At the time, there were two single beds pushed together in the room - separated only when my sister was staying over. The room was dimly lit by a streetlamp further down the road, with the curtains half-drawn, allowing just enough light to faintly illuminate the bedroom.
 
 [SKETCH 7: the tall, dark shadow standing at the end of the other single bed.]
 
-As I woke, I found myself staring into the large mirror on the far side of the room, which sat atop a long table parallel to the beds. But what caught my attention next was far more unsettling. At the end of the other single bed, I saw a tall, dark shadow – a figure standing there. It was a type of black that’s hard to explain, so overwhelmingly dark it stood out in the already dimly lit room.
+As I woke, I found myself staring into the large mirror on the far side of the room, which sat atop a long table parallel to the beds. But what caught my attention next was far more unsettling. At the end of the other single bed, I saw a tall, dark shadow - a figure standing there. It was a type of black that’s hard to explain, so overwhelmingly dark it stood out in the already dimly lit room.
 
 [PHOTO 9: *The bedroom where I saw the shadow figure. I’ve circled where the figure was standing.*]
 
 I’ve always joked with friends that if I ever saw a ghost, I’d light up a cigarette and start speaking to it. But in that moment, all I felt was pure terror, something I’ve never experienced before or since. I stared at the shadow, frozen with fear, before instinctively pulling the bedsheets over my head. I lay there shaking, unable to act or even think clearly. The fear was so overwhelming that the idea of uncovering myself and running out of the room felt impossible.
 
-I have no idea how long I stayed under the sheets – it felt like an eternity. Then, suddenly, the bedroom light flicked on. I was even more freaked out, unsure of what was happening. Cautiously, I pulled the covers down and looked toward the end of the bed. The shadow was gone, and everything appeared normal.
+I have no idea how long I stayed under the sheets - it felt like an eternity. Then, suddenly, the bedroom light flicked on. I was even more freaked out, unsure of what was happening. Cautiously, I pulled the covers down and looked toward the end of the bed. The shadow was gone, and everything appeared normal.
 
-My Nan was standing in the doorway, half-asleep. I asked her why she had come into the room and turned on the light. She looked confused and said she didn’t know – she just felt like she needed to check if I was okay. My Nan had never come into my room like that before, especially not in the middle of the night.
+My Nan was standing in the doorway, half-asleep. I asked her why she had come into the room and turned on the light. She looked confused and said she didn’t know - she just felt like she needed to check if I was okay. My Nan had never come into my room like that before, especially not in the middle of the night.
 
-I’ve often wondered if my Grandad might have appeared at the end of the bed and, unintentionally, scared me senseless. Maybe he even prompted my Nan to wake up and check on me. What really unsettles me when I think about this is how I woke up – so suddenly and so alert. It makes me wonder how long that figure had been standing there, watching me, before I woke up. Is that what twinged my natural instinct that something wasn’t quite right and forced me awake?
+I’ve often wondered if my Grandad might have appeared at the end of the bed and, unintentionally, scared me senseless. Maybe he even prompted my Nan to wake up and check on me. What really unsettles me when I think about this is how I woke up - so suddenly and so alert. It makes me wonder how long that figure had been standing there, watching me, before I woke up. Is that what twinged my natural instinct that something wasn’t quite right and forced me awake?
 
 Determined to be objective about the experience, I forced myself to stay at my Nan’s house again soon after. I didn’t want to let this incident ruin my time with her. I even set an alarm to wake up at the same time and tried to recreate the shadow using the streetlight. Despite my efforts, I couldn’t replicate what I had seen that night.
 
@@ -388,7 +398,7 @@ I’m not sure how I managed to fall asleep again that night. I remember spendin
 
 This incident still completely baffles me to this day. During my teenage years, I would visit my Nan’s house every Sunday for a traditional Sunday dinner. These moments were a refuge for me, offering a sense of peace and safety during a chaotic time in my life. My Nan also happens to be the best gravy maker in the history of the world, which was also a huge bonus.
 
-One Sunday, we were sitting down, enjoying our meal, when suddenly I heard the front door fly open. A huge gust of wind rushed down the hallway, causing the kitchen door to slam shut with such force that I’m surprised it didn’t come off its hinges – it absolutely smacked into the doorframe. At the same moment, the back door also flung open and then slammed shut. It’s also worth noting that the gust of wind made a loud sound as it came hurtling down the hallway, almost like a roaring noise.
+One Sunday, we were sitting down, enjoying our meal, when suddenly I heard the front door fly open. A huge gust of wind rushed down the hallway, causing the kitchen door to slam shut with such force that I’m surprised it didn’t come off its hinges - it absolutely smacked into the doorframe. At the same moment, the back door also flung open and then slammed shut. It’s also worth noting that the gust of wind made a loud sound as it came hurtling down the hallway, almost like a roaring noise.
 
 [PAIR: SKETCH 8: the kitchen door slamming shut during Sunday dinner. | PHOTO 10: *A picture of the kitchen, including the chair my Grandad would sit on.*]
 
@@ -404,7 +414,7 @@ To this day, we still don’t have an explanation for it. I’ve spent countless
 
 My Nan has often mentioned encountering the strong scent of tobacco in various parts of the house, a smell that seemed to appear out of nowhere. My Grandad was a smoker, and his preferred choice was tobacco from a pipe. These encounters with the smell are something my Nan has experienced many times, always bringing with it a sudden, bittersweet reminder of him.
 
-I remember as a small child, my Nan would often receive unsettling phone calls late at night. Each time, there was no voice on the other end – just the eerie sounds of someone breathing or shuffling around. The calls would persist until my Nan eventually hung up. The situation became so unnerving that my Dad was forced to change her phone number. After that, the calls stopped, but the mystery of who or what was behind them remained unsolved.
+I remember as a small child, my Nan would often receive unsettling phone calls late at night. Each time, there was no voice on the other end - just the eerie sounds of someone breathing or shuffling around. The calls would persist until my Nan eventually hung up. The situation became so unnerving that my Dad was forced to change her phone number. After that, the calls stopped, but the mystery of who or what was behind them remained unsolved.
 
 For years, my Nan would also complain about loud knocking on the front door in the middle of the night. She would be lying in bed when the banging would suddenly start, jolting her awake. This went on for a long time, yet despite all the nights I spent at her house growing up, I never experienced it myself. Recently, the knocking has stopped, but she had a period of time where she was woken up by what sounded like scratching on her bedroom door. Concerned that it could be rats, we set out bait traps in the hallway, but they’ve remained untouched to this day, never catching anything. We never did catch who was knocking the door in the middle of the night, but we did install a Ring Doorbell on either end of the house. Since we’ve done this, we’ve never recorded anything unusual that would suggest the culprit has returned.
 
@@ -418,7 +428,7 @@ To my shock, I was covered in deep scratches. It looked like someone had clawed 
 
 Knowing I hadn’t done anything to cause these marks, I started freaking out in her room. Thankfully, my partner believed me, but I could tell it made her uneasy as well. I’ve never been able to explain how these scratches appeared, and to this day, we joke that I was the one who “cheated” on her when she went to the party island. But deep down, it still bothers me because I have no idea how it happened. The scratches were clearly from fingers dragging down my back, and I can’t remember doing anything that week that may have caused them to appear.
 
-The only remotely similar incident happened to my Nan. She once woke up with a burning sensation across her ribs and found a large scratch running from her back around to the front of her ribs. But it was just a single scratch, and she could easily dismiss it as something she might have done in her sleep. My experience was far more intense – my entire back was torn up. It didn’t hurt at all, and I had no idea the scratches were there until I saw my partner that night.
+The only remotely similar incident happened to my Nan. She once woke up with a burning sensation across her ribs and found a large scratch running from her back around to the front of her ribs. But it was just a single scratch, and she could easily dismiss it as something she might have done in her sleep. My experience was far more intense - my entire back was torn up. It didn’t hurt at all, and I had no idea the scratches were there until I saw my partner that night.
 
 ## My Thoughts
 
@@ -458,17 +468,17 @@ The hospital’s reputation was mixed. While it aimed to provide care, the treat
 
 As the decades passed, the institution faced increasing scrutiny over its methods and living conditions. By the 1970s, the tide of public opinion had turned against such establishments, and Barnsley Hall was no exception. As care moved away from the big asylums and into the community, Powick closed in 1989, and for a few more years Barnsley Hall carried on the county’s psychiatric care alone. It finally closed in 1996, when its last 45 patients moved into community-based accommodation. Some say the scandals played their part in the closure too, although that’s only rumour; I haven’t found anything that confirms it. Once the staff departed, the hall stood empty, a looming reminder of a darker chapter in mental health care.
 
-By 1999 the land had been sold for housing, and almost every original building was demolished to make way for the new estate. Campaigners and the local council tried to save the ornate water tower, but it came down in April 2000. Only the lodges, the administration block, the chapel and one airing court shelter survived, and the shelter has since been moved to Avoncroft Museum in Bromsgrove. Yet, for those who remember, or those who dare to wander near the site, the remnants of its unsettling history seem to have left an indelible mark. The following recounts a personal experience I had near the site – strangely, next to one of the few original buildings still standing.
+By 1999 the land had been sold for housing, and almost every original building was demolished to make way for the new estate. Campaigners and the local council tried to save the ornate water tower, but it came down in April 2000. Only the lodges, the administration block, the chapel and one airing court shelter survived, and the shelter has since been moved to Avoncroft Museum in Bromsgrove. Yet, for those who remember, or those who dare to wander near the site, the remnants of its unsettling history seem to have left an indelible mark. The following recounts a personal experience I had near the site - strangely, next to one of the few original buildings still standing.
 
 ## **Incident Report 003:**
 
-This incident took place when I was in my late teens, and it’s something that’s haunted me ever since. I was with an old friend, sitting in his car, the clock inching past 1 AM. My friend’s partner had gone to a party, and he wasn’t sure when she’d need to be picked up – he had warned me it could be very late. He asked if I wanted to hang out with him until then, just to kill time. I agreed, not knowing what the night had in store for us.
+This incident took place when I was in my late teens, and it’s something that’s haunted me ever since. I was with an old friend, sitting in his car, the clock inching past 1 AM. My friend’s partner had gone to a party, and he wasn’t sure when she’d need to be picked up - he had warned me it could be very late. He asked if I wanted to hang out with him until then, just to kill time. I agreed, not knowing what the night had in store for us.
 
-For some reason, my friend had a habit of parking at the far end of a road, right on the edge of the Barnsley Hall housing estate. This road wasn’t like the others – it was tucked away in a secluded corner, where the streetlights seemed to cast an odd, creepy feel across the concrete. It was next to one of the old, decaying buildings that still lingered from the estate’s previous life as a hospital. This particular building, ominously known as The Chapel, loomed over the area like a forgotten relic of something dark and best left undisturbed.
+For some reason, my friend had a habit of parking at the far end of a road, right on the edge of the Barnsley Hall housing estate. This road wasn’t like the others - it was tucked away in a secluded corner, where the streetlights seemed to cast an odd, creepy feel across the concrete. It was next to one of the old, decaying buildings that still lingered from the estate’s previous life as a hospital. This particular building, ominously known as The Chapel, loomed over the area like a forgotten relic of something dark and best left undisturbed.
 
 [PHOTO 1: *The Chapel, part of the former hospital. Image: [County Asylums](https://www.countyasylums.co.uk/barnsley-hall-bromsgrove/)*]
 
-We pulled up to our usual spot, the place we always parked when we came out this way. The engine’s low rumble faded as we stepped out of the car, and the streetlights glowed their classic orange colour. As was our routine, we took a short walk past The Chapel, the old building’s shadow stretching unnervingly across the path. Our destination was a small play area, built on the edge of the housing estate – a forgotten little corner where the swings creaked softly in the breeze. To help you visualize it, imagine this: the red circle in the screenshot below marks where we parked the car, and the blue circle shows the play area. That’s where we were when it all happened.
+We pulled up to our usual spot, the place we always parked when we came out this way. The engine’s low rumble faded as we stepped out of the car, and the streetlights glowed their classic orange colour. As was our routine, we took a short walk past The Chapel, the old building’s shadow stretching unnervingly across the path. Our destination was a small play area, built on the edge of the housing estate - a forgotten little corner where the swings creaked softly in the breeze. To help you visualize it, imagine this: the red circle in the screenshot below marks where we parked the car, and the blue circle shows the play area. That’s where we were when it all happened.
 
 [PHOTO 2: Photo from Google Maps]
 
@@ -480,39 +490,39 @@ Here’s a close-up photo of The Chapel as it stands now, taken from just in fro
 
 [PHOTO 4: Photo from Google Maps]
 
-When we reached the play area, we slipped into our familiar routine – settling onto the swings, the chains creaking softly as we swayed back and forth. For the next hour and a half, we talked about whatever came to mind, the smoke from our cigarettes swirling up into the night sky, disappearing into the shadows.
+When we reached the play area, we slipped into our familiar routine - settling onto the swings, the chains creaking softly as we swayed back and forth. For the next hour and a half, we talked about whatever came to mind, the smoke from our cigarettes swirling up into the night sky, disappearing into the shadows.
 
 [PAIR: SKETCH 1: my friend and me on the swings, drifting into a conversation we probably shouldn’t have been having, given where we were. | PHOTO 5: *A photo of the swings we were sat on*.]
 
-As the night wore on, our conversation drifted into territory that, in hindsight, felt unsettling to discuss out in the open. The topic had shifted to the Bible – how ancient it is, and how much of its content might have changed as it was passed down through generations. Without diving too deep into specifics, I’ll just say it was a curious conversation, one where we questioned the fundamentals of something sacred, pondering how much of it could have been altered by human hands over the centuries.
+As the night wore on, our conversation drifted into territory that, in hindsight, felt unsettling to discuss out in the open. The topic had shifted to the Bible - how ancient it is, and how much of its content might have changed as it was passed down through generations. Without diving too deep into specifics, I’ll just say it was a curious conversation, one where we questioned the fundamentals of something sacred, pondering how much of it could have been altered by human hands over the centuries.
 
 It’s important to note that both my friend and I believe in a higher power, which made the discussion all the more intense. As we spoke, there was a feeling in the air, a subtle shift, as if the very atmosphere around us had begun to listen.
 
-It’s hard to put into words, but suddenly, everything just stopped. Both my friend and I fell silent at the exact same moment, mid-sentence. The once steady roar of the motorway vanished, swallowed by an unnatural silence that pressed in around us. The wind, the distant traffic, even the rustle of leaves – all of it ceased. It was as if a heavy, suffocating blanket had been thrown over us, absorbing every sound, every movement, leaving us in a void of stillness.
+It’s hard to put into words, but suddenly, everything just stopped. Both my friend and I fell silent at the exact same moment, mid-sentence. The once steady roar of the motorway vanished, swallowed by an unnatural silence that pressed in around us. The wind, the distant traffic, even the rustle of leaves - all of it ceased. It was as if a heavy, suffocating blanket had been thrown over us, absorbing every sound, every movement, leaving us in a void of stillness.
 
-I remember locking eyes with my friend, both of us frozen in that eerie, unnatural silence. His expression mirrored my own – confusion mixed with a creeping sense of dread. Then, for reasons I still can’t explain, I felt an overwhelming urge to turn my head and look to my right. That’s when I saw it.
+I remember locking eyes with my friend, both of us frozen in that eerie, unnatural silence. His expression mirrored my own - confusion mixed with a creeping sense of dread. Then, for reasons I still can’t explain, I felt an overwhelming urge to turn my head and look to my right. That’s when I saw it.
 
 [PAIR: SKETCH 2: the tall, dark shadow standing across the street, staring right at us. | PHOTO 6: The view from where we saw the shadow watching us.]
 
-Standing across from us, bathed in the dim, flickering glow of the street lamps, was a tall, dark shadow. It seemed to absorb the light rather than reflect it. I couldn’t make out any features, anything that might make it seem more human, there was nothing – just a solid, impenetrable black mass that somehow felt like it was staring right at us from the other side of the street.
+Standing across from us, bathed in the dim, flickering glow of the street lamps, was a tall, dark shadow. It seemed to absorb the light rather than reflect it. I couldn’t make out any features, anything that might make it seem more human, there was nothing - just a solid, impenetrable black mass that somehow felt like it was staring right at us from the other side of the street.
 
 I say “staring,” but that doesn’t quite capture it. It had no eyes, no discernible face, yet there was an undeniable, piercing focus directed straight at us. The kind that sends a chill racing down your spine, making you feel exposed, vulnerable. It was a horrible feeling to feel.
 
 The moment I saw the shadow, it was as if time itself slowed down, every second stretching into an eternity. My heart pounded in my chest as I turned back to my friend, my fear mirrored in his eyes. Before I could even process what I had seen, he looked straight at me, his voice trembling as he whispered, “Run.”
 
-Without thinking, we bolted – straight towards the very spot where the shadow stood. There was no other choice; the car was on the other side, and we had to pass it to get there. Panic surged through me as I shouted, “We’re running towards it!” But my friend’s response was immediate, desperate: “Just get to the car quickly!”
+Without thinking, we bolted - straight towards the very spot where the shadow stood. There was no other choice; the car was on the other side, and we had to pass it to get there. Panic surged through me as I shouted, “We’re running towards it!” But my friend’s response was immediate, desperate: “Just get to the car quickly!”
 
-I’m not a fast runner, never have been, but that night something primal took over. I ran like my life depended on it – fueled by pure fear and adrenaline.
+I’m not a fast runner, never have been, but that night something primal took over. I ran like my life depended on it - fueled by pure fear and adrenaline.
 
-Below is a picture of the route we had to take that night. The blue circle marks the play area where we were sitting, the green circle represents the spot where the shadow stood, and the red circle is where our car was parked. On a map, it might seem like a short distance, barely worth mentioning – but in that moment, it felt like the longest run ever. Every step closer to the car felt like a battle against the overwhelming fear that something might reach out from the darkness and stop us before we made it.
+Below is a picture of the route we had to take that night. The blue circle marks the play area where we were sitting, the green circle represents the spot where the shadow stood, and the red circle is where our car was parked. On a map, it might seem like a short distance, barely worth mentioning - but in that moment, it felt like the longest run ever. Every step closer to the car felt like a battle against the overwhelming fear that something might reach out from the darkness and stop us before we made it.
 
 [PHOTO 7: A photo from Google Maps.]
 
-We made it back to the car without any issue, neither of us daring to glance across the street as we sprinted past the spot where the apparition had appeared. As soon as we slammed the doors shut, my friend gunned the engine, and we sped off down the street, our minds reeling with terror. I remember feeling an intense cold that seeped into my body, my legs shaking uncontrollably. My friend was visibly shaken too. I turned to him and asked if he had seen what I had. His response chilled me even further – he hadn’t seen the shadow, but he had seen the sheer terror on my face and felt what I had felt. That alone told him we needed to get out of there, fast. Whatever it was we had just encountered, it didn’t feel right. It didn’t feel safe.
+We made it back to the car without any issue, neither of us daring to glance across the street as we sprinted past the spot where the apparition had appeared. As soon as we slammed the doors shut, my friend gunned the engine, and we sped off down the street, our minds reeling with terror. I remember feeling an intense cold that seeped into my body, my legs shaking uncontrollably. My friend was visibly shaken too. I turned to him and asked if he had seen what I had. His response chilled me even further - he hadn’t seen the shadow, but he had seen the sheer terror on my face and felt what I had felt. That alone told him we needed to get out of there, fast. Whatever it was we had just encountered, it didn’t feel right. It didn’t feel safe.
 
-The drive back to my friend’s house in Birmingham was tense, the car’s heater working overtime as we tried to warm up and calm down. It took a good 20 to 30 minutes before the cold finally began to leave my body, even with the heat blasting. As we talked, trying to make sense of what had just happened, one thing kept gnawing at us – what made us both stopped talking at that exact same moment, and what had caused the entire world around us to go still and silent. It was as if something had come along, paused the night, and drained all the sound and life from the air.
+The drive back to my friend’s house in Birmingham was tense, the car’s heater working overtime as we tried to warm up and calm down. It took a good 20 to 30 minutes before the cold finally began to leave my body, even with the heat blasting. As we talked, trying to make sense of what had just happened, one thing kept gnawing at us - what made us both stopped talking at that exact same moment, and what had caused the entire world around us to go still and silent. It was as if something had come along, paused the night, and drained all the sound and life from the air.
 
-Later, after doing some research, I discovered something that added another layer of eeriness to the experience. The building where the apparition appeared wasn’t just any structure – it was an original building from the hospital as well. Below is a photo showing how the building looks now, compared to how it appeared when the incident occurred.
+Later, after doing some research, I discovered something that added another layer of eeriness to the experience. The building where the apparition appeared wasn’t just any structure - it was an original building from the hospital as well. Below is a photo showing how the building looks now, compared to how it appeared when the incident occurred.
 
 [PHOTO 8: A photo from Google Maps.]
 
@@ -688,9 +698,9 @@ If you’ve ever navigated the complexities of a blended family, you know how hi
 
 Jane needed to vent; she was rapidly reaching her wits’ end. She decided to invite some friends over one evening to clear the air and restore a little normality to her everyday life. They had the house to themselves and were complaining, gossiping, and sharing a much-needed laugh. Things were finally beginning to feel normal again. Then, whether out of boredom, morbid curiosity, or just the spiritualism of the era, someone suggested indulging in something a little more taboo: *“Let’s turn down the lights, close the curtains, and get out a Ouija board.”*
 
-At first, it went exactly as you’d expect. Nothing profound happened. It was entirely lighthearted – just a bit of a parlour game while they sat around chatting about random things. Someone asked a silly question, and the board spelt out an equally silly answer. Eyes narrowed and smiles widened around the table as they playfully tried to guess who was pushing the planchette.
+At first, it went exactly as you’d expect. Nothing profound happened. It was entirely lighthearted - just a bit of a parlour game while they sat around chatting about random things. Someone asked a silly question, and the board spelt out an equally silly answer. Eyes narrowed and smiles widened around the table as they playfully tried to guess who was pushing the planchette.
 
-But then, Jane asked a specific question. Frustrated by her living situation and feeling a sudden spike of anger, she spoke out loud: *“When will the daughter be gone?”* She meant it purely in a physical sense – when would Caroline finally pack her bags and go back home?
+But then, Jane asked a specific question. Frustrated by her living situation and feeling a sudden spike of anger, she spoke out loud: *“When will the daughter be gone?”* She meant it purely in a physical sense - when would Caroline finally pack her bags and go back home?
 
 Nothing happened.
 
@@ -701,11 +711,11 @@ She asked a second time. The same stillness followed. The atmosphere in the room
 She asked for a third time, this time with conviction in her voice. That was the moment the energy in the room turned ice-cold. Josh said his Nan described it as an instant, full-body chill hitting everyone at the exact same time. The planchette, which had just been lazily sliding around spelling out jokes, violently darted across the board with everyone’s fingers still glued to it.
 
 It spelt out: 
-**S – H – E **
-**W – I – L – L**
-**B – E**
-**G – O – N – E**
-**S – O – O – N**
+**S - H - E **
+**W - I - L - L**
+**B - E**
+**G - O - N - E**
+**S - O - O - N**
 
 The lighthearted vibe completely vanished. Everyone was instantly unnerved. It felt wrong. It felt dark. They immediately packed the board away, mutually agreeing that they’d had more than enough of that game for one night, and it was probably best to just leave the evening there.
 
@@ -729,9 +739,9 @@ Just days after the Ouija board emphatically promised Jane that the girl would b
 
 ## The Investigation
 
-When Josh finished telling me this story, I was genuinely creeped out. Naturally, my first instinct was to put on my researcher hat and start digging into the few facts I had to go on. But here is where the story gets frustrating – and a tad more mysterious. Without exact marriage certificates, death records, deep genealogy files, and unrestricted access to historical aviation crash databases, unearthing the hard truth of that day is almost impossible. We also need to factor in the age of the story and how perception can change over time.
+When Josh finished telling me this story, I was genuinely creeped out. Naturally, my first instinct was to put on my researcher hat and start digging into the few facts I had to go on. But here is where the story gets frustrating - and a tad more mysterious. Without exact marriage certificates, death records, deep genealogy files, and unrestricted access to historical aviation crash databases, unearthing the hard truth of that day is almost impossible. We also need to factor in the age of the story and how perception can change over time.
 
-During the 1940s, civilian air travel was heavily restricted due to the war. If Caroline was placed on a small, privately chartered flight, an emergency military ferry, or if she was travelling under her mother’s maiden name instead of her father’s surname, the official records would be incredibly difficult – if not impossible – to track down today.
+During the 1940s, civilian air travel was heavily restricted due to the war. If Caroline was placed on a small, privately chartered flight, an emergency military ferry, or if she was travelling under her mother’s maiden name instead of her father’s surname, the official records would be incredibly difficult - if not impossible - to track down today.
 
 Furthermore, as stories are passed down through 80 years of family history, the exact decade or the mode of transport can sometimes shift. Details are lost as the memory begins to fade, but the core trauma remains.
 
@@ -741,7 +751,7 @@ The lack of definitive proof makes this story ten times scarier in my opinion. I
 
 To this day, Josh’s family has one golden, unbreakable rule: **Do not mess around with Ouija boards.** The trauma of that prediction was drilled into his Nan, who drilled it into her children, who passed it down to Josh. That warning is still spoken today, nearly a century on from its author.
 
-Reflecting on it all, I can’t help but wonder – did the board simply predict an unavoidable tragedy? Or, in a moment of anger and frustration, did Jane unknowingly invite something much darker to intervene and grant her wish in the most horrific way possible?
+Reflecting on it all, I can’t help but wonder - did the board simply predict an unavoidable tragedy? Or, in a moment of anger and frustration, did Jane unknowingly invite something much darker to intervene and grant her wish in the most horrific way possible?
 
 I’d love to hear what you all think. Have you or your family ever experienced a prediction that came true in the worst possible way? Let me know in the comments below!
 
@@ -877,7 +887,7 @@ The next morning, the rationalization kicked into high gear. We tried to convinc
 
 I shoved the memory into the back of my mind and wrote it off as a shared hallucination.
 
-[PHOTO 5: ***Lou – the experiencer of the incident report***]
+[PHOTO 5: ***Lou - the experiencer of the incident report***]
 
 
 ==================== REPORT 008 ====================

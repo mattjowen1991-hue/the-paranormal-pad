@@ -120,8 +120,9 @@ Use the sections the story needs; this is the usual order.
 
 ## 8. Formatting and punctuation
 
-- **No em dashes** (or en dashes used as dashes). Use a comma, brackets, a full stop, or a plain
-  hyphen with spaces if it really is needed.
+- **Never use em dashes (—) or en dashes (–)**, for any reason: not in the text, headings, captions,
+  number ranges, spelt-out letters or titles quoted from elsewhere. Use a comma, brackets, a full
+  stop, or a plain hyphen (-).
 - Curly quotes are fine; keep them consistent.
 - Numbers: "around 9 or 10", "the early hours", years as numbers, "the 1940s".
 - Bold is rare - a key rule ("**Do not mess around with Ouija boards.**") or a date that matters.
@@ -164,7 +165,7 @@ A tape page is short. It has:
 - [ ] Opening hooks on its own (it becomes the excerpt).
 - [ ] Mundane explanation named fairly in My Thoughts.
 - [ ] Ends with a question and a pointer to witness statements.
-- [ ] No em dashes; British spelling.
+- [ ] No em or en dashes, only plain hyphens; British spelling.
 - [ ] Every [PHOTO n] has a picture and a caption with its source; AI images labelled.
 - [ ] Every [SKETCH n] sits inside the witness's own account, names the memory it shows, and shows only what they described.
 - [ ] Every [PAIR] pairs a sketch with a real photo of the same spot, and the sketch copies its layout.

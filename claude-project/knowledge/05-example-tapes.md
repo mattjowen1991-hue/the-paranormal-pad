@@ -47,7 +47,7 @@ sides:
 ---
 ## Narrated by Paranormal M
 
-Two of my Incident Reports were narrated by [Paranormal M](https://www.youtube.com/@ParanormalM), a YouTube channel that reads out true paranormal stories sent in by the people who lived them. Both feature in *4 Terrifying True Paranormal Stories Exposed – Stranger at the Door*, published on 9 November 2024, and they’re shared here with Paranormal M’s permission.
+Two of my Incident Reports were narrated by [Paranormal M](https://www.youtube.com/@ParanormalM), a YouTube channel that reads out true paranormal stories sent in by the people who lived them. Both feature in *4 Terrifying True Paranormal Stories Exposed - Stranger at the Door*, published on 9 November 2024, and they’re shared here with Paranormal M’s permission.
 
 The video holds five stories in total. This tape plays the two that are mine, one on each side.
 
@@ -82,7 +82,7 @@ sides:
 ---
 ## Narrated by Midnight Narrative
 
-Report 006: Letters on the Board was narrated by [Midnight Narrative Horror](https://www.youtube.com/@midnightnarrativehorror), a YouTube channel that reads out horror and true paranormal stories. It’s the second story in *Midnight Narrative – Episode 5 – “Time and Shadows”*, published on 22 May 2026, where it’s told as “In 1940, my friend’s great-grandmother asked a Ouija board a terrible question, and it answered…”. It’s shared here with Midnight Narrative’s permission.
+Report 006: Letters on the Board was narrated by [Midnight Narrative Horror](https://www.youtube.com/@midnightnarrativehorror), a YouTube channel that reads out horror and true paranormal stories. It’s the second story in *Midnight Narrative - Episode 5 - “Time and Shadows”*, published on 22 May 2026, where it’s told as “In 1940, my friend’s great-grandmother asked a Ouija board a terrible question, and it answered…”. It’s shared here with Midnight Narrative’s permission.
 
 My story starts at 09:31 and runs until 19:33. This tape plays just that part.
 
