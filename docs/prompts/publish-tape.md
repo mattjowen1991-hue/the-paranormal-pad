@@ -32,7 +32,7 @@ Repo: mattjowen1991-hue/the-paranormal-pad
    - Save to /tmp/pad-ISSUE_NUMBER/draft.md in the draft format: kind: tape, title (the report's
      title, or "A & B" for two sides), date = video publish date, narrator, video, video_title,
      subjects (from the reports), sides lines, then the body with [PLAY SIDE A] etc.
-   - No em dashes. Credit the narrator and artists exactly as the video does. Say it's shared with
+   - No em or en dashes, even in a video's own title: use a plain hyphen. Credit the narrator and artists exactly as the video does. Say it's shared with
      their permission only if the card confirms permission; otherwise ask me.
 
 4. NUMBER AND PLACE

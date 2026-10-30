@@ -59,7 +59,7 @@ If you're on another computer, download them from GitHub: open each file below a
 Start a new chat in the project and type:
 > What are the main rules of my house style, and what's the next report number?
 
-It should answer with the house style points (first person, British, no em dashes, My Thoughts
+It should answer with the house style points (first person, British, no em or en dashes, My Thoughts
 ending with a question...) and the next free number. If it doesn't, check all the files uploaded.
 
 **Keeping it up to date:** after each report or tape goes live, run **PROMPT: close-report**

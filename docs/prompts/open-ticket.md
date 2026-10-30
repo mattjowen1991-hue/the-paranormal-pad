@@ -18,7 +18,7 @@ I want to work on site ticket #ISSUE_NUMBER for The Paranormal Pad.
    - Branch: feat/..., fix/... or chore/... matching the ticket.
    - One logical change per commit; the message says why and references #ISSUE_NUMBER.
    - Bump every ?v= number in index.html if any CSS or JS changed.
-   - No em dashes in copy. Keep the case-file look. No new dependencies or build step.
+   - No em or en dashes in copy, only plain hyphens. Keep the case-file look. No new dependencies or build step.
    - Test through a local server (python3 -m http.server 8080), at 390px and 1280px, with
      headless Chrome screenshots you actually look at. If comments or email are involved, test
      against the Firebase emulator / faked Web3Forms - never post test data to the live services
